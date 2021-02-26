@@ -2,6 +2,7 @@
 #define TRAYICON_H
 
 #include <QApplication>
+#include <QActionGroup>
 #include <QMenu>
 #include <QSignalMapper>
 #include <QSignalMapper>

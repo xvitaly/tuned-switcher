@@ -35,16 +35,25 @@ void TrayIcon::setTrayIcon()
 QMenu* TrayIcon::createProfilesSubmenu()
 {
     QMenu *trayIconProfiles = new QMenu(this);
-    trayIconProfiles -> setTitle(tr("Profiles"));
+    QActionGroup *trayIcontGroup = new QActionGroup(trayIconProfiles);
     QSignalMapper *mapper = new QSignalMapper(this);
+    QString currentProfile = tunedManager -> GetActiveProfile();
+
+    trayIconProfiles -> setTitle(tr("Profiles"));
+    trayIcontGroup -> setExclusive(true);
+
     for(int i=0; i < availableProfiles.size(); i++)
     {
         QAction* profileAction = new QAction(availableProfiles[i], this);
-        trayIconProfiles -> addAction(profileAction);
+        profileAction -> setCheckable(true);
+        if (availableProfiles[i] == currentProfile) profileAction -> setChecked(true);
+        trayIcontGroup -> addAction(profileAction);
         mapper -> setMapping(profileAction, i);
         connect(profileAction, SIGNAL(triggered()), mapper, SLOT(map()));
     }
+
     connect(mapper, SIGNAL(mapped(int)), this, SLOT(profileSelectedEvent(int)));
+    trayIconProfiles -> addActions(trayIcontGroup -> actions());
     return trayIconProfiles;
 }
 
