@@ -11,18 +11,14 @@ set(CMAKE_AUTOMOC ON)
 
 set(SRC_FILES
     # Sources
-    src/mainwindow.cpp
+    src/trayicon.cpp
     src/main.cpp
     src/tunedmanager.cpp
 
     # Headers
-    src/mainwindow.h
+    src/trayicon.h
     src/tunedmanager.h
 )
-
-qt5_wrap_ui(UI_HEADERS
-    # Dialogs
-    src/mainwindow.ui)
 
 qt5_add_resources(QRES
     resources/tuned-switcher.qrc)

@@ -1,10 +1,10 @@
-#include "mainwindow.h"
+#include "trayicon.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
+    TrayIcon *trayIcon = new TrayIcon();
+    trayIcon -> Show();
 
     return a.exec();
 }
