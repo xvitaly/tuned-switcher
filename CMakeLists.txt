@@ -1,37 +1,15 @@
 cmake_minimum_required(VERSION 3.10)
 
-project(tuned-switcher CXX)
-
-find_package(Qt5 5.7.0 COMPONENTS Widgets Core Gui DBus REQUIRED)
+project(tuned-switcher VERSION 0.1.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
-set(CMAKE_AUTOMOC ON)
 
-set(SRC_FILES
-    # Sources
-    src/trayicon.cpp
-    src/main.cpp
-    src/tunedmanager.cpp
+include(cmake/Settings.cmake)
+include(cmake/External.cmake)
 
-    # Headers
-    src/trayicon.h
-    src/tunedmanager.h
-)
+include_directories("src/lib")
+include_directories("src/tray")
 
-qt5_add_resources(QRES
-    resources/tuned-switcher.qrc)
-
-set(APP_DEPS
-    ${SRC_FILES}
-    ${UI_HEADERS}
-    ${MOC_HEADERS}
-    ${QRES})
-
-set(QT_LIBS
-    Qt5::Widgets
-    Qt5::DBus)
-
-add_executable(tuned-switcher ${APP_DEPS})
-target_link_libraries(tuned-switcher ${QT_LIBS})
+add_subdirectory("src/lib")
+add_subdirectory("src/tray")

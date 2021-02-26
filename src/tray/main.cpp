@@ -1,4 +1,4 @@
-#include "trayicon.h"
+#include "trayicon/trayicon.h"
 
 int main(int argc, char *argv[])
 {

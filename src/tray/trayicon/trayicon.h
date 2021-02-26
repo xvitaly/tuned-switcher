@@ -9,7 +9,7 @@
 #include <QSystemTrayIcon>
 #include <QWidget>
 
-#include "tunedmanager.h"
+#include "tunedmanager/tunedmanager.h"
 
 class TrayIcon : public QWidget
 {
