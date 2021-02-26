@@ -74,8 +74,10 @@ QMenu* TrayIcon::createTrayIconMenu()
 void TrayIcon::profileSelectedEvent(QAction* action)
 {
     QString profile = availableProfiles[action -> data().toInt()];
-    tunedManager -> SetActiveProfile(profile);
-    trayIcon -> showMessage(tr("Profile changed"), QString(tr("The active profile was successfully changed to %1.")).arg(profile));
+    if (tunedManager -> SetActiveProfile(profile))
+        trayIcon -> showMessage(tr("Profile change"), QString(tr("The active profile was successfully changed to %1.")).arg(profile), QSystemTrayIcon::Information);
+    else
+        trayIcon -> showMessage(tr("Profile change"), QString(tr("Failed to change the active profile to %1!")).arg(profile), QSystemTrayIcon::Critical);
 }
 
 void TrayIcon::exitEvent()
