@@ -36,7 +36,6 @@ QMenu* TrayIcon::createProfilesSubmenu()
 {
     QMenu *trayIconProfiles = new QMenu(this);
     QActionGroup *trayIcontGroup = new QActionGroup(trayIconProfiles);
-    QSignalMapper *mapper = new QSignalMapper(this);
     QString currentProfile = tunedManager -> GetActiveProfile();
 
     trayIconProfiles -> setTitle(tr("Profiles"));
@@ -45,14 +44,13 @@ QMenu* TrayIcon::createProfilesSubmenu()
     for(int i=0; i < availableProfiles.size(); i++)
     {
         QAction* profileAction = new QAction(availableProfiles[i], this);
+        profileAction -> setData(i);
         profileAction -> setCheckable(true);
         if (availableProfiles[i] == currentProfile) profileAction -> setChecked(true);
         trayIcontGroup -> addAction(profileAction);
-        mapper -> setMapping(profileAction, i);
-        connect(profileAction, SIGNAL(triggered()), mapper, SLOT(map()));
     }
 
-    connect(mapper, SIGNAL(mapped(int)), this, SLOT(profileSelectedEvent(int)));
+    connect(trayIcontGroup, SIGNAL(triggered(QAction*)), this, SLOT(profileSelectedEvent(QAction*)));
     trayIconProfiles -> addActions(trayIcontGroup -> actions());
     return trayIconProfiles;
 }
@@ -73,9 +71,9 @@ QMenu* TrayIcon::createTrayIconMenu()
     return trayIconMenu;
 }
 
-void TrayIcon::profileSelectedEvent(int index)
+void TrayIcon::profileSelectedEvent(QAction* action)
 {
-    tunedManager -> SetActiveProfile(availableProfiles[index]);
+    tunedManager -> SetActiveProfile(availableProfiles[action -> data().toInt()]);
 }
 
 void TrayIcon::exitEvent()

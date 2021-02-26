@@ -19,7 +19,7 @@ public:
     ~TrayIcon();
     void Show();
 private slots:
-    void profileSelectedEvent(int);
+    void profileSelectedEvent(QAction*);
     void exitEvent();
 private:
     void initializeTuned();
