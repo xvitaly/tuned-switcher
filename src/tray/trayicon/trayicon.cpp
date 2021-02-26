@@ -30,6 +30,7 @@ void TrayIcon::setTrayIcon()
     QIcon trayImage(":/images/icon-48.png");
     trayIcon -> setIcon(trayImage);
     trayIcon -> setContextMenu(createTrayIconMenu());
+    trayIcon -> setToolTip(tr("Tuned profile switcher"));
 }
 
 QMenu* TrayIcon::createProfilesSubmenu()
@@ -41,7 +42,7 @@ QMenu* TrayIcon::createProfilesSubmenu()
     trayIconProfiles -> setTitle(tr("Profiles"));
     trayIcontGroup -> setExclusive(true);
 
-    for(int i=0; i < availableProfiles.size(); i++)
+    for(int i = 0; i < availableProfiles.size(); i++)
     {
         QAction* profileAction = new QAction(availableProfiles[i], this);
         profileAction -> setData(i);
