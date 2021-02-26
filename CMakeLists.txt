@@ -9,7 +9,9 @@ include(cmake/Settings.cmake)
 include(cmake/External.cmake)
 
 include_directories("src/lib")
+include_directories("src/gui")
 include_directories("src/tray")
 
 add_subdirectory("src/lib")
+add_subdirectory("src/gui")
 add_subdirectory("src/tray")
