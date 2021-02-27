@@ -15,7 +15,6 @@ TrayIcon::~TrayIcon()
 void TrayIcon::initializeTuned()
 {
     tunedManager = new TunedManager();
-    availableProfiles = tunedManager -> GetAvailableProfiles();
 }
 
 void TrayIcon::Show()
@@ -44,6 +43,7 @@ QMenu* TrayIcon::createProfilesSubmenu()
 {
     QMenu *trayIconProfiles = new QMenu(this);
     QActionGroup *trayIcontGroup = new QActionGroup(trayIconProfiles);
+    const QStringList availableProfiles = tunedManager -> GetAvailableProfiles();
 
     trayIconProfiles -> setTitle(tr("Profiles"));
     trayIcontGroup -> setExclusive(true);
@@ -51,7 +51,7 @@ QMenu* TrayIcon::createProfilesSubmenu()
     for(int i = 0; i < availableProfiles.size(); i++)
     {
         QAction* profileAction = new QAction(availableProfiles[i], this);
-        profileAction -> setData(i);
+        profileAction -> setData(availableProfiles[i]);
         profileAction -> setCheckable(true);
         trayIcontGroup -> addAction(profileAction);
         tunedProfiles.insert(availableProfiles[i], profileAction);
@@ -80,7 +80,7 @@ QMenu* TrayIcon::createTrayIconMenu()
 
 void TrayIcon::profileSelectedEvent(QAction* action)
 {
-    QString profile = availableProfiles[action -> data().toInt()];
+    QString profile = action -> data().toString();
     if (tunedManager -> SetActiveProfile(profile))
         trayIcon -> showMessage(tr("Profile change"), QString(tr("The active profile was successfully switched to %1.")).arg(profile), QSystemTrayIcon::Information);
     else

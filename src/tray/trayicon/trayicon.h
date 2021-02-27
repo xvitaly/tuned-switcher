@@ -29,7 +29,6 @@ private:
     QMenu* createTrayIconMenu();
     QSystemTrayIcon *trayIcon;
     TunedManager *tunedManager;
-    QStringList availableProfiles;
     QHash<QString, QAction*> tunedProfiles;
 signals:
 
