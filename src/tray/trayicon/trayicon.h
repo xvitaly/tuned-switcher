@@ -24,11 +24,13 @@ private slots:
 private:
     void initializeTuned();
     void setTrayIcon();
+    void markCurrentProfile();
     QMenu* createProfilesSubmenu();
     QMenu* createTrayIconMenu();
     QSystemTrayIcon *trayIcon;
     TunedManager *tunedManager;
     QStringList availableProfiles;
+    QHash<QString, QAction*> tunedProfiles;
 signals:
 
 };

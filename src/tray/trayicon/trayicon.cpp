@@ -4,6 +4,7 @@ TrayIcon::TrayIcon(QWidget *parent) : QWidget(parent)
 {
     initializeTuned();
     setTrayIcon();
+    markCurrentProfile();
 }
 
 TrayIcon::~TrayIcon()
@@ -33,11 +34,16 @@ void TrayIcon::setTrayIcon()
     trayIcon -> setToolTip(tr("Tuned profile switcher"));
 }
 
+void TrayIcon::markCurrentProfile()
+{
+    QString currentProfile = tunedManager -> GetActiveProfile();
+    tunedProfiles[currentProfile] -> setChecked(true);
+}
+
 QMenu* TrayIcon::createProfilesSubmenu()
 {
     QMenu *trayIconProfiles = new QMenu(this);
     QActionGroup *trayIcontGroup = new QActionGroup(trayIconProfiles);
-    QString currentProfile = tunedManager -> GetActiveProfile();
 
     trayIconProfiles -> setTitle(tr("Profiles"));
     trayIcontGroup -> setExclusive(true);
@@ -47,8 +53,8 @@ QMenu* TrayIcon::createProfilesSubmenu()
         QAction* profileAction = new QAction(availableProfiles[i], this);
         profileAction -> setData(i);
         profileAction -> setCheckable(true);
-        if (availableProfiles[i] == currentProfile) profileAction -> setChecked(true);
         trayIcontGroup -> addAction(profileAction);
+        tunedProfiles.insert(availableProfiles[i], profileAction);
     }
 
     connect(trayIcontGroup, SIGNAL(triggered(QAction*)), this, SLOT(profileSelectedEvent(QAction*)));
