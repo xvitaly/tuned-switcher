@@ -5,6 +5,7 @@ TrayIcon::TrayIcon(QWidget *parent) : QWidget(parent)
     initializeTuned();
     setTrayIcon();
     markCurrentProfile();
+    subscribeToEvents();
 }
 
 TrayIcon::~TrayIcon()
@@ -33,10 +34,25 @@ void TrayIcon::setTrayIcon()
     trayIcon -> setToolTip(tr("Tuned profile switcher"));
 }
 
+void TrayIcon::subscribeToEvents()
+{
+    connect(tunedManager, SIGNAL(ProfileChangedSignal(QString)), this, SLOT(profileChangedEvent(QString)));
+}
+
 void TrayIcon::markCurrentProfile()
 {
     QString currentProfile = tunedManager -> GetActiveProfile();
     tunedProfiles[currentProfile] -> setChecked(true);
+}
+
+void TrayIcon::profileChangedEvent(const QString& profile)
+{
+    QAction* profileAction = tunedProfiles[profile];
+    if (profileAction)
+    {
+        profileAction -> setChecked(true);
+        trayIcon -> showMessage(tr("Profile change"), QString(tr("The active profile was successfully switched to %1.")).arg(profile), QSystemTrayIcon::Information);
+    }
 }
 
 QMenu* TrayIcon::createProfilesSubmenu()
@@ -81,9 +97,7 @@ QMenu* TrayIcon::createTrayIconMenu()
 void TrayIcon::profileSelectedEvent(QAction* action)
 {
     QString profile = action -> data().toString();
-    if (tunedManager -> SetActiveProfile(profile))
-        trayIcon -> showMessage(tr("Profile change"), QString(tr("The active profile was successfully switched to %1.")).arg(profile), QSystemTrayIcon::Information);
-    else
+    if (!tunedManager -> SetActiveProfile(profile))
         trayIcon -> showMessage(tr("Profile change"), QString(tr("Failed to switch the active profile to %1!")).arg(profile), QSystemTrayIcon::Critical);
 }
 

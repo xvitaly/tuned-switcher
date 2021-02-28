@@ -22,9 +22,10 @@ private:
     const QString BusProfileNameAvailable = "profiles";
     const QString BusProfileNameSwitch = "switch_profile";
     const QDBusConnection DBusInstance = QDBusConnection::systemBus();
-
+private slots:
+    void ProfileChangedEvent(QString, bool);
 signals:
-
+    void ProfileChangedSignal(QString);
 };
 
 #endif // TUNEDMANAGER_H

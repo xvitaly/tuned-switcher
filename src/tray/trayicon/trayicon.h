@@ -20,11 +20,13 @@ public:
     void Show();
 private slots:
     void profileSelectedEvent(QAction*);
+    void profileChangedEvent(const QString&);
     void exitEvent();
 private:
     void initializeTuned();
     void setTrayIcon();
     void markCurrentProfile();
+    void subscribeToEvents();
     QMenu* createProfilesSubmenu();
     QMenu* createTrayIconMenu();
     QSystemTrayIcon *trayIcon;

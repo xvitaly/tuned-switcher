@@ -21,6 +21,12 @@ bool TunedManager::SetActiveProfile(QString Profile)
     return DBusReply.isValid();
 }
 
+void TunedManager::ProfileChangedEvent(QString NewProfile, bool SwitchResult)
+{
+    if (SwitchResult) emit ProfileChangedSignal(NewProfile);
+}
+
 TunedManager::TunedManager(QObject *parent) : QObject(parent)
 {
+    QDBusConnection::systemBus().connect(BusName, BusPath, BusInterface, "profile_changed", this, SLOT(ProfileChangedEvent(QString, bool)));
 }
