@@ -41,8 +41,8 @@ void TrayIcon::subscribeToEvents()
 
 void TrayIcon::markCurrentProfile()
 {
-    QString currentProfile = tunedManager -> GetActiveProfile();
-    tunedProfiles[currentProfile] -> setChecked(true);
+    QAction* profileAction = tunedProfiles[tunedManager -> GetActiveProfile()];
+    if (profileAction) profileAction -> setChecked(true);
 }
 
 void TrayIcon::profileChangedEvent(const QString& profile)
