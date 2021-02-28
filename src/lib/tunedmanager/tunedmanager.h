@@ -21,6 +21,7 @@ private:
     const QString BusProfileNameActive = "active_profile";
     const QString BusProfileNameAvailable = "profiles";
     const QString BusProfileNameSwitch = "switch_profile";
+    const QString BusProfileChanged = "profile_changed";
     const QDBusConnection DBusInstance = QDBusConnection::systemBus();
 private slots:
     void ProfileChangedEvent(QString, bool);

@@ -28,5 +28,6 @@ void TunedManager::ProfileChangedEvent(QString NewProfile, bool SwitchResult)
 
 TunedManager::TunedManager(QObject *parent) : QObject(parent)
 {
-    QDBusConnection::systemBus().connect(BusName, BusPath, BusInterface, "profile_changed", this, SLOT(ProfileChangedEvent(QString, bool)));
+    if (DBusInstance.isConnected())
+        QDBusConnection::systemBus().connect(BusName, BusPath, BusInterface, BusProfileChanged, this, SLOT(ProfileChangedEvent(QString, bool)));
 }
