@@ -36,7 +36,7 @@ void TrayIcon::setTrayIcon()
 
 void TrayIcon::subscribeToEvents()
 {
-    connect(tunedManager, SIGNAL(ProfileChangedSignal(QString, bool, QString)), this, SLOT(profileChangedEvent(QString, bool, QString)));
+    connect(tunedManager, SIGNAL(ProfileChangedSignal(const QString&, const bool, const QString&)), this, SLOT(profileChangedEvent(const QString&, const bool, const QString&)));
 }
 
 void TrayIcon::markCurrentProfile()
