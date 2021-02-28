@@ -14,20 +14,20 @@ QStringList TunedManager::GetAvailableProfiles()
     return DBusReply.value();
 }
 
-bool TunedManager::SetActiveProfile(QString Profile)
+bool TunedManager::SetActiveProfile(const QString& Profile)
 {
     QDBusInterface DBusInterface(BusName, BusPath, BusInterface, DBusInstance);
     QDBusReply<void> DBusReply = DBusInterface.call(BusProfileNameSwitch, Profile);
     return DBusReply.isValid();
 }
 
-void TunedManager::ProfileChangedEvent(QString NewProfile, bool SwitchResult)
+void TunedManager::ProfileChangedEvent(const QString& NewProfile, const bool SwitchResult, const QString& ResultMessage)
 {
-    if (SwitchResult) emit ProfileChangedSignal(NewProfile);
+    emit ProfileChangedSignal(NewProfile, SwitchResult, ResultMessage);
 }
 
 TunedManager::TunedManager(QObject *parent) : QObject(parent)
 {
     if (DBusInstance.isConnected())
-        QDBusConnection::systemBus().connect(BusName, BusPath, BusInterface, BusProfileChanged, this, SLOT(ProfileChangedEvent(QString, bool)));
+        QDBusConnection::systemBus().connect(BusName, BusPath, BusInterface, BusProfileChanged, this, SLOT(ProfileChangedEvent(const QString&, const bool, const QString&)));
 }

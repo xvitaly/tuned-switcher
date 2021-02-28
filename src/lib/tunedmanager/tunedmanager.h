@@ -13,7 +13,7 @@ public:
     explicit TunedManager(QObject *parent = nullptr);
     QString GetActiveProfile();
     QStringList GetAvailableProfiles();
-    bool SetActiveProfile(QString);
+    bool SetActiveProfile(const QString&);
 private:
     const QString BusName = "com.redhat.tuned";
     const QString BusPath = "/Tuned";
@@ -24,9 +24,9 @@ private:
     const QString BusProfileChanged = "profile_changed";
     const QDBusConnection DBusInstance = QDBusConnection::systemBus();
 private slots:
-    void ProfileChangedEvent(QString, bool);
+    void ProfileChangedEvent(const QString&, const bool, const QString&);
 signals:
-    void ProfileChangedSignal(QString);
+    void ProfileChangedSignal(const QString&, const bool, const QString&);
 };
 
 #endif // TUNEDMANAGER_H

@@ -20,7 +20,7 @@ public:
     void Show();
 private slots:
     void profileSelectedEvent(QAction*);
-    void profileChangedEvent(const QString&);
+    void profileChangedEvent(const QString&, const bool, const QString&);
     void exitEvent();
 private:
     void initializeTuned();

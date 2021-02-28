@@ -36,7 +36,7 @@ void TrayIcon::setTrayIcon()
 
 void TrayIcon::subscribeToEvents()
 {
-    connect(tunedManager, SIGNAL(ProfileChangedSignal(QString)), this, SLOT(profileChangedEvent(QString)));
+    connect(tunedManager, SIGNAL(ProfileChangedSignal(QString, bool, QString)), this, SLOT(profileChangedEvent(QString, bool, QString)));
 }
 
 void TrayIcon::markCurrentProfile()
@@ -45,13 +45,20 @@ void TrayIcon::markCurrentProfile()
     if (profileAction) profileAction -> setChecked(true);
 }
 
-void TrayIcon::profileChangedEvent(const QString& profile)
+void TrayIcon::profileChangedEvent(const QString& profile, const bool result, const QString& message)
 {
-    QAction* profileAction = tunedProfiles[profile];
-    if (profileAction)
+    if (result)
     {
-        profileAction -> setChecked(true);
-        trayIcon -> showMessage(tr("Profile change"), QString(tr("The active profile was successfully switched to %1.")).arg(profile), QSystemTrayIcon::Information);
+        QAction* profileAction = tunedProfiles[profile];
+        if (profileAction)
+        {
+            profileAction -> setChecked(true);
+            trayIcon -> showMessage(tr("Profile switched"), QString(tr("The active profile was successfully switched to %1.")).arg(profile), QSystemTrayIcon::Information);
+        }
+    }
+    else
+    {
+        trayIcon -> showMessage(tr("Profile switch error"), message, QSystemTrayIcon::Critical);
     }
 }
 
@@ -96,9 +103,8 @@ QMenu* TrayIcon::createTrayIconMenu()
 
 void TrayIcon::profileSelectedEvent(QAction* action)
 {
-    QString profile = action -> data().toString();
-    if (!tunedManager -> SetActiveProfile(profile))
-        trayIcon -> showMessage(tr("Profile change"), QString(tr("Failed to switch the active profile to %1!")).arg(profile), QSystemTrayIcon::Critical);
+    if (!tunedManager -> SetActiveProfile(action -> data().toString()))
+        trayIcon -> showMessage(tr("Profile change"), tr("Failed to send the D-Bus event!"), QSystemTrayIcon::Critical);
 }
 
 void TrayIcon::exitEvent()
