@@ -1,10 +1,12 @@
 set(CMAKE_AUTOMOC ON)
 
 set(SOURCES
+    tunedtypes/tunedtypes.cpp
     tunedmanager/tunedmanager.cpp
 )
 
 set(HEADERS
+    tunedtypes/tunedtypes.h
     tunedmanager/tunedmanager.h
 )
 

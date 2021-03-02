@@ -4,7 +4,10 @@
 #include <QDBusConnection>
 #include <QDBusInterface>
 #include <QDBusReply>
+#include <QDBusMetaType>
 #include <QObject>
+
+#include "tunedtypes/tunedtypes.h"
 
 class TunedManager : public QObject
 {
@@ -13,6 +16,7 @@ public:
     explicit TunedManager(QObject *parent = nullptr);
     QString GetActiveProfile();
     QStringList GetAvailableProfiles();
+    QTunedProfileList GetAvailableProfiles2();
     bool SetActiveProfile(const QString&);
 private:
     const QString BusName = "com.redhat.tuned";
@@ -22,6 +26,7 @@ private:
     const QString BusProfileNameAvailable = "profiles";
     const QString BusProfileNameSwitch = "switch_profile";
     const QString BusProfileChanged = "profile_changed";
+    const QString BusProfileNameAvailable2 = "profiles2";
     const QDBusConnection DBusInstance = QDBusConnection::systemBus();
 private slots:
     void ProfileChangedEvent(const QString&, const bool, const QString&);
