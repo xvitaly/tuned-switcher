@@ -27,6 +27,7 @@ private:
     void initializeTuned();
     void setTrayIcon();
     void markCurrentProfile();
+    void markAutoProfileMode();
     void subscribeToEvents();
     QMenu* createProfilesSubmenu();
     QMenu* createTrayIconMenu();
