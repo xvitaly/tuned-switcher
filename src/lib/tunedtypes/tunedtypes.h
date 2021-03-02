@@ -27,4 +27,15 @@ struct QTunedProfileMode
 };
 Q_DECLARE_METATYPE(QTunedProfileMode)
 
+struct QTunedResult
+{
+    bool Success;
+    QString Message;
+    QTunedResult() : Success(), Message() {}
+    operator bool() { return Success; }
+    friend QDBusArgument &operator<<(QDBusArgument &argument, const QTunedResult &arg);
+    friend const QDBusArgument &operator>>(const QDBusArgument &argument, QTunedResult &arg);
+};
+Q_DECLARE_METATYPE(QTunedResult)
+
 #endif // TUNEDTYPES_H

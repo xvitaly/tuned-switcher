@@ -61,7 +61,7 @@ void TrayIcon::profileChangedEvent(const QString& profile, const bool result, co
         if (profileAction)
         {
             profileAction -> setChecked(true);
-            trayIcon -> showMessage(tr("Profile switched"), QString(tr("The active profile was successfully switched to %1.")).arg(profile), QSystemTrayIcon::Information);
+            trayIcon -> showMessage(tr("Profile switched"), QString(tr("The active profile was switched to %1.")).arg(profile), QSystemTrayIcon::Information);
         }
     }
     else
@@ -119,21 +119,25 @@ void TrayIcon::profileAutoSelectedEvent(bool modeAuto)
 {
     if (modeAuto)
     {
-        if (!tunedManager -> SetProfileModeAuto())
-            trayIcon -> showMessage(tr("Auto profile"), tr("Failed to send the D-Bus event!"), QSystemTrayIcon::Critical);
-        else
+        QTunedResult result = tunedManager -> SetProfileModeAuto();
+        if (result.Success)
             autoProfile -> setDisabled(true);
+        else
+            trayIcon -> showMessage(tr("Auto profile"), tr("Failed set auto-select profile: %1").arg(result.Message), QSystemTrayIcon::Critical);
     }
 }
 
 void TrayIcon::profileSelectedEvent(QAction* action)
 {
-    if (!tunedManager -> SetActiveProfile(action -> data().toString()))
-        trayIcon -> showMessage(tr("Profile change"), tr("Failed to send the D-Bus event!"), QSystemTrayIcon::Critical);
-    else
+    QTunedResult result = tunedManager -> SetActiveProfile(action -> data().toString());
+    if (result.Success)
     {
         autoProfile -> setChecked(false);
         autoProfile -> setDisabled(false);
+    }
+    else
+    {
+        trayIcon -> showMessage(tr("Switch profile"), tr("Failed to switch profile: %1").arg(result.Message), QSystemTrayIcon::Critical);
     }
 }
 

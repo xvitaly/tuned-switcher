@@ -39,3 +39,23 @@ const QDBusArgument& operator >>(const QDBusArgument& argument, QTunedProfileMod
 
     return argument;
 }
+
+QDBusArgument& operator <<(QDBusArgument& argument, const QTunedResult& result)
+{
+    argument.beginStructure();
+    argument << result.Success;
+    argument << result.Message;
+    argument.endStructure();
+
+    return argument;
+}
+
+const QDBusArgument& operator >>(const QDBusArgument& argument, QTunedResult& result)
+{
+    argument.beginStructure();
+    argument >> result.Success;
+    argument >> result.Message;
+    argument.endStructure();
+
+    return argument;
+}
