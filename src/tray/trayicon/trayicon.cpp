@@ -95,12 +95,12 @@ QMenu* TrayIcon::createTrayIconMenu()
     connect(quitAction, SIGNAL(triggered()), this, SLOT(exitEvent()));
 
     // Setting system tray's icon menu...
-    autoProfile = new QAction(tr("Auto profile"), this);
+    autoProfile = new QAction(tr("Auto-select profile"), this);
     autoProfile -> setCheckable(true);
     autoProfile -> setChecked(tunedManager -> IsProfileModeAuto());
     if (autoProfile->isChecked())
         autoProfile->setDisabled(true);
-    connect(autoProfile, SIGNAL(triggered(bool)), this, SLOT(profileModeSelectedEvent(bool)));
+    connect(autoProfile, SIGNAL(triggered(bool)), this, SLOT(profileAutoSelectedEvent(bool)));
 
     trayIconMenu -> addAction(autoProfile);
     trayIconMenu -> addSeparator();
@@ -110,14 +110,14 @@ QMenu* TrayIcon::createTrayIconMenu()
     return trayIconMenu;
 }
 
-void TrayIcon::profileModeSelectedEvent(bool modeAuto)
+void TrayIcon::profileAutoSelectedEvent(bool modeAuto)
 {
     if (modeAuto)
     {
         if (!tunedManager -> SetProfileModeAuto())
             trayIcon -> showMessage(tr("Auto profile"), tr("Failed to send the D-Bus event!"), QSystemTrayIcon::Critical);
         else
-            autoProfile->setDisabled(true);
+            autoProfile -> setDisabled(true);
     }
 }
 
@@ -127,8 +127,8 @@ void TrayIcon::profileSelectedEvent(QAction* action)
         trayIcon -> showMessage(tr("Profile change"), tr("Failed to send the D-Bus event!"), QSystemTrayIcon::Critical);
     else
     {
-        autoProfile->setChecked(false);
-        autoProfile->setDisabled(false);
+        autoProfile -> setChecked(false);
+        autoProfile -> setDisabled(false);
     }
 }
 

@@ -20,7 +20,7 @@ public:
     void Show();
 private slots:
     void profileSelectedEvent(QAction*);
-    void profileModeSelectedEvent(bool);
+    void profileAutoSelectedEvent(bool);
     void profileChangedEvent(const QString&, const bool, const QString&);
     void exitEvent();
 private:

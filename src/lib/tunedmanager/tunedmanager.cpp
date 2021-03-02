@@ -23,8 +23,8 @@ QTunedProfileMode TunedManager::GetProfileMode()
 
 bool TunedManager::IsProfileModeAuto()
 {
-    const QTunedProfileMode mode = GetProfileMode();
-    return mode.Mode == "auto";
+    const QTunedProfileMode ProfileMode = GetProfileMode();
+    return ProfileMode.Mode == "auto";
 }
 
 bool TunedManager::SetProfileModeAuto()
