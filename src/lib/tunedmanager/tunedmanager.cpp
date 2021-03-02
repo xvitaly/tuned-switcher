@@ -27,18 +27,19 @@ bool TunedManager::IsProfileModeAuto()
     return ProfileMode.Mode == "auto";
 }
 
-bool TunedManager::SetProfileModeAuto()
+QTunedResult TunedManager::SetProfileModeAuto()
 {
     QDBusInterface DBusInterface(BusName, BusPath, BusInterface, DBusInstance);
-    QDBusReply<void> DBusReply = DBusInterface.call(BusMethodNameAutoProfile);
-    return DBusReply.isValid();
+    QDBusReply<QTunedResult> DBusReply = DBusInterface.call(BusMethodNameAutoProfile);
+    return DBusReply.value();
 }
 
-bool TunedManager::SetActiveProfile(const QString& Profile)
+QTunedResult TunedManager::SetActiveProfile(const QString& Profile)
 {
     QDBusInterface DBusInterface(BusName, BusPath, BusInterface, DBusInstance);
-    QDBusReply<void> DBusReply = DBusInterface.call(BusMethodNameSwitchProfile, Profile);
-    return DBusReply.isValid();
+    QDBusReply<QTunedResult> DBusReply = DBusInterface.call(BusMethodNameSwitchProfile, Profile);
+    QTunedResult result = DBusReply.value();
+    return result;
 }
 
 QTunedProfileList TunedManager::GetAvailableProfiles2()
@@ -63,6 +64,8 @@ TunedManager::TunedManager(QObject *parent) : QObject(parent)
         qDBusRegisterMetaType<QTunedProfileList>();
         qRegisterMetaType<QTunedProfileMode>("QTunedProfileMode");
         qDBusRegisterMetaType<QTunedProfileMode>();
+        qRegisterMetaType<QTunedResult>("QTunedResult");
+        qDBusRegisterMetaType<QTunedResult>();
         QDBusConnection::systemBus().connect(BusName, BusPath, BusInterface, BusSignalNameProfileChanged, this, SLOT(ProfileChangedEvent(const QString&, const bool, const QString&)));
     }
 }

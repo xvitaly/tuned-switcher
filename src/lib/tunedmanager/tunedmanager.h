@@ -19,8 +19,8 @@ public:
     QTunedProfileList GetAvailableProfiles2();
     QTunedProfileMode GetProfileMode();
     bool IsProfileModeAuto();
-    bool SetProfileModeAuto();
-    bool SetActiveProfile(const QString&);
+    QTunedResult SetProfileModeAuto();
+    QTunedResult SetActiveProfile(const QString&);
 private:
     const QString BusName = "com.redhat.tuned";
     const QString BusPath = "/Tuned";
