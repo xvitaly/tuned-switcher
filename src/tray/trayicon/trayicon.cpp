@@ -61,7 +61,7 @@ void TrayIcon::profileChangedEvent(const QString& profile, const bool result, co
         if (profileAction)
         {
             profileAction -> setChecked(true);
-            trayIcon -> showMessage(tr("Profile switched"), QString(tr("The active profile was switched to %1.")).arg(profile), QSystemTrayIcon::Information);
+            trayIcon -> showMessage(tr("Profile switched"), tr("The active profile was switched to %1.").arg(profile), QSystemTrayIcon::Information);
         }
     }
     else

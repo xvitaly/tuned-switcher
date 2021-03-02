@@ -4,6 +4,7 @@ QString TunedManager::GetActiveProfile()
 {
     QDBusInterface DBusInterface(BusName, BusPath, BusInterface, DBusInstance);
     QDBusReply<QString> DBusReply = DBusInterface.call(BusMethodNameActiveProfile);
+    if (!DBusReply.isValid()) throw std::exception();
     return DBusReply.value();
 }
 
@@ -11,6 +12,7 @@ QStringList TunedManager::GetAvailableProfiles()
 {
     QDBusInterface DBusInterface(BusName, BusPath, BusInterface, DBusInstance);
     QDBusReply<QStringList> DBusReply = DBusInterface.call(BusMethodNameProfiles);
+    if (!DBusReply.isValid()) throw std::exception();
     return DBusReply.value();
 }
 
@@ -18,6 +20,7 @@ QTunedProfileMode TunedManager::GetProfileMode()
 {
     QDBusInterface DBusInterface(BusName, BusPath, BusInterface, DBusInstance);
     QDBusReply<QTunedProfileMode> DBusReply = DBusInterface.call(BusMethodNameProfileMode);
+    if (!DBusReply.isValid()) throw std::exception();
     return DBusReply.value();
 }
 
@@ -31,6 +34,7 @@ QTunedResult TunedManager::SetProfileModeAuto()
 {
     QDBusInterface DBusInterface(BusName, BusPath, BusInterface, DBusInstance);
     QDBusReply<QTunedResult> DBusReply = DBusInterface.call(BusMethodNameAutoProfile);
+    if (!DBusReply.isValid()) throw std::exception();
     return DBusReply.value();
 }
 
@@ -38,14 +42,15 @@ QTunedResult TunedManager::SetActiveProfile(const QString& Profile)
 {
     QDBusInterface DBusInterface(BusName, BusPath, BusInterface, DBusInstance);
     QDBusReply<QTunedResult> DBusReply = DBusInterface.call(BusMethodNameSwitchProfile, Profile);
-    QTunedResult result = DBusReply.value();
-    return result;
+    if (!DBusReply.isValid()) throw std::exception();
+    return DBusReply.value();
 }
 
 QTunedProfileList TunedManager::GetAvailableProfiles2()
 {
     QDBusInterface DBusInterface(BusName, BusPath, BusInterface, DBusInstance);
     QDBusReply<QTunedProfileList> DBusReply = DBusInterface.call(BusMethodNameProfiles2);
+    if (!DBusReply.isValid()) throw std::exception();
     return DBusReply.value();
 }
 

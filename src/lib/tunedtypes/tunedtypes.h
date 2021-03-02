@@ -31,7 +31,7 @@ struct QTunedResult
 {
     bool Success;
     QString Message;
-    QTunedResult() : Success(), Message() {}
+    QTunedResult() : Success(false), Message() {}
     operator bool() { return Success; }
     friend QDBusArgument &operator<<(QDBusArgument &argument, const QTunedResult &arg);
     friend const QDBusArgument &operator>>(const QDBusArgument &argument, QTunedResult &arg);

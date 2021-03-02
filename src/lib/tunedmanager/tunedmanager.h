@@ -6,6 +6,7 @@
 #include <QDBusReply>
 #include <QDBusMetaType>
 #include <QObject>
+#include <stdexcept>
 
 #include "tunedtypes/tunedtypes.h"
 
