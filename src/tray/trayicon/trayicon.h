@@ -20,6 +20,7 @@ public:
     void Show();
 private slots:
     void profileSelectedEvent(QAction*);
+    void profileModeSelectedEvent(bool);
     void profileChangedEvent(const QString&, const bool, const QString&);
     void exitEvent();
 private:
@@ -32,6 +33,7 @@ private:
     QSystemTrayIcon *trayIcon;
     TunedManager *tunedManager;
     QHash<QString, QAction*> tunedProfiles;
+    QAction* autoProfile;
 signals:
 
 };
