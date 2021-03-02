@@ -17,16 +17,21 @@ public:
     QString GetActiveProfile();
     QStringList GetAvailableProfiles();
     QTunedProfileList GetAvailableProfiles2();
+    QTunedProfileMode GetProfileMode();
+    bool IsProfileModeAuto();
+    bool SetProfileModeAuto();
     bool SetActiveProfile(const QString&);
 private:
     const QString BusName = "com.redhat.tuned";
     const QString BusPath = "/Tuned";
     const QString BusInterface = "com.redhat.tuned.control";
-    const QString BusProfileNameActive = "active_profile";
-    const QString BusProfileNameAvailable = "profiles";
-    const QString BusProfileNameSwitch = "switch_profile";
-    const QString BusProfileChanged = "profile_changed";
-    const QString BusProfileNameAvailable2 = "profiles2";
+    const QString BusMethodNameActiveProfile = "active_profile";
+    const QString BusMethodNameProfiles = "profiles";
+    const QString BusMethodNameSwitchProfile = "switch_profile";
+    const QString BusMethodNameProfileMode = "profile_mode";
+    const QString BusMethodNameAutoProfile = "auto_profile";
+    const QString BusSignalNameProfileChanged = "profile_changed";
+    const QString BusMethodNameProfiles2 = "profiles2";
     const QDBusConnection DBusInstance = QDBusConnection::systemBus();
 private slots:
     void ProfileChangedEvent(const QString&, const bool, const QString&);
