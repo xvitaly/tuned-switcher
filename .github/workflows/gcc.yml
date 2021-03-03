@@ -25,7 +25,7 @@ jobs:
     - name: Building with CMake
       run: |
         pushd build
-        cmake ..
+        cmake -DBUILD_APPLET:BOOL=ON -DBUILD_GUI:BOOL=ON ..
         cmake --build .
         popd
     - name: Installing project
