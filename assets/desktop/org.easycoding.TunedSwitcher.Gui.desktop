@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Tuned Switcher GUI
+GenericName=Tuned Switcher GUI
+Categories=Utility;
+Comment=Simple utility to manipulate the Tuned service
+Icon=org.easycoding.TunedSwitcher
+Exec=tuned-switcher-gui
+Terminal=false
