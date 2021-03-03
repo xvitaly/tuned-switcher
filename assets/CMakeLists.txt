@@ -5,14 +5,10 @@
 #
 
 install(FILES "icons/icon.svg" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/scalable/apps" RENAME "${SCHEME_NAME}.svg")
-install(FILES "icons/icon-16.png" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/16x16/apps" RENAME "${SCHEME_NAME}.png")
-install(FILES "icons/icon-22.png" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/22x22/apps" RENAME "${SCHEME_NAME}.png")
-install(FILES "icons/icon-24.png" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/24x24/apps" RENAME "${SCHEME_NAME}.png")
-install(FILES "icons/icon-32.png" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/32x32/apps" RENAME "${SCHEME_NAME}.png")
-install(FILES "icons/icon-48.png" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/48x48/apps" RENAME "${SCHEME_NAME}.png")
-install(FILES "icons/icon-64.png" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/64x64/apps" RENAME "${SCHEME_NAME}.png")
-install(FILES "icons/icon-128.png" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/128x128/apps" RENAME "${SCHEME_NAME}.png")
-install(FILES "icons/icon-256.png" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/256x256/apps" RENAME "${SCHEME_NAME}.png")
+
+foreach(ICON_SIZE 16 22 24 32 48 64 128 256)
+    install(FILES "icons/icon-${ICON_SIZE}.png" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/${ICON_SIZE}x${ICON_SIZE}/apps" RENAME "${SCHEME_NAME}.png")
+endforeach(loop_var)
 
 if (BUILD_APPLET)
     configure_file("desktop/applet.desktop.in" "${CMAKE_CURRENT_BINARY_DIR}/applet.desktop" @ONLY)
