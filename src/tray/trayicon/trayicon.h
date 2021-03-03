@@ -41,8 +41,6 @@ private:
     TunedManager *tunedManager;
     QHash<QString, QAction*> tunedProfiles;
     QAction* autoProfile;
-signals:
-
 };
 
 #endif // TRAYICON_H
