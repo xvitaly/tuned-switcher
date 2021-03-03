@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+SPDX-FileCopyrightText: none
+SPDX-License-Identifier: CC0-1.0
+-->
+<component type="desktop">
+    <id>org.easycoding.TunedSwitcher</id>
+    <metadata_license>CC0-1.0</metadata_license>
+    <project_license>GPL-3.0-or-later</project_license>
+    <name>Tuned Switcher</name>
+    <summary>Simple utility to manipulate the Tuned service</summary>
+    <description>
+        <p>
+            Tuned Switcher is a Simple utility to manipulate the Tuned service.
+            Tuned is daemon for monitoring and adaptive tuning of system devices.
+        </p>
+    </description>
+    <screenshots>
+        <screenshot type="default">
+            <image>https://www.easycoding.org/files/images/tuned-switcher.png</image>
+        </screenshot>
+    </screenshots>
+    <url type="homepage">https://www.easycoding.org/projects/tuned-switcher</url>
+    <update_contact>https://github.com/EasyCoding/tuned-switcher</update_contact>
+    <launchable type="desktop-id">org.easycoding.TunedSwitcher.Applet.desktop</launchable>
+    <content_rating type="oars-1.0" />
+</component>

@@ -13,3 +13,4 @@ install(FILES "icons/icon-48.png" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/icon
 install(FILES "icons/icon-64.png" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/64x64/apps" RENAME "${SCHEME_NAME}.png")
 install(FILES "icons/icon-128.png" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/128x128/apps" RENAME "${SCHEME_NAME}.png")
 install(FILES "icons/icon-256.png" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/256x256/apps" RENAME "${SCHEME_NAME}.png")
+install(FILES "metainfo/${SCHEME_NAME}.metainfo.xml" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/metainfo")
