@@ -34,3 +34,5 @@ set(EXTERNAL_LIBS
 
 add_executable(tuned-tray ${INTERNAL_LIBS})
 target_link_libraries(tuned-tray PRIVATE ${EXTERNAL_LIBS})
+
+install(TARGETS tuned-tray RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" BUNDLE DESTINATION "${CMAKE_INSTALL_BINDIR}")
