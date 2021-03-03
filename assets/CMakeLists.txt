@@ -24,4 +24,4 @@ if (BUILD_GUI)
     install(FILES "${CMAKE_CURRENT_BINARY_DIR}/gui.desktop" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/applications" RENAME "${SCHEME_NAME}.desktop")
 endif()
 
-install(FILES "metainfo/${SCHEME_NAME}.metainfo.xml" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/metainfo")
+install(FILES "metainfo/${CMAKE_PROJECT_NAME}.metainfo.xml" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/metainfo" RENAME "${SCHEME_NAME}.metainfo.xml")
