@@ -1,9 +1,9 @@
 [Desktop Entry]
 Type=Application
-Name=Tuned Switcher applet
-GenericName=Tuned Switcher applet
+Name=Tuned Switcher GUI
+GenericName=Tuned profile switcher
 Categories=Utility;
 Comment=Simple utility to manipulate the Tuned service
-Icon=org.easycoding.TunedSwitcher
-Exec=tuned-switcher-tray
+Icon=@SCHEME_NAME@
+Exec=@GUI_NAME@
 Terminal=false

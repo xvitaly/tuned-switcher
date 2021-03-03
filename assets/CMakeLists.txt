@@ -15,11 +15,13 @@ install(FILES "icons/icon-128.png" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/ico
 install(FILES "icons/icon-256.png" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/256x256/apps" RENAME "${SCHEME_NAME}.png")
 
 if (BUILD_APPLET)
-    install(FILES "desktop/${SCHEME_NAME}.Applet.desktop" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/applications")
+    configure_file("desktop/applet.desktop.in" "${CMAKE_CURRENT_BINARY_DIR}/applet.desktop" @ONLY)
+    install(FILES "${CMAKE_CURRENT_BINARY_DIR}/applet.desktop" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/applications" RENAME "${SCHEME_NAME}.Applet.desktop")
 endif()
 
 if (BUILD_GUI)
-    install(FILES "desktop/${SCHEME_NAME}.Gui.desktop" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/applications")
+    configure_file("desktop/gui.desktop.in" "${CMAKE_CURRENT_BINARY_DIR}/gui.desktop" @ONLY)
+    install(FILES "${CMAKE_CURRENT_BINARY_DIR}/gui.desktop" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/applications" RENAME "${SCHEME_NAME}.desktop")
 endif()
 
 install(FILES "metainfo/${SCHEME_NAME}.metainfo.xml" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/metainfo")

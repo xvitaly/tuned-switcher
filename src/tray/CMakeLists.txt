@@ -32,7 +32,7 @@ set(EXTERNAL_LIBS
     tuned-switcher-lib
 )
 
-add_executable(tuned-switcher-applet ${INTERNAL_LIBS})
-target_link_libraries(tuned-switcher-applet PRIVATE ${EXTERNAL_LIBS})
+add_executable(${APPLET_NAME} ${INTERNAL_LIBS})
+target_link_libraries(${APPLET_NAME} PRIVATE ${EXTERNAL_LIBS})
 
-install(TARGETS tuned-switcher-applet RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" BUNDLE DESTINATION "${CMAKE_INSTALL_BINDIR}")
+install(TARGETS ${APPLET_NAME} RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" BUNDLE DESTINATION "${CMAKE_INSTALL_BINDIR}")

@@ -33,7 +33,7 @@ set(EXTERNAL_LIBS
     tuned-switcher-lib
 )
 
-add_executable(tuned-switcher-gui ${INTERNAL_LIBS})
-target_link_libraries(tuned-switcher-gui PRIVATE ${EXTERNAL_LIBS})
+add_executable(${GUI_NAME} ${INTERNAL_LIBS})
+target_link_libraries(${GUI_NAME} PRIVATE ${EXTERNAL_LIBS})
 
-install(TARGETS tuned-switcher-gui RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" BUNDLE DESTINATION "${CMAKE_INSTALL_BINDIR}")
+install(TARGETS ${GUI_NAME} RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" BUNDLE DESTINATION "${CMAKE_INSTALL_BINDIR}")
