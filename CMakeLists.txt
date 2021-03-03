@@ -1,3 +1,9 @@
+#
+# SPDX-FileCopyrightText: 2021 EasyCoding Team and contributors
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+
 cmake_minimum_required(VERSION 3.10)
 
 project(tuned-switcher VERSION 0.1.0 LANGUAGES CXX)

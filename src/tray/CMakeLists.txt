@@ -1,3 +1,9 @@
+#
+# SPDX-FileCopyrightText: 2021 EasyCoding Team and contributors
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+
 set(CMAKE_AUTOMOC ON)
 
 set(SOURCES
@@ -9,14 +15,15 @@ set(HEADERS
     trayicon/trayicon.h
 )
 
-qt5_add_resources(QRES
-    ../../resources/tuned-switcher.qrc)
+qt5_add_resources(RESOURCES
+    resources.qrc
+)
 
 set(INTERNAL_LIBS
     ${SOURCES}
     ${HEADERS}
     ${MOC_HEADERS}
-    ${QRES}
+    ${RESOURCES}
 )
 
 set(EXTERNAL_LIBS

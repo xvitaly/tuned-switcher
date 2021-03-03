@@ -1,3 +1,9 @@
+/**
+ * SPDX-FileCopyrightText: 2021 EasyCoding Team and contributors
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+*/
+
 #include "trayicon.h"
 
 TrayIcon::TrayIcon(QWidget *parent) : QWidget(parent)
@@ -29,7 +35,7 @@ void TrayIcon::setTrayIcon()
 {
     // Setting tray icon...
     trayIcon = new QSystemTrayIcon(this);
-    QIcon trayImage(":/images/icon-48.png");
+    QIcon trayImage(":/icons/tray.png");
     trayIcon -> setIcon(trayImage);
     trayIcon -> setContextMenu(createTrayIconMenu());
     trayIcon -> setToolTip(tr("Tuned profile switcher"));

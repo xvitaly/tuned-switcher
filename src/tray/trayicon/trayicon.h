@@ -1,3 +1,9 @@
+/**
+ * SPDX-FileCopyrightText: 2021 EasyCoding Team and contributors
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+*/
+
 #ifndef TRAYICON_H
 #define TRAYICON_H
 
