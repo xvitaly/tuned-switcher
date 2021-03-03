@@ -21,3 +21,5 @@ include_directories("src/tray")
 add_subdirectory("src/lib")
 add_subdirectory("src/gui")
 add_subdirectory("src/tray")
+
+add_subdirectory("assets")
