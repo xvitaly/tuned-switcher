@@ -30,10 +30,10 @@ set(INTERNAL_LIBS
 set(EXTERNAL_LIBS
     Qt5::Widgets
     Qt5::DBus
-    tuned-lib
+    tuned-switcher-lib
 )
 
-add_executable(tuned-gui ${INTERNAL_LIBS})
-target_link_libraries(tuned-gui PRIVATE ${EXTERNAL_LIBS})
+add_executable(tuned-switcher-gui ${INTERNAL_LIBS})
+target_link_libraries(tuned-switcher-gui PRIVATE ${EXTERNAL_LIBS})
 
-install(TARGETS tuned-gui RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" BUNDLE DESTINATION "${CMAKE_INSTALL_BINDIR}")
+install(TARGETS tuned-switcher-gui RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" BUNDLE DESTINATION "${CMAKE_INSTALL_BINDIR}")

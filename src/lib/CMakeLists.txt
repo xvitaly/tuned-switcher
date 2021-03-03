@@ -27,8 +27,8 @@ set(EXTERNAL_LIBS
     Qt5::DBus
 )
 
-add_library(tuned-lib STATIC
+add_library(tuned-switcher-lib STATIC
     ${INTERNAL_LIBS}
 )
 
-target_link_libraries(tuned-lib PRIVATE ${EXTERNAL_LIBS})
+target_link_libraries(tuned-switcher-lib PRIVATE ${EXTERNAL_LIBS})

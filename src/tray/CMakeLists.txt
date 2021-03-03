@@ -29,10 +29,10 @@ set(INTERNAL_LIBS
 set(EXTERNAL_LIBS
     Qt5::Widgets
     Qt5::DBus
-    tuned-lib
+    tuned-switcher-lib
 )
 
-add_executable(tuned-tray ${INTERNAL_LIBS})
-target_link_libraries(tuned-tray PRIVATE ${EXTERNAL_LIBS})
+add_executable(tuned-switcher-applet ${INTERNAL_LIBS})
+target_link_libraries(tuned-switcher-applet PRIVATE ${EXTERNAL_LIBS})
 
-install(TARGETS tuned-tray RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" BUNDLE DESTINATION "${CMAKE_INSTALL_BINDIR}")
+install(TARGETS tuned-switcher-applet RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" BUNDLE DESTINATION "${CMAKE_INSTALL_BINDIR}")
