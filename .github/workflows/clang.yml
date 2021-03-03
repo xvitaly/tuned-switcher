@@ -22,9 +22,17 @@ jobs:
     - name: Installing development packages
       run: |
         sudo apt-get -y install qtbase5-dev
-    - name: Building with CMake
+    - name: Preparing for the build
       run: |
         mkdir build
-        cd build
+    - name: Building with CMake
+      run: |
+        pushd build
         cmake ..
         cmake --build .
+        popd
+    - name: Installing project
+      run: |
+        pushd build
+        sudo make install
+        popd
