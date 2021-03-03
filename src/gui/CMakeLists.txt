@@ -20,15 +20,11 @@ qt5_wrap_ui(UI_HEADERS
     mainwindow/mainwindow.ui
 )
 
-qt5_add_resources(QRES
-    ../../resources/tuned-switcher.qrc)
-
 set(INTERNAL_LIBS
     ${SOURCES}
     ${UI_HEADERS}
     ${HEADERS}
     ${MOC_HEADERS}
-    ${QRES}
 )
 
 set(EXTERNAL_LIBS
