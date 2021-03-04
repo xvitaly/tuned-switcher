@@ -36,7 +36,7 @@ Tuned Switcher is a simple utility to manipulate the Tuned service.
     -DCMAKE_BUILD_TYPE=Release \
     -DBUILD_APPLET:BOOL=ON \
     -DBUILD_DOCS:BOOL=OFF \
-    -DBUILD_GUI:BOOL=OFF
+    -DBUILD_GUI:BOOL=ON
 %cmake_build
 
 %check
