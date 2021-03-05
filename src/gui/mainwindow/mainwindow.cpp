@@ -13,6 +13,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui -> setupUi(this);
     initializeTuned();
+    loadSettings();
     setFormStyle();
     updateProfile();
 }
@@ -48,16 +49,32 @@ void MainWindow::mouseReleaseEvent(QMouseEvent* event)
     }
 }
 
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+    QSettings settings(AppProductCompany, AppProductNameInternal);
+    settings.setValue("geometry", saveGeometry());
+    settings.setValue("windowState", saveState());
+    settings.sync();
+    QMainWindow::closeEvent(event);
+}
+
 void MainWindow::initializeTuned()
 {
     tunedManager = new TunedManager();
     availableProfiles = tunedManager -> GetAvailableProfiles();
 }
 
+void MainWindow::loadSettings()
+{
+    QSettings settings(AppProductCompany, AppProductNameInternal);
+    restoreGeometry(settings.value("geometry").toByteArray());
+    restoreState(settings.value("windowState").toByteArray());
+}
+
 void MainWindow::setFormStyle()
 {
     // Setting form style...
-    setWindowFlags(Qt::FramelessWindowHint | Qt::Tool);
+    setWindowFlags(Qt::FramelessWindowHint);
     setAttribute(Qt::WA_TranslucentBackground);
 
     // Adding shadows for widgets...
@@ -94,5 +111,5 @@ void MainWindow::on_ButtonApply_clicked()
 
 void MainWindow::on_ButtonCancel_clicked()
 {
-    QApplication::exit(EXIT_SUCCESS);
+    close();
 }

@@ -13,6 +13,7 @@
 #include <QMenu>
 #include <QMessageBox>
 #include <QMouseEvent>
+#include <QSettings>
 
 #include "tunedmanager/tunedmanager.h"
 
@@ -32,11 +33,13 @@ private slots:
     void mouseMoveEvent(QMouseEvent* event);
     void mousePressEvent(QMouseEvent* event);
     void mouseReleaseEvent(QMouseEvent* event);
+    void closeEvent(QCloseEvent *event);
     void on_ButtonApply_clicked();
     void on_ButtonCancel_clicked();
 
 private:
     void initializeTuned();
+    void loadSettings();
     void setFormStyle();
     void updateProfile();
     Ui::MainWindow *ui;
@@ -44,6 +47,9 @@ private:
     QStringList availableProfiles;
     QPoint mLastMousePosition;
     bool mMoving;
+    const QString AppProductCompany = "EasyCoding";
+    const QString AppProductNameInternal = "TunedSwitcher";
+    const QString AppProductName = "Tuned Switcher";
 };
 
 #endif // MAINWINDOW_H
