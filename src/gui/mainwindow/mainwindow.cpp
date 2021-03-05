@@ -70,8 +70,16 @@ void MainWindow::setFormStyle()
 
 void MainWindow::updateProfile()
 {
-    ui -> ProfileSelector -> addItems(availableProfiles);
-    ui -> ProfileSelector -> setCurrentText(tunedManager -> GetActiveProfile());
+    if (availableProfiles.count() > 0)
+    {
+        ui -> ProfileSelector -> addItems(availableProfiles);
+        ui -> ProfileSelector -> setCurrentText(tunedManager -> GetActiveProfile());
+    }
+    else
+    {
+        QMessageBox::critical(this, "Tuned Switcher", tr("No profiles found! Please check if the Tuned service is running."));
+        exit(EXIT_FAILURE);
+    }
 }
 
 void MainWindow::on_ButtonApply_clicked()
@@ -85,5 +93,5 @@ void MainWindow::on_ButtonApply_clicked()
 
 void MainWindow::on_ButtonCancel_clicked()
 {
-    QApplication::exit(0);
+    QApplication::exit(EXIT_SUCCESS);
 }
