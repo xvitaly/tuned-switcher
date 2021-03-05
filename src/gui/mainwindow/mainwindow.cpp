@@ -85,10 +85,11 @@ void MainWindow::updateProfile()
 void MainWindow::on_ButtonApply_clicked()
 {
     QString profile = ui -> ProfileSelector -> currentText();
-    if (tunedManager -> SetActiveProfile(profile))
-        QMessageBox::information(this, "Tuned Switcher", tr("The active profile was successfully switched to %1.").arg(profile));
+    QTunedResult result = tunedManager -> SetActiveProfile(profile);
+    if (result.Success)
+        QMessageBox::information(this, "Tuned Switcher", tr("The active profile was switched to %1.").arg(profile));
     else
-        QMessageBox::critical(this, "Tuned Switcher", tr("Failed to switch the active profile to %1!").arg(profile));
+        QMessageBox::critical(this, "Tuned Switcher", tr("Failed to switch profile: %1").arg(result.Message));
 }
 
 void MainWindow::on_ButtonCancel_clicked()
