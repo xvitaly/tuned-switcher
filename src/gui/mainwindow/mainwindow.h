@@ -13,8 +13,6 @@
 #include <QMenu>
 #include <QMessageBox>
 #include <QMouseEvent>
-#include <QSignalMapper>
-#include <QSystemTrayIcon>
 
 #include "tunedmanager/tunedmanager.h"
 

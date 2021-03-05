@@ -35,8 +35,7 @@ void TrayIcon::setTrayIcon()
 {
     // Setting tray icon...
     trayIcon = new QSystemTrayIcon(this);
-    QIcon trayImage(":/icons/tray.png");
-    trayIcon -> setIcon(QIcon::fromTheme("org.easycoding.TunedSwitcher", trayImage));
+    trayIcon -> setIcon(QIcon::fromTheme("org.easycoding.TunedSwitcher", QIcon(":/icons/tray.png")));
     trayIcon -> setContextMenu(createTrayIconMenu());
     trayIcon -> setToolTip(tr("Tuned profile switcher"));
 }
