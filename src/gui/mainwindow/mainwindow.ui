@@ -18,7 +18,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Tuned Switcher GUI</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="../resources.qrc">
+    <normaloff>:/icons/window.png</normaloff>:/icons/window.png</iconset>
   </property>
   <property name="styleSheet">
    <string notr="true">QWidget#WidgetMain
@@ -97,6 +101,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="../resources.qrc"/>
+ </resources>
  <connections/>
 </ui>

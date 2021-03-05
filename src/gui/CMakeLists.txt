@@ -16,6 +16,10 @@ set(HEADERS
     mainwindow/mainwindow.h
 )
 
+qt5_add_resources(RESOURCES
+    resources.qrc
+)
+
 qt5_wrap_ui(UI_HEADERS
     mainwindow/mainwindow.ui
 )
@@ -25,6 +29,7 @@ set(INTERNAL_LIBS
     ${UI_HEADERS}
     ${HEADERS}
     ${MOC_HEADERS}
+    ${RESOURCES}
 )
 
 set(EXTERNAL_LIBS
