@@ -54,6 +54,12 @@ QTunedProfileList TunedManager::GetAvailableProfiles2()
     return DBusReply.value();
 }
 
+bool TunedManager::IsTunedRunning()
+{
+    QDBusInterface DBusInterface(BusName, BusPath, BusInterface, DBusInstance);
+    return DBusInterface.isValid();
+}
+
 void TunedManager::ProfileChangedEvent(const QString& NewProfile, const bool SwitchResult, const QString& ResultMessage)
 {
     emit ProfileChangedSignal(NewProfile, SwitchResult, ResultMessage);

@@ -27,6 +27,7 @@ public:
     bool IsProfileModeAuto();
     QTunedResult SetProfileModeAuto();
     QTunedResult SetActiveProfile(const QString&);
+    bool IsTunedRunning();
 private:
     const QString BusName = "com.redhat.tuned";
     const QString BusPath = "/Tuned";
