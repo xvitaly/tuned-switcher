@@ -86,9 +86,9 @@ void MainWindow::on_ButtonApply_clicked()
 {
     QString profile = ui -> ProfileSelector -> currentText();
     if (tunedManager -> SetActiveProfile(profile))
-        QMessageBox::information(this, "Tuned Switcher", QString(tr("The active profile was successfully switched to %1.")).arg(profile));
+        QMessageBox::information(this, "Tuned Switcher", tr("The active profile was successfully switched to %1.").arg(profile));
     else
-        QMessageBox::critical(this, "Tuned Switcher", QString(tr("Failed to switch the active profile to %1!")).arg(profile));
+        QMessageBox::critical(this, "Tuned Switcher", tr("Failed to switch the active profile to %1!").arg(profile));
 }
 
 void MainWindow::on_ButtonCancel_clicked()
