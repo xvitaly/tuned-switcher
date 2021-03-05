@@ -94,7 +94,7 @@ void MainWindow::updateProfile()
     }
     else
     {
-        QMessageBox::critical(this, "Tuned Switcher", tr("No profiles found! Please check if the Tuned service is running."));
+        QMessageBox::critical(this, AppProductName, tr("No profiles found! Please check if the Tuned service is running."));
         exit(EXIT_FAILURE);
     }
 }
@@ -104,9 +104,9 @@ void MainWindow::on_ButtonApply_clicked()
     QString profile = ui -> ProfileSelector -> currentText();
     QTunedResult result = tunedManager -> SetActiveProfile(profile);
     if (result.Success)
-        QMessageBox::information(this, "Tuned Switcher", tr("The active profile was switched to %1.").arg(profile));
+        QMessageBox::information(this, AppProductName, tr("The active profile was switched to %1.").arg(profile));
     else
-        QMessageBox::critical(this, "Tuned Switcher", tr("Failed to switch profile: %1").arg(result.Message));
+        QMessageBox::critical(this, AppProductName, tr("Failed to switch profile: %1").arg(result.Message));
 }
 
 void MainWindow::on_ButtonCancel_clicked()
