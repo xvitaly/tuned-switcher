@@ -4,6 +4,11 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
 
+file(GLOB TRANSLATIONS "i18n/${CMAKE_PROJECT_NAME}_*.ts")
+qt5_add_translation(QM_FILES ${TRANSLATIONS})
+add_custom_target(${I18N_NAME} ALL DEPENDS ${QM_FILES})
+install(FILES ${QM_FILES} DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${CMAKE_PROJECT_NAME}/translations)
+
 install(FILES "icons/icon.svg" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/scalable/apps" RENAME "${SCHEME_NAME}.svg")
 
 foreach(ICON_SIZE 16 22 24 32 48 64 128 256)
