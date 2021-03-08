@@ -8,22 +8,22 @@
 
 QString TunedManager::GetActiveProfile()
 {
-    QDBusInterface DBusInterface(BusName, BusPath, BusInterface, DBusInstance);
-    QDBusReply<QString> DBusReply = DBusInterface.call(BusMethodNameActiveProfile);
+    QDBusInterface DBusInterface(TunedBusName, TunedBusPath, TunedBusInterface, DBusInstance);
+    QDBusReply<QString> DBusReply = DBusInterface.call(TunedBusMethodNameActiveProfile);
     return DBusReply.value();
 }
 
 QStringList TunedManager::GetAvailableProfiles()
 {
-    QDBusInterface DBusInterface(BusName, BusPath, BusInterface, DBusInstance);
-    QDBusReply<QStringList> DBusReply = DBusInterface.call(BusMethodNameProfiles);
+    QDBusInterface DBusInterface(TunedBusName, TunedBusPath, TunedBusInterface, DBusInstance);
+    QDBusReply<QStringList> DBusReply = DBusInterface.call(TunedBusMethodNameProfiles);
     return DBusReply.value();
 }
 
 QTunedProfileMode TunedManager::GetProfileMode()
 {
-    QDBusInterface DBusInterface(BusName, BusPath, BusInterface, DBusInstance);
-    QDBusReply<QTunedProfileMode> DBusReply = DBusInterface.call(BusMethodNameProfileMode);
+    QDBusInterface DBusInterface(TunedBusName, TunedBusPath, TunedBusInterface, DBusInstance);
+    QDBusReply<QTunedProfileMode> DBusReply = DBusInterface.call(TunedBusMethodNameProfileMode);
     return DBusReply.value();
 }
 
@@ -35,29 +35,43 @@ bool TunedManager::IsProfileModeAuto()
 
 QTunedResult TunedManager::SetProfileModeAuto()
 {
-    QDBusInterface DBusInterface(BusName, BusPath, BusInterface, DBusInstance);
-    QDBusReply<QTunedResult> DBusReply = DBusInterface.call(BusMethodNameAutoProfile);
+    QDBusInterface DBusInterface(TunedBusName, TunedBusPath, TunedBusInterface, DBusInstance);
+    QDBusReply<QTunedResult> DBusReply = DBusInterface.call(TunedBusMethodNameAutoProfile);
     return DBusReply.isValid() ? DBusReply.value() : QTunedResult(false, DBusReply.error().message());
 }
 
 QTunedResult TunedManager::SetActiveProfile(const QString& Profile)
 {
-    QDBusInterface DBusInterface(BusName, BusPath, BusInterface, DBusInstance);
-    QDBusReply<QTunedResult> DBusReply = DBusInterface.call(BusMethodNameSwitchProfile, Profile);
+    QDBusInterface DBusInterface(TunedBusName, TunedBusPath, TunedBusInterface, DBusInstance);
+    QDBusReply<QTunedResult> DBusReply = DBusInterface.call(TunedBusMethodNameSwitchProfile, Profile);
     return DBusReply.isValid() ? DBusReply.value() : QTunedResult(false, DBusReply.error().message());
 }
 
 QTunedProfileList TunedManager::GetAvailableProfiles2()
 {
-    QDBusInterface DBusInterface(BusName, BusPath, BusInterface, DBusInstance);
-    QDBusReply<QTunedProfileList> DBusReply = DBusInterface.call(BusMethodNameProfiles2);
+    QDBusInterface DBusInterface(TunedBusName, TunedBusPath, TunedBusInterface, DBusInstance);
+    QDBusReply<QTunedProfileList> DBusReply = DBusInterface.call(TunedBusMethodNameProfiles2);
     return DBusReply.value();
 }
 
 bool TunedManager::IsTunedRunning()
 {
-    QDBusInterface DBusInterface(BusName, BusPath, BusInterface, DBusInstance);
+    QDBusInterface DBusInterface(TunedBusName, TunedBusPath, TunedBusInterface, DBusInstance);
     return DBusInterface.isValid();
+}
+
+bool TunedManager::StartTuned()
+{
+    QDBusInterface DBusInterface(SystemdBusPath, SystemdBusPath, SystemdBusInterface, DBusInstance);
+    QDBusReply<void> DBusReply = DBusInterface.call(SystemdBusMethodNameStart, SystemdTunedServiceName, SystemdTunedServiceMode);
+    return DBusReply.isValid();
+}
+
+bool TunedManager::StopTuned()
+{
+    QDBusInterface DBusInterface(SystemdBusPath, SystemdBusPath, SystemdBusInterface, DBusInstance);
+    QDBusReply<void> DBusReply = DBusInterface.call(SystemdBusMethodNameStop, SystemdTunedServiceName, SystemdTunedServiceMode);
+    return DBusReply.isValid();
 }
 
 void TunedManager::ProfileChangedEvent(const QString& NewProfile, const bool SwitchResult, const QString& ResultMessage)
@@ -77,6 +91,6 @@ TunedManager::TunedManager(QObject *parent) : QObject(parent)
         qDBusRegisterMetaType<QTunedProfileMode>();
         qRegisterMetaType<QTunedResult>("QTunedResult");
         qDBusRegisterMetaType<QTunedResult>();
-        QDBusConnection::systemBus().connect(BusName, BusPath, BusInterface, BusSignalNameProfileChanged, this, SLOT(ProfileChangedEvent(const QString&, const bool, const QString&)));
+        QDBusConnection::systemBus().connect(TunedBusName, TunedBusPath, TunedBusInterface, TunedBusSignalNameProfileChanged, this, SLOT(ProfileChangedEvent(const QString&, const bool, const QString&)));
     }
 }
