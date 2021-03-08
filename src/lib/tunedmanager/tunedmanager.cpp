@@ -79,12 +79,6 @@ void TunedManager::ProfileChangedEvent(const QString& NewProfile, const bool Swi
     emit ProfileChangedSignal(NewProfile, SwitchResult, ResultMessage);
 }
 
-void TunedManager::ListenEvents()
-{
-    if (DBusInstance.isConnected())
-        QDBusConnection::systemBus().connect(TunedBusName, TunedBusPath, TunedBusInterface, TunedBusSignalNameProfileChanged, this, SLOT(ProfileChangedEvent(const QString&, const bool, const QString&)));
-}
-
 TunedManager::TunedManager(QObject *parent) : QObject(parent)
 {
     if (DBusInstance.isConnected())
@@ -97,5 +91,6 @@ TunedManager::TunedManager(QObject *parent) : QObject(parent)
         qDBusRegisterMetaType<QTunedProfileMode>();
         qRegisterMetaType<QTunedResult>("QTunedResult");
         qDBusRegisterMetaType<QTunedResult>();
+        QDBusConnection::systemBus().connect(TunedBusName, TunedBusPath, TunedBusInterface, TunedBusSignalNameProfileChanged, this, SLOT(ProfileChangedEvent(const QString&, const bool, const QString&)));
     }
 }

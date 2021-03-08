@@ -30,7 +30,6 @@ public:
     bool IsTunedRunning();
     bool StartTuned();
     bool StopTuned();
-    void ListenEvents();
 private:
     const QString TunedBusName = "com.redhat.tuned";
     const QString TunedBusPath = "/Tuned";
