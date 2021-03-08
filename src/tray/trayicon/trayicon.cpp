@@ -42,6 +42,7 @@ void TrayIcon::setTrayIcon()
 
 void TrayIcon::subscribeToEvents()
 {
+    tunedManager -> ListenEvents();
     connect(tunedManager, SIGNAL(ProfileChangedSignal(const QString&, const bool, const QString&)), this, SLOT(profileChangedEvent(const QString&, const bool, const QString&)));
 }
 
