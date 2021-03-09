@@ -9,10 +9,12 @@
 
 #include <QApplication>
 #include <QActionGroup>
+#include <QLibraryInfo>
 #include <QMenu>
 #include <QSignalMapper>
 #include <QSignalMapper>
 #include <QSystemTrayIcon>
+#include <QTranslator>
 #include <QWidget>
 
 #include "tunedmanager/tunedmanager.h"

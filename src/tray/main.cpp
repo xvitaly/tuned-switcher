@@ -9,6 +9,15 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+
+    QTranslator qtTranslator;
+    qtTranslator.load(QLocale(), "qt", "_", QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+    a.installTranslator(&qtTranslator);
+
+    QTranslator appTranslator;
+    appTranslator.load(QLocale(), "tuned-switcher", "_", QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+    a.installTranslator(&appTranslator);
+
     TrayIcon *trayIcon = new TrayIcon();
     trayIcon -> Show();
 
