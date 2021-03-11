@@ -65,26 +65,28 @@ void MainWindow::initializeTuned()
     tunedManager = new TunedManager();
 }
 
+void MainWindow::tryToStartTuned()
+{
+    if (tunedManager -> StartTuned())
+    {
+        // Sleep to allow Tuned service to be initialized correctly.
+        QThread::sleep(2);
+    }
+    else
+    {
+        QMessageBox::critical(this, AppProductName, tr("Cannot start Tuned service via D-Bus call. Terminating."));
+        exit(EXIT_FAILURE);
+    }
+}
+
 void MainWindow::checkTunedRunning()
 {
     if (!tunedManager -> IsTunedRunning())
     {
         if (QMessageBox::question(this, AppProductName, tr("Tuned service is not running. Do you want to start it now?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::Yes)
-        {
-            if (!tunedManager->StartTuned())
-            {
-                QMessageBox::critical(this, AppProductName, tr("Cannot start Tuned service via D-Bus call. Terminating."));
-                exit(EXIT_FAILURE);
-            }
-            else
-            {
-                QThread::sleep(2);
-            }
-        }
+            tryToStartTuned();
         else
-        {
             exit(EXIT_FAILURE);
-        }
     }
 }
 

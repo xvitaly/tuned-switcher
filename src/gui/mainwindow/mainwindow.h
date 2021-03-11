@@ -42,6 +42,7 @@ private slots:
 
 private:
     void initializeTuned();
+    void tryToStartTuned();
     void checkTunedRunning();
     void getTunedProfiles();
     void loadSettings();
