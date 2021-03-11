@@ -14,6 +14,7 @@
 #include <QMenu>
 #include <QMessageBox>
 #include <QMouseEvent>
+#include <QThread>
 #include <QTranslator>
 #include <QSettings>
 
@@ -41,6 +42,7 @@ private slots:
 
 private:
     void initializeTuned();
+    void checkTunedRunning();
     void getTunedProfiles();
     void loadSettings();
     void setFormStyle();

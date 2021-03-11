@@ -62,14 +62,14 @@ bool TunedManager::IsTunedRunning()
 
 bool TunedManager::StartTuned()
 {
-    QDBusInterface DBusInterface(SystemdBusPath, SystemdBusPath, SystemdBusInterface, DBusInstance);
+    QDBusInterface DBusInterface(SystemdBusName, SystemdBusPath, SystemdBusInterface, DBusInstance);
     QDBusReply<void> DBusReply = DBusInterface.call(SystemdBusMethodNameStart, SystemdTunedServiceName, SystemdTunedServiceMode);
     return DBusReply.isValid();
 }
 
 bool TunedManager::StopTuned()
 {
-    QDBusInterface DBusInterface(SystemdBusPath, SystemdBusPath, SystemdBusInterface, DBusInstance);
+    QDBusInterface DBusInterface(SystemdBusName, SystemdBusPath, SystemdBusInterface, DBusInstance);
     QDBusReply<void> DBusReply = DBusInterface.call(SystemdBusMethodNameStop, SystemdTunedServiceName, SystemdTunedServiceMode);
     return DBusReply.isValid();
 }

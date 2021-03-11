@@ -15,6 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
     loadSettings();
     setFormStyle();
     initializeTuned();
+    checkTunedRunning();
     getTunedProfiles();
     updateProfile();
 }
@@ -64,6 +65,29 @@ void MainWindow::initializeTuned()
     tunedManager = new TunedManager();
 }
 
+void MainWindow::checkTunedRunning()
+{
+    if (!tunedManager -> IsTunedRunning())
+    {
+        if (QMessageBox::question(this, AppProductName, tr("Tuned service is not running. Do you want to start it now?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::Yes)
+        {
+            if (!tunedManager->StartTuned())
+            {
+                QMessageBox::critical(this, AppProductName, tr("Cannot start Tuned service via D-Bus call. Terminating."));
+                exit(EXIT_FAILURE);
+            }
+            else
+            {
+                QThread::sleep(2);
+            }
+        }
+        else
+        {
+            exit(EXIT_FAILURE);
+        }
+    }
+}
+
 void MainWindow::getTunedProfiles()
 {
     availableProfiles = tunedManager -> GetAvailableProfiles();
@@ -96,11 +120,6 @@ void MainWindow::updateProfile()
     {
         ui -> ProfileSelector -> addItems(availableProfiles);
         ui -> ProfileSelector -> setCurrentText(tunedManager -> GetActiveProfile());
-    }
-    else
-    {
-        QMessageBox::critical(this, AppProductName, tr("No profiles found! Please check if the Tuned service is running."));
-        exit(EXIT_FAILURE);
     }
 }
 
