@@ -12,9 +12,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui -> setupUi(this);
-    initializeTuned();
     loadSettings();
     setFormStyle();
+    initializeTuned();
+    getTunedProfiles();
     updateProfile();
 }
 
@@ -61,6 +62,10 @@ void MainWindow::closeEvent(QCloseEvent *event)
 void MainWindow::initializeTuned()
 {
     tunedManager = new TunedManager();
+}
+
+void MainWindow::getTunedProfiles()
+{
     availableProfiles = tunedManager -> GetAvailableProfiles();
 }
 

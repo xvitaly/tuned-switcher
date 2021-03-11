@@ -41,6 +41,7 @@ private slots:
 
 private:
     void initializeTuned();
+    void getTunedProfiles();
     void loadSettings();
     void setFormStyle();
     void updateProfile();
