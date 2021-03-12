@@ -28,12 +28,17 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Cancel</translation>
     </message>
     <message>
-        <location filename="../../src/gui/mainwindow/mainwindow.cpp" line="+97"/>
-        <source>No profiles found! Please check if the Tuned service is running.</source>
-        <translation>No profiles found! Please check if the Tuned service is running.</translation>
+        <location filename="../../src/gui/mainwindow/mainwindow.cpp" line="+77"/>
+        <source>Cannot start Tuned service via D-Bus call. Terminating.</source>
+        <translation>Cannot start Tuned service via D-Bus call. Terminating.</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+9"/>
+        <source>Tuned service is not running. Do you want to start it now?</source>
+        <translation>Tuned service is not running. Do you want to start it now?</translation>
+    </message>
+    <message>
+        <location line="+47"/>
         <source>The active profile was switched to %1.</source>
         <translation>The active profile was switched to %1.</translation>
     </message>
@@ -46,7 +51,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 <context>
     <name>TrayIcon</name>
     <message>
-        <location filename="../../src/tray/trayicon/trayicon.cpp" line="+40"/>
+        <location filename="../../src/tray/trayicon/trayicon.cpp" line="+55"/>
         <source>Tuned profile switcher</source>
         <translation>Tuned profile switcher</translation>
     </message>

@@ -28,12 +28,17 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../../src/gui/mainwindow/mainwindow.cpp" line="+97"/>
-        <source>No profiles found! Please check if the Tuned service is running.</source>
-        <translation>Доступные профили не найдены! Пожалуйста, убедитесь, что сервис Tuned установлен и запущен.</translation>
+        <location filename="../../src/gui/mainwindow/mainwindow.cpp" line="+77"/>
+        <source>Cannot start Tuned service via D-Bus call. Terminating.</source>
+        <translation>Не удалось запустить сервис Tuned при помощи D-Bus. Приложение будет завершено.</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+9"/>
+        <source>Tuned service is not running. Do you want to start it now?</source>
+        <translation>Сервис Tuned не запущен. Хотите ли вы запустить его прямо сейчас?</translation>
+    </message>
+    <message>
+        <location line="+47"/>
         <source>The active profile was switched to %1.</source>
         <translation>Активный профиль был переключен на %1.</translation>
     </message>
@@ -46,7 +51,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 <context>
     <name>TrayIcon</name>
     <message>
-        <location filename="../../src/tray/trayicon/trayicon.cpp" line="+40"/>
+        <location filename="../../src/tray/trayicon/trayicon.cpp" line="+55"/>
         <source>Tuned profile switcher</source>
         <translation>Переключатель профилей Tuned</translation>
     </message>
@@ -58,7 +63,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
     <message>
         <location line="+0"/>
         <source>The active profile was switched to %1.</source>
-        <translation>Текущий профиль был переключен на %1.</translation>
+        <translation>Активный профиль был переключен на %1.</translation>
     </message>
     <message>
         <location line="+5"/>
