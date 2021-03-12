@@ -9,6 +9,7 @@
 TrayIcon::TrayIcon(QWidget *parent) : QWidget(parent)
 {
     initializeTuned();
+    checkTunedRunning();
     setTrayIcon();
     markCurrentProfile();
     markAutoProfileMode();
@@ -23,6 +24,20 @@ TrayIcon::~TrayIcon()
 void TrayIcon::initializeTuned()
 {
     tunedManager = new TunedManager();
+}
+
+void TrayIcon::tryToStartTuned()
+{
+    if (tunedManager -> StartTuned())
+        QThread::sleep(2);
+    else
+        exit(EXIT_FAILURE);
+}
+
+void TrayIcon::checkTunedRunning()
+{
+    if (!tunedManager -> IsTunedRunning())
+        tryToStartTuned();
 }
 
 void TrayIcon::Show()

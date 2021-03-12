@@ -14,6 +14,7 @@
 #include <QSignalMapper>
 #include <QSignalMapper>
 #include <QSystemTrayIcon>
+#include <QThread>
 #include <QTranslator>
 #include <QWidget>
 
@@ -33,6 +34,8 @@ private slots:
     void exitEvent();
 private:
     void initializeTuned();
+    void tryToStartTuned();
+    void checkTunedRunning();
     void setTrayIcon();
     void markCurrentProfile();
     void markAutoProfileMode();
