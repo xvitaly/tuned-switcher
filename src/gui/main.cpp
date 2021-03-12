@@ -5,19 +5,16 @@
 */
 
 #include "mainwindow/mainwindow.h"
+#include "translationmanager/translationmanager.h"
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
     QApplication::setDesktopFileName(QT_STRINGIFY(TS_LAUNCHER_NAME));
 
-    QTranslator qtTranslator;
-    qtTranslator.load(QLocale(), "qt", "_", QLibraryInfo::location(QLibraryInfo::TranslationsPath));
-    a.installTranslator(&qtTranslator);
-
-    QTranslator appTranslator;
-    appTranslator.load(QLocale(), "tuned-switcher", "_", QLibraryInfo::location(QLibraryInfo::TranslationsPath));
-    a.installTranslator(&appTranslator);
+    TranslationManager translator = TranslationManager();
+    a.installTranslator(translator.GetQtTranslator());
+    a.installTranslator(translator.GetAppTranslator());
 
     MainWindow w;
     w.show();
