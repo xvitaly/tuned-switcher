@@ -9,6 +9,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    QApplication::setDesktopFileName(QT_STRINGIFY(TS_LAUNCHER_NAME));
 
     QTranslator qtTranslator;
     qtTranslator.load(QLocale(), "qt", "_", QLibraryInfo::location(QLibraryInfo::TranslationsPath));
