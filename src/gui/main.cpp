@@ -12,9 +12,9 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     QApplication::setDesktopFileName(QT_STRINGIFY(TS_LAUNCHER_NAME));
 
-    TranslationManager translator = TranslationManager();
-    a.installTranslator(translator.GetQtTranslator());
-    a.installTranslator(translator.GetAppTranslator());
+    TranslationManager *translator = new TranslationManager();
+    a.installTranslator(translator -> GetQtTranslator());
+    a.installTranslator(translator -> GetAppTranslator());
 
     MainWindow w;
     w.show();

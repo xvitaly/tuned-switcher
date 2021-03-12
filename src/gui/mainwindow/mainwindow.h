@@ -9,13 +9,11 @@
 
 #include <QApplication>
 #include <QGraphicsDropShadowEffect>
-#include <QLibraryInfo>
 #include <QMainWindow>
 #include <QMenu>
 #include <QMessageBox>
 #include <QMouseEvent>
 #include <QThread>
-#include <QTranslator>
 #include <QSettings>
 
 #include "tunedmanager/tunedmanager.h"
