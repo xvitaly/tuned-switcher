@@ -27,6 +27,7 @@ private:
     QTranslator* QtTranslator;
     QTranslator* AppTranslator;
     const QString AppName = QT_STRINGIFY(TS_PROJECT_NAME);
+    const QString LocaleDirectory = "/translations";
 };
 
 #endif // TRANSLATIONMANAGER_H

@@ -9,9 +9,9 @@
 QStringList TranslationManager::GetTranslationPaths() const
 {
     return QStringList()
-            << QDir::toNativeSeparators(QFileInfo(qApp -> applicationDirPath()).absoluteFilePath() + "/translations")
-            << QDir::toNativeSeparators(QString("%1/%2/translations").arg(QT_STRINGIFY(TS_DATAROOT_PREFIX), AppName))
-            << QDir::toNativeSeparators("/usr/share/tuned-switcher/translations");
+            << QDir::toNativeSeparators(QFileInfo(qApp -> applicationDirPath()).absoluteFilePath() + LocaleDirectory)
+            << QDir::toNativeSeparators(QT_STRINGIFY(TS_DATAROOT_PREFIX) "/" + AppName + LocaleDirectory)
+            << QDir::toNativeSeparators("/usr/share/" + AppName + LocaleDirectory);
 }
 
 QString TranslationManager::GetTranslationPath() const
