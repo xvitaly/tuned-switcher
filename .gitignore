@@ -46,3 +46,5 @@ CMakeLists.txt.user*
 # Build directory
 /build
 
+# Flatpak-builder state directory
+.flatpak-builder
