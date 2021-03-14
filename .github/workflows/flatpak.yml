@@ -1,0 +1,40 @@
+name: Flatpak
+
+on: [push]
+
+env:
+  FLATPAK_ID: org.easycoding.TunedSwitcher
+  FLATPAK_BRANCH: test
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: freedesktopsdk/flatpak:20.08-x86_64
+      options: --privileged --tmpfs /tmp -v /var/tmp -v /root/.local/share/flatpak
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build flatpak
+        uses: gasinvein/action-flatpak-build@master
+        id: build_flatpak
+        with:
+          kind: app
+          id: ${{ env.FLATPAK_ID }}
+          arch: x86_64
+          branch: ${{ env.FLATPAK_BRANCH }}
+          manifest-path: packaging/flatpak/${{ env.FLATPAK_ID }}.yml
+
+      - name: Create bundle
+        run: |
+          flatpak build-bundle \
+            ${{ steps.build_flatpak.outputs.build-repo }} \
+            ${FLATPAK_ID}-${{ github.sha }}.flatpak \
+            ${FLATPAK_ID} ${FLATPAK_BRANCH}
+
+      - name: Upload bundle
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ env.FLATPAK_ID }}-${{ github.sha }}
+          path: ${{ env.FLATPAK_ID }}-${{ github.sha }}.flatpak
