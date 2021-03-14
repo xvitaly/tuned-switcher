@@ -4,6 +4,10 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
 */
 
+/** @file tunedmanager/tunedmanager.cpp
+ * This file contains implementation of the TunedManager class.
+*/
+
 #include "tunedmanager.h"
 
 QString TunedManager::GetActiveProfile()
