@@ -14,8 +14,8 @@ set(GUI_NAME "${CMAKE_PROJECT_NAME}-gui")
 set(I18N_NAME "${CMAKE_PROJECT_NAME}-i18n")
 
 # Desktop files...
-set(APPLET_LAUNCHER "${SCHEME_NAME}.desktop")
-set(GUI_LAUNCHER "${SCHEME_NAME}.Applet.desktop")
+set(APPLET_LAUNCHER "${SCHEME_NAME}.Applet.desktop")
+set(GUI_LAUNCHER "${SCHEME_NAME}.desktop")
 
 # Metainfo files...
 set(APPDATA_MANIFEST "${SCHEME_NAME}.metainfo.xml")
