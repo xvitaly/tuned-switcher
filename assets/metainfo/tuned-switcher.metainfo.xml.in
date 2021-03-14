@@ -22,6 +22,6 @@ SPDX-License-Identifier: CC0-1.0
     </screenshots>
     <url type="homepage">https://www.easycoding.org/projects/tuned-switcher</url>
     <update_contact>https://github.com/EasyCoding/tuned-switcher</update_contact>
-    <launchable type="desktop-id">@GUI_LAUNCHER@</launchable>
+    <launchable type="desktop-id">@APPLET_LAUNCHER@</launchable>
     <content_rating type="oars-1.0" />
 </component>
