@@ -8,13 +8,15 @@ env:
 
 jobs:
   build:
+    name: Build Flatpak bundle
     runs-on: ubuntu-latest
     container:
       image: freedesktopsdk/flatpak:20.08-x86_64
       options: --privileged --tmpfs /tmp -v /var/tmp -v /root/.local/share/flatpak
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Fetch sources
+        uses: actions/checkout@v2
 
       - name: Build flatpak
         uses: gasinvein/action-flatpak-build@master
