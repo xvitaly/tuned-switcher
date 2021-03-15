@@ -19,6 +19,9 @@
 
 #include "tunedtypes/tunedtypes.h"
 
+/**
+ * Class for working with the Tuned service.
+*/
 class TunedManager : public QObject
 {
     Q_OBJECT

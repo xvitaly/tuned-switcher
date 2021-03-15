@@ -19,7 +19,7 @@
 #include <QTranslator>
 
 /**
- *  Class for working with localizations.
+ * Class for working with localizations.
 */
 class TranslationManager : public QObject
 {
