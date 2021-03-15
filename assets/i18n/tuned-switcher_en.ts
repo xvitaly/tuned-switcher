@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Tuned Switcher GUI</translation>
     </message>
     <message>
-        <location line="+46"/>
+        <location line="+37"/>
         <source>Performance profile:</source>
         <translation>Performance profile:</translation>
     </message>
@@ -28,7 +28,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Cancel</translation>
     </message>
     <message>
-        <location filename="../../src/gui/mainwindow/mainwindow.cpp" line="+77"/>
+        <location filename="../../src/gui/mainwindow/mainwindow.cpp" line="+81"/>
         <source>Cannot start Tuned service via D-Bus call. Terminating.</source>
         <translation>Cannot start Tuned service via D-Bus call. Terminating.</translation>
     </message>
@@ -51,7 +51,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 <context>
     <name>TrayIcon</name>
     <message>
-        <location filename="../../src/tray/trayicon/trayicon.cpp" line="+55"/>
+        <location filename="../../src/tray/trayicon/trayicon.cpp" line="+59"/>
         <source>Tuned profile switcher</source>
         <translation>Tuned profile switcher</translation>
     </message>
