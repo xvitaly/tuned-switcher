@@ -4,6 +4,10 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
 */
 
+/** @file trayicon.cpp
+ * This file contains implementation of the TrayIcon class.
+*/
+
 #include "trayicon.h"
 
 TrayIcon::TrayIcon(QWidget *parent) : QWidget(parent)

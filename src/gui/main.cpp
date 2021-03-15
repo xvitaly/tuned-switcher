@@ -5,7 +5,8 @@
 */
 
 /** @file main.cpp
- * This file contains main entry point implementation.
+ * This file contains the main entry point implementation
+ * of the GUI application.
 */
 
 #include "mainwindow/mainwindow.h"

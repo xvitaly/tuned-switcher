@@ -39,7 +39,6 @@ namespace Ui
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
-
 public:
     /**
      * Main constructor of the MainWindow class.
@@ -130,7 +129,7 @@ private:
     Ui::MainWindow *ui;
 
     /**
-     * Stores the TunedManager class instance.
+     * Stores pointer to the TunedManager class instance.
     */
     TunedManager *tunedManager;
 
