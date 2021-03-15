@@ -56,7 +56,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/*.desktop
 %{_metainfodir}/*.metainfo.xml
 
 %changelog
-* Fri Mar 12 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 0.2.0-1
+* Mon Mar 15 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 0.2.0-1
 - Updated to version 0.2.0.
 
 * Thu Mar 04 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 0.1.0-1
