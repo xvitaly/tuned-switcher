@@ -7,3 +7,4 @@
 include(GNUInstallDirs)
 include(FindPackageHandleStandardArgs)
 include(cmake/FindQt.cmake)
+include(cmake/FindDoxygen.cmake)
