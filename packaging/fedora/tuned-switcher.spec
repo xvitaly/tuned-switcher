@@ -14,6 +14,7 @@ Source0: %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
 BuildRequires: cmake(Qt5Core)
 BuildRequires: cmake(Qt5DBus)
 BuildRequires: cmake(Qt5Gui)
+BuildRequires: cmake(Qt5LinguistTools)
 BuildRequires: cmake(Qt5Widgets)
 
 BuildRequires: cmake
