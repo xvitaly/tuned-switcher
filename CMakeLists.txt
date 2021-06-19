@@ -12,6 +12,7 @@ project(tuned-switcher
     HOMEPAGE_URL "https://github.com/EasyCoding/tuned-switcher"
     LANGUAGES CXX
 )
+set(RELEASE_DATE "2021-03-15")
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
