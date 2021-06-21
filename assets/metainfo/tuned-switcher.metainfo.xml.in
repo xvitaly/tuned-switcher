@@ -15,7 +15,7 @@ SPDX-License-Identifier: CC0-1.0
         </p>
         <p>
             Tuned is a daemon for monitoring and adaptive tuning of system devices.
-            In order to use this program, this daemon must be installed on your system.
+            In order to use this program, a daemon must be installed on your system.
         </p>
     </description>
     <screenshots>
