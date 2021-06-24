@@ -8,6 +8,7 @@
 set(SCHEME_NAME "org.easycoding.TunedSwitcher")
 
 # Internal names...
+set(APP_NAME "${CMAKE_PROJECT_NAME}")
 set(LIB_NAME "${CMAKE_PROJECT_NAME}-lib")
 set(I18N_NAME "${CMAKE_PROJECT_NAME}-i18n")
 set(DOCS_NAME "${CMAKE_PROJECT_NAME}-docs")

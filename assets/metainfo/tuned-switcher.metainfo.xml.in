@@ -26,7 +26,7 @@ SPDX-License-Identifier: CC0-1.0
     <url type="homepage">@CMAKE_PROJECT_HOMEPAGE_URL@</url>
     <url type="bugtracker">@CMAKE_PROJECT_HOMEPAGE_URL@/issues</url>
     <update_contact>@CMAKE_PROJECT_HOMEPAGE_URL@</update_contact>
-    <launchable type="desktop-id">@APPLET_LAUNCHER@</launchable>
+    <launchable type="desktop-id">@LAUNCHER_NAME@</launchable>
     <content_rating type="oars-1.0" />
     <releases>
         <release version="@CMAKE_PROJECT_VERSION@" date="@RELEASE_DATE@" />

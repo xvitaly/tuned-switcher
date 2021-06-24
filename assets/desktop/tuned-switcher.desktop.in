@@ -5,5 +5,5 @@ GenericName=Tuned profile switcher
 Categories=Utility;
 Comment=Simple utility to manipulate the Tuned service
 Icon=@SCHEME_NAME@
-Exec=@CMAKE_PROJECT_NAME@
+Exec=@APP_NAME@
 Terminal=false
