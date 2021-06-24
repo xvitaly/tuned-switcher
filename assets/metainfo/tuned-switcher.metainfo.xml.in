@@ -27,6 +27,7 @@ SPDX-License-Identifier: CC0-1.0
     <url type="bugtracker">@CMAKE_PROJECT_HOMEPAGE_URL@/issues</url>
     <update_contact>@CMAKE_PROJECT_HOMEPAGE_URL@</update_contact>
     <launchable type="desktop-id">@LAUNCHER_NAME@</launchable>
+    <developer_name>EasyCoding Team and contributors</developer_name>
     <content_rating type="oars-1.0" />
     <releases>
         <release version="@CMAKE_PROJECT_VERSION@" date="@RELEASE_DATE@" />
