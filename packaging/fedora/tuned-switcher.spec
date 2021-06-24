@@ -35,9 +35,7 @@ Tuned Switcher is a simple utility to manipulate the Tuned service.
 %build
 %cmake -G Ninja \
     -DCMAKE_BUILD_TYPE=Release \
-    -DBUILD_APPLET:BOOL=ON \
-    -DBUILD_DOCS:BOOL=OFF \
-    -DBUILD_GUI:BOOL=ON
+    -DBUILD_DOCS:BOOL=OFF
 %cmake_build
 
 %check
@@ -51,7 +49,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/*.desktop
 %files -f %{name}.lang
 %doc README.md
 %license COPYING
-%{_bindir}/%{name}*
+%{_bindir}/%{name}
 %{_datadir}/applications/*.desktop
 %{_datadir}/icons/hicolor/*/apps/*.*
 %{_metainfodir}/*.metainfo.xml
