@@ -10,7 +10,9 @@
 [![GitHub issues](https://img.shields.io/github/issues/EasyCoding/tuned-switcher.svg?label=issues)](https://github.com/EasyCoding/tuned-switcher/issues)
 ---
 
-Tuned Switcher is a simple utility to manipulate the Tuned service.
+Tuned Switcher is a simple utility to manipulate the [Tuned service](https://github.com/redhat-performance/tuned).
+
+Tuned is a daemon for monitoring and adaptive tuning of system devices. In order to use this program, a daemon must be installed on your system.
 
 ## Downloads
 
