@@ -12,6 +12,10 @@
 
 Tuned Switcher is a simple utility to manipulate the Tuned service.
 
+## Downloads
+
+<a href="https://flathub.org/apps/details/org.easycoding.TunedSwitcher"><img width="240" alt="Download on Flathub" src="https://flathub.org/assets/badges/flathub-badge-en.svg"></img></a>
+
 ## License
 GNU General Public License version 3. You can find it here: [LICENSE](LICENSE).
 
