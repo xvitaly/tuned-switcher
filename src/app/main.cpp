@@ -11,6 +11,7 @@
 
 #include "trayicon/trayicon.h"
 #include "translationmanager/translationmanager.h"
+#include "mainwindow/mainwindow.h"
 
 /**
  * The main entry point.
@@ -26,8 +27,16 @@ int main(int argc, char *argv[])
     a.installTranslator(translator -> GetQtTranslator());
     a.installTranslator(translator -> GetAppTranslator());
 
-    TrayIcon *trayIcon = new TrayIcon();
-    trayIcon -> Show();
+    if (QSystemTrayIcon::isSystemTrayAvailable())
+    {
+        TrayIcon *trayIcon = new TrayIcon();
+        trayIcon -> Show();
+    }
+    else
+    {
+        MainWindow *w = new MainWindow();
+        w -> show();
+    }
 
     return a.exec();
 }
