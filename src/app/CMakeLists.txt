@@ -8,11 +8,13 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
 set(SOURCES
+    trayicon/trayicon.cpp
     mainwindow/mainwindow.cpp
     main.cpp
 )
 
 set(HEADERS
+    trayicon/trayicon.h
     mainwindow/mainwindow.h
 )
 
@@ -43,6 +45,7 @@ add_dependencies(${APPLET_NAME} ${I18N_NAME})
 target_link_libraries(${GUI_NAME} PRIVATE ${EXTERNAL_LIBS})
 
 target_compile_definitions(${GUI_NAME} PRIVATE
+    TS_SCHEME_NAME=${SCHEME_NAME}
     TS_LAUNCHER_NAME=${GUI_LAUNCHER}
 )
 
