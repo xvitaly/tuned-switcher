@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../src/gui/mainwindow/mainwindow.ui" line="+21"/>
+        <location filename="../../src/app/mainwindow/mainwindow.ui" line="+21"/>
         <source>Tuned Switcher GUI</source>
         <translation>Tuned Switcher GUI</translation>
     </message>
@@ -28,7 +28,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Отмена</translation>
     </message>
     <message>
-        <location filename="../../src/gui/mainwindow/mainwindow.cpp" line="+81"/>
+        <location filename="../../src/app/mainwindow/mainwindow.cpp" line="+81"/>
         <source>Cannot start Tuned service via D-Bus call. Terminating.</source>
         <translation>Не удалось запустить сервис Tuned при помощи D-Bus. Приложение будет завершено.</translation>
     </message>
@@ -51,7 +51,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 <context>
     <name>TrayIcon</name>
     <message>
-        <location filename="../../src/tray/trayicon/trayicon.cpp" line="+59"/>
+        <location filename="../../src/app/trayicon/trayicon.cpp" line="+59"/>
         <source>Tuned profile switcher</source>
         <translation>Переключатель профилей Tuned</translation>
     </message>
