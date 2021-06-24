@@ -22,9 +22,4 @@ include(cmake/Settings.cmake)
 include(cmake/External.cmake)
 
 add_subdirectory("assets")
-
-include_directories("src/lib")
-add_subdirectory("src/lib")
-
-include_directories("src/app")
-add_subdirectory("src/app")
+add_subdirectory("src")
