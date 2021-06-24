@@ -12,7 +12,7 @@ finish-args:
   - --talk-name=org.freedesktop.Notifications
   - --talk-name=org.kde.StatusNotifierWatcher
   - --own-name=org.kde.StatusNotifierItem-2-1
-command: tuned-switcher-applet
+command: tuned-switcher
 modules:
   - name: tuned-switcher
     buildsystem: cmake-ninja
