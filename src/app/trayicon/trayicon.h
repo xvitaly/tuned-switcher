@@ -18,6 +18,7 @@
 #include <QThread>
 #include <QWidget>
 
+#include "appconstants/appconstants.h"
 #include "tunedmanager/tunedmanager.h"
 
 /**

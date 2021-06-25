@@ -57,7 +57,7 @@ void MainWindow::mouseReleaseEvent(QMouseEvent* event)
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
-    QSettings settings(AppProductCompany, AppProductNameInternal);
+    QSettings settings(AppConstants::ProductCompany, AppConstants::ProductNameInternal);
     settings.setValue("geometry", saveGeometry());
     settings.setValue("windowState", saveState());
     settings.sync();
@@ -74,11 +74,11 @@ void MainWindow::tryToStartTuned()
     if (tunedManager -> StartTuned())
     {
         // Sleep to allow Tuned service to be initialized correctly.
-        QThread::sleep(2);
+        QThread::sleep(AppConstants::SleepTime);
     }
     else
     {
-        QMessageBox::critical(this, AppProductName, tr("Cannot start Tuned service via D-Bus call. Terminating."));
+        QMessageBox::critical(this, AppConstants::ProductName, tr("Cannot start Tuned service via D-Bus call. Terminating."));
         exit(EXIT_FAILURE);
     }
 }
@@ -87,7 +87,7 @@ void MainWindow::checkTunedRunning()
 {
     if (!tunedManager -> IsTunedRunning())
     {
-        if (QMessageBox::question(this, AppProductName, tr("Tuned service is not running. Do you want to start it now?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::Yes)
+        if (QMessageBox::question(this, AppConstants::ProductName, tr("Tuned service is not running. Do you want to start it now?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::Yes)
             tryToStartTuned();
         else
             exit(EXIT_FAILURE);
@@ -101,7 +101,7 @@ void MainWindow::getTunedProfiles()
 
 void MainWindow::loadSettings()
 {
-    QSettings settings(AppProductCompany, AppProductNameInternal);
+    QSettings settings(AppConstants::ProductCompany, AppConstants::ProductNameInternal);
     restoreGeometry(settings.value("geometry").toByteArray());
     restoreState(settings.value("windowState").toByteArray());
 }
@@ -134,9 +134,9 @@ void MainWindow::on_ButtonApply_clicked()
     QString profile = ui -> ProfileSelector -> currentText();
     QTunedResult result = tunedManager -> SetActiveProfile(profile);
     if (result.Success)
-        QMessageBox::information(this, AppProductName, tr("The active profile was switched to %1.").arg(profile));
+        QMessageBox::information(this, AppConstants::ProductName, tr("The active profile was switched to %1.").arg(profile));
     else
-        QMessageBox::critical(this, AppProductName, tr("Failed to switch profile: %1").arg(result.Message));
+        QMessageBox::critical(this, AppConstants::ProductName, tr("Failed to switch profile: %1").arg(result.Message));
 }
 
 void MainWindow::on_ButtonCancel_clicked()

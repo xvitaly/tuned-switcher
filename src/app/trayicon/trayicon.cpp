@@ -33,7 +33,7 @@ void TrayIcon::initializeTuned()
 void TrayIcon::tryToStartTuned()
 {
     if (tunedManager -> StartTuned())
-        QThread::sleep(2);
+        QThread::sleep(AppConstants::SleepTime);
     else
         exit(EXIT_FAILURE);
 }
@@ -54,7 +54,7 @@ void TrayIcon::setTrayIcon()
 {
     // Setting tray icon...
     trayIcon = new QSystemTrayIcon(this);
-    trayIcon -> setIcon(QIcon::fromTheme(QT_STRINGIFY(TS_SCHEME_NAME), QIcon(":/icons/tray.png")));
+    trayIcon -> setIcon(QIcon::fromTheme(AppConstants::DomanSchemeName, QIcon(":/icons/tray.png")));
     trayIcon -> setContextMenu(createTrayIconMenu());
     trayIcon -> setToolTip(tr("Tuned profile switcher"));
 }

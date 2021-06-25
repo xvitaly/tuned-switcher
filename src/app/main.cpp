@@ -21,7 +21,7 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    QApplication::setDesktopFileName(QT_STRINGIFY(TS_LAUNCHER_NAME));
+    QApplication::setDesktopFileName(AppConstants::LauncherName);
 
     TranslationManager *translator = new TranslationManager();
     a.installTranslator(translator -> GetQtTranslator());

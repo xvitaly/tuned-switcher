@@ -20,6 +20,7 @@
 #include <QThread>
 #include <QSettings>
 
+#include "appconstants/appconstants.h"
 #include "tunedmanager/tunedmanager.h"
 
 /**
@@ -147,21 +148,6 @@ private:
      * Stores the form moving state.
     */
     bool mMoving;
-
-    /**
-     * Stores application company name.
-    */
-    const QString AppProductCompany = "EasyCoding";
-
-    /**
-     * Stores application internal name.
-    */
-    const QString AppProductNameInternal = "TunedSwitcher";
-
-    /**
-     * Stores application public name.
-    */
-    const QString AppProductName = "Tuned Switcher";
 };
 
 #endif // MAINWINDOW_H
