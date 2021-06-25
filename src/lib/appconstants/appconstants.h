@@ -8,56 +8,53 @@
 #define APPSTRINGS_H
 
 /** @file appconstants/appconstants.h
- * This file contains AppConstants class structure.
+ * This file contains AppConstants namespace.
 */
 
-#include <QObject>
+#include <QString>
 
 /**
- * Class for working with various constants used in project.
+ * Namespace for working with various constants used in project.
 */
-class AppConstants : public QObject
-{
-    Q_OBJECT
-public:
+namespace AppConstants {
     /**
      * Stores application company name.
      * Used as settings directory name.
     */
-    static const QString ProductCompany;
+    const QString ProductCompany = QStringLiteral("EasyCoding");
 
     /**
      * Stores application public name.
      * Used as public name in different dialogs.
     */
-    static const QString ProductName;
+    const QString ProductName = QStringLiteral("Tuned Switcher");
 
     /**
      * Stores application internal name (for the settings project name).
      * Used as settings project name.
     */
-    static const QString ProductNameInternal;
+    const QString ProductNameInternal = QStringLiteral(QT_STRINGIFY(TS_PROJECT_NAME));
 
     /**
      * Stores application launcher (.desktop) file name.
     */
-    static const QString LauncherName;
+    const QString LauncherName = QStringLiteral(QT_STRINGIFY(TS_LAUNCHER_NAME));
 
     /**
      * Stores application reverse domain scheme name.
     */
-    static const QString DomainSchemeName;
+    const QString DomainSchemeName = QStringLiteral(QT_STRINGIFY(TS_SCHEME_NAME));
 
     /**
      * Stores data root directory installation prefix.
     */
-    static const QString DataRootPrefix;
+    const QString DataRootPrefix = QStringLiteral(QT_STRINGIFY(TS_DATAROOT_PREFIX)"/");
 
     /**
      * Stores default application sleep time before trying to
      * fetch available Tuned profiles.
     */
-    static const int SleepTime = 2;
-};
+    const int SleepTime = 2;
+}
 
 #endif // APPSTRINGS_H

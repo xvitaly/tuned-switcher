@@ -7,7 +7,6 @@
 set(CMAKE_AUTOMOC ON)
 
 set(SOURCES
-    appconstants/appconstants.cpp
     tunedtypes/tunedtypes.cpp
     translationmanager/translationmanager.cpp
     tunedmanager/tunedmanager.cpp
