@@ -18,6 +18,8 @@
 #include <QLibraryInfo>
 #include <QTranslator>
 
+#include "appconstants/appconstants.h"
+
 /**
  * Class for working with localizations.
 */
@@ -67,15 +69,9 @@ private:
     QTranslator* AppTranslator;
 
     /**
-     * Stores an internal project name for the localization
-     * purposes (will be used as directory name).
-    */
-    const QString AppName = QT_STRINGIFY(TS_PROJECT_NAME);
-
-    /**
      * Stores an internal translation directory name.
     */
-    const QString LocaleDirectory = "/translations";
+    const QString LocaleDirectory = QStringLiteral("/translations");
 };
 
 #endif // TRANSLATIONMANAGER_H

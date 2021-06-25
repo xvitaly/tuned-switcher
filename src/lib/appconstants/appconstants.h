@@ -27,16 +27,16 @@ public:
     static const QString ProductCompany;
 
     /**
-     * Stores application internal name (for the settings project name).
-     * Used as settings project name.
-    */
-    static const QString ProductNameInternal;
-
-    /**
      * Stores application public name.
      * Used as public name in different dialogs.
     */
     static const QString ProductName;
+
+    /**
+     * Stores application internal name (for the settings project name).
+     * Used as settings project name.
+    */
+    static const QString ProductNameInternal;
 
     /**
      * Stores application launcher (.desktop) file name.
@@ -46,7 +46,12 @@ public:
     /**
      * Stores application reverse domain scheme name.
     */
-    static const QString DomanSchemeName;
+    static const QString DomainSchemeName;
+
+    /**
+     * Stores data root directory installation prefix.
+    */
+    static const QString DataRootPrefix;
 
     /**
      * Stores default application sleep time before trying to

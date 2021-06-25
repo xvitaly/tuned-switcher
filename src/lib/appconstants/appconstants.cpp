@@ -11,7 +11,8 @@
 #include "appconstants.h"
 
 const QString AppConstants::ProductCompany = QStringLiteral("EasyCoding");
-const QString AppConstants::ProductNameInternal = QStringLiteral("TunedSwitcher");
 const QString AppConstants::ProductName = QStringLiteral("Tuned Switcher");
+const QString AppConstants::ProductNameInternal = QStringLiteral(QT_STRINGIFY(TS_PROJECT_NAME));
 const QString AppConstants::LauncherName = QStringLiteral(QT_STRINGIFY(TS_LAUNCHER_NAME));
-const QString AppConstants::DomanSchemeName = QStringLiteral(QT_STRINGIFY(TS_SCHEME_NAME));
+const QString AppConstants::DomainSchemeName = QStringLiteral(QT_STRINGIFY(TS_SCHEME_NAME));
+const QString AppConstants::DataRootPrefix = QStringLiteral(QT_STRINGIFY(TS_DATAROOT_PREFIX)"/");
