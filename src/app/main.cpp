@@ -4,9 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-/** @file main.cpp
+/** @file app/main.cpp
  * This file contains the main entry point implementation
- * of the Applet application.
+ * of the application.
 */
 
 #include "trayicon/trayicon.h"

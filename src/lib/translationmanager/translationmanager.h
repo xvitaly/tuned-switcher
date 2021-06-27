@@ -7,7 +7,7 @@
 #ifndef TRANSLATIONMANAGER_H
 #define TRANSLATIONMANAGER_H
 
-/** @file translationmanager/translationmanager.h
+/** @file lib/translationmanager/translationmanager.h
  * This file contains TranslationManager class structure.
 */
 

@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-/** @file trayicon.cpp
+/** @file app/trayicon/trayicon.cpp
  * This file contains implementation of the TrayIcon class.
 */
 

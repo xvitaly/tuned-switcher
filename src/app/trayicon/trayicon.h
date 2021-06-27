@@ -7,7 +7,7 @@
 #ifndef TRAYICON_H
 #define TRAYICON_H
 
-/** @file trayicon.h
+/** @file app/trayicon/trayicon.h
  * This file contains TrayIcon class structure.
 */
 

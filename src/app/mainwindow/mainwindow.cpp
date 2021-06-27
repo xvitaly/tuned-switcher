@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-/** @file mainwindow.cpp
+/** @file app/mainwindow/mainwindow.cpp
  * This file contains implementation of the MainWindow class.
 */
 

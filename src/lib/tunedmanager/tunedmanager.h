@@ -7,7 +7,7 @@
 #ifndef TUNEDMANAGER_H
 #define TUNEDMANAGER_H
 
-/** @file tunedmanager/tunedmanager.h
+/** @file lib/tunedmanager/tunedmanager.h
  * This file contains TunedManager class structure.
 */
 

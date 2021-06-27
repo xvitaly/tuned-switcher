@@ -4,7 +4,7 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-/** @file tunedmanager/tunedmanager.cpp
+/** @file lib/tunedmanager/tunedmanager.cpp
  * This file contains implementation of the TunedManager class.
 */
 

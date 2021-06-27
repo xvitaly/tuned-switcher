@@ -7,7 +7,7 @@
 #ifndef TUNEDTYPES_H
 #define TUNEDTYPES_H
 
-/** @file tunedtypes/tunedtypes.h
+/** @file lib/tunedtypes/tunedtypes.h
  * This file contains special structures for use in other classes.
 */
 
