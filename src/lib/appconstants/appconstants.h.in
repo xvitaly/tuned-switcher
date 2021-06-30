@@ -33,22 +33,22 @@ namespace AppConstants {
      * Stores application internal name (for the settings project name).
      * Used as settings project name.
     */
-    const QString ProductNameInternal = QStringLiteral(QT_STRINGIFY(TS_PROJECT_NAME));
+    const QString ProductNameInternal = QStringLiteral("@CMAKE_PROJECT_NAME@");
 
     /**
      * Stores application launcher (.desktop) file name.
     */
-    const QString LauncherName = QStringLiteral(QT_STRINGIFY(TS_LAUNCHER_NAME));
+    const QString LauncherName = QStringLiteral("@LAUNCHER_NAME@");
 
     /**
      * Stores application reverse domain scheme name.
     */
-    const QString DomainSchemeName = QStringLiteral(QT_STRINGIFY(TS_SCHEME_NAME));
+    const QString DomainSchemeName = QStringLiteral("@SCHEME_NAME@");
 
     /**
      * Stores data root directory installation prefix.
     */
-    const QString DataRootPrefix = QStringLiteral(QT_STRINGIFY(TS_DATAROOT_PREFIX)"/");
+    const QString DataRootPrefix = QStringLiteral("@CMAKE_INSTALL_FULL_DATAROOTDIR@/");
 
     /**
      * Stores default application sleep time before trying to

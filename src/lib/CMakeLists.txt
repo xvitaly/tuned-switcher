@@ -13,10 +13,15 @@ set(SOURCES
 )
 
 set(HEADERS
-    appconstants/appconstants.h
     tunedtypes/tunedtypes.h
     translationmanager/translationmanager.h
     tunedmanager/tunedmanager.h
+)
+
+configure_file(
+    "appconstants/appconstants.h.in"
+    "generated/appconstants/appconstants.h"
+    @ONLY
 )
 
 set(INTERNAL_LIBS
@@ -34,11 +39,5 @@ add_library(${LIB_NAME} STATIC
     ${INTERNAL_LIBS}
 )
 
+target_include_directories(${LIB_NAME} PUBLIC "${CMAKE_CURRENT_BINARY_DIR}/generated")
 target_link_libraries(${LIB_NAME} PRIVATE ${EXTERNAL_LIBS})
-
-target_compile_definitions(${LIB_NAME} PRIVATE
-    TS_PROJECT_NAME=${CMAKE_PROJECT_NAME}
-    TS_DATAROOT_PREFIX=${CMAKE_INSTALL_FULL_DATAROOTDIR}
-    TS_SCHEME_NAME=${SCHEME_NAME}
-    TS_LAUNCHER_NAME=${LAUNCHER_NAME}
-)
