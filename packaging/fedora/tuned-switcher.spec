@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 
 Name: tuned-switcher
-Version: 0.2.1
+Version: 0.3.0
 Release: 1%{?dist}
 
 # Main code - GPLv3+.
@@ -29,6 +29,9 @@ Requires: tuned
 %description
 Tuned Switcher is a simple utility to manipulate the Tuned service.
 
+Tuned is a daemon for monitoring and adaptive tuning of system devices.
+In order to use this program, a daemon must be installed on your system.
+
 %prep
 %autosetup -p1
 
@@ -55,5 +58,5 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/*.desktop
 %{_metainfodir}/*.metainfo.xml
 
 %changelog
-* Mon Jun 21 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 0.2.1-1
-- Updated to version 0.2.1.
+* Thu Jul 01 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 0.3.0-1
+- Updated to version 0.3.0.
