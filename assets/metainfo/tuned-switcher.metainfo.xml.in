@@ -20,11 +20,11 @@ SPDX-License-Identifier: CC0-1.0
     </description>
     <screenshots>
         <screenshot type="default">
-            <caption>Tuned Switcher applet.</caption>
+            <caption>Tuned Switcher applet</caption>
             <image>https://www.easycoding.org/files/images/tuned-switcher-applet.png</image>
         </screenshot>
         <screenshot>
-            <caption>Tuned Switcher notification.</caption>
+            <caption>Tuned Switcher notification</caption>
             <image>https://www.easycoding.org/files/images/tuned-switcher-notification.png</image>
         </screenshot>
     </screenshots>
