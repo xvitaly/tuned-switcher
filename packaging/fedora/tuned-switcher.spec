@@ -51,7 +51,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/*.desktop
 
 %files -f %{name}.lang
 %doc docs/*
-%license COPYING
+%license COPYING licenses/*
 %{_bindir}/%{name}
 %{_datadir}/applications/*.desktop
 %{_datadir}/icons/hicolor/*/apps/*.*

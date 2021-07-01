@@ -21,7 +21,7 @@ Tuned is a daemon for monitoring and adaptive tuning of system devices. In order
 # License
 GNU General Public License version 3. You can find it here: [LICENSE](LICENSE).
 
-Icon from the [Noto Emoji](https://github.com/googlefonts/noto-emoji) font, licensed under the terms of the [Apache License 2.0](https://github.com/googlefonts/noto-emoji/blob/main/LICENSE).
+Icon from the [Noto Emoji](https://github.com/googlefonts/noto-emoji) font, licensed under the terms of the [Apache License 2.0](licenses/noto-emoji.LICENSE.txt).
 
 # Documentation
 
