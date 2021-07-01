@@ -40,8 +40,19 @@ set(EXTERNAL_LIBS
     ${LIB_NAME}
 )
 
-add_executable(${APP_NAME} ${INTERNAL_LIBS})
-add_dependencies(${APP_NAME} ${I18N_NAME})
-target_link_libraries(${APP_NAME} PRIVATE ${EXTERNAL_LIBS})
+add_executable(${APP_NAME}
+    ${INTERNAL_LIBS}
+)
 
-install(TARGETS ${APP_NAME} RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" BUNDLE DESTINATION "${CMAKE_INSTALL_BINDIR}")
+add_dependencies(${APP_NAME}
+    ${I18N_NAME}
+)
+
+target_link_libraries(${APP_NAME} PRIVATE
+    ${EXTERNAL_LIBS}
+)
+
+install(TARGETS ${APP_NAME}
+    RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
+    BUNDLE DESTINATION "${CMAKE_INSTALL_BINDIR}"
+)
