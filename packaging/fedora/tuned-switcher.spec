@@ -50,7 +50,7 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/*.desktop
 %find_lang %{name} --with-qt
 
 %files -f %{name}.lang
-%doc README.md
+%doc docs/*
 %license COPYING
 %{_bindir}/%{name}
 %{_datadir}/applications/*.desktop
