@@ -105,87 +105,87 @@ private:
     /**
      * Stores the Tuned DBus interface name.
     */
-    const QString TunedBusName = "com.redhat.tuned";
+    const QString TunedBusName = QStringLiteral("com.redhat.tuned");
 
     /**
      * Stores the Tuned DBus object path.
     */
-    const QString TunedBusPath = "/Tuned";
+    const QString TunedBusPath = QStringLiteral("/Tuned");
 
     /**
      * Stores the Tuned DBus interface.
     */
-    const QString TunedBusInterface = "com.redhat.tuned.control";
+    const QString TunedBusInterface = QStringLiteral("com.redhat.tuned.control");
 
     /**
      * Stores the Tuned DBus ActiveProfile method name.
     */
-    const QString TunedBusMethodNameActiveProfile = "active_profile";
+    const QString TunedBusMethodNameActiveProfile = QStringLiteral("active_profile");
 
     /**
      * Stores the Tuned DBus AvailableProfiles method name.
     */
-    const QString TunedBusMethodNameProfiles = "profiles";
+    const QString TunedBusMethodNameProfiles = QStringLiteral("profiles");
 
     /**
      * Stores the Tuned DBus SwitchProfile method name.
     */
-    const QString TunedBusMethodNameSwitchProfile = "switch_profile";
+    const QString TunedBusMethodNameSwitchProfile = QStringLiteral("switch_profile");
 
     /**
      * Stores the Tuned DBus SetProfileMode method name.
     */
-    const QString TunedBusMethodNameProfileMode = "profile_mode";
+    const QString TunedBusMethodNameProfileMode = QStringLiteral("profile_mode");
 
     /**
      * Stores the Tuned DBus AutoProfile method name.
     */
-    const QString TunedBusMethodNameAutoProfile = "auto_profile";
+    const QString TunedBusMethodNameAutoProfile = QStringLiteral("auto_profile");
 
     /**
      * Stores the Tuned DBus ProfileChanged signal name.
     */
-    const QString TunedBusSignalNameProfileChanged = "profile_changed";
+    const QString TunedBusSignalNameProfileChanged = QStringLiteral("profile_changed");
 
     /**
      * Stores the Tuned DBus AvailableProfiles2 method name.
     */
-    const QString TunedBusMethodNameProfiles2 = "profiles2";
+    const QString TunedBusMethodNameProfiles2 = QStringLiteral("profiles2");
 
     /**
      * Stores the Systemd DBus interface name.
     */
-    const QString SystemdBusName = "org.freedesktop.systemd1";
+    const QString SystemdBusName = QStringLiteral("org.freedesktop.systemd1");
 
     /**
      * Stores the Systemd DBus object path.
     */
-    const QString SystemdBusPath = "/org/freedesktop/systemd1";
+    const QString SystemdBusPath = QStringLiteral("/org/freedesktop/systemd1");
 
     /**
      * Stores the Systemd DBus interface.
     */
-    const QString SystemdBusInterface = "org.freedesktop.systemd1.Manager";
+    const QString SystemdBusInterface = QStringLiteral("org.freedesktop.systemd1.Manager");
 
     /**
      * Stores the Systemd DBus MethodNameStart method name.
     */
-    const QString SystemdBusMethodNameStart = "StartUnit";
+    const QString SystemdBusMethodNameStart = QStringLiteral("StartUnit");
 
     /**
      * Stores the Systemd DBus MethodNameStop method name.
     */
-    const QString SystemdBusMethodNameStop = "StopUnit";
+    const QString SystemdBusMethodNameStop = QStringLiteral("StopUnit");
 
     /**
      * Stores the Tuned Systemd service name.
     */
-    const QString SystemdTunedServiceName = "tuned.service";
+    const QString SystemdTunedServiceName = QStringLiteral("tuned.service");
 
     /**
      * Stores the Systemd start/stop service mode.
     */
-    const QString SystemdTunedServiceMode = "replace";
+    const QString SystemdTunedServiceMode = QStringLiteral("replace");
 
     /**
      * Stores DBus instance.
