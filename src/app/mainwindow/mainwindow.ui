@@ -13,15 +13,15 @@ SPDX-License-Identifier: GPL-3.0-or-later
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>272</width>
-    <height>121</height>
+    <width>288</width>
+    <height>77</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Tuned Switcher GUI</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../resources.qrc">
+   <iconset>
     <normaloff>:/icons/window.png</normaloff>:/icons/window.png</iconset>
   </property>
   <property name="styleSheet">
@@ -41,6 +41,21 @@ SPDX-License-Identifier: GPL-3.0-or-later
   </property>
   <widget class="QWidget" name="WidgetCentral">
    <layout class="QVBoxLayout" name="verticalLayout_3">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
     <item>
      <widget class="QWidget" name="WidgetMain" native="true">
       <property name="locale">
@@ -50,38 +65,34 @@ SPDX-License-Identifier: GPL-3.0-or-later
        <item>
         <layout class="QVBoxLayout" name="LayoutHorisontal">
          <item>
-          <widget class="QLabel" name="ProfileLabel">
-           <property name="locale">
-            <locale language="English" country="UnitedStates"/>
-           </property>
-           <property name="text">
-            <string>Performance profile:</string>
-           </property>
-          </widget>
+          <layout class="QHBoxLayout" name="LayoutVertical">
+           <item>
+            <widget class="QLabel" name="ProfileLabel">
+             <property name="locale">
+              <locale language="English" country="UnitedStates"/>
+             </property>
+             <property name="text">
+              <string>Performance profile:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="ButtonCancel">
+             <property name="maximumSize">
+              <size>
+               <width>24</width>
+               <height>24</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>X</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
          <item>
           <widget class="QComboBox" name="ProfileSelector"/>
-         </item>
-        </layout>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="LayoutVertical">
-         <item>
-          <widget class="QPushButton" name="ButtonApply">
-           <property name="locale">
-            <locale language="English" country="UnitedStates"/>
-           </property>
-           <property name="text">
-            <string>Apply</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="ButtonCancel">
-           <property name="text">
-            <string>Cancel</string>
-           </property>
-          </widget>
          </item>
         </layout>
        </item>
@@ -92,8 +103,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources>
-  <include location="../resources.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
