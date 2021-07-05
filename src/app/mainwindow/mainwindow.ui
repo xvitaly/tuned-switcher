@@ -20,10 +20,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
   <property name="windowTitle">
    <string>Tuned Switcher GUI</string>
   </property>
-  <property name="windowIcon">
-   <iconset>
-    <normaloff>:/icons/window.png</normaloff>:/icons/window.png</iconset>
-  </property>
   <property name="styleSheet">
    <string notr="true">QWidget#WidgetMain
 {

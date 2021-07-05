@@ -121,6 +121,7 @@ void MainWindow::loadSettings()
 void MainWindow::setFormStyle()
 {
     // Setting form style...
+    setWindowIcon(QIcon::fromTheme(AppConstants::DomainSchemeName, QIcon(":/icons/widget.png")));
     setWindowFlags(Qt::FramelessWindowHint);
     setAttribute(Qt::WA_TranslucentBackground);
 
