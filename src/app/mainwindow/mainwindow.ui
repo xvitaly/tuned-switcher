@@ -27,10 +27,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
   <property name="styleSheet">
    <string notr="true">QWidget#WidgetMain
 {
-	border-style: solid;
+	border-style: none;
 	border-top-style: none;
 	border-width: 1px;
-	border-color: rgb(0, 100, 150);
+	border-color: rgb(255, 255, 255);
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
 	border-bottom-left-radius: 5px;
 	border-bottom-right-radius: 5px;
 	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(128, 128, 128, 255), stop:1 rgba(225, 225, 225, 180));
