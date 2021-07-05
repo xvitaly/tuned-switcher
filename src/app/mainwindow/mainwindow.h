@@ -52,7 +52,7 @@ public:
     */
     ~MainWindow();
 
-private slots:
+protected slots:
     /**
      * Mouse move event slot (handler).
      * @param event Event object instance.
@@ -77,6 +77,13 @@ private slots:
     */
     void closeEvent(QCloseEvent*);
 
+    /**
+     * Key pressed event slot (handler).
+     * @param event Event object instance.
+    */
+    void keyPressEvent(QKeyEvent*);
+
+private slots:
     /**
      * "Profile selected" event slot (handler).
     */

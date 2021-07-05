@@ -64,6 +64,18 @@ void MainWindow::closeEvent(QCloseEvent *event)
     QMainWindow::closeEvent(event);
 }
 
+void MainWindow::keyPressEvent(QKeyEvent *event)
+{
+    switch (event -> key())
+    {
+        case Qt::Key_Escape:
+            close();
+            break;
+        default:
+            QMainWindow::keyPressEvent(event);
+    }
+}
+
 void MainWindow::initializeTuned()
 {
     tunedManager = new TunedManager();
