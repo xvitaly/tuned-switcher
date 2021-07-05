@@ -5,7 +5,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 <RCC>
     <qresource prefix="/icons">
-        <file alias="tray.png">../../assets/icons/icon-48.png</file>
-        <file alias="widget.png">../../assets/icons/icon-64.png</file>
+        <file alias="fallback.png">../../assets/icons/icon-48.png</file>
     </qresource>
 </RCC>
