@@ -129,9 +129,8 @@ void MainWindow::updateProfile()
     }
 }
 
-void MainWindow::on_ButtonApply_clicked()
+void MainWindow::on_ProfileSelector_activated(const QString &profile)
 {
-    QString profile = ui -> ProfileSelector -> currentText();
     QTunedResult result = tunedManager -> SetActiveProfile(profile);
     if (result.Success)
         QMessageBox::information(this, AppConstants::ProductName, tr("The active profile was switched to %1.").arg(profile));

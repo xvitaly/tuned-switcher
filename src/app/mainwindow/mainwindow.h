@@ -78,9 +78,9 @@ private slots:
     void closeEvent(QCloseEvent*);
 
     /**
-     * Button "Apply" clicked event slot (handler).
+     * "Profile selected" event slot (handler).
     */
-    void on_ButtonApply_clicked();
+    void on_ProfileSelector_activated(const QString&);
 
     /**
      * Button "Cancel" clicked event slot (handler).
