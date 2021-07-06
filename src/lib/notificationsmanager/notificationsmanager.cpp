@@ -10,7 +10,28 @@
 
 #include "notificationsmanager.h"
 
+void NotificationsManager::GetCapabilities()
+{
+    QDBusInterface DBusInterface(NotifyBusName, NotifyBusPath, NotifyBusInterface, DBusInstance);
+    QDBusReply<QStringList> DBusReply = DBusInterface.call(NotifyBusMethodNameCapabilities);
+    Capabilities = DBusReply.value();
+}
+
+bool NotificationsManager::IsMarkupSupported()
+{
+    return Capabilities.contains("body-markup");
+}
+
+bool NotificationsManager::IsImagesSupported()
+{
+    return Capabilities.contains("body-images");
+}
+
 NotificationsManager::NotificationsManager(QObject *parent) : QObject(parent)
 {
-
+    if (DBusInstance.isConnected())
+    {
+        qDBusRegisterMetaType<QImage>();
+        GetCapabilities();
+    }
 }
