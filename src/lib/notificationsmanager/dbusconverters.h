@@ -19,6 +19,11 @@
 #include <QDBusArgument>
 #include <QIcon>
 
+/**
+ * Overloaded operator << for the QImage DBus type.
+ * @param argument QDBusArgument instance.
+ * @param image QImage instance.
+*/
 QDBusArgument& operator <<(QDBusArgument &argument, const QImage &image)
 {
     if (image.isNull())
@@ -69,6 +74,10 @@ QDBusArgument& operator <<(QDBusArgument &argument, const QImage &image)
     return argument;
 }
 
+/**
+ * Overloaded operator >> for the QImage DBus type.
+ * @param argument QDBusArgument instance.
+*/
 const QDBusArgument& operator >>(const QDBusArgument& argument, QImage&)
 {
     Q_ASSERT(0);
