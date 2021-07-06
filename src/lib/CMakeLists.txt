@@ -9,12 +9,14 @@ set(CMAKE_AUTOMOC ON)
 set(SOURCES
     tunedtypes/tunedtypes.cpp
     translationmanager/translationmanager.cpp
+    notificationsmanager/notificationsmanager.cpp
     tunedmanager/tunedmanager.cpp
 )
 
 set(HEADERS
     tunedtypes/tunedtypes.h
     translationmanager/translationmanager.h
+    notificationsmanager/notificationsmanager.h
     tunedmanager/tunedmanager.h
 )
 
