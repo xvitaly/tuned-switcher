@@ -16,6 +16,7 @@ set(SOURCES
 set(HEADERS
     tunedtypes/tunedtypes.h
     translationmanager/translationmanager.h
+    notificationsmanager/dbusconverters.h
     notificationsmanager/notificationsmanager.h
     tunedmanager/tunedmanager.h
 )
