@@ -92,12 +92,12 @@ void TrayIcon::profileChangedEvent(const QString& profile, const bool result, co
         if (profileAction)
         {
             profileAction -> setChecked(true);
-            trayIcon -> showMessage(tr("Profile switched"), tr("The active profile was switched to %1.").arg(profile), QSystemTrayIcon::Information);
+            notifications -> ShowNotification(tr("Profile switched"), tr("The active profile was switched to <b>%1</b>.").arg(profile));
         }
     }
     else
     {
-        trayIcon -> showMessage(tr("Profile switch error"), message, QSystemTrayIcon::Critical);
+        notifications -> ShowNotification(tr("Profile switch error"), message);
     }
 }
 
@@ -154,7 +154,7 @@ void TrayIcon::profileAutoSelectedEvent(bool modeAuto)
         if (result.Success)
             autoProfile -> setDisabled(true);
         else
-            trayIcon -> showMessage(tr("Auto profile"), tr("Failed set auto-select profile: %1").arg(result.Message), QSystemTrayIcon::Critical);
+            notifications -> ShowNotification(tr("Auto profile"), tr("Failed enable profile auto-selection: %1").arg(result.Message));
     }
 }
 
@@ -168,7 +168,7 @@ void TrayIcon::profileSelectedEvent(QAction* action)
     }
     else
     {
-        trayIcon -> showMessage(tr("Switch profile"), tr("Failed to switch profile: %1").arg(result.Message), QSystemTrayIcon::Critical);
+        notifications -> ShowNotification(tr("Switch profile"), tr("Failed to switch profile: %1").arg(result.Message));
     }
 }
 
