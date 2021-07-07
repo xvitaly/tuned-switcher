@@ -54,7 +54,7 @@ const QList<QVariant> NotificationsManager::CreateArgListStructure(const QString
     result << (IsMarkupSupported() ? message : QString(message).remove(QRegExp("<\\/?[bi]>", Qt::CaseInsensitive)));
     result << QStringList();
     result << CreateHintsStructure();
-    result << static_cast<int>(-1);
+    result << static_cast<int>(5000);
     return result;
 }
 
