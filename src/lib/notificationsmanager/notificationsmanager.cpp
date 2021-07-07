@@ -58,7 +58,7 @@ QList<QVariant> NotificationsManager::CreateArgListStructure(const QString& titl
     return result;
 }
 
-bool NotificationsManager::Show(const QString& title, const QString& message)
+bool NotificationsManager::ShowNotification(const QString& title, const QString& message)
 {
     QDBusInterface DBusInterface(NotifyBusName, NotifyBusPath, NotifyBusInterface, DBusInstance);
     QDBusReply<void> DBusReply = DBusInterface.callWithArgumentList(QDBus::AutoDetect, NotifyBusMethodNameNotify, CreateArgListStructure(title, message));

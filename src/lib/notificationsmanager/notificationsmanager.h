@@ -34,11 +34,11 @@ public:
     explicit NotificationsManager(QObject *parent = nullptr);
 
     /**
-     * Main constructor of the NotificationsManager class.
+     * Shows DBus notification with specified title and message.
      * @param title Notification title.
      * @param message Notification message.
     */
-    bool Show(const QString&, const QString&);
+    bool ShowNotification(const QString&, const QString&);
 private:
     /**
      * Stores the Notifications DBus interface name.
