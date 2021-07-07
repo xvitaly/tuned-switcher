@@ -102,21 +102,21 @@ private:
      * @param size Desired image size.
      * @returns Image for the Notifications service.
     */
-    QImage GetNotificationImage(const int) const;
+    const QImage GetNotificationImage(const int) const;
 
     /**
      * Constructs and returns special Hints structure for the
      * Notifications service.
      * @returns Hints structure for the Notifications service.
     */
-    QVariantMap CreateHintsStructure();
+    const QVariantMap CreateHintsStructure();
 
     /**
      * Constructs and returns special ArgumentsList structure for
      * the Notifications service.
      * @returns ArgumentsList structure for the Notifications service.
     */
-    QList<QVariant> CreateArgListStructure(const QString&, const QString&);
+    const QList<QVariant> CreateArgListStructure(const QString&, const QString&);
 };
 
 #endif // NOTIFICATIONSMANAGER_H

@@ -28,14 +28,14 @@ bool NotificationsManager::IsImagesSupported()
     return Capabilities.contains("body-images");
 }
 
-QImage NotificationsManager::GetNotificationImage(const int size) const
+const QImage NotificationsManager::GetNotificationImage(const int size) const
 {
     QIcon icon = QIcon::fromTheme(AppConstants::DomainSchemeName, QIcon(":/icons/fallback.png"));
     QPixmap pixmap = icon.pixmap(icon.actualSize(QSize(size, size)));
     return pixmap.toImage();
 }
 
-QVariantMap NotificationsManager::CreateHintsStructure()
+const QVariantMap NotificationsManager::CreateHintsStructure()
 {
     QVariantMap result;
     if (IsImagesSupported()) result["image-data"] = GetNotificationImage(48);
@@ -44,7 +44,7 @@ QVariantMap NotificationsManager::CreateHintsStructure()
     return result;
 }
 
-QList<QVariant> NotificationsManager::CreateArgListStructure(const QString& title, const QString& message)
+const QList<QVariant> NotificationsManager::CreateArgListStructure(const QString& title, const QString& message)
 {
     QList<QVariant> result;
     result << AppConstants::ProductName;
