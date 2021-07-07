@@ -19,6 +19,7 @@
 #include <QWidget>
 
 #include "appconstants/appconstants.h"
+#include "notificationsmanager/notificationsmanager.h"
 #include "tunedmanager/tunedmanager.h"
 
 /**
@@ -69,6 +70,11 @@ private slots:
     */
     void exitEvent();
 private:
+    /**
+     * Initialize the NotificationsManager class instance.
+    */
+    void initializeNotifications();
+
     /**
      * Initialize the TunedManager class instance.
     */
@@ -124,6 +130,11 @@ private:
      * Stores pointer to the QSystemTrayIcon class instance.
     */
     QSystemTrayIcon *trayIcon;
+
+    /**
+     * Stores pointer to the NotificationsManager class instance.
+    */
+    NotificationsManager *notifications;
 
     /**
      * Stores pointer to the TunedManager class instance.

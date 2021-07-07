@@ -12,6 +12,7 @@
 
 TrayIcon::TrayIcon(QWidget *parent) : QWidget(parent)
 {
+    initializeNotifications();
     initializeTuned();
     checkTunedRunning();
     setTrayIcon();
@@ -22,12 +23,18 @@ TrayIcon::TrayIcon(QWidget *parent) : QWidget(parent)
 
 TrayIcon::~TrayIcon()
 {
+    delete notifications;
     delete tunedManager;
+}
+
+void TrayIcon::initializeNotifications()
+{
+    notifications = new NotificationsManager(this);
 }
 
 void TrayIcon::initializeTuned()
 {
-    tunedManager = new TunedManager();
+    tunedManager = new TunedManager(this);
 }
 
 void TrayIcon::tryToStartTuned()
