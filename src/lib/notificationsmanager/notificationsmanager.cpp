@@ -28,7 +28,7 @@ bool NotificationsManager::IsImagesSupported()
     return Capabilities.contains("body-images");
 }
 
-const QImage NotificationsManager::GetNotificationImage(const int size) const
+const QImage NotificationsManager::GetNotificationImage(const int size = 128) const
 {
     QIcon icon = QIcon::fromTheme(AppConstants::DomainSchemeName, QIcon(":/icons/fallback.png"));
     QPixmap pixmap = icon.pixmap(icon.actualSize(QSize(size, size)));
@@ -38,7 +38,7 @@ const QImage NotificationsManager::GetNotificationImage(const int size) const
 const QVariantMap NotificationsManager::CreateHintsStructure()
 {
     QVariantMap result;
-    if (IsImagesSupported()) result["image-data"] = GetNotificationImage(48);
+    if (IsImagesSupported()) result["image-data"] = GetNotificationImage();
     result["sound-name"] = "message-new-instant";
     result["desktop-entry"] = AppConstants::DomainSchemeName;
     return result;
