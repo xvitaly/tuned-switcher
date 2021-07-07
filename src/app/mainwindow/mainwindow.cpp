@@ -153,9 +153,10 @@ void MainWindow::on_ProfileSelector_activated(const QString &profile)
 {
     QTunedResult result = tunedManager -> SetActiveProfile(profile);
     if (result.Success)
-        QMessageBox::information(this, AppConstants::ProductName, tr("The active profile was switched to %1.").arg(profile));
+        notifications -> ShowNotification(tr("Profile switched"), tr("The active profile was switched to %1.").arg(profile));
     else
-        QMessageBox::critical(this, AppConstants::ProductName, tr("Failed to switch profile: %1").arg(result.Message));
+        notifications -> ShowNotification(tr("Profile switch error"), result.Message);
+
 }
 
 void MainWindow::on_ButtonCancel_clicked()
