@@ -18,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui -> setupUi(this);
     loadSettings();
     setFormStyle();
+    initializeNotifications();
     initializeTuned();
     checkTunedRunning();
     getTunedProfiles();
@@ -27,6 +28,7 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete notifications;
     delete tunedManager;
 }
 
@@ -76,9 +78,14 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
     }
 }
 
+void MainWindow::initializeNotifications()
+{
+    notifications = new NotificationsManager(this);
+}
+
 void MainWindow::initializeTuned()
 {
-    tunedManager = new TunedManager();
+    tunedManager = new TunedManager(this);
 }
 
 void MainWindow::tryToStartTuned()

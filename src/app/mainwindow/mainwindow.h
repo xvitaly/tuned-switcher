@@ -21,6 +21,7 @@
 #include <QSettings>
 
 #include "appconstants/appconstants.h"
+#include "notificationsmanager/notificationsmanager.h"
 #include "tunedmanager/tunedmanager.h"
 
 /**
@@ -96,6 +97,11 @@ private slots:
 
 private:
     /**
+     * Initialize the NotificationsManager class instance.
+    */
+    void initializeNotifications();
+
+    /**
      * Initialize the TunedManager class instance.
     */
     void initializeTuned();
@@ -135,6 +141,11 @@ private:
      * Stores the GUI application form instance.
     */
     Ui::MainWindow *ui;
+
+    /**
+     * Stores pointer to the NotificationsManager class instance.
+    */
+    NotificationsManager *notifications;
 
     /**
      * Stores pointer to the TunedManager class instance.
