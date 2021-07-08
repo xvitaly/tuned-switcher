@@ -156,7 +156,6 @@ void MainWindow::on_ProfileSelector_activated(const QString &profile)
         notifications -> ShowNotification(tr("Profile switched"), tr("The active profile was switched to <b>%1</b>.").arg(profile));
     else
         notifications -> ShowNotification(tr("Profile switch error"), result.Message);
-
 }
 
 void MainWindow::on_ButtonCancel_clicked()
