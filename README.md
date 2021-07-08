@@ -1,5 +1,6 @@
 # Tuned Switcher
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/04dc681953b24b22b8a103128e428e04)](https://app.codacy.com/gh/EasyCoding/tuned-switcher?utm_source=github.com&utm_medium=referral&utm_content=EasyCoding/tuned-switcher&utm_campaign=Badge_Grade_Settings)
 [![GitHub version](https://img.shields.io/github/v/release/EasyCoding/tuned-switcher?sort=semver&color=brightgreen&logo=git&logoColor=white)](https://github.com/EasyCoding/tuned-switcher/releases)
 [![GCC CI status](https://github.com/EasyCoding/tuned-switcher/actions/workflows/gcc.yml/badge.svg)](https://github.com/EasyCoding/tuned-switcher/actions/workflows/gcc.yml)
 [![Clang CI status](https://github.com/EasyCoding/tuned-switcher/actions/workflows/clang.yml/badge.svg)](https://github.com/EasyCoding/tuned-switcher/actions/workflows/clang.yml)
