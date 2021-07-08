@@ -8,12 +8,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../src/app/mainwindow/mainwindow.ui" line="+21"/>
-        <source>Tuned Switcher GUI</source>
-        <translation>Tuned Switcher GUI</translation>
-    </message>
-    <message>
-        <location line="+52"/>
+        <location filename="../../src/app/mainwindow/mainwindow.ui" line="+73"/>
         <source>Performance profile:</source>
         <translation>Performance profile:</translation>
     </message>
