@@ -15,15 +15,15 @@ Tuned Switcher is a simple utility to manipulate the [Tuned service](https://git
 
 Tuned is a daemon for monitoring and adaptive tuning of system devices. In order to use this program, a daemon must be installed on your system.
 
-# Downloads
+## Downloads
 
 <a href="https://flathub.org/apps/details/org.easycoding.TunedSwitcher"><img width="240" alt="Download on Flathub" src="https://flathub.org/assets/badges/flathub-badge-en.svg"></img></a>
 
-# License
+## License
 GNU General Public License version 3. You can find it here: [LICENSE](LICENSE).
 
 Icon from the [Noto Emoji](https://github.com/googlefonts/noto-emoji) font, licensed under the terms of the [Apache License 2.0](licenses/noto-emoji.LICENSE.txt).
 
-# Documentation
+## Documentation
 
 Documentation available [here](docs/README.md).
