@@ -154,7 +154,7 @@ void TrayIcon::profileAutoSelectedEvent(bool modeAuto)
         if (result.Success)
             autoProfile -> setDisabled(true);
         else
-            notifications -> ShowNotification(tr("Auto profile"), tr("Failed enable profile auto-selection: %1").arg(result.Message));
+            notifications -> ShowNotification(tr("Auto profile"), tr("Failed to enable profile auto-selection: %1").arg(result.Message));
     }
 }
 

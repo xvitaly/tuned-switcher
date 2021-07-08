@@ -13,22 +13,17 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Tuned Switcher GUI</translation>
     </message>
     <message>
-        <location line="+37"/>
+        <location line="+52"/>
         <source>Performance profile:</source>
         <translation>Performance profile:</translation>
     </message>
     <message>
-        <location line="+17"/>
-        <source>Apply</source>
-        <translation>Apply</translation>
+        <location line="+19"/>
+        <source>X</source>
+        <translation>X</translation>
     </message>
     <message>
-        <location line="+7"/>
-        <source>Cancel</source>
-        <translation>Cancel</translation>
-    </message>
-    <message>
-        <location filename="../../src/app/mainwindow/mainwindow.cpp" line="+81"/>
+        <location filename="../../src/app/mainwindow/mainwindow.cpp" line="+100"/>
         <source>Cannot start Tuned service via D-Bus call. Terminating.</source>
         <translation>Cannot start Tuned service via D-Bus call. Terminating.</translation>
     </message>
@@ -39,19 +34,24 @@ SPDX-License-Identifier: GPL-3.0-or-later
     </message>
     <message>
         <location line="+47"/>
-        <source>The active profile was switched to %1.</source>
-        <translation>The active profile was switched to %1.</translation>
+        <source>Profile switched</source>
+        <translation>Profile switched</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>The active profile was switched to &lt;b&gt;%1&lt;/b&gt;.</source>
+        <translation>The active profile was switched to &lt;b&gt;%1&lt;/b&gt;.</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Failed to switch profile: %1</source>
-        <translation>Failed to switch profile: %1</translation>
+        <source>Profile switch error</source>
+        <translation>Profile switch error</translation>
     </message>
 </context>
 <context>
     <name>TrayIcon</name>
     <message>
-        <location filename="../../src/app/trayicon/trayicon.cpp" line="+59"/>
+        <location filename="../../src/app/trayicon/trayicon.cpp" line="+66"/>
         <source>Tuned profile switcher</source>
         <translation>Tuned profile switcher</translation>
     </message>
@@ -62,8 +62,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
     </message>
     <message>
         <location line="+0"/>
-        <source>The active profile was switched to %1.</source>
-        <translation>The active profile was switched to %1.</translation>
+        <source>The active profile was switched to &lt;b&gt;%1&lt;/b&gt;.</source>
+        <translation>The active profile was switched to &lt;b&gt;%1&lt;/b&gt;.</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -92,8 +92,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
     </message>
     <message>
         <location line="+0"/>
-        <source>Failed set auto-select profile: %1</source>
-        <translation>Failed set auto-select profile: %1</translation>
+        <source>Failed to enable profile auto-selection: %1</source>
+        <translation>Failed to enable profile auto-selection: %1</translation>
     </message>
     <message>
         <location line="+14"/>

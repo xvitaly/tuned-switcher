@@ -13,22 +13,17 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Tuned Switcher GUI</translation>
     </message>
     <message>
-        <location line="+37"/>
+        <location line="+52"/>
         <source>Performance profile:</source>
         <translation>Выбранный профиль:</translation>
     </message>
     <message>
-        <location line="+17"/>
-        <source>Apply</source>
-        <translation>Применить</translation>
+        <location line="+19"/>
+        <source>X</source>
+        <translation>X</translation>
     </message>
     <message>
-        <location line="+7"/>
-        <source>Cancel</source>
-        <translation>Отмена</translation>
-    </message>
-    <message>
-        <location filename="../../src/app/mainwindow/mainwindow.cpp" line="+81"/>
+        <location filename="../../src/app/mainwindow/mainwindow.cpp" line="+100"/>
         <source>Cannot start Tuned service via D-Bus call. Terminating.</source>
         <translation>Не удалось запустить сервис Tuned при помощи D-Bus. Приложение будет завершено.</translation>
     </message>
@@ -39,19 +34,24 @@ SPDX-License-Identifier: GPL-3.0-or-later
     </message>
     <message>
         <location line="+47"/>
-        <source>The active profile was switched to %1.</source>
-        <translation>Активный профиль был переключен на %1.</translation>
+        <source>Profile switched</source>
+        <translation>Профиль переключен</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>The active profile was switched to &lt;b&gt;%1&lt;/b&gt;.</source>
+        <translation>Текущий профиль был переключён на &lt;b&gt;%1&lt;/b&gt;.</translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Failed to switch profile: %1</source>
-        <translation>Не удалось переключить профиль: %1</translation>
+        <source>Profile switch error</source>
+        <translation>Ошибка переключения</translation>
     </message>
 </context>
 <context>
     <name>TrayIcon</name>
     <message>
-        <location filename="../../src/app/trayicon/trayicon.cpp" line="+59"/>
+        <location filename="../../src/app/trayicon/trayicon.cpp" line="+66"/>
         <source>Tuned profile switcher</source>
         <translation>Переключатель профилей Tuned</translation>
     </message>
@@ -62,8 +62,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
     </message>
     <message>
         <location line="+0"/>
-        <source>The active profile was switched to %1.</source>
-        <translation>Активный профиль был переключен на %1.</translation>
+        <source>The active profile was switched to &lt;b&gt;%1&lt;/b&gt;.</source>
+        <translation>Текущий профиль был переключён на &lt;b&gt;%1&lt;/b&gt;.</translation>
     </message>
     <message>
         <location line="+5"/>
@@ -92,7 +92,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
     </message>
     <message>
         <location line="+0"/>
-        <source>Failed set auto-select profile: %1</source>
+        <source>Failed to enable profile auto-selection: %1</source>
         <translation>Не удалось активировать авто-выбор профиля из-за ошибки: %1</translation>
     </message>
     <message>
