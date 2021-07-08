@@ -15,17 +15,8 @@ void NotificationsManager::GetCapabilities()
 {
     QDBusInterface DBusInterface(NotifyBusName, NotifyBusPath, NotifyBusInterface, DBusInstance);
     QDBusReply<QStringList> DBusReply = DBusInterface.call(NotifyBusMethodNameCapabilities);
-    Capabilities = DBusReply.value();
-}
-
-bool NotificationsManager::IsMarkupSupported()
-{
-    return Capabilities.contains("body-markup");
-}
-
-bool NotificationsManager::IsImagesSupported()
-{
-    return Capabilities.contains("body-images");
+    IsMarkupSupported = DBusReply.value().contains("body-markup");
+    IsImagesSupported = DBusReply.value().contains("body-images");
 }
 
 const QImage NotificationsManager::GetNotificationImage(const int size = 128) const
@@ -38,7 +29,7 @@ const QImage NotificationsManager::GetNotificationImage(const int size = 128) co
 const QVariantMap NotificationsManager::CreateHintsStructure()
 {
     QVariantMap result;
-    if (IsImagesSupported()) result["image-data"] = GetNotificationImage();
+    if (IsImagesSupported) result["image-data"] = GetNotificationImage();
     result["sound-name"] = "message-new-instant";
     result["desktop-entry"] = AppConstants::DomainSchemeName;
     return result;
@@ -51,7 +42,7 @@ const QList<QVariant> NotificationsManager::CreateArgListStructure(const QString
     result << static_cast<uint>(0);
     result << "";
     result << title;
-    result << (IsMarkupSupported() ? message : QString(message).remove(QRegExp("<\\/?[bi]>", Qt::CaseInsensitive)));
+    result << (IsMarkupSupported ? message : QString(message).remove(QRegExp("<\\/?[bi]>", Qt::CaseInsensitive)));
     result << QStringList();
     result << CreateHintsStructure();
     result << static_cast<int>(5000);

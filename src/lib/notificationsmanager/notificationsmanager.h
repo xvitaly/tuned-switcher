@@ -71,31 +71,21 @@ private:
     const QDBusConnection DBusInstance = QDBusConnection::sessionBus();
 
     /**
-     * Stores the list of available notifications capabilities.
+     * Stores information if the Notifications service supports basic
+     * HTML markup.
     */
-    QStringList Capabilities;
+    bool IsMarkupSupported;
+
+    /**
+     * Stores information if the Notifications service supports images.
+    */
+    bool IsImagesSupported;
 
     /**
      * Gets information about available notifications capabilities and
      * stores it in a private field.
     */
     void GetCapabilities();
-
-    /**
-     * Check if the Notifications service supports basic HTML markup.
-     * @returns If the Notifications service supports basic HTML markup.
-     * @retval true HTML markup is supported.
-     * @retval false HTML markup is not supported.
-    */
-    bool IsMarkupSupported();
-
-    /**
-     * Check if the Notifications service supports images.
-     * @returns If the Notifications service supports images.
-     * @retval true Images is supported.
-     * @retval false Images is not supported.
-    */
-    bool IsImagesSupported();
 
     /**
      * Gets a default image for the Notifications service.
