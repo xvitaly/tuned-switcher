@@ -8,7 +8,16 @@
  * This file contains implementation of the MainWindow class.
 */
 
-#include "mainwindow.h"
+#include <QApplication>
+#include <QGraphicsDropShadowEffect>
+#include <QMenu>
+#include <QMessageBox>
+#include <QMouseEvent>
+#include <QThread>
+#include <QSettings>
+
+#include "appconstants/appconstants.h"
+#include "mainwindow/mainwindow.h"
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget *parent) :

@@ -9,6 +9,8 @@
  * of the application.
 */
 
+#include <QApplication>
+
 #include "trayicon/trayicon.h"
 #include "translationmanager/translationmanager.h"
 #include "mainwindow/mainwindow.h"

@@ -9,7 +9,7 @@
  * for use in other classes.
 */
 
-#include "tunedtypes.h"
+#include "tunedtypes/tunedtypes.h"
 
 QDBusArgument& operator <<(QDBusArgument& argument, const QTunedProfile& profile)
 {

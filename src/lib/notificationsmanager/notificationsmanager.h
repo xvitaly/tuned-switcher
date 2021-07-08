@@ -11,14 +11,8 @@
  * This file contains NotificationsManager class structure.
 */
 
-#include <QDBusConnection>
 #include <QDBusInterface>
-#include <QDBusReply>
-#include <QDBusMetaType>
-#include <QIcon>
 #include <QObject>
-
-#include "appconstants/appconstants.h"
 
 /**
  * Class for working with native DBus notifications.

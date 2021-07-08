@@ -8,7 +8,11 @@
  * This file contains implementation of the TunedManager class.
 */
 
-#include "tunedmanager.h"
+#include <QDBusInterface>
+#include <QDBusReply>
+#include <QDBusMetaType>
+
+#include "tunedmanager/tunedmanager.h"
 
 QString TunedManager::GetActiveProfile()
 {

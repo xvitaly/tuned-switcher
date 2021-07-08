@@ -11,14 +11,8 @@
  * This file contains TranslationManager class structure.
 */
 
-#include <QApplication>
-#include <QDir>
-#include <QFileInfo>
 #include <QObject>
-#include <QLibraryInfo>
 #include <QTranslator>
-
-#include "appconstants/appconstants.h"
 
 /**
  * Class for working with localizations.

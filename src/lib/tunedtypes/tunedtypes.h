@@ -11,7 +11,7 @@
  * This file contains special structures for use in other classes.
 */
 
-#include <QDBusReply>
+#include <QDBusArgument>
 #include <QObject>
 
 /**

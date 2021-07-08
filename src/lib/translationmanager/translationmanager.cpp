@@ -8,7 +8,13 @@
  * This file contains implementation of the TranslationManager class.
 */
 
-#include "translationmanager.h"
+#include <QApplication>
+#include <QDir>
+#include <QFileInfo>
+#include <QLibraryInfo>
+
+#include "appconstants/appconstants.h"
+#include "translationmanager/translationmanager.h"
 
 QStringList TranslationManager::GetTranslationPaths() const
 {

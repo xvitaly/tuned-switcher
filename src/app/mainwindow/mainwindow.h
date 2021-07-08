@@ -11,16 +11,8 @@
  * This file contains MainWindow class structure.
 */
 
-#include <QApplication>
-#include <QGraphicsDropShadowEffect>
 #include <QMainWindow>
-#include <QMenu>
-#include <QMessageBox>
-#include <QMouseEvent>
-#include <QThread>
-#include <QSettings>
 
-#include "appconstants/appconstants.h"
 #include "notificationsmanager/notificationsmanager.h"
 #include "tunedmanager/tunedmanager.h"
 

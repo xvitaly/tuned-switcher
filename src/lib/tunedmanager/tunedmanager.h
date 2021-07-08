@@ -12,9 +12,6 @@
 */
 
 #include <QDBusConnection>
-#include <QDBusInterface>
-#include <QDBusReply>
-#include <QDBusMetaType>
 #include <QObject>
 
 #include "tunedtypes/tunedtypes.h"

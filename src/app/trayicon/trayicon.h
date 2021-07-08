@@ -11,11 +11,9 @@
  * This file contains TrayIcon class structure.
 */
 
-#include <QApplication>
-#include <QActionGroup>
+#include <QAction>
 #include <QMenu>
 #include <QSystemTrayIcon>
-#include <QThread>
 #include <QWidget>
 
 #include "appconstants/appconstants.h"

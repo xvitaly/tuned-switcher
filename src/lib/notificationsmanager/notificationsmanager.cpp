@@ -8,6 +8,12 @@
  * This file contains implementation of the NotificationsManager class.
 */
 
+#include <QDBusConnection>
+#include <QDBusReply>
+#include <QDBusMetaType>
+#include <QIcon>
+
+#include "appconstants/appconstants.h"
 #include "notificationsmanager/notificationsmanager.h"
 #include "notificationsmanager/dbusconverters.h"
 

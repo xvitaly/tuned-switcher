@@ -8,7 +8,11 @@
  * This file contains implementation of the TrayIcon class.
 */
 
-#include "trayicon.h"
+#include <QApplication>
+#include <QActionGroup>
+#include <QThread>
+
+#include "trayicon/trayicon.h"
 
 TrayIcon::TrayIcon(QWidget *parent) : QWidget(parent)
 {
