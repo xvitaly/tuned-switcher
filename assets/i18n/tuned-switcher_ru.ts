@@ -18,7 +18,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>X</translation>
     </message>
     <message>
-        <location filename="../../src/app/mainwindow/mainwindow.cpp" line="+100"/>
+        <location filename="../../src/app/mainwindow/mainwindow.cpp" line="+109"/>
         <source>Cannot start Tuned service via D-Bus call. Terminating.</source>
         <translation>Не удалось запустить сервис Tuned при помощи D-Bus. Приложение будет завершено.</translation>
     </message>
@@ -46,12 +46,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 <context>
     <name>TrayIcon</name>
     <message>
-        <location filename="../../src/app/trayicon/trayicon.cpp" line="+66"/>
-        <source>Tuned profile switcher</source>
-        <translation>Переключатель профилей Tuned</translation>
-    </message>
-    <message>
-        <location line="+29"/>
+        <location filename="../../src/app/trayicon/trayicon.cpp" line="+99"/>
         <source>Profile switched</source>
         <translation>Профиль переключен</translation>
     </message>
