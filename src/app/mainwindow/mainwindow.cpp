@@ -69,8 +69,8 @@ void MainWindow::mouseReleaseEvent(QMouseEvent* event)
 void MainWindow::closeEvent(QCloseEvent *event)
 {
     QSettings settings(AppConstants::ProductCompany, AppConstants::ProductNameInternal);
-    settings.setValue("geometry", saveGeometry());
-    settings.setValue("windowState", saveState());
+    settings.setValue(QStringLiteral("geometry"), saveGeometry());
+    settings.setValue(QStringLiteral("windowState"), saveState());
     settings.sync();
     QMainWindow::closeEvent(event);
 }
@@ -130,14 +130,14 @@ void MainWindow::getTunedProfiles()
 void MainWindow::loadSettings()
 {
     QSettings settings(AppConstants::ProductCompany, AppConstants::ProductNameInternal);
-    restoreGeometry(settings.value("geometry").toByteArray());
-    restoreState(settings.value("windowState").toByteArray());
+    restoreGeometry(settings.value(QStringLiteral("geometry")).toByteArray());
+    restoreState(settings.value(QStringLiteral("windowState")).toByteArray());
 }
 
 void MainWindow::setFormStyle()
 {
     // Setting form style...
-    setWindowIcon(QIcon::fromTheme(AppConstants::DomainSchemeName, QIcon(":/icons/fallback.png")));
+    setWindowIcon(QIcon::fromTheme(AppConstants::DomainSchemeName, QIcon(QStringLiteral(":/icons/fallback.png"))));
     setWindowFlags(Qt::FramelessWindowHint);
     setAttribute(Qt::WA_TranslucentBackground);
 

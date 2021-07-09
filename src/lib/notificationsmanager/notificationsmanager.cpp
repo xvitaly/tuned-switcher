@@ -27,7 +27,7 @@ void NotificationsManager::GetCapabilities()
 
 const QImage NotificationsManager::GetNotificationImage(const int size = 128) const
 {
-    QIcon icon = QIcon::fromTheme(AppConstants::DomainSchemeName, QIcon(":/icons/fallback.png"));
+    QIcon icon = QIcon::fromTheme(AppConstants::DomainSchemeName, QIcon(QStringLiteral(":/icons/fallback.png")));
     QPixmap pixmap = icon.pixmap(icon.actualSize(QSize(size, size)));
     return pixmap.toImage();
 }
@@ -36,7 +36,7 @@ const QVariantMap NotificationsManager::CreateHintsStructure()
 {
     QVariantMap result;
     if (IsImagesSupported) result["image-data"] = GetNotificationImage();
-    result["sound-name"] = "message-new-instant";
+    result["sound-name"] = QStringLiteral("message-new-instant");
     result["desktop-entry"] = AppConstants::DomainSchemeName;
     return result;
 }
@@ -48,7 +48,7 @@ const QList<QVariant> NotificationsManager::CreateArgListStructure(const QString
     result << static_cast<uint>(0);
     result << "";
     result << title;
-    result << (IsMarkupSupported ? message : QString(message).remove(QRegExp("<\\/?[bi]>", Qt::CaseInsensitive)));
+    result << (IsMarkupSupported ? message : QString(message).remove(QRegExp(QStringLiteral("<\\/?[bi]>"), Qt::CaseInsensitive)));
     result << QStringList();
     result << CreateHintsStructure();
     result << static_cast<int>(5000);

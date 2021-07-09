@@ -65,9 +65,9 @@ void TrayIcon::setTrayIcon()
 {
     // Setting tray icon...
     trayIcon = new QSystemTrayIcon(this);
-    trayIcon -> setIcon(QIcon::fromTheme(AppConstants::DomainSchemeName, QIcon(":/icons/fallback.png")));
+    trayIcon -> setIcon(QIcon::fromTheme(AppConstants::DomainSchemeName, QIcon(QStringLiteral(":/icons/fallback.png"))));
     trayIcon -> setContextMenu(createTrayIconMenu());
-    trayIcon -> setToolTip(tr("Tuned profile switcher"));
+    trayIcon -> setToolTip(AppConstants::ProductName);
 }
 
 void TrayIcon::subscribeToEvents()
