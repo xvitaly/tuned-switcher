@@ -1,0 +1,67 @@
+% tuned-switcher(1) | General Commands Manual
+
+# NAME
+
+tuned-switcher - simple utility to manipulate the Tuned service
+
+# SYNOPSIS
+
+**tuned-switcher**
+
+# DESCRIPTION
+
+Tuned Switcher is a simple utility to manipulate the Tuned service.
+
+Tuned is a daemon for monitoring and adaptive tuning of system devices.
+
+In order to use this program, a daemon must be installed on your system.
+
+# COMMAND-LINE OPTIONS
+
+No custom command-line options available.
+
+# APPLICATION TYPES
+
+## Available types
+
+This software can operate in two modes:
+
+  * system tray icon (aka **applet**) - default and recommended mode with with support for all available functions;
+  * GUI application (aka **widget**) - some features are not available.
+
+## Modes auto-selection
+
+If your current desktop environment has a system tray support, an applet will be used, otherwise a widget.
+
+You can override this behavior using environment variables.
+
+# ENVIRONMENT OPTIONS
+
+Tuned Switcher can use environment variables to override some settings.
+
+## Supported options
+
+  * **TUNED_SWITCHER_FORCE_GUI=1** - force widget even if the system tray support is present.
+
+## Forwarding options
+
+Export environment options using `export` command:
+
+```
+export TUNED_SWITCHER_FORCE_GUI=1
+```
+
+Start an application:
+
+```
+tuned-switcher
+```
+
+# EXIT STATUS
+
+  * **0**: successful exit.
+  * **1**: an error occured.
+
+# AUTHORS
+
+Copyright (c) 2021 EasyCoding Team and contributors.
