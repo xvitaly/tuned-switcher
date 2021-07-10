@@ -32,7 +32,7 @@ public:
      * @param title Notification title.
      * @param message Notification message.
     */
-    bool ShowNotification(const QString&, const QString&);
+    bool ShowNotification(const QString&, const QString&) const;
 private:
     /**
      * Stores the Notifications DBus interface name.
@@ -93,14 +93,14 @@ private:
      * Notifications service.
      * @returns Hints structure for the Notifications service.
     */
-    const QVariantMap CreateHintsStructure();
+    const QVariantMap CreateHintsStructure() const;
 
     /**
      * Constructs and returns special ArgumentsList structure for
      * the Notifications service.
      * @returns ArgumentsList structure for the Notifications service.
     */
-    const QList<QVariant> CreateArgListStructure(const QString&, const QString&);
+    const QList<QVariant> CreateArgListStructure(const QString&, const QString&) const;
 };
 
 #endif // NOTIFICATIONSMANAGER_H

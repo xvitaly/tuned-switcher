@@ -31,13 +31,13 @@ public:
      * Get Qt translator engine.
      * @returns Pointer to the Qt translation engine.
     */
-    QTranslator* GetQtTranslator();
+    QTranslator* GetQtTranslator() const;
 
     /**
      * Get application translator engine.
      * @returns Pointer to the application translation engine.
     */
-    QTranslator* GetAppTranslator();
+    QTranslator* GetAppTranslator() const;
 private:
     /**
      * Get pre-defined list of directories with compiled

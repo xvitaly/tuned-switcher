@@ -32,7 +32,7 @@ const QImage NotificationsManager::GetNotificationImage(const int size = 128) co
     return pixmap.toImage();
 }
 
-const QVariantMap NotificationsManager::CreateHintsStructure()
+const QVariantMap NotificationsManager::CreateHintsStructure() const
 {
     QVariantMap result;
     if (IsImagesSupported) result["image-data"] = GetNotificationImage();
@@ -41,7 +41,7 @@ const QVariantMap NotificationsManager::CreateHintsStructure()
     return result;
 }
 
-const QList<QVariant> NotificationsManager::CreateArgListStructure(const QString& title, const QString& message)
+const QList<QVariant> NotificationsManager::CreateArgListStructure(const QString& title, const QString& message) const
 {
     QList<QVariant> result;
     result << AppConstants::ProductName;
@@ -55,7 +55,7 @@ const QList<QVariant> NotificationsManager::CreateArgListStructure(const QString
     return result;
 }
 
-bool NotificationsManager::ShowNotification(const QString& title, const QString& message)
+bool NotificationsManager::ShowNotification(const QString& title, const QString& message) const
 {
     QDBusInterface DBusInterface(NotifyBusName, NotifyBusPath, NotifyBusInterface, DBusInstance);
     QDBusReply<void> DBusReply = DBusInterface.callWithArgumentList(QDBus::AutoDetect, NotifyBusMethodNameNotify, CreateArgListStructure(title, message));

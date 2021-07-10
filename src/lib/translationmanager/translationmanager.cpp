@@ -33,12 +33,12 @@ QString TranslationManager::GetTranslationPath() const
     return QString();
 }
 
-QTranslator* TranslationManager::GetQtTranslator()
+QTranslator* TranslationManager::GetQtTranslator() const
 {
     return QtTranslator;
 }
 
-QTranslator* TranslationManager::GetAppTranslator()
+QTranslator* TranslationManager::GetAppTranslator() const
 {
     return AppTranslator;
 }

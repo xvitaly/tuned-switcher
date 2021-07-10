@@ -33,26 +33,26 @@ public:
      * Get active Tuned profile.
      * @returns Active Tuned profile.
     */
-    QString GetActiveProfile();
+    QString GetActiveProfile() const;
 
     /**
      * Get the list of available Tuned profiles.
      * @returns Available Tuned profiles.
     */
-    QStringList GetAvailableProfiles();
+    QStringList GetAvailableProfiles() const;
 
     /**
      * Get the list of available Tuned profiles with additional
      * useful information like profile descriptions.
      * @returns Available Tuned profiles.
     */
-    QTunedProfileList GetAvailableProfiles2();
+    QTunedProfileList GetAvailableProfiles2() const;
 
     /**
      * Get current Tuned mode: manual or auto.
      * @returns Current Tuned mode.
     */
-    QTunedProfileMode GetProfileMode();
+    QTunedProfileMode GetProfileMode() const;
 
     /**
      * Check if the Tuned is working in automatic mode.
@@ -60,20 +60,20 @@ public:
      * @retval true Tuned is working in automatic mode.
      * @retval false Tuned is working in manual mode.
     */
-    bool IsProfileModeAuto();
+    bool IsProfileModeAuto() const;
 
     /**
      * Switch Tuned to automatic mode.
      * @returns Result of current operation.
     */
-    QTunedResult SetProfileModeAuto();
+    QTunedResult SetProfileModeAuto() const;
 
     /**
      * Switch Tuned to the the specified profile.
      * @param Profile New Tuned profile name.
      * @returns Result of current operation.
     */
-    QTunedResult SetActiveProfile(const QString&);
+    QTunedResult SetActiveProfile(const QString&) const;
 
     /**
      * Check if the Tuned service is running.
@@ -81,7 +81,7 @@ public:
      * @retval true Tuned is running.
      * @retval false Tuned is not running.
     */
-    bool IsTunedRunning();
+    bool IsTunedRunning() const;
 
     /**
      * Start the Tuned service.
@@ -89,7 +89,7 @@ public:
      * @retval true Tuned was successfully started.
      * @retval false An error occured when trying to start Tuned.
     */
-    bool StartTuned();
+    bool StartTuned() const;
 
     /**
      * Stop the Tuned service.
@@ -97,7 +97,7 @@ public:
      * @retval true Tuned was successfully stopped.
      * @retval false An error occured when trying to stop Tuned.
     */
-    bool StopTuned();
+    bool StopTuned() const;
 private:
     /**
      * Stores the Tuned DBus interface name.
