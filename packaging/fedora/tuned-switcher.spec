@@ -22,6 +22,7 @@ BuildRequires: desktop-file-utils
 BuildRequires: gcc-c++
 BuildRequires: libappstream-glib
 BuildRequires: ninja-build
+BuildRequires: pandoc
 
 Requires: hicolor-icon-theme
 Requires: tuned
@@ -38,7 +39,8 @@ In order to use this program, a daemon must be installed on your system.
 %build
 %cmake -G Ninja \
     -DCMAKE_BUILD_TYPE=Release \
-    -DBUILD_DOCS:BOOL=OFF
+    -DBUILD_DOCS:BOOL=OFF \
+    -DBUILD_MANPAGE:BOOL=ON
 %cmake_build
 
 %check
