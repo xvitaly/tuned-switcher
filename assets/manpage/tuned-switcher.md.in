@@ -1,12 +1,12 @@
-% tuned-switcher(1) | General Commands Manual
+% @APP_NAME@(1) | General Commands Manual
 
 # NAME
 
-tuned-switcher - simple utility to manipulate the Tuned service
+@APP_NAME@ - simple utility to manipulate the Tuned service
 
 # SYNOPSIS
 
-**tuned-switcher**
+**@APP_NAME@**
 
 # DESCRIPTION
 
@@ -37,7 +37,7 @@ You can override this behavior using environment variables.
 
 # ENVIRONMENT OPTIONS
 
-Tuned Switcher can use environment variables to override some settings.
+You can use environment variables to override some settings.
 
 ## Supported options
 
@@ -54,7 +54,7 @@ export TUNED_SWITCHER_FORCE_GUI=1
 Start an application:
 
 ```
-tuned-switcher
+@APP_NAME@
 ```
 
 # EXIT STATUS
