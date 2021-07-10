@@ -57,6 +57,22 @@ Start an application:
 @APP_NAME@
 ```
 
+# STARTUP
+
+## Daemon startup
+
+If you want your setting to be applied automatically at system startup, you need to enable the automatic start of the Tuned daemon.
+
+If the system supports systemd, it can be done easily:
+
+```
+sudo systemctl enable --now tuned.service
+```
+
+## Application startup
+
+If you want this program to start automatically, you should use the autorun settings of your desktop environment.
+
 # EXIT STATUS
 
   * **0**: successful exit.
