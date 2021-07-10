@@ -7,12 +7,12 @@
 cmake_minimum_required(VERSION 3.12)
 
 project(tuned-switcher
-    VERSION 0.3.0
+    VERSION 0.4.0
     DESCRIPTION "Simple utility to manipulate the Tuned service"
     HOMEPAGE_URL "https://github.com/EasyCoding/tuned-switcher"
     LANGUAGES CXX
 )
-set(RELEASE_DATE "2021-07-01")
+set(RELEASE_DATE "2021-07-10")
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)

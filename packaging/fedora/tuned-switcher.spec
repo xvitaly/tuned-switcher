@@ -1,7 +1,7 @@
 %undefine __cmake_in_source_build
 
 Name: tuned-switcher
-Version: 0.3.0
+Version: 0.4.0
 Release: 1%{?dist}
 
 # Main code - GPLv3+.
@@ -61,5 +61,5 @@ desktop-file-validate %{buildroot}%{_datadir}/applications/*.desktop
 %{_mandir}/man1/%{name}.1*
 
 %changelog
-* Thu Jul 01 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 0.3.0-1
-- Updated to version 0.3.0.
+* Sat Jul 10 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 0.4.0-1
+- Updated to version 0.4.0.
