@@ -26,8 +26,8 @@ No custom command-line options available.
 
 This software can operate in two modes:
 
-  * system tray icon (aka **applet**) - default and recommended mode with with support for all available functions;
-  * GUI application (aka **widget**) - some features are not available.
+  * system tray icon (aka **applet**) - default and recommended mode with with support of all available functions;
+  * GUI application (aka **widget**) - simple mode with some features are not available.
 
 ## Modes auto-selection
 
