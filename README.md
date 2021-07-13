@@ -11,6 +11,8 @@
 [![GitHub issues](https://img.shields.io/github/issues/EasyCoding/tuned-switcher.svg?label=issues)](https://github.com/EasyCoding/tuned-switcher/issues)
 ---
 
+## About
+
 Tuned Switcher is a simple utility for managing performance profiles using the [Tuned service](https://github.com/redhat-performance/tuned).
 
 Tuned is a daemon for monitoring and adaptive tuning of system devices. In order to use this program, a daemon must be installed on your system.
