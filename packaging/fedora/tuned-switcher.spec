@@ -28,7 +28,8 @@ Requires: hicolor-icon-theme
 Requires: tuned
 
 %description
-Tuned Switcher is a simple utility to manipulate the Tuned service.
+Tuned Switcher is a simple utility for managing performance profiles using
+the Tuned service.
 
 Tuned is a daemon for monitoring and adaptive tuning of system devices.
 In order to use this program, a daemon must be installed on your system.
