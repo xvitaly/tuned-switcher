@@ -81,7 +81,7 @@ public:
      * @retval true Tuned is running.
      * @retval false Tuned is not running.
     */
-    bool IsTunedRunning() const;
+    bool IsRunning() const;
 
     /**
      * Start the Tuned service.
@@ -89,7 +89,7 @@ public:
      * @retval true Tuned was successfully started.
      * @retval false An error occured when trying to start Tuned.
     */
-    bool StartTuned() const;
+    bool Start() const;
 
     /**
      * Stop the Tuned service.
@@ -97,7 +97,7 @@ public:
      * @retval true Tuned was successfully stopped.
      * @retval false An error occured when trying to stop Tuned.
     */
-    bool StopTuned() const;
+    bool Stop() const;
 private:
     /**
      * Stores the Tuned DBus interface name.

@@ -62,20 +62,20 @@ QTunedProfileList TunedManager::GetAvailableProfiles2() const
     return DBusReply.value();
 }
 
-bool TunedManager::IsTunedRunning() const
+bool TunedManager::IsRunning() const
 {
     QDBusInterface DBusInterface(TunedBusName, TunedBusPath, TunedBusInterface, DBusInstance);
     return DBusInterface.isValid();
 }
 
-bool TunedManager::StartTuned() const
+bool TunedManager::Start() const
 {
     QDBusInterface DBusInterface(SystemdBusName, SystemdBusPath, SystemdBusInterface, DBusInstance);
     QDBusReply<void> DBusReply = DBusInterface.call(SystemdBusMethodNameStart, SystemdTunedServiceName, SystemdTunedServiceMode);
     return DBusReply.isValid();
 }
 
-bool TunedManager::StopTuned() const
+bool TunedManager::Stop() const
 {
     QDBusInterface DBusInterface(SystemdBusName, SystemdBusPath, SystemdBusInterface, DBusInstance);
     QDBusReply<void> DBusReply = DBusInterface.call(SystemdBusMethodNameStop, SystemdTunedServiceName, SystemdTunedServiceMode);

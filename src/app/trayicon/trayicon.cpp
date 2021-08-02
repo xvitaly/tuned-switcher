@@ -43,7 +43,7 @@ void TrayIcon::initializeTuned()
 
 void TrayIcon::tryToStartTuned()
 {
-    if (tunedManager -> StartTuned())
+    if (tunedManager -> Start())
         QThread::sleep(AppConstants::SleepTime);
     else
         exit(EXIT_FAILURE);
@@ -51,7 +51,7 @@ void TrayIcon::tryToStartTuned()
 
 void TrayIcon::checkTunedRunning()
 {
-    if (!tunedManager -> IsTunedRunning())
+    if (!tunedManager -> IsRunning())
         tryToStartTuned();
 }
 

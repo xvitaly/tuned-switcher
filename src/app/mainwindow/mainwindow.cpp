@@ -99,7 +99,7 @@ void MainWindow::initializeTuned()
 
 void MainWindow::tryToStartTuned()
 {
-    if (tunedManager -> StartTuned())
+    if (tunedManager -> Start())
     {
         // Sleep to allow Tuned service to be initialized correctly.
         QThread::sleep(AppConstants::SleepTime);
@@ -113,7 +113,7 @@ void MainWindow::tryToStartTuned()
 
 void MainWindow::checkTunedRunning()
 {
-    if (!tunedManager -> IsTunedRunning())
+    if (!tunedManager -> IsRunning())
     {
         if (QMessageBox::question(this, AppConstants::ProductName, tr("Tuned service is not running. Do you want to start it now?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::Yes)
             tryToStartTuned();
