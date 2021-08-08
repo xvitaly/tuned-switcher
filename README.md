@@ -17,6 +17,11 @@ Tuned Switcher is a simple utility for managing performance profiles using the [
 
 Tuned is a daemon for monitoring and adaptive tuning of system devices. In order to use this program, a daemon must be installed on your system.
 
+## Downloads
+
+<a href="https://flathub.org/apps/details/org.easycoding.TunedSwitcher"><img width="240" height="80" alt="Download on Flathub" src="https://flathub.org/assets/badges/flathub-badge-en.svg"></img></a>
+<a href="https://snapcraft.io/tuned-switcher"><img width="240" height="80" alt="Get it from the Snap Store" src="https://snapcraft.io/static/images/badges/en/snap-store-black.svg"></img></a>
+
 ## Features
 
 Supported features:
@@ -35,11 +40,6 @@ This program can operate in two modes:
   * GUI application (aka widget) - simplified mode with some features are not available.
 
 If current desktop environment has a system tray support, an applet will be used, otherwise a widget.
-
-## Downloads
-
-<a href="https://flathub.org/apps/details/org.easycoding.TunedSwitcher"><img width="240" height="80" alt="Download on Flathub" src="https://flathub.org/assets/badges/flathub-badge-en.svg"></img></a>
-<a href="https://snapcraft.io/tuned-switcher"><img width="240" height="80" alt="Get it from the Snap Store" src="https://snapcraft.io/static/images/badges/en/snap-store-black.svg"></img></a>
 
 ## License
 
