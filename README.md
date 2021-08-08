@@ -38,7 +38,8 @@ If current desktop environment has a system tray support, an applet will be used
 
 ## Downloads
 
-<a href="https://flathub.org/apps/details/org.easycoding.TunedSwitcher"><img width="240" alt="Download on Flathub" src="https://flathub.org/assets/badges/flathub-badge-en.svg"></img></a>
+<a href="https://flathub.org/apps/details/org.easycoding.TunedSwitcher"><img width="240" height="80" alt="Download on Flathub" src="https://flathub.org/assets/badges/flathub-badge-en.svg"></img></a>
+<a href="https://snapcraft.io/tuned-switcher"><img width="240" height="80" alt="Get it from the Snap Store" src="https://snapcraft.io/static/images/badges/en/snap-store-black.svg"></img></a>
 
 ## License
 
