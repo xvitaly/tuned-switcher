@@ -22,6 +22,10 @@ Tuned is a daemon for monitoring and adaptive tuning of system devices. In order
 <a href="https://flathub.org/apps/details/org.easycoding.TunedSwitcher"><img width="240" height="80" alt="Download on Flathub" src="https://flathub.org/assets/badges/flathub-badge-en.svg"></img></a>
 <a href="https://snapcraft.io/tuned-switcher"><img width="240" height="80" alt="Get it from the Snap Store" src="https://snapcraft.io/static/images/badges/en/snap-store-black.svg"></img></a>
 
+## Screenhots
+
+Screenhots are available [here](docs/screenshots.md).
+
 ## Features
 
 Supported features:
@@ -50,7 +54,3 @@ Icon from the [Noto Emoji](https://github.com/googlefonts/noto-emoji) font, lice
 ## Documentation
 
 Documentation is available [here](docs/README.md).
-
-## Screenhots
-
-Screenhots are available [here](docs/screenshots.md).
