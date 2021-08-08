@@ -1,0 +1,59 @@
+name: tuned-switcher
+base: core20
+adopt-info: tuned-switcher
+grade: stable
+confinement: strict
+architectures:
+  - build-on: [amd64, arm64]
+
+apps:
+  tuned-switcher:
+    command: usr/bin/tuned-switcher
+    common-id: org.easycoding.TunedSwitcher
+    desktop: usr/share/applications/org.easycoding.TunedSwitcher.desktop
+    plugs:
+      - desktop
+      - unity7
+      - wayland
+      - x11
+    slots:
+    - tuned-daemon
+    - systemd-dbus
+
+parts:
+  tuned-switcher:
+    plugin: cmake
+    source: https://github.com/EasyCoding/tuned-switcher.git
+    source-type: git
+    parse-info:
+      - usr/share/metainfo/org.easycoding.TunedSwitcher.metainfo.xml
+    build-packages:
+      - g++
+      - make
+      - qtbase5-dev
+      - qttools5-dev
+      - qttools5-dev-tools
+    stage-packages:
+      - dbus
+      - dbus-x11
+      - qtwayland5
+      - libqt5dbus5
+      - libqt5core5a
+      - libqt5widgets5
+      - libqt5gui5
+    cmake-parameters:
+      - -DCMAKE_BUILD_TYPE=RelWithDebInfo
+      - -DCMAKE_INSTALL_PREFIX=/usr
+    organize:
+      usr/share/qt5/translations/*.qm: usr/share/tuned-switcher/translations/
+
+slots:
+  tuned-daemon:
+    bus: system
+    interface: dbus
+    name: com.redhat.tuned
+
+  systemd-dbus:
+    bus: system
+    interface: dbus
+    name: org.freedesktop.systemd1
