@@ -48,4 +48,8 @@ Icon from the [Noto Emoji](https://github.com/googlefonts/noto-emoji) font, lice
 
 ## Documentation
 
-Documentation available [here](docs/README.md).
+Documentation is available [here](docs/README.md).
+
+## Screenhots
+
+Screenhots are available [here](docs/screenshots.md).
