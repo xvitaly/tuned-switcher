@@ -17,7 +17,7 @@ apps:
       - wayland
       - x11
     slots:
-    - tuned-daemon
+    - tuned-dbus
     - systemd-dbus
 
 parts:
@@ -48,7 +48,7 @@ parts:
       usr/share/qt5/translations/*.qm: usr/share/tuned-switcher/translations/
 
 slots:
-  tuned-daemon: # used to communicate with the TuneD service
+  tuned-dbus: # used to communicate with the TuneD service
     interface: dbus
     bus: system
     name: com.redhat.tuned
