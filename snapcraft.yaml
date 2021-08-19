@@ -48,12 +48,12 @@ parts:
       usr/share/qt5/translations/*.qm: usr/share/tuned-switcher/translations/
 
 slots:
-  tuned-daemon:
-    bus: system
+  tuned-daemon: # used to communicate with the TuneD service
     interface: dbus
+    bus: system
     name: com.redhat.tuned
 
-  systemd-dbus:
-    bus: system
+  systemd-dbus: # used to track the TuneD service status and to run/stop it
     interface: dbus
+    bus: system
     name: org.freedesktop.systemd1
