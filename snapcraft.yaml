@@ -16,9 +16,8 @@ apps:
       - unity7
       - wayland
       - x11
-    slots:
-    - tuned-dbus
-    - systemd-dbus
+      - tuned-dbus
+      - systemd-dbus
 
 parts:
   tuned-switcher:
@@ -47,7 +46,7 @@ parts:
     organize:
       usr/share/qt5/translations/*.qm: usr/share/tuned-switcher/translations/
 
-slots:
+plugs:
   tuned-dbus: # used to communicate with the TuneD service
     interface: dbus
     bus: system
