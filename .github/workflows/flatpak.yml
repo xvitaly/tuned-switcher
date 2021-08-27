@@ -1,6 +1,9 @@
 name: Flatpak
 
-on: [push]
+on:
+  push:
+    branches:
+    - 'master'
 
 env:
   FLATPAK_ID: org.easycoding.TunedSwitcher

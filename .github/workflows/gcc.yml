@@ -1,6 +1,12 @@
 name: GCC CI
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+    - 'master'
+  pull_request:
+    branches:
+    - '*'
 
 jobs:
   build:
@@ -9,27 +15,25 @@ jobs:
     steps:
     - name: Fetching sources
       uses: actions/checkout@v2
-    - name: Installing compiler
+    - name: Updating apt package metadata
       run: |
         sudo apt-get update
-        sudo apt-get -y install g++ cmake make
+    - name: Installing compiler
+      run: |
+        sudo apt-get -y install g++
     - name: Installing build system
       run: |
         sudo apt-get -y install cmake make
     - name: Installing development packages
       run: |
         sudo apt-get -y install qtbase5-dev qttools5-dev qttools5-dev-tools
-    - name: Preparing for the build
+    - name: Creating build directory
       run: |
         mkdir build
     - name: Building with CMake
       run: |
-        pushd build
-        cmake ..
-        cmake --build .
-        popd
-    - name: Installing project
+        cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+        cmake --build build
+    - name: Installing project with CMake
       run: |
-        pushd build
-        sudo make install
-        popd
+        sudo cmake --install build
