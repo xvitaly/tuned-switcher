@@ -21,12 +21,22 @@ SPDX-License-Identifier: CC0-1.0
             Supported features:
         </p>
         <ul>
-            <li>shows the currently selected profile;</li>
-            <li>easy and simple switching of performance profiles;</li>
-            <li>automatic mode support;</li>
-            <li>profile switch notifications;</li>
-            <li>optional widget-only mode support.</li>
+            <li>Shows the currently selected profile.</li>
+            <li>Easy and simple switching of performance profiles.</li>
+            <li>Automatic mode support.</li>
+            <li>Profile switch notifications.</li>
+            <li>Optional widget-only mode support.</li>
         </ul>
+        <p>
+            Supported modes:
+        </p>
+        <ul>
+            <li>System tray icon (aka applet) - default and recommended mode with support of all available features.</li>
+            <li>GUI application (aka widget) - simplified mode with some features are not available.</li>
+        </ul>
+        <p>
+            If current desktop environment has a system tray support, an applet will be used, otherwise a widget.
+        </p>
     </description>
     <screenshots>
         <screenshot type="default">
