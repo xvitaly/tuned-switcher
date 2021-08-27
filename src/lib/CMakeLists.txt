@@ -38,7 +38,7 @@ set(EXTERNAL_LIBS
     Qt5::DBus
 )
 
-add_library(${LIB_NAME} STATIC
+add_library(${LIB_NAME} OBJECT
     ${INTERNAL_LIBS}
 )
 
