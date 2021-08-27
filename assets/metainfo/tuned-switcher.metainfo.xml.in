@@ -12,7 +12,7 @@ SPDX-License-Identifier: CC0-1.0
     <description>
         <p>Tuned Switcher is a simple utility to manipulate the Tuned service.</p>
         <p>Tuned is a daemon for monitoring and adaptive tuning of system devices. In order to use this program, a daemon must be installed on your system.</p>
-        <p>Supported features:</p>
+        <p>Supported features (major):</p>
         <ul>
             <li>Shows the currently selected profile.</li>
             <li>Easy and simple switching of performance profiles.</li>
@@ -20,7 +20,7 @@ SPDX-License-Identifier: CC0-1.0
             <li>Profile switch notifications.</li>
             <li>Optional widget-only mode support.</li>
         </ul>
-        <p>Supported modes:</p>
+        <p>Supported operating modes:</p>
         <ul>
             <li>System tray icon (aka applet) - default and recommended mode with support of all available features.</li>
             <li>GUI application (aka widget) - simplified mode with some features are not available.</li>
