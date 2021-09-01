@@ -27,9 +27,9 @@ Screenhots are available [here](docs/screenshots.md).
 
 ## Features
 
-Supported features:
+Currently supported features:
 
-  * shows the currently selected profile;
+  * shows the active profile;
   * easy and simple switching of performance profiles;
   * automatic mode support;
   * profile switch notifications;
