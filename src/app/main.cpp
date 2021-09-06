@@ -29,7 +29,7 @@ int main(int argc, char *argv[])
     a.installTranslator(translator -> GetQtTranslator());
     a.installTranslator(translator -> GetAppTranslator());
 
-    if (QSystemTrayIcon::isSystemTrayAvailable() && qgetenv("TUNED_SWITCHER_FORCE_GUI").isEmpty())
+    if (QSystemTrayIcon::isSystemTrayAvailable() && !qEnvironmentVariableIsSet("TUNED_SWITCHER_FORCE_GUI"))
     {
         TrayIcon *trayIcon = new TrayIcon();
         trayIcon -> Show();
