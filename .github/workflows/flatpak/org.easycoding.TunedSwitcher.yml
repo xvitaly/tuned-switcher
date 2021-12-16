@@ -1,7 +1,13 @@
+#
+# SPDX-FileCopyrightText: 2021 EasyCoding Team and contributors
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+
 id: org.easycoding.TunedSwitcher
 sdk: org.kde.Sdk
 runtime: org.kde.Platform
-runtime-version: '5.15'
+runtime-version: '5.15-21.08'
 finish-args:
   - --share=ipc
   - --socket=x11
@@ -18,4 +24,4 @@ modules:
     buildsystem: cmake-ninja
     sources:
       - type: dir
-        path: ../..
+        path: ../../..

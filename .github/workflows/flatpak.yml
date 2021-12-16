@@ -1,7 +1,16 @@
+#
+# SPDX-FileCopyrightText: 2021 EasyCoding Team and contributors
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+
 name: Flatpak
 
 on:
   push:
+    branches:
+    - 'master'
+  pull_request:
     branches:
     - 'master'
 
