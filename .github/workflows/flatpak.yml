@@ -29,7 +29,7 @@ jobs:
           id: ${{ env.FLATPAK_ID }}
           arch: x86_64
           branch: ${{ env.FLATPAK_BRANCH }}
-          manifest-path: packaging/flatpak/${{ env.FLATPAK_ID }}.yml
+          manifest-path: .github/workflows/flatpak/${{ env.FLATPAK_ID }}.yml
 
       - name: Create bundle
         run: |
