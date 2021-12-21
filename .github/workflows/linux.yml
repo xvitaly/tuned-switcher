@@ -54,16 +54,18 @@ jobs:
             -DCMAKE_INSTALL_PREFIX:PATH=/usr \
             -DCMAKE_BUILD_TYPE=RelWithDebInfo \
             -DBUILD_DOC:BOOL=ON \
-            -DBUILD_MANPAGE:BOOL=ON
+            -DBUILD_MANPAGE:BOOL=ON \
+            -DBUILD_TESTS:BOOL=ON
         cmake --build build
       env:
         CFLAGS: -O2 -fexceptions -pipe -Wall -Wextra -Werror -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -fPIC -fstack-protector-strong -fasynchronous-unwind-tables -fcf-protection
         CXXFLAGS: -O2 -fexceptions -pipe -Wall -Wextra -Werror -Wp,-D_FORTIFY_SOURCE=2 -Wp,-D_GLIBCXX_ASSERTIONS -fPIC -fstack-protector-strong -fasynchronous-unwind-tables -fcf-protection
         LDFLAGS: -Wl,-z,relro -Wl,--as-needed -Wl,-z,now
+    - name: Running tests
+      run: |
+        pushd build
+        ctest --output-on-failure
+        popd
     - name: Installing project with CMake
       run: |
         sudo cmake --install build
-    - name: Running tests
-      run: |
-        appstream-util validate /usr/share/metainfo/org.easycoding.TunedSwitcher.metainfo.xml
-        desktop-file-validate /usr/share/applications/org.easycoding.TunedSwitcher.desktop
