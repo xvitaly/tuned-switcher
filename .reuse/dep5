@@ -1,0 +1,28 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: tuned-switcher
+Upstream-Contact: EasyCoding Team
+Source: https://github.com/EasyCoding/tuned-switcher
+
+Files: .github/*.md
+Copyright: 2021 EasyCoding Team and contributors
+License: GPL-3.0-or-later
+
+Files: assets/desktop/*.in
+Copyright: 2021 EasyCoding Team and contributors
+License: GPL-3.0-or-later
+
+Files: assets/icons/icon*.*
+Copyright: 2015 Google Inc.
+License: Apache-2.0
+
+Files: assets/manpage/*.in
+Copyright: 2021 EasyCoding Team and contributors
+License: GPL-3.0-or-later
+
+Files: docs/*.md
+Copyright: 2021 EasyCoding Team and contributors
+License: GPL-3.0-or-later
+
+Files: README.md
+Copyright: 2021 EasyCoding Team and contributors
+License: GPL-3.0-or-later
