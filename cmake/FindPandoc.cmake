@@ -1,7 +1,7 @@
 #
-# SPDX-FileCopyrightText: 2020-2021 EasyCoding Team and contributors
+# SPDX-FileCopyrightText: 2021 EasyCoding Team and contributors
 #
-# SPDX-License-Identifier: MIT
+# SPDX-License-Identifier: GPL-3.0-or-later
 #
 
 if (BUILD_MANPAGE)
