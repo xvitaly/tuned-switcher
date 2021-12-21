@@ -21,5 +21,9 @@ include(cmake/Variables.cmake)
 include(cmake/Settings.cmake)
 include(cmake/External.cmake)
 
+if (BUILD_TESTS)
+    enable_testing()
+endif()
+
 add_subdirectory("assets")
 add_subdirectory("src")

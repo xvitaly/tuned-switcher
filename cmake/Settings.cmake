@@ -6,3 +6,4 @@
 
 option(BUILD_DOC "Build documentation" OFF)
 option(BUILD_MANPAGE "Build manpage" OFF)
+option(BUILD_TESTS "Build tests" OFF)
