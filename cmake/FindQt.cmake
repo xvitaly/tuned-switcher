@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
 
-find_package(Qt5 5.7.0
+find_package(Qt6 6.2.1
     COMPONENTS
         Widgets
         Core
