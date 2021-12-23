@@ -12,6 +12,7 @@
 #include <QDBusReply>
 #include <QDBusMetaType>
 #include <QIcon>
+#include <QRegularExpression>
 
 #include "appconstants/appconstants.h"
 #include "notificationsmanager/notificationsmanager.h"
@@ -48,7 +49,7 @@ const QList<QVariant> NotificationsManager::CreateArgListStructure(const QString
     result << static_cast<uint>(0);
     result << "";
     result << title;
-    result << (IsMarkupSupported ? message : QString(message).remove(QRegExp(QStringLiteral("<\\/?[bi]>"), Qt::CaseInsensitive)));
+    result << (IsMarkupSupported ? message : QString(message).remove(QRegularExpression(QStringLiteral("<\\/?[bi]>"), QRegularExpression::CaseInsensitiveOption)));
     result << QStringList();
     result << CreateHintsStructure();
     result << static_cast<int>(5000);
