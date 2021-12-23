@@ -39,6 +39,7 @@ jobs:
           arch: x86_64
           branch: ${{ env.FLATPAK_BRANCH }}
           manifest-path: .github/workflows/flatpak/${{ env.FLATPAK_ID }}.yml
+          extra-args: --ccache
 
       - name: Create bundle
         run: |
