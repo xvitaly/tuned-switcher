@@ -18,6 +18,7 @@ jobs:
   build:
     name: Build and install project
     runs-on: ubuntu-latest
+    container: fedora:latest
     strategy:
       matrix:
         include:
@@ -28,23 +29,23 @@ jobs:
             cc: 'gcc'
             cxx: 'g++'
     steps:
+    - name: Installing core packages
+      run: |
+        sudo dnf -y install git-core
     - name: Fetching sources
       uses: actions/checkout@v2
-    - name: Updating apt package metadata
-      run: |
-        sudo apt-get update
     - name: Installing compiler ${{ matrix.compiler }}
       run: |
-        sudo apt-get -y install ${{ matrix.compiler }}
+        sudo dnf -y install ${{ matrix.compiler }}
     - name: Installing build system
       run: |
-        sudo apt-get -y install cmake make
+        sudo dnf -y install cmake make
     - name: Installing development packages
       run: |
-        sudo apt-get -y install qtbase5-dev qttools5-dev
+        sudo dnf -y install qt5-qtbase-devel
     - name: Installing helper tools
       run: |
-        sudo apt-get -y install appstream-util desktop-file-utils doxygen pandoc qttools5-dev-tools
+        sudo dnf -y install desktop-file-utils libappstream-glib doxygen pandoc qt5-linguist
     - name: Building with CMake
       run: |
         cmake -S . -B build \
