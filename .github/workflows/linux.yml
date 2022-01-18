@@ -42,10 +42,10 @@ jobs:
         sudo dnf -y install cmake make
     - name: Installing development packages
       run: |
-        sudo dnf -y install qt5-qtbase-devel
+        sudo dnf -y install qt5-qtbase-devel qt5-linguist
     - name: Installing helper tools
       run: |
-        sudo dnf -y install desktop-file-utils libappstream-glib doxygen pandoc qt5-linguist
+        sudo dnf -y install desktop-file-utils libappstream-glib doxygen pandoc
     - name: Building with CMake
       run: |
         cmake -S . -B build \
