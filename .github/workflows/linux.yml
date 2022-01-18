@@ -39,16 +39,17 @@ jobs:
         sudo dnf -y install ${{ matrix.compiler }}
     - name: Installing build system
       run: |
-        sudo dnf -y install cmake make
+        sudo dnf -y install cmake ninja-build
     - name: Installing development packages
       run: |
-        sudo dnf -y install qt5-qtbase-devel
+        sudo dnf -y install qt5-qtbase-devel qt5-linguist
     - name: Installing helper tools
       run: |
-        sudo dnf -y install desktop-file-utils libappstream-glib doxygen pandoc qt5-linguist
+        sudo dnf -y install desktop-file-utils libappstream-glib doxygen pandoc
     - name: Building with CMake
       run: |
         cmake -S . -B build \
+            -GNinja \
             -DCMAKE_C_COMPILER=${{ matrix.cc }} \
             -DCMAKE_CXX_COMPILER=${{ matrix.cxx }} \
             -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
