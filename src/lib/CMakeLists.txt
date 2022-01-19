@@ -34,8 +34,8 @@ set(INTERNAL_LIBS
 )
 
 set(EXTERNAL_LIBS
-    Qt5::Widgets
-    Qt5::DBus
+    Qt::Widgets
+    Qt::DBus
 )
 
 add_library(${LIB_NAME} OBJECT

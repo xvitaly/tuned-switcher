@@ -60,16 +60,12 @@ QDBusArgument& operator <<(QDBusArgument &argument, const QImage &image)
     argument.beginStructure();
     argument << i.width();
     argument << i.height();
-    argument << i.bytesPerLine();
+    argument << static_cast<int>(i.bytesPerLine());
     argument << i.hasAlphaChannel();
     int channels = i.isGrayscale() ? 1 : (i.hasAlphaChannel() ? 4 : 3);
     argument << i.depth() / channels;
     argument << channels;
-#if QT_VERSION < QT_VERSION_CHECK(5, 10, 0)
-    argument << QByteArray(reinterpret_cast<const char *>(i.bits()), i.byteCount());
-#else
     argument << QByteArray(reinterpret_cast<const char *>(i.bits()), i.sizeInBytes());
-#endif
     argument.endStructure();
     return argument;
 }

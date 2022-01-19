@@ -18,11 +18,11 @@ set(HEADERS
     mainwindow/mainwindow.h
 )
 
-qt5_add_resources(RESOURCES
+qt_add_resources(RESOURCES
     resources.qrc
 )
 
-qt5_wrap_ui(UI_HEADERS
+qt_wrap_ui(UI_HEADERS
     mainwindow/mainwindow.ui
 )
 
@@ -35,8 +35,8 @@ set(INTERNAL_LIBS
 )
 
 set(EXTERNAL_LIBS
-    Qt5::Widgets
-    Qt5::DBus
+    Qt::Widgets
+    Qt::DBus
     ${LIB_NAME}
 )
 
@@ -44,9 +44,17 @@ add_executable(${APP_NAME}
     ${INTERNAL_LIBS}
 )
 
-add_dependencies(${APP_NAME}
-    ${I18N_NAME}
-)
+if (Qt6_FOUND)
+    qt_add_translations(${APP_NAME}
+        TS_FILES ${TRANSLATIONS}
+        QM_FILES_OUTPUT_VARIABLE QM_FILES
+    )
+else()
+    qt_add_translation(QM_FILES
+        ${TRANSLATIONS}
+    )
+    add_custom_target(${I18N_NAME} ALL DEPENDS ${QM_FILES})
+endif()
 
 target_link_libraries(${APP_NAME} PRIVATE
     ${EXTERNAL_LIBS}
@@ -55,4 +63,8 @@ target_link_libraries(${APP_NAME} PRIVATE
 install(TARGETS ${APP_NAME}
     RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}"
     BUNDLE DESTINATION "${CMAKE_INSTALL_BINDIR}"
+)
+
+install(FILES ${QM_FILES}
+    DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/${CMAKE_PROJECT_NAME}/translations
 )

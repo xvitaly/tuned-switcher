@@ -10,8 +10,8 @@ You need the following versions:
 
   * GCC: 7.4+;
   * Clang: 7.0+;
-  * CMake: 3.10+;
-  * Qt 5.7+;
+  * CMake: 3.12+;
+  * Qt 6.2 or 5.15;
   * doxygen (for building documentation);
   * pandoc (for generating manpage).
 

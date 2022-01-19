@@ -4,12 +4,22 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
 
-find_package(Qt5 5.7.0
-    COMPONENTS
-        Widgets
-        Core
-        Gui
-        DBus
-        LinguistTools
-    REQUIRED
+set(QT_COMPONENTS
+    Core
+    DBus
+    Gui
+    LinguistTools
+    Widgets
 )
+
+find_package(Qt6 6.2.0
+    COMPONENTS ${QT_COMPONENTS}
+    QUIET
+)
+
+if (NOT Qt6_FOUND)
+    find_package(Qt5 5.15.0
+        COMPONENTS ${QT_COMPONENTS}
+        REQUIRED
+    )
+endif()
