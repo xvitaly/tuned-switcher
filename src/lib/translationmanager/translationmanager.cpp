@@ -46,7 +46,11 @@ QTranslator* TranslationManager::GetAppTranslator() const
 TranslationManager::TranslationManager(QObject *parent) : QObject(parent)
 {
     QtTranslator = new QTranslator(this);
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    QtTranslator -> load(QLocale(), QStringLiteral("qt"), QStringLiteral("_"), QLibraryInfo::location(QLibraryInfo::TranslationsPath));
+#else
     QtTranslator -> load(QLocale(), QStringLiteral("qt"), QStringLiteral("_"), QLibraryInfo::path(QLibraryInfo::TranslationsPath));
+#endif
 
     AppTranslator = new QTranslator(this);
     AppTranslator -> load(QLocale(), AppConstants::ProductNameInternal, QStringLiteral("_"), GetTranslationPath());

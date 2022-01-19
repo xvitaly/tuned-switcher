@@ -44,10 +44,17 @@ add_executable(${APP_NAME}
     ${INTERNAL_LIBS}
 )
 
-qt_add_translations(${APP_NAME}
-    TS_FILES ${TRANSLATIONS}
-    QM_FILES_OUTPUT_VARIABLE QM_FILES
-)
+if (Qt6_FOUND)
+    qt_add_translations(${APP_NAME}
+        TS_FILES ${TRANSLATIONS}
+        QM_FILES_OUTPUT_VARIABLE QM_FILES
+    )
+else()
+    qt5_add_translation(QM_FILES
+        ${TRANSLATIONS}
+    )
+    add_custom_target(${I18N_NAME} ALL DEPENDS ${QM_FILES})
+endif()
 
 target_link_libraries(${APP_NAME} PRIVATE
     ${EXTERNAL_LIBS}
