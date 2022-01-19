@@ -50,7 +50,7 @@ if (Qt6_FOUND)
         QM_FILES_OUTPUT_VARIABLE QM_FILES
     )
 else()
-    qt5_add_translation(QM_FILES
+    qt_add_translation(QM_FILES
         ${TRANSLATIONS}
     )
     add_custom_target(${I18N_NAME} ALL DEPENDS ${QM_FILES})

@@ -4,7 +4,8 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
 
-file(GLOB TRANSLATIONS "i18n/${CMAKE_PROJECT_NAME}_*.ts")
+file(GLOB TS_GLOB "i18n/${CMAKE_PROJECT_NAME}_*.ts")
+set(TRANSLATIONS ${TS_GLOB} CACHE INTERNAL "Translation files.")
 
 install(FILES "icons/icon.svg" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/scalable/apps" RENAME "${SCHEME_NAME}.svg")
 
