@@ -53,6 +53,12 @@ private:
     QString GetTranslationPath() const;
 
     /**
+     * Get directory with compiled Qt translation files.
+     * @returns Full path to compiled Qt translation files.
+    */
+    QString GetQtTranslationPath() const;
+
+    /**
      * Stores pointer to the Qt translator engine.
     */
     QTranslator* QtTranslator;

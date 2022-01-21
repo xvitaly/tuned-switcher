@@ -33,7 +33,7 @@ jobs:
     steps:
     - name: Installing required packages
       run: |
-        sudo dnf -y install git-core gcc qt5-qtbase-devel qt5-linguist
+        sudo dnf -y install git-core gcc qt5-qtbase-devel qt5-qttools-devel
     - name: Checkout repository
       uses: actions/checkout@v2
     - name: Initialize CodeQL

@@ -20,7 +20,10 @@ jobs:
     runs-on: ubuntu-latest
     container: fedora:latest
     strategy:
+      fail-fast: false
       matrix:
+        compiler: ['clang', 'gcc']
+        qt: ['qt5', 'qt6']
         include:
           - compiler: 'clang'
             cc: 'clang'
@@ -42,7 +45,7 @@ jobs:
         sudo dnf -y install cmake ninja-build
     - name: Installing development packages
       run: |
-        sudo dnf -y install qt5-qtbase-devel qt5-linguist
+        sudo dnf -y install ${{ matrix.qt }}-qtbase-devel ${{ matrix.qt }}-qttools-devel
     - name: Installing helper tools
       run: |
         sudo dnf -y install desktop-file-utils libappstream-glib doxygen pandoc
