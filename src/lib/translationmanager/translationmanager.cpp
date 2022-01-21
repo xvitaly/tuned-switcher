@@ -33,6 +33,15 @@ QString TranslationManager::GetTranslationPath() const
     return QString();
 }
 
+QString TranslationManager::GetQtTranslationPath() const
+{
+#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
+    return QLibraryInfo::location(QLibraryInfo::TranslationsPath);
+#else
+    return QLibraryInfo::path(QLibraryInfo::TranslationsPath);
+#endif
+}
+
 QTranslator* TranslationManager::GetQtTranslator() const
 {
     return QtTranslator;
@@ -46,12 +55,10 @@ QTranslator* TranslationManager::GetAppTranslator() const
 TranslationManager::TranslationManager(QObject *parent) : QObject(parent)
 {
     QtTranslator = new QTranslator(this);
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    QtTranslator -> load(QLocale(), QStringLiteral("qt"), QStringLiteral("_"), QLibraryInfo::location(QLibraryInfo::TranslationsPath));
-#else
-    QtTranslator -> load(QLocale(), QStringLiteral("qt"), QStringLiteral("_"), QLibraryInfo::path(QLibraryInfo::TranslationsPath));
-#endif
+    if (QtTranslator -> load(QLocale(), QStringLiteral("qt"), QStringLiteral("_"), GetQtTranslationPath()))
+        QtTranslator = nullptr;
 
     AppTranslator = new QTranslator(this);
-    AppTranslator -> load(QLocale(), AppConstants::ProductNameInternal, QStringLiteral("_"), GetTranslationPath());
+    if (AppTranslator -> load(QLocale(), AppConstants::ProductNameInternal, QStringLiteral("_"), GetTranslationPath()))
+        AppTranslator = nullptr;
 }
