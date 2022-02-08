@@ -39,7 +39,7 @@ jobs:
       uses: actions/checkout@v2
     - name: Installing compiler ${{ matrix.compiler }}
       run: |
-        sudo dnf -y install ${{ matrix.compiler }}
+        sudo dnf -y install '/usr/bin/${{ matrix.cc }}' '/usr/bin/${{ matrix.cxx }}'
     - name: Installing build system
       run: |
         sudo dnf -y install cmake ninja-build
