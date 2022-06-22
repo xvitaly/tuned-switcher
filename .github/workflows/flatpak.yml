@@ -28,7 +28,7 @@ jobs:
 
     steps:
       - name: Fetch sources
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Build flatpak
         uses: gasinvein/action-flatpak-build@master
@@ -49,7 +49,7 @@ jobs:
             ${FLATPAK_ID} ${FLATPAK_BRANCH}
 
       - name: Upload bundle
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: ${{ env.FLATPAK_ID }}-${{ github.sha }}
           path: ${{ env.FLATPAK_ID }}-${{ github.sha }}.flatpak
