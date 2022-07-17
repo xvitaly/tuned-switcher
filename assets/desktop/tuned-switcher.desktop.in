@@ -2,8 +2,10 @@
 Type=Application
 Name=Tuned Switcher
 GenericName=Tuned profile switcher
+GenericName[tr]=Tuned profili değiştirici
 Categories=Utility;
 Comment=Simple utility to manipulate the Tuned service
+Comment[tr]=Tuned hizmetini yönetmek için basit bir araç
 Icon=@SCHEME_NAME@
 Exec=@APP_NAME@
 Terminal=false
