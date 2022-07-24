@@ -10,11 +10,10 @@ architectures:
 
 apps:
   tuned-switcher:
-    command: bin/desktop-launch tuned-switcher
+    command: usr/bin/tuned-switcher
+    command-chain: [bin/desktop-launch]
     common-id: org.easycoding.TunedSwitcher
     desktop: usr/share/applications/org.easycoding.TunedSwitcher.desktop
-    extensions:
-      - kde-neon
     plugs:
       - desktop
       - unity7
@@ -41,9 +40,12 @@ parts:
       - adwaita-icon-theme
       - gnome-themes-standard
       - shared-mime-info
+      - libqt5gui5
       - libgdk-pixbuf2.0-0
+      - libqt5svg5
       - locales-all
       - xdg-user-dirs
+      - fcitx-frontend-qt5
 
   tuned-switcher:
     after: 
