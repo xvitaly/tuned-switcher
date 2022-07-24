@@ -10,7 +10,7 @@ architectures:
 
 apps:
   tuned-switcher:
-    command: desktop-launch usr/bin/tuned-switcher
+    command: bin/desktop-launch usr/bin/tuned-switcher
     common-id: org.easycoding.TunedSwitcher
     desktop: usr/share/applications/org.easycoding.TunedSwitcher.desktop
     extensions:
