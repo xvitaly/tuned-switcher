@@ -13,6 +13,8 @@ apps:
     command: usr/bin/tuned-switcher
     common-id: org.easycoding.TunedSwitcher
     desktop: usr/share/applications/org.easycoding.TunedSwitcher.desktop
+    extensions:
+      - kde-neon
     plugs:
       - desktop
       - unity7
@@ -34,8 +36,6 @@ parts:
       - qtbase5-dev
       - qttools5-dev
       - qttools5-dev-tools
-    extensions:
-      - kde-neon
     stage-packages:
       - dbus
       - dbus-x11
