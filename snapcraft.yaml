@@ -16,6 +16,7 @@ apps:
     desktop: usr/share/applications/org.easycoding.TunedSwitcher.desktop
     plugs:
       - desktop
+      - dbus
       - unity7
       - wayland
       - x11
