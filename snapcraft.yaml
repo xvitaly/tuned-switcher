@@ -37,11 +37,15 @@ parts:
     stage-packages:
       - dbus
       - dbus-x11
-      - qtwayland5
-      - libqt5dbus5
       - libqt5core5a
-      - libqt5widgets5
+      - libqt5dbus5
       - libqt5gui5
+      - libqt5svg5
+      - libqt5widgets5
+      - libx11-6
+      - libxcb1
+      - libxkbcommon0
+      - qtwayland5
     cmake-parameters:
       - -DCMAKE_BUILD_TYPE=RelWithDebInfo
       - -DCMAKE_INSTALL_PREFIX=/usr
