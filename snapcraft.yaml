@@ -22,9 +22,6 @@ apps:
       - x11
       - tuned-dbus
       - systemd-dbus
-    slots:
-      - tuned-dbus
-      - systemd-dbus
 
 parts:
   desktop-qt5:
@@ -83,7 +80,7 @@ parts:
     organize:
       usr/share/qt5/translations/*.qm: usr/share/tuned-switcher/translations/
 
-slots:
+plugs:
   tuned-dbus: # used to communicate with the TuneD service
     interface: dbus
     bus: system
