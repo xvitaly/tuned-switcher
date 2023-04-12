@@ -1,7 +1,7 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 Upstream-Name: tuned-switcher
 Upstream-Contact: EasyCoding Team
-Source: https://github.com/EasyCoding/tuned-switcher
+Source: https://github.com/xvitaly/tuned-switcher
 
 Files: .github/*.md
 Copyright: 2021-2022 EasyCoding Team and contributors

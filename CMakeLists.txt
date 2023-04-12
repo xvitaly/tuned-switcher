@@ -9,7 +9,7 @@ cmake_minimum_required(VERSION 3.12)
 project(tuned-switcher
     VERSION 0.7.1
     DESCRIPTION "Simple utility to manipulate the Tuned service"
-    HOMEPAGE_URL "https://github.com/EasyCoding/tuned-switcher"
+    HOMEPAGE_URL "https://github.com/xvitaly/tuned-switcher"
     LANGUAGES CXX
 )
 set(RELEASE_DATE "2022-08-04")

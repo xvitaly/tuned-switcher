@@ -1,12 +1,12 @@
 # Tuned Switcher
 
-[![GitHub version](https://img.shields.io/github/v/release/EasyCoding/tuned-switcher?sort=semver&color=brightgreen&logo=git&logoColor=white)](https://github.com/EasyCoding/tuned-switcher/releases)
-[![Linux CI status](https://github.com/EasyCoding/tuned-switcher/actions/workflows/linux.yml/badge.svg)](https://github.com/EasyCoding/tuned-switcher/actions/workflows/linux.yml)
-[![Flatpak CI status](https://github.com/EasyCoding/tuned-switcher/actions/workflows/flatpak.yml/badge.svg)](https://github.com/EasyCoding/tuned-switcher/actions/workflows/flatpak.yml)
-[![CodeQL](https://github.com/EasyCoding/tuned-switcher/actions/workflows/codeql.yml/badge.svg)](https://github.com/EasyCoding/tuned-switcher/actions/workflows/codeql.yml)
-[![CodeFactor](https://www.codefactor.io/repository/github/easycoding/tuned-switcher/badge)](https://www.codefactor.io/repository/github/easycoding/tuned-switcher)
-[![Codacy](https://app.codacy.com/project/badge/Grade/aa1c30566f9244b8a677a775d1672604)](https://www.codacy.com/gh/EasyCoding/tuned-switcher/dashboard)
-[![GitHub issues](https://img.shields.io/github/issues/EasyCoding/tuned-switcher.svg?label=issues)](https://github.com/EasyCoding/tuned-switcher/issues)
+[![GitHub version](https://img.shields.io/github/v/release/xvitaly/tuned-switcher?sort=semver&color=brightgreen&logo=git&logoColor=white)](https://github.com/xvitaly/tuned-switcher/releases)
+[![Linux CI status](https://github.com/xvitaly/tuned-switcher/actions/workflows/linux.yml/badge.svg)](https://github.com/xvitaly/tuned-switcher/actions/workflows/linux.yml)
+[![Flatpak CI status](https://github.com/xvitaly/tuned-switcher/actions/workflows/flatpak.yml/badge.svg)](https://github.com/xvitaly/tuned-switcher/actions/workflows/flatpak.yml)
+[![CodeQL](https://github.com/xvitaly/tuned-switcher/actions/workflows/codeql.yml/badge.svg)](https://github.com/xvitaly/tuned-switcher/actions/workflows/codeql.yml)
+[![CodeFactor](https://www.codefactor.io/repository/github/xvitaly/tuned-switcher/badge)](https://www.codefactor.io/repository/github/xvitaly/tuned-switcher)
+[![Codacy](https://app.codacy.com/project/badge/Grade/aa1c30566f9244b8a677a775d1672604)](https://www.codacy.com/gh/xvitaly/tuned-switcher/dashboard)
+[![GitHub issues](https://img.shields.io/github/issues/xvitaly/tuned-switcher.svg?label=issues)](https://github.com/xvitaly/tuned-switcher/issues)
 ---
 
 ## About

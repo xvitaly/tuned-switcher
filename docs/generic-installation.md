@@ -20,10 +20,10 @@ You need the following versions:
 Download sources using Git:
 
 ```
-git clone --depth=1 https://github.com/EasyCoding/tuned-switcher.git tuned-switcher
+git clone --depth=1 https://github.com/xvitaly/tuned-switcher.git tuned-switcher
 ```
 
-You can also use [release tarballs](https://github.com/EasyCoding/tuned-switcher/releases).
+You can also use [release tarballs](https://github.com/xvitaly/tuned-switcher/releases).
 
 ## Building from sources
 
