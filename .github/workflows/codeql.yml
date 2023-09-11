@@ -35,7 +35,7 @@ jobs:
       run: |
         sudo dnf -y install git-core gcc qt5-qtbase-devel qt5-qttools-devel
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v2
       with:

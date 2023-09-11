@@ -28,7 +28,7 @@ jobs:
 
     steps:
       - name: Fetch sources
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Build flatpak
         uses: gasinvein/action-flatpak-build@master
