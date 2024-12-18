@@ -8,7 +8,7 @@
 # =============== Project initialization ===============
 # ======================================================
 
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.16)
 
 project(tuned-switcher
     VERSION 0.7.2
@@ -77,8 +77,8 @@ set(QT_COMPONENTS
     Widgets
 )
 
-find_package(Qt6 6.2.0
-    COMPONENTS ${QT_COMPONENTS}
+find_package(Qt6 6.8.0
+    REQUIRED COMPONENTS ${QT_COMPONENTS}
     QUIET
 )
 

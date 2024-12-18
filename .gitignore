@@ -54,3 +54,6 @@ CMakeLists.txt.user*
 
 # Flatpak-builder state directory
 .flatpak-builder
+
+# vscode directory
+.vscode
