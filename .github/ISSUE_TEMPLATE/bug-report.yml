@@ -49,7 +49,7 @@ body:
       required: true
   - type: input
     attributes:
-      label: GNU/Linux distribution
+      label: Distribution name
       description: >
         Please specify distribution name and version.
     validations:
@@ -68,7 +68,6 @@ body:
       options:
         - Distribution package
         - Flatpak
-        - Snap
         - Make install
         - Self-built binary
         - Other
