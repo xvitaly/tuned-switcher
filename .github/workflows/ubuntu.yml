@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
 
-name: Linux CI
+name: Ubuntu CI
 
 on:
   push:
@@ -18,12 +18,10 @@ jobs:
   build:
     name: Build and install project
     runs-on: ubuntu-latest
-    container: fedora:latest
     strategy:
       fail-fast: false
       matrix:
         compiler: ['clang', 'gcc']
-        qt: ['qt5', 'qt6']
         include:
           - compiler: 'clang'
             cc: 'clang'
@@ -32,32 +30,31 @@ jobs:
             cc: 'gcc'
             cxx: 'g++'
     steps:
-    - name: Installing core packages
-      run: |
-        sudo dnf -y install git-core
     - name: Fetching sources
       uses: actions/checkout@v4
+    - name: Updating apt package metadata
+      run: |
+        sudo apt-get update
     - name: Installing compiler ${{ matrix.compiler }}
       run: |
-        sudo dnf -y install '/usr/bin/${{ matrix.cc }}' '/usr/bin/${{ matrix.cxx }}'
+        sudo apt-get -y install ${{ matrix.compiler }}
     - name: Installing build system
       run: |
-        sudo dnf -y install cmake ninja-build
+        sudo apt-get -y install cmake make
     - name: Installing development packages
       run: |
-        sudo dnf -y install ${{ matrix.qt }}-qtbase-devel ${{ matrix.qt }}-qttools-devel
+        sudo apt-get -y install qt6-base-dev qt6-tools-dev
     - name: Installing helper tools
       run: |
-        sudo dnf -y install desktop-file-utils libappstream-glib doxygen pandoc
+        sudo apt-get -y install appstream-util desktop-file-utils doxygen pandoc
     - name: Building project with CMake
       run: |
         cmake -S . -B build \
-            -GNinja \
             -DCMAKE_C_COMPILER=${{ matrix.cc }} \
             -DCMAKE_CXX_COMPILER=${{ matrix.cxx }} \
-            -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
-            -DCMAKE_INSTALL_PREFIX:PATH=/usr \
             -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+            -DCMAKE_INSTALL_PREFIX:PATH=/usr \
+            -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
             -DBUILD_DOC:BOOL=ON \
             -DBUILD_MANPAGE:BOOL=ON \
             -DBUILD_TESTS:BOOL=ON
@@ -68,9 +65,7 @@ jobs:
         LDFLAGS: -Wl,-z,relro -Wl,--as-needed -Wl,-z,now
     - name: Running tests with CMake
       run: |
-        pushd build
-        ctest --output-on-failure
-        popd
+        ctest --test-dir build --output-on-failure
     - name: Installing project with CMake
       run: |
         sudo cmake --install build
