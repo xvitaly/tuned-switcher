@@ -1,0 +1,73 @@
+#
+# SPDX-FileCopyrightText: 2021-2023 EasyCoding Team and contributors
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+#
+
+name: Fedora CI
+
+on:
+  push:
+    branches:
+    - 'master'
+  pull_request:
+    branches:
+    - 'master'
+
+jobs:
+  build:
+    name: Build and install project
+    runs-on: ubuntu-latest
+    container: fedora:latest
+    strategy:
+      fail-fast: false
+      matrix:
+        compiler: ['clang', 'gcc']
+        include:
+          - compiler: 'clang'
+            cc: 'clang'
+            cxx: 'clang++'
+          - compiler: 'gcc'
+            cc: 'gcc'
+            cxx: 'g++'
+    steps:
+    - name: Installing core packages
+      run: |
+        sudo dnf -y install git-core
+    - name: Fetching sources
+      uses: actions/checkout@v4
+    - name: Installing compiler ${{ matrix.compiler }}
+      run: |
+        sudo dnf -y install '/usr/bin/${{ matrix.cc }}' '/usr/bin/${{ matrix.cxx }}'
+    - name: Installing build system
+      run: |
+        sudo dnf -y install cmake ninja-build
+    - name: Installing development packages
+      run: |
+        sudo dnf -y install qt6-qtbase-devel qt6-qttools-devel
+    - name: Installing helper tools
+      run: |
+        sudo dnf -y install desktop-file-utils libappstream-glib doxygen pandoc
+    - name: Building project with CMake
+      run: |
+        cmake -S . -B build \
+            -GNinja \
+            -DCMAKE_C_COMPILER=${{ matrix.cc }} \
+            -DCMAKE_CXX_COMPILER=${{ matrix.cxx }} \
+            -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
+            -DCMAKE_INSTALL_PREFIX:PATH=/usr \
+            -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+            -DBUILD_DOC:BOOL=ON \
+            -DBUILD_MANPAGE:BOOL=ON \
+            -DBUILD_TESTS:BOOL=ON
+        cmake --build build
+      env:
+        CFLAGS: -O2 -fexceptions -pipe -Wall -Wextra -Werror -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -D_GLIBCXX_ASSERTIONS -fPIC -fstack-protector-strong -fasynchronous-unwind-tables -fcf-protection
+        CXXFLAGS: -O2 -fexceptions -pipe -Wall -Wextra -Werror -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -D_GLIBCXX_ASSERTIONS -fPIC -fstack-protector-strong -fasynchronous-unwind-tables -fcf-protection
+        LDFLAGS: -Wl,-z,relro -Wl,--as-needed -Wl,-z,now
+    - name: Running tests with CMake
+      run: |
+        ctest --test-dir build --output-on-failure
+    - name: Installing project with CMake
+      run: |
+        sudo cmake --install build

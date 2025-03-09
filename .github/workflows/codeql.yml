@@ -18,7 +18,6 @@ jobs:
   analyze:
     name: Analyze with CodeQL
     runs-on: ubuntu-latest
-    container: fedora:latest
     permissions:
       actions: read
       contents: read
@@ -31,16 +30,16 @@ jobs:
           - 'cpp'
 
     steps:
-    - name: Installing required packages
-      run: |
-        sudo dnf -y install git-core gcc qt5-qtbase-devel qt5-qttools-devel
     - name: Checkout repository
       uses: actions/checkout@v4
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@v2
+      uses: github/codeql-action/init@v3
       with:
         languages: ${{ matrix.language }}
-    - name: Autobuild
-      uses: github/codeql-action/autobuild@v2
+        queries: +security-and-quality
+    - name: Perform automatic build
+      uses: github/codeql-action/autobuild@v3
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v2
+      uses: github/codeql-action/analyze@v3
+      with:
+          category: "/language:${{ matrix.language }}"
