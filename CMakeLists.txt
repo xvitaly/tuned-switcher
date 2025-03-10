@@ -8,7 +8,7 @@
 # =============== Project initialization ===============
 # ======================================================
 
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.14)
 
 project(tuned-switcher
     VERSION 0.7.2
@@ -18,16 +18,17 @@ project(tuned-switcher
 )
 set(RELEASE_DATE "2023-04-12")
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 # ======================================================
 # ================== Project options ===================
 # ======================================================
 
-option(BUILD_DOC "Build documentation" OFF)
-option(BUILD_MANPAGE "Build manpage" OFF)
-option(BUILD_TESTS "Build tests" OFF)
+option(BUILD_DOC "Build and install API and application documentation in HTML format." OFF)
+option(BUILD_MANPAGE "Build and install manpage with documentation." OFF)
+option(BUILD_TESTS "Build various tests." OFF)
 
 # ======================================================
 # ================= Internal variables =================
@@ -112,7 +113,7 @@ if (BUILD_DOC)
     set(DOXYGEN_SHOW_INCLUDE_FILES YES)
     set(DOXYGEN_BINARY_TOC YES)
     set(DOXYGEN_TOC_EXPAND YES)
-    set(DOXYGEN_USE_MDFILE_AS_MAINPAGE "README.md")
+    set(DOXYGEN_USE_MDFILE_AS_MAINPAGE "docs/README.md")
 endif()
 
 # ======================================================
