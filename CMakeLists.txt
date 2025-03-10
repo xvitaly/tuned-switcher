@@ -26,9 +26,9 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 # ================== Project options ===================
 # ======================================================
 
-option(BUILD_DOC "Build documentation" OFF)
-option(BUILD_MANPAGE "Build manpage" OFF)
-option(BUILD_TESTS "Build tests" OFF)
+option(BUILD_DOC "Build and install API and application documentation in HTML format." OFF)
+option(BUILD_MANPAGE "Build and install manpage with documentation." OFF)
+option(BUILD_TESTS "Build various tests." OFF)
 
 # ======================================================
 # ================= Internal variables =================
