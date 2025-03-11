@@ -53,7 +53,6 @@ set(MAN_NAME "${CMAKE_PROJECT_NAME}-man")
 # ======================================================
 
 include(GNUInstallDirs)
-include(FindPackageHandleStandardArgs)
 
 # ======================================================
 # ================= External imports ===================
