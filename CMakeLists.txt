@@ -29,6 +29,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 option(BUILD_DOC "Build and install API and application documentation in HTML format." OFF)
 option(BUILD_MANPAGE "Build and install manpage with documentation." OFF)
 option(BUILD_TESTS "Build various tests." OFF)
+option(LINK_ENABLE_OPTIMIZATIONS "Enable link-time optimizations if supported by current C++ compiler." ON)
 
 # ======================================================
 # ================= Internal variables =================
@@ -60,6 +61,16 @@ include(GNUInstallDirs)
 
 include(cmake/FindPandoc.cmake)
 include(cmake/FindTestHelpers.cmake)
+
+# ======================================================
+# =========== Link time optimizations checks ===========
+# ======================================================
+
+include(CheckIPOSupported)
+include(CheckPIESupported)
+
+check_ipo_supported(RESULT CMAKE_CXX_LINK_IPO_SUPPORTED LANGUAGES CXX)
+check_pie_supported(LANGUAGES CXX)
 
 # ======================================================
 # ==================== Qt detection ====================
@@ -155,6 +166,18 @@ target_link_libraries(${LIB_NAME} PUBLIC
     Qt::DBus
 )
 
+if (LINK_ENABLE_OPTIMIZATIONS AND CMAKE_CXX_LINK_IPO_SUPPORTED)
+    set_target_properties(${LIB_NAME}
+        PROPERTIES INTERPROCEDURAL_OPTIMIZATION ON
+    )
+endif()
+
+if (LINK_ENABLE_OPTIMIZATIONS AND CMAKE_CXX_LINK_PIE_SUPPORTED)
+    set_target_properties(${LIB_NAME}
+        PROPERTIES POSITION_INDEPENDENT_CODE ON
+    )
+endif()
+
 # ======================================================
 # ================= Application target =================
 # ======================================================
@@ -208,6 +231,18 @@ target_link_libraries(${APP_NAME} PRIVATE
     Qt::DBus
     ${LIB_NAME}
 )
+
+if (LINK_ENABLE_OPTIMIZATIONS AND CMAKE_CXX_LINK_IPO_SUPPORTED)
+    set_target_properties(${APP_NAME}
+        PROPERTIES INTERPROCEDURAL_OPTIMIZATION ON
+    )
+endif()
+
+if (LINK_ENABLE_OPTIMIZATIONS AND CMAKE_CXX_LINK_PIE_SUPPORTED)
+    set_target_properties(${APP_NAME}
+        PROPERTIES POSITION_INDEPENDENT_CODE ON
+    )
+endif()
 
 install(TARGETS ${APP_NAME}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
