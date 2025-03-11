@@ -80,25 +80,15 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-set(QT_COMPONENTS
-    Core
-    DBus
-    Gui
-    LinguistTools
-    Widgets
-)
-
 find_package(Qt6 6.2.0
-    COMPONENTS ${QT_COMPONENTS}
+    COMPONENTS
+        Core
+        DBus
+        Gui
+        LinguistTools
+        Widgets
     QUIET
 )
-
-if (NOT Qt6_FOUND)
-    find_package(Qt5 5.15.0
-        COMPONENTS ${QT_COMPONENTS}
-        REQUIRED
-    )
-endif()
 
 # ======================================================
 # ================= Doxygen detection ==================
@@ -146,8 +136,8 @@ set(LIBRARY_SOURCES
 )
 
 configure_file(
-    "src/lib/appconstants/appconstants.h.in"
-    "generated/appconstants/appconstants.h"
+    src/lib/appconstants/appconstants.h.in
+    generated/appconstants/appconstants.h
     @ONLY
 )
 
@@ -212,19 +202,12 @@ target_include_directories(${APP_NAME} PRIVATE
     src/app
 )
 
-file(GLOB TS_GLOB "assets/i18n/${CMAKE_PROJECT_NAME}_*.ts")
+file(GLOB TS_GLOB "assets/i18n/${APP_NAME}_*.ts")
 
-if (Qt6_FOUND)
-    qt_add_translations(${APP_NAME}
-        TS_FILES ${TS_GLOB}
-        QM_FILES_OUTPUT_VARIABLE QM_FILES
-    )
-else()
-    qt_add_translation(QM_FILES
-        ${TS_GLOB}
-    )
-    add_custom_target(${I18N_NAME} ALL DEPENDS ${QM_FILES})
-endif()
+qt_add_translations(${APP_NAME}
+    TS_FILES ${TS_GLOB}
+    QM_FILES_OUTPUT_VARIABLE QM_FILES
+)
 
 target_link_libraries(${APP_NAME} PRIVATE
     Qt::Widgets
@@ -249,7 +232,7 @@ install(TARGETS ${APP_NAME}
     BUNDLE DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
-install(FILES ${QM_FILES} DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/${CMAKE_PROJECT_NAME}/translations")
+install(FILES ${QM_FILES} DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/${APP_NAME}/translations")
 
 # ======================================================
 # =================== Assets target ====================
