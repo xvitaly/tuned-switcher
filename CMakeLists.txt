@@ -46,8 +46,8 @@ set(MAN_NAME "${CMAKE_PROJECT_NAME}-man")
 # ======================================================
 
 set(SCHEME_NAME "org.easycoding.TunedSwitcher")
-set(LAUNCHER_NAME "${SCHEME_NAME}.desktop")
-set(APPDATA_MANIFEST "${SCHEME_NAME}.metainfo.xml")
+set(LAUNCHER_FILE_NAME "${SCHEME_NAME}.desktop")
+set(APPDATA_FILE_NAME "${SCHEME_NAME}.metainfo.xml")
 
 # ======================================================
 # ================= Internal imports ===================
@@ -244,8 +244,11 @@ foreach(ICON_SIZE 16 22 24 32 48 64 128 256)
     install(FILES "assets/icons/icon-${ICON_SIZE}.png" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/${ICON_SIZE}x${ICON_SIZE}/apps" RENAME "${SCHEME_NAME}.png")
 endforeach()
 
-configure_file("assets/desktop/${CMAKE_PROJECT_NAME}.desktop.in" "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}.desktop" @ONLY)
-install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}.desktop" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/applications" RENAME "${LAUNCHER_NAME}")
+configure_file("assets/desktop/${APP_NAME}.desktop.in" "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.desktop" @ONLY)
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.desktop" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/applications" RENAME "${LAUNCHER_FILE_NAME}")
+
+configure_file("assets/metainfo/${APP_NAME}.metainfo.xml.in" "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.metainfo.xml" @ONLY)
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.metainfo.xml" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/metainfo" RENAME "${APPDATA_FILE_NAME}")
 
 if (BUILD_DOC)
     doxygen_add_docs(${DOCS_NAME} src docs ALL WORKING_DIRECTORY ${PROJECT_SOURCE_DIR} COMMENT "Building documentation with Doxygen.")
@@ -259,15 +262,12 @@ if (BUILD_MANPAGE)
     install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.1" DESTINATION "${CMAKE_INSTALL_MANDIR}/man1")
 endif()
 
-configure_file("assets/metainfo/${CMAKE_PROJECT_NAME}.metainfo.xml.in" "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}.metainfo.xml" @ONLY)
-install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}.metainfo.xml" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/metainfo" RENAME "${APPDATA_MANIFEST}")
-
 # ======================================================
 # ==================== Tests target ====================
 # ======================================================
 
 if (BUILD_TESTS)
     enable_testing()
-    add_test(NAME test-desktop COMMAND ${DesktopFileValidate_EXECUTABLE} "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}.desktop")
-    add_test(NAME test-metainfo COMMAND ${AppstreamUtil_EXECUTABLE} validate "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}.metainfo.xml")
+    add_test(NAME test-desktop COMMAND ${DesktopFileValidate_EXECUTABLE} "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.desktop")
+    add_test(NAME test-metainfo COMMAND ${AppstreamUtil_EXECUTABLE} validate "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.metainfo.xml")
 endif()
