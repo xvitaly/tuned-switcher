@@ -8,7 +8,7 @@
 # =============== Project initialization ===============
 # ======================================================
 
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.14)
 
 project(tuned-switcher
     VERSION 0.7.2
@@ -18,24 +18,18 @@ project(tuned-switcher
 )
 set(RELEASE_DATE "2023-04-12")
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 # ======================================================
 # ================== Project options ===================
 # ======================================================
 
-option(BUILD_DOC "Build documentation" OFF)
-option(BUILD_MANPAGE "Build manpage" OFF)
-option(BUILD_TESTS "Build tests" OFF)
-
-# ======================================================
-# ================= Internal variables =================
-# ======================================================
-
-set(SCHEME_NAME "org.easycoding.TunedSwitcher")
-set(LAUNCHER_NAME "${SCHEME_NAME}.desktop")
-set(APPDATA_MANIFEST "${SCHEME_NAME}.metainfo.xml")
+option(BUILD_DOC "Build and install API and application documentation in HTML format." OFF)
+option(BUILD_MANPAGE "Build and install manpage with documentation." OFF)
+option(BUILD_TESTS "Build various tests." OFF)
+option(LINK_ENABLE_OPTIMIZATIONS "Enable link-time optimizations if supported by current C++ compiler." ON)
 
 # ======================================================
 # ==================== Target names ====================
@@ -48,18 +42,35 @@ set(DOCS_NAME "${CMAKE_PROJECT_NAME}-docs")
 set(MAN_NAME "${CMAKE_PROJECT_NAME}-man")
 
 # ======================================================
+# ===================== File names =====================
+# ======================================================
+
+set(SCHEME_NAME "org.easycoding.TunedSwitcher")
+set(LAUNCHER_FILE_NAME "${SCHEME_NAME}.desktop")
+set(APPDATA_FILE_NAME "${SCHEME_NAME}.metainfo.xml")
+
+# ======================================================
 # ================= Internal imports ===================
 # ======================================================
 
 include(GNUInstallDirs)
-include(FindPackageHandleStandardArgs)
 
 # ======================================================
-# ================= External imports ===================
+# ============= External custom imports ================
 # ======================================================
 
 include(cmake/FindPandoc.cmake)
 include(cmake/FindTestHelpers.cmake)
+
+# ======================================================
+# =========== Link time optimizations checks ===========
+# ======================================================
+
+include(CheckIPOSupported)
+include(CheckPIESupported)
+
+check_ipo_supported(RESULT CMAKE_CXX_LINK_IPO_SUPPORTED LANGUAGES CXX)
+check_pie_supported(LANGUAGES CXX)
 
 # ======================================================
 # ==================== Qt detection ====================
@@ -69,25 +80,15 @@ set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
-set(QT_COMPONENTS
-    Core
-    DBus
-    Gui
-    LinguistTools
-    Widgets
-)
-
 find_package(Qt6 6.2.0
-    COMPONENTS ${QT_COMPONENTS}
+    COMPONENTS
+        Core
+        DBus
+        Gui
+        LinguistTools
+        Widgets
     QUIET
 )
-
-if (NOT Qt6_FOUND)
-    find_package(Qt5 5.15.0
-        COMPONENTS ${QT_COMPONENTS}
-        REQUIRED
-    )
-endif()
 
 # ======================================================
 # ================= Doxygen detection ==================
@@ -112,7 +113,7 @@ if (BUILD_DOC)
     set(DOXYGEN_SHOW_INCLUDE_FILES YES)
     set(DOXYGEN_BINARY_TOC YES)
     set(DOXYGEN_TOC_EXPAND YES)
-    set(DOXYGEN_USE_MDFILE_AS_MAINPAGE "README.md")
+    set(DOXYGEN_USE_MDFILE_AS_MAINPAGE "docs/README.md")
 endif()
 
 # ======================================================
@@ -135,8 +136,8 @@ set(LIBRARY_SOURCES
 )
 
 configure_file(
-    "src/lib/appconstants/appconstants.h.in"
-    "generated/appconstants/appconstants.h"
+    src/lib/appconstants/appconstants.h.in
+    generated/appconstants/appconstants.h
     @ONLY
 )
 
@@ -154,6 +155,18 @@ target_link_libraries(${LIB_NAME} PUBLIC
     Qt::Widgets
     Qt::DBus
 )
+
+if (LINK_ENABLE_OPTIMIZATIONS AND CMAKE_CXX_LINK_IPO_SUPPORTED)
+    set_target_properties(${LIB_NAME}
+        PROPERTIES INTERPROCEDURAL_OPTIMIZATION ON
+    )
+endif()
+
+if (LINK_ENABLE_OPTIMIZATIONS AND CMAKE_CXX_LINK_PIE_SUPPORTED)
+    set_target_properties(${LIB_NAME}
+        PROPERTIES POSITION_INDEPENDENT_CODE ON
+    )
+endif()
 
 # ======================================================
 # ================= Application target =================
@@ -189,19 +202,12 @@ target_include_directories(${APP_NAME} PRIVATE
     src/app
 )
 
-file(GLOB TS_GLOB "assets/i18n/${CMAKE_PROJECT_NAME}_*.ts")
+file(GLOB TS_GLOB "assets/i18n/${APP_NAME}_*.ts")
 
-if (Qt6_FOUND)
-    qt_add_translations(${APP_NAME}
-        TS_FILES ${TS_GLOB}
-        QM_FILES_OUTPUT_VARIABLE QM_FILES
-    )
-else()
-    qt_add_translation(QM_FILES
-        ${TS_GLOB}
-    )
-    add_custom_target(${I18N_NAME} ALL DEPENDS ${QM_FILES})
-endif()
+qt_add_translations(${APP_NAME}
+    TS_FILES ${TS_GLOB}
+    QM_FILES_OUTPUT_VARIABLE QM_FILES
+)
 
 target_link_libraries(${APP_NAME} PRIVATE
     Qt::Widgets
@@ -209,12 +215,24 @@ target_link_libraries(${APP_NAME} PRIVATE
     ${LIB_NAME}
 )
 
+if (LINK_ENABLE_OPTIMIZATIONS AND CMAKE_CXX_LINK_IPO_SUPPORTED)
+    set_target_properties(${APP_NAME}
+        PROPERTIES INTERPROCEDURAL_OPTIMIZATION ON
+    )
+endif()
+
+if (LINK_ENABLE_OPTIMIZATIONS AND CMAKE_CXX_LINK_PIE_SUPPORTED)
+    set_target_properties(${APP_NAME}
+        PROPERTIES POSITION_INDEPENDENT_CODE ON
+    )
+endif()
+
 install(TARGETS ${APP_NAME}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
     BUNDLE DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
-install(FILES ${QM_FILES} DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/${CMAKE_PROJECT_NAME}/translations")
+install(FILES ${QM_FILES} DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/${APP_NAME}/translations")
 
 # ======================================================
 # =================== Assets target ====================
@@ -226,8 +244,11 @@ foreach(ICON_SIZE 16 22 24 32 48 64 128 256)
     install(FILES "assets/icons/icon-${ICON_SIZE}.png" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/${ICON_SIZE}x${ICON_SIZE}/apps" RENAME "${SCHEME_NAME}.png")
 endforeach()
 
-configure_file("assets/desktop/${CMAKE_PROJECT_NAME}.desktop.in" "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}.desktop" @ONLY)
-install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}.desktop" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/applications" RENAME "${LAUNCHER_NAME}")
+configure_file("assets/desktop/${APP_NAME}.desktop.in" "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.desktop" @ONLY)
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.desktop" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/applications" RENAME "${LAUNCHER_FILE_NAME}")
+
+configure_file("assets/metainfo/${APP_NAME}.metainfo.xml.in" "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.metainfo.xml" @ONLY)
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.metainfo.xml" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/metainfo" RENAME "${APPDATA_FILE_NAME}")
 
 if (BUILD_DOC)
     doxygen_add_docs(${DOCS_NAME} src docs ALL WORKING_DIRECTORY ${PROJECT_SOURCE_DIR} COMMENT "Building documentation with Doxygen.")
@@ -235,14 +256,11 @@ if (BUILD_DOC)
 endif()
 
 if (BUILD_MANPAGE)
-    configure_file("assets/manpage/${CMAKE_PROJECT_NAME}.md.in" "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}.md" @ONLY)
-    add_custom_command(OUTPUT "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.1" COMMAND "${Pandoc_EXECUTABLE}" ARGS "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}.md" -s -t man -o "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.1" COMMENT "Building manpage using Pandoc." VERBATIM)
+    configure_file("assets/manpage/${APP_NAME}.md.in" "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.md" @ONLY)
+    pandoc_build_manpage("${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.md" "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.1")
     add_custom_target(${MAN_NAME} ALL DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.1")
     install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.1" DESTINATION "${CMAKE_INSTALL_MANDIR}/man1")
 endif()
-
-configure_file("assets/metainfo/${CMAKE_PROJECT_NAME}.metainfo.xml.in" "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}.metainfo.xml" @ONLY)
-install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}.metainfo.xml" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/metainfo" RENAME "${APPDATA_MANIFEST}")
 
 # ======================================================
 # ==================== Tests target ====================
@@ -250,6 +268,6 @@ install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}.metainfo.xml" D
 
 if (BUILD_TESTS)
     enable_testing()
-    add_test(NAME test-desktop COMMAND ${DesktopFileValidate_EXECUTABLE} "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}.desktop")
-    add_test(NAME test-metainfo COMMAND ${AppstreamUtil_EXECUTABLE} validate "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}.metainfo.xml")
+    add_test(NAME test-desktop COMMAND ${DesktopFileValidate_EXECUTABLE} "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.desktop")
+    add_test(NAME test-metainfo COMMAND ${AppstreamUtil_EXECUTABLE} validate "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.metainfo.xml")
 endif()
