@@ -59,7 +59,8 @@ jobs:
             -DCMAKE_BUILD_TYPE=RelWithDebInfo \
             -DBUILD_DOC:BOOL=ON \
             -DBUILD_MANPAGE:BOOL=ON \
-            -DBUILD_TESTS:BOOL=ON
+            -DBUILD_TESTS:BOOL=ON \
+            -DLINK_ENABLE_OPTIMIZATIONS:BOOL=ON
         cmake --build build
       env:
         CFLAGS: -O2 -fexceptions -pipe -Wall -Wextra -Werror -U_FORTIFY_SOURCE -D_FORTIFY_SOURCE=2 -D_GLIBCXX_ASSERTIONS -fPIC -fstack-protector-strong -fasynchronous-unwind-tables -fcf-protection
