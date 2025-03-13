@@ -6,6 +6,6 @@
 #
 set -e
 
-lupdate-qt5 \
+lupdate-qt6 \
     -locations relative \
     ../../src/ -ts tuned-switcher_*.ts -no-obsolete
