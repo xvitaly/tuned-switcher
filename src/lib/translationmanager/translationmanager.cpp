@@ -35,11 +35,7 @@ QString TranslationManager::GetTranslationPath() const
 
 QString TranslationManager::GetQtTranslationPath() const
 {
-#if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
-    return QLibraryInfo::location(QLibraryInfo::TranslationsPath);
-#else
     return QLibraryInfo::path(QLibraryInfo::TranslationsPath);
-#endif
 }
 
 QTranslator* TranslationManager::GetQtTranslator() const
