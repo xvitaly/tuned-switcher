@@ -4,11 +4,11 @@ Upstream-Contact: EasyCoding Team
 Source: https://github.com/xvitaly/tuned-switcher
 
 Files: .github/*.md
-Copyright: 2021-2023 EasyCoding Team and contributors
+Copyright: 2021-2025 EasyCoding Team and contributors
 License: GPL-3.0-or-later
 
 Files: assets/desktop/*.in
-Copyright: 2021-2023 EasyCoding Team and contributors
+Copyright: 2021-2025 EasyCoding Team and contributors
 License: GPL-3.0-or-later
 
 Files: assets/icons/icon*.*
@@ -16,13 +16,13 @@ Copyright: 2015 Google Inc.
 License: Apache-2.0
 
 Files: assets/manpage/*.in
-Copyright: 2021-2023 EasyCoding Team and contributors
+Copyright: 2021-2025 EasyCoding Team and contributors
 License: GPL-3.0-or-later
 
 Files: docs/*.md
-Copyright: 2021-2023 EasyCoding Team and contributors
+Copyright: 2021-2025 EasyCoding Team and contributors
 License: GPL-3.0-or-later
 
 Files: README.md
-Copyright: 2021-2023 EasyCoding Team and contributors
+Copyright: 2021-2025 EasyCoding Team and contributors
 License: GPL-3.0-or-later
