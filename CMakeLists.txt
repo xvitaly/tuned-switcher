@@ -29,6 +29,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 option(BUILD_DOC "Build and install API and application documentation in HTML format." OFF)
 option(BUILD_MANPAGE "Build and install manpage with documentation." OFF)
 option(BUILD_TESTS "Build various tests." OFF)
+option(LINK_ALL_STATICALLY "Link the program against all libraries statically (no dependencies mode)." OFF)
 option(LINK_ENABLE_OPTIMIZATIONS "Enable link-time optimizations if supported by current C++ compiler." ON)
 
 # ======================================================
@@ -168,6 +169,12 @@ if (LINK_ENABLE_OPTIMIZATIONS AND CMAKE_CXX_LINK_PIE_SUPPORTED)
     )
 endif()
 
+if (LINK_ALL_STATICALLY)
+    target_link_libraries(${LIB_NAME} PRIVATE
+        -static
+    )
+endif()
+
 # ======================================================
 # ================= Application target =================
 # ======================================================
@@ -231,6 +238,12 @@ install(TARGETS ${APP_NAME}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
     BUNDLE DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
+
+if (LINK_ALL_STATICALLY)
+    target_link_libraries(${APP_NAME} PRIVATE
+        -static
+    )
+endif()
 
 install(FILES ${QM_FILES} DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/${APP_NAME}/translations")
 
