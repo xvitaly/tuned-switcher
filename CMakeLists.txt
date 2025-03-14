@@ -82,13 +82,13 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
 
 find_package(Qt6 6.2.0
+    REQUIRED
     COMPONENTS
         Core
         DBus
         Gui
         LinguistTools
         Widgets
-    QUIET
 )
 
 # ======================================================
