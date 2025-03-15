@@ -198,6 +198,8 @@ set(APPLICATION_UI_SOURCES
     src/app/mainwindow/mainwindow.ui
 )
 
+file(GLOB APPLICATION_TS_SOURCES "assets/i18n/${APP_NAME}_*.ts")
+
 add_executable(${APP_NAME}
     ${APPLICATION_HEADERS}
     ${APPLICATION_SOURCES}
@@ -205,15 +207,13 @@ add_executable(${APP_NAME}
     ${APPLICATION_RESOURCES}
 )
 
-target_include_directories(${APP_NAME} PRIVATE
-    src/app
+qt_add_translations(${APP_NAME}
+    TS_FILES ${APPLICATION_TS_SOURCES}
+    QM_FILES_OUTPUT_VARIABLE APPLICATION_QM_FILES
 )
 
-file(GLOB TS_GLOB "assets/i18n/${APP_NAME}_*.ts")
-
-qt_add_translations(${APP_NAME}
-    TS_FILES ${TS_GLOB}
-    QM_FILES_OUTPUT_VARIABLE QM_FILES
+target_include_directories(${APP_NAME} PRIVATE
+    src/app
 )
 
 target_link_libraries(${APP_NAME} PRIVATE
@@ -245,7 +245,7 @@ if (LINK_ALL_STATICALLY)
     )
 endif()
 
-install(FILES ${QM_FILES} DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/${APP_NAME}/translations")
+install(FILES ${APPLICATION_QM_FILES} DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/${APP_NAME}/translations")
 
 # ======================================================
 # =================== Assets target ====================
