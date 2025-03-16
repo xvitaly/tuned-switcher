@@ -2,5 +2,5 @@
 
 ## Table of contents
 
-  * [Generic installation](generic-installation.md)
+  * [Installation](installation.md)
   * [Packaged versions](packages.md)
