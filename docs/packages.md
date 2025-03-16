@@ -1,4 +1,18 @@
-# Flatpak installation
+# Packaged versions
+
+## Distribution packages
+
+### Fedora
+
+Install the `tuned-switcher` package:
+
+```
+sudo dnf install tuned-switcher
+```
+
+## Distribution-agnostic packages
+
+### Flatpak
 
 Enable Flathub repository:
 
