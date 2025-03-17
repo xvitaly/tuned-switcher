@@ -44,7 +44,7 @@ namespace AppConstants {
     /**
      * Stores application launcher (.desktop) file name.
     */
-    const QString LauncherName = QStringLiteral("@LAUNCHER_NAME@");
+    const QString LauncherName = QStringLiteral("@LAUNCHER_FILE_NAME@");
 
     /**
      * Stores application reverse domain scheme name.
