@@ -1,4 +1,4 @@
-# Generic installation
+# Installation
 
 ## Pre-requirements
 
