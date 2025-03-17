@@ -4,3 +4,4 @@
 
   * [Installation](installation.md)
   * [Packaged versions](packages.md)
+  * [Screenshots](screenshots.md)
