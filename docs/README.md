@@ -3,5 +3,5 @@
 ## Table of contents
 
   * [Installation](installation.md)
-  * [Packaged versions](packages.md)
+  * [Packages](packages.md)
   * [Screenshots](screenshots.md)
