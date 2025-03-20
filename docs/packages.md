@@ -1,4 +1,4 @@
-# Packaged versions
+# Packages
 
 ## Distribution packages
 
