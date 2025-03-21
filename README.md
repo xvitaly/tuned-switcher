@@ -6,10 +6,6 @@ Tuned Switcher is a simple utility for managing performance profiles using the T
 
 Tuned is a daemon for monitoring and adaptive tuning of system devices. In order to use this program, a daemon must be installed on your system.
 
-## Screenshots
-
-Screenshots are available [here](docs/screenshots.md).
-
 ## Features
 
 Currently supported features:
@@ -34,6 +30,10 @@ If current desktop environment has a system tray support, an applet will be used
 This project is licensed under the terms of the [GNU General Public License version 3](LICENSE).
 
 The project icon from the Noto Emoji font is licensed under the terms of the [Apache License 2.0](licenses/noto-emoji.LICENSE.txt).
+
+## Screenshots
+
+Screenshots are available [here](docs/screenshots.md).
 
 ## Documentation
 
