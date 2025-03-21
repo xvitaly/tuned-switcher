@@ -31,9 +31,9 @@ If current desktop environment has a system tray support, an applet will be used
 
 ## License
 
-Licensed under the terms of the GNU General Public License version 3. You can find it here: [LICENSE](LICENSE).
+This project is licensed under the terms of the [GNU General Public License version 3](LICENSE).
 
-Icon from the [Noto Emoji](https://github.com/googlefonts/noto-emoji) font, licensed under the terms of the [Apache License 2.0](licenses/noto-emoji.LICENSE.txt).
+The project icon from the Noto Emoji font is licensed under the terms of the [Apache License 2.0](licenses/noto-emoji.LICENSE.txt).
 
 ## Documentation
 
