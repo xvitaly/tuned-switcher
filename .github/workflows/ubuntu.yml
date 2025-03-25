@@ -60,6 +60,7 @@ jobs:
             -DBUILD_DOC:BOOL=ON \
             -DBUILD_MANPAGE:BOOL=ON \
             -DBUILD_TESTS:BOOL=ON \
+            -DLINK_ALL_STATICALLY:BOOL=OFF \
             -DLINK_ENABLE_OPTIMIZATIONS:BOOL=OFF
         cmake --build build
       env:
