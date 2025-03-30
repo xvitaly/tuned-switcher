@@ -74,7 +74,7 @@ bool TunedManager::Start() const
     QDBusReply<void> DBusReply = DBusInterface.call(SystemdBusMethodNameStart, SystemdTunedServiceName, SystemdTunedServiceMode);
     bool DbusResult = DBusReply.isValid();
     if (!DbusResult)
-        qWarning() << "Failed to start the Tuned service due to an error: " << DBusReply.error();
+        qWarning() << "Failed to start the Tuned service due to an error:" << DBusReply.error();
     return DbusResult;
 }
 
@@ -84,7 +84,7 @@ bool TunedManager::Stop() const
     QDBusReply<void> DBusReply = DBusInterface.call(SystemdBusMethodNameStop, SystemdTunedServiceName, SystemdTunedServiceMode);
     bool DbusResult = DBusReply.isValid();
     if (!DbusResult)
-        qWarning() << "Failed to stop the Tuned service due to an error: " << DBusReply.error();
+        qWarning() << "Failed to stop the Tuned service due to an error:" << DBusReply.error();
     return DbusResult;
 }
 
