@@ -82,7 +82,10 @@ bool TunedManager::Stop() const
 {
     QDBusInterface DBusInterface(SystemdBusName, SystemdBusPath, SystemdBusInterface, DBusInstance);
     QDBusReply<void> DBusReply = DBusInterface.call(SystemdBusMethodNameStop, SystemdTunedServiceName, SystemdTunedServiceMode);
-    return DBusReply.isValid();
+    bool DbusResult = DBusReply.isValid();
+    if (!DbusResult)
+        qWarning() << "Failed to stop the Tuned service due to an error: " << DBusReply.error();
+    return DbusResult;
 }
 
 void TunedManager::ProfileChangedEvent(const QString& NewProfile, const bool SwitchResult, const QString& ResultMessage)
