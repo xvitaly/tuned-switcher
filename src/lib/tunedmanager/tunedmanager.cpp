@@ -59,6 +59,8 @@ QTunedProfileList TunedManager::GetAvailableProfiles2() const
 {
     QDBusInterface DBusInterface(TunedBusName, TunedBusPath, TunedBusInterface, DBusInstance);
     QDBusReply<QTunedProfileList> DBusReply = DBusInterface.call(TunedBusMethodNameProfiles2);
+    if (!DBusReply.isValid())
+        qWarning() << "Failed to get the available Tuned profiles with their descriptions due to an error:" << DBusReply.error();
     return DBusReply.value();
 }
 
