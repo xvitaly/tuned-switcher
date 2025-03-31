@@ -32,6 +32,8 @@ QTunedProfileMode TunedManager::GetProfileMode() const
 {
     QDBusInterface DBusInterface(TunedBusName, TunedBusPath, TunedBusInterface, DBusInstance);
     QDBusReply<QTunedProfileMode> DBusReply = DBusInterface.call(TunedBusMethodNameProfileMode);
+    if (!DBusReply.isValid())
+        qWarning() << "Failed get current Tuned mode due to an error:" << DBusReply.error();
     return DBusReply.value();
 }
 
