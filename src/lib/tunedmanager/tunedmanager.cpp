@@ -73,7 +73,10 @@ QTunedProfileList TunedManager::GetAvailableProfiles2() const
 bool TunedManager::IsRunning() const
 {
     QDBusInterface DBusInterface(TunedBusName, TunedBusPath, TunedBusInterface, DBusInstance);
-    return DBusInterface.isValid();
+    QDBusReply<bool> DBusReply = DBusInterface.call(TunedBusMethodNameIsRunning);
+    if (!DBusReply.isValid())
+        qWarning() << "Failed to determine if the Tuned service is running due to an error:" << DBusReply.error();
+    return DBusReply.value();
 }
 
 bool TunedManager::Start() const

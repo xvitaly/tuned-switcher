@@ -150,6 +150,11 @@ private:
     const QString TunedBusMethodNameProfiles2 = QStringLiteral("profiles2");
 
     /**
+     * Stores the Tuned DBus IsRunning method name.
+    */
+    const QString TunedBusMethodNameIsRunning = QStringLiteral("is_running");
+
+    /**
      * Stores the Systemd DBus interface name.
     */
     const QString SystemdBusName = QStringLiteral("org.freedesktop.systemd1");
