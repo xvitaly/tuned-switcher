@@ -18,6 +18,8 @@ QString TunedManager::GetActiveProfile() const
 {
     QDBusInterface DBusInterface(TunedBusName, TunedBusPath, TunedBusInterface, DBusInstance);
     QDBusReply<QString> DBusReply = DBusInterface.call(TunedBusMethodNameActiveProfile);
+    if (!DBusReply.isValid())
+        qWarning() << "Failed to get the active Tuned profile due to an error:" << DBusReply.error();
     return DBusReply.value();
 }
 
