@@ -25,6 +25,8 @@ QStringList TunedManager::GetAvailableProfiles() const
 {
     QDBusInterface DBusInterface(TunedBusName, TunedBusPath, TunedBusInterface, DBusInstance);
     QDBusReply<QStringList> DBusReply = DBusInterface.call(TunedBusMethodNameProfiles);
+    if (!DBusReply.isValid())
+        qWarning() << "Failed to get the available Tuned profiles due to an error:" << DBusReply.error();
     return DBusReply.value();
 }
 
