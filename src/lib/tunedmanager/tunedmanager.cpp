@@ -82,8 +82,12 @@ bool TunedManager::IsRunning() const
 bool TunedManager::Start() const
 {
     QDBusInterface DBusInterface(SystemdBusName, SystemdBusPath, SystemdBusInterface, DBusInstance);
-    QDBusReply<void> DBusReply = DBusInterface.call(SystemdBusMethodNameStart, SystemdTunedServiceName, SystemdTunedServiceMode);
-    bool DbusResult = DBusReply.isValid();
+#if QT_VERSION >= QT_VERSION_CHECK(6, 7, 0)
+    DBusInterface.setInteractiveAuthorizationAllowed(true);
+#endif
+    QDBusPendingReply<void> DBusReply = DBusInterface.asyncCall(SystemdBusMethodNameStart, SystemdTunedServiceName, SystemdTunedServiceMode);
+    DBusReply.waitForFinished();
+    bool DbusResult = !DBusReply.isError();
     if (!DbusResult)
         qWarning() << "Failed to start the Tuned service due to an error:" << DBusReply.error();
     return DbusResult;
