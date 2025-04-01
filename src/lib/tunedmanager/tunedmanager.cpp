@@ -18,6 +18,8 @@ QString TunedManager::GetActiveProfile() const
 {
     QDBusInterface DBusInterface(TunedBusName, TunedBusPath, TunedBusInterface, DBusInstance);
     QDBusReply<QString> DBusReply = DBusInterface.call(TunedBusMethodNameActiveProfile);
+    if (!DBusReply.isValid())
+        qWarning() << "Failed to get the active Tuned profile due to an error:" << DBusReply.error();
     return DBusReply.value();
 }
 
@@ -25,6 +27,8 @@ QStringList TunedManager::GetAvailableProfiles() const
 {
     QDBusInterface DBusInterface(TunedBusName, TunedBusPath, TunedBusInterface, DBusInstance);
     QDBusReply<QStringList> DBusReply = DBusInterface.call(TunedBusMethodNameProfiles);
+    if (!DBusReply.isValid())
+        qWarning() << "Failed to get the available Tuned profiles due to an error:" << DBusReply.error();
     return DBusReply.value();
 }
 
@@ -32,6 +36,8 @@ QTunedProfileMode TunedManager::GetProfileMode() const
 {
     QDBusInterface DBusInterface(TunedBusName, TunedBusPath, TunedBusInterface, DBusInstance);
     QDBusReply<QTunedProfileMode> DBusReply = DBusInterface.call(TunedBusMethodNameProfileMode);
+    if (!DBusReply.isValid())
+        qWarning() << "Failed get current Tuned mode due to an error:" << DBusReply.error();
     return DBusReply.value();
 }
 
@@ -59,27 +65,38 @@ QTunedProfileList TunedManager::GetAvailableProfiles2() const
 {
     QDBusInterface DBusInterface(TunedBusName, TunedBusPath, TunedBusInterface, DBusInstance);
     QDBusReply<QTunedProfileList> DBusReply = DBusInterface.call(TunedBusMethodNameProfiles2);
+    if (!DBusReply.isValid())
+        qWarning() << "Failed to get the available Tuned profiles with their descriptions due to an error:" << DBusReply.error();
     return DBusReply.value();
 }
 
 bool TunedManager::IsRunning() const
 {
     QDBusInterface DBusInterface(TunedBusName, TunedBusPath, TunedBusInterface, DBusInstance);
-    return DBusInterface.isValid();
+    QDBusReply<bool> DBusReply = DBusInterface.call(TunedBusMethodNameIsRunning);
+    if (!DBusReply.isValid())
+        qWarning() << "Failed to determine if the Tuned service is running due to an error:" << DBusReply.error();
+    return DBusReply.value();
 }
 
 bool TunedManager::Start() const
 {
     QDBusInterface DBusInterface(SystemdBusName, SystemdBusPath, SystemdBusInterface, DBusInstance);
     QDBusReply<void> DBusReply = DBusInterface.call(SystemdBusMethodNameStart, SystemdTunedServiceName, SystemdTunedServiceMode);
-    return DBusReply.isValid();
+    bool DbusResult = DBusReply.isValid();
+    if (!DbusResult)
+        qWarning() << "Failed to start the Tuned service due to an error:" << DBusReply.error();
+    return DbusResult;
 }
 
 bool TunedManager::Stop() const
 {
     QDBusInterface DBusInterface(SystemdBusName, SystemdBusPath, SystemdBusInterface, DBusInstance);
     QDBusReply<void> DBusReply = DBusInterface.call(SystemdBusMethodNameStop, SystemdTunedServiceName, SystemdTunedServiceMode);
-    return DBusReply.isValid();
+    bool DbusResult = DBusReply.isValid();
+    if (!DbusResult)
+        qWarning() << "Failed to stop the Tuned service due to an error:" << DBusReply.error();
+    return DbusResult;
 }
 
 void TunedManager::ProfileChangedEvent(const QString& NewProfile, const bool SwitchResult, const QString& ResultMessage)
