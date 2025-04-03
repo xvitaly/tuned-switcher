@@ -8,8 +8,10 @@
  * This file contains implementation of the TunedManager class.
 */
 
+#include <QDBusConnection>
 #include <QDBusInterface>
 #include <QDBusReply>
+#include <QDBusMessage>
 #include <QDBusMetaType>
 
 #include "tunedmanager/tunedmanager.h"
@@ -81,21 +83,25 @@ bool TunedManager::IsRunning() const
 
 bool TunedManager::Start() const
 {
-    QDBusInterface DBusInterface(SystemdBusName, SystemdBusPath, SystemdBusInterface, DBusInstance);
-    QDBusReply<void> DBusReply = DBusInterface.call(SystemdBusMethodNameStart, SystemdTunedServiceName, SystemdTunedServiceMode);
-    bool DbusResult = DBusReply.isValid();
+    QDBusMessage DBusMessage = QDBusMessage::createMethodCall(SystemdBusName, SystemdBusPath, SystemdBusInterface, SystemdBusMethodNameStart);
+    DBusMessage.setInteractiveAuthorizationAllowed(true);
+    DBusMessage.setArguments({SystemdTunedServiceName, SystemdTunedServiceMode});
+    QDBusMessage DBusReply = DBusInstance.call(DBusMessage, QDBus::Block);
+    bool DbusResult = !(DBusReply.type() == QDBusMessage::ErrorMessage);
     if (!DbusResult)
-        qWarning() << "Failed to start the Tuned service due to an error:" << DBusReply.error();
+        qWarning() << "Failed to start the Tuned service due to an error:" << DBusReply.errorMessage();
     return DbusResult;
 }
 
 bool TunedManager::Stop() const
 {
-    QDBusInterface DBusInterface(SystemdBusName, SystemdBusPath, SystemdBusInterface, DBusInstance);
-    QDBusReply<void> DBusReply = DBusInterface.call(SystemdBusMethodNameStop, SystemdTunedServiceName, SystemdTunedServiceMode);
-    bool DbusResult = DBusReply.isValid();
+    QDBusMessage DBusMessage = QDBusMessage::createMethodCall(SystemdBusName, SystemdBusPath, SystemdBusInterface, SystemdBusMethodNameStop);
+    DBusMessage.setInteractiveAuthorizationAllowed(true);
+    DBusMessage.setArguments({SystemdTunedServiceName, SystemdTunedServiceMode});
+    QDBusMessage DBusReply = DBusInstance.call(DBusMessage, QDBus::Block);
+    bool DbusResult = !(DBusReply.type() == QDBusMessage::ErrorMessage);
     if (!DbusResult)
-        qWarning() << "Failed to stop the Tuned service due to an error:" << DBusReply.error();
+        qWarning() << "Failed to stop the Tuned service due to an error:" << DBusReply.errorMessage();
     return DbusResult;
 }
 
