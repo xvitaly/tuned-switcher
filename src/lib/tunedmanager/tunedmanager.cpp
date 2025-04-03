@@ -10,6 +10,7 @@
 
 #include <QDBusInterface>
 #include <QDBusReply>
+#include <QDBusMessage>
 #include <QDBusMetaType>
 
 #include "tunedmanager/tunedmanager.h"
@@ -81,15 +82,13 @@ bool TunedManager::IsRunning() const
 
 bool TunedManager::Start() const
 {
-    QDBusInterface DBusInterface(SystemdBusName, SystemdBusPath, SystemdBusInterface, DBusInstance);
-#if QT_VERSION >= QT_VERSION_CHECK(6, 7, 0)
-    DBusInterface.setInteractiveAuthorizationAllowed(true);
-#endif
-    QDBusPendingReply<void> DBusReply = DBusInterface.asyncCall(SystemdBusMethodNameStart, SystemdTunedServiceName, SystemdTunedServiceMode);
-    DBusReply.waitForFinished();
-    bool DbusResult = !DBusReply.isError();
+    QDBusMessage DBusMessage = QDBusMessage::createMethodCall(SystemdBusName, SystemdBusPath, SystemdBusInterface, SystemdBusMethodNameStart);
+    DBusMessage.setInteractiveAuthorizationAllowed(true);
+    DBusMessage.setArguments({SystemdTunedServiceName, SystemdTunedServiceMode});
+    QDBusMessage DBusReply = DBusInstance.call(DBusMessage, QDBus::Block);
+    bool DbusResult = !(DBusReply.type() == QDBusMessage::ErrorMessage);
     if (!DbusResult)
-        qWarning() << "Failed to start the Tuned service due to an error:" << DBusReply.error();
+        qWarning() << "Failed to start the Tuned service due to an error:" << DBusReply.errorMessage();
     return DbusResult;
 }
 
