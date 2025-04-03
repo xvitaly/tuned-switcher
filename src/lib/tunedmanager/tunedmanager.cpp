@@ -8,6 +8,7 @@
  * This file contains implementation of the TunedManager class.
 */
 
+#include <QDBusConnection>
 #include <QDBusInterface>
 #include <QDBusReply>
 #include <QDBusMessage>
