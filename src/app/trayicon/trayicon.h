@@ -7,8 +7,9 @@
 #ifndef TRAYICON_H
 #define TRAYICON_H
 
-/** @file app/trayicon/trayicon.h
- * This file contains TrayIcon class structure.
+/**
+ * @file trayicon/trayicon.h
+ * Contains the TrayIcon class definition.
 */
 
 #include <QAction>

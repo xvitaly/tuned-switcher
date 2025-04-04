@@ -8,8 +8,9 @@
 #ifndef CONVERTERS_H
 #define CONVERTERS_H
 
-/** @file lib/notificationsmanager/dbusconverters.h
- * This file contains functions for automatic marshaling of a QImage
+/**
+ * @file notificationsmanager/dbusconverters.h
+ * Contains functions for automatic marshaling of a QImage
  * for the org.freedesktop.Notifications.Notify DBus method.
  *
  * These functions copied from the Clementine project and licensed under

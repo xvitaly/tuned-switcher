@@ -7,8 +7,9 @@
 #ifndef TUNEDTYPES_H
 #define TUNEDTYPES_H
 
-/** @file lib/tunedtypes/tunedtypes.h
- * This file contains special structures for use in other classes.
+/**
+ * @file tunedtypes/tunedtypes.h
+ * Contains definitions of special structures for use in other classes.
 */
 
 #include <QDBusArgument>

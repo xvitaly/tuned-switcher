@@ -7,8 +7,9 @@
 #ifndef NOTIFICATIONSMANAGER_H
 #define NOTIFICATIONSMANAGER_H
 
-/** @file lib/notificationsmanager/notificationsmanager.h
- * This file contains NotificationsManager class structure.
+/**
+ * @file notificationsmanager/notificationsmanager.h
+ * Contains the NotificationsManager class definition.
 */
 
 #include <QDBusInterface>

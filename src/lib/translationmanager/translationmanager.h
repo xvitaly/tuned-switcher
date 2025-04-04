@@ -7,8 +7,9 @@
 #ifndef TRANSLATIONMANAGER_H
 #define TRANSLATIONMANAGER_H
 
-/** @file lib/translationmanager/translationmanager.h
- * This file contains TranslationManager class structure.
+/**
+ * @file translationmanager/translationmanager.h
+ * Contains the TranslationManager class definition.
 */
 
 #include <QObject>

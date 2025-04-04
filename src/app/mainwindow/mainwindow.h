@@ -7,8 +7,9 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-/** @file app/mainwindow/mainwindow.h
- * This file contains MainWindow class structure.
+/**
+ * @file mainwindow/mainwindow.h
+ * Contains the MainWindow class definition.
 */
 
 #include <QMainWindow>

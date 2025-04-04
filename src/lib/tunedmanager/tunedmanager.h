@@ -7,8 +7,9 @@
 #ifndef TUNEDMANAGER_H
 #define TUNEDMANAGER_H
 
-/** @file lib/tunedmanager/tunedmanager.h
- * This file contains TunedManager class structure.
+/**
+ * @file tunedmanager/tunedmanager.h
+ * Contains the TunedManager class definition.
 */
 
 #include <QDBusConnection>

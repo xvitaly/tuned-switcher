@@ -4,8 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-/** @file lib/translationmanager/translationmanager.cpp
- * This file contains implementation of the TranslationManager class.
+/**
+ * @file translationmanager/translationmanager.cpp
+ * Contains the TranslationManager class implementation.
 */
 
 #include <QApplication>

@@ -4,9 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-/** @file app/main.cpp
- * This file contains the main entry point implementation
- * of the application.
+/**
+ * @file main.cpp
+ * Contains the main entry point implementation.
 */
 
 #include <QApplication>

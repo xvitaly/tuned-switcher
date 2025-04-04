@@ -4,9 +4,9 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-/** @file lib/tunedtypes/tunedtypes.cpp
- * This file contains implementation of special structures
- * for use in other classes.
+/**
+ * @file tunedtypes/tunedtypes.cpp
+ * Contains implementations of special structures for use in other classes.
 */
 
 #include "tunedtypes/tunedtypes.h"
