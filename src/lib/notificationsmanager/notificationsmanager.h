@@ -9,7 +9,7 @@
 
 /**
  * @file notificationsmanager/notificationsmanager.h
- * This file contains NotificationsManager class structure.
+ * Contains the NotificationsManager class definition.
 */
 
 #include <QDBusInterface>

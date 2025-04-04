@@ -6,7 +6,7 @@
 
 /**
  * @file translationmanager/translationmanager.cpp
- * This file contains implementation of the TranslationManager class.
+ * Contains the TranslationManager class implementation.
 */
 
 #include <QApplication>

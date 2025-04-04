@@ -6,8 +6,7 @@
 
 /**
  * @file main.cpp
- * This file contains the main entry point implementation
- * of the application.
+ * Contains the main entry point implementation.
 */
 
 #include <QApplication>

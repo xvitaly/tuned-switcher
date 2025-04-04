@@ -9,7 +9,7 @@
 
 /**
  * @file trayicon/trayicon.h
- * This file contains TrayIcon class structure.
+ * Contains the TrayIcon class definition.
 */
 
 #include <QAction>

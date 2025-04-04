@@ -9,7 +9,7 @@
 
 /**
  * @file translationmanager/translationmanager.h
- * This file contains TranslationManager class structure.
+ * Contains the TranslationManager class definition.
 */
 
 #include <QObject>

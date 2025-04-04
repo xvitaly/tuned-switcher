@@ -6,7 +6,7 @@
 
 /**
  * @file mainwindow/mainwindow.cpp
- * This file contains implementation of the MainWindow class.
+ * Contains the MainWindow class implementation.
 */
 
 #include <QApplication>

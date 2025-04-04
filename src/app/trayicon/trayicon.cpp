@@ -6,7 +6,7 @@
 
 /**
  * @file trayicon/trayicon.cpp
- * This file contains implementation of the TrayIcon class.
+ * Contains the TrayIcon class implementation.
 */
 
 #include <QApplication>

@@ -10,7 +10,7 @@
 
 /**
  * @file notificationsmanager/dbusconverters.h
- * This file contains functions for automatic marshaling of a QImage
+ * Contains functions for automatic marshaling of a QImage
  * for the org.freedesktop.Notifications.Notify DBus method.
  *
  * These functions copied from the Clementine project and licensed under

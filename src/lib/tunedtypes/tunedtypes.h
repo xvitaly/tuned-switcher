@@ -9,7 +9,7 @@
 
 /**
  * @file tunedtypes/tunedtypes.h
- * This file contains special structures for use in other classes.
+ * Contains definitions of special structures for use in other classes.
 */
 
 #include <QDBusArgument>

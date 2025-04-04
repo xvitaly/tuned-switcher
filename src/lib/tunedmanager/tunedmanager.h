@@ -9,7 +9,7 @@
 
 /**
  * @file tunedmanager/tunedmanager.h
- * This file contains TunedManager class structure.
+ * Contains the TunedManager class definition.
 */
 
 #include <QDBusConnection>

@@ -6,7 +6,7 @@
 
 /**
  * @file notificationsmanager/notificationsmanager.cpp
- * This file contains implementation of the NotificationsManager class.
+ * Contains the NotificationsManager class implementation.
 */
 
 #include <QDBusConnection>

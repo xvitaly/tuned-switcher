@@ -9,7 +9,7 @@
 
 /**
  * @file mainwindow/mainwindow.h
- * This file contains MainWindow class structure.
+ * Contains the MainWindow class definition.
 */
 
 #include <QMainWindow>

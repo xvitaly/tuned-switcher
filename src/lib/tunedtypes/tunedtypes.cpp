@@ -6,8 +6,7 @@
 
 /**
  * @file tunedtypes/tunedtypes.cpp
- * This file contains implementation of special structures
- * for use in other classes.
+ * Contains implementations of special structures for use in other classes.
 */
 
 #include "tunedtypes/tunedtypes.h"

@@ -6,7 +6,7 @@
 
 /**
  * @file tunedmanager/tunedmanager.cpp
- * This file contains implementation of the TunedManager class.
+ * Contains the TunedManager class implementation.
 */
 
 #include <QDBusConnection>
