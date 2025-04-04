@@ -7,7 +7,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-/** @file app/mainwindow/mainwindow.h
+/**
+ * @file mainwindow/mainwindow.h
  * This file contains MainWindow class structure.
 */
 

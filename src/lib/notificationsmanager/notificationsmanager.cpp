@@ -4,7 +4,8 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-/** @file lib/notificationsmanager/notificationsmanager.cpp
+/**
+ * @file notificationsmanager/notificationsmanager.cpp
  * This file contains implementation of the NotificationsManager class.
 */
 

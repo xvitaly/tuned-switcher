@@ -7,7 +7,8 @@
 #ifndef NOTIFICATIONSMANAGER_H
 #define NOTIFICATIONSMANAGER_H
 
-/** @file lib/notificationsmanager/notificationsmanager.h
+/**
+ * @file notificationsmanager/notificationsmanager.h
  * This file contains NotificationsManager class structure.
 */
 

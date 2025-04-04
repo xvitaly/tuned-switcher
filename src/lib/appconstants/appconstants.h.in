@@ -7,7 +7,8 @@
 #ifndef APPSTRINGS_H
 #define APPSTRINGS_H
 
-/** @file lib/appconstants/appconstants.h
+/**
+ * @file appconstants/appconstants.h
  * This file contains AppConstants namespace.
 */
 
