@@ -9,6 +9,8 @@
  * Contains implementations of special structures for use in other classes.
 */
 
+#include <QDBusArgument>
+
 #include "tunedtypes/tunedtypes.h"
 
 QDBusArgument& operator <<(QDBusArgument& argument, const QTunedProfile& profile)
