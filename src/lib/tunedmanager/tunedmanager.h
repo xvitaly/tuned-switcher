@@ -14,6 +14,9 @@
 
 #include <QDBusConnection>
 #include <QObject>
+#include <QString>
+#include <QStringList>
+#include <QStringLiteral>
 
 #include "tunedtypes/tunedtypes.h"
 

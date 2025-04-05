@@ -10,12 +10,20 @@
 */
 
 #include <QDBusConnection>
+#include <QDBusError>
 #include <QDBusInterface>
-#include <QDBusReply>
 #include <QDBusMessage>
 #include <QDBusMetaType>
+#include <QDBusReply>
+#include <QDebug>
+#include <QMetaType>
+#include <QObject>
+#include <QString>
+#include <QStringList>
+#include <QVariant>
 
 #include "tunedmanager/tunedmanager.h"
+#include "tunedtypes/tunedtypes.h"
 
 QString TunedManager::GetActiveProfile() const
 {
