@@ -18,7 +18,7 @@
 */
 
 #include <QDBusArgument>
-#include <QIcon>
+#include <QImage>
 
 /**
  * Overloaded operator << for the QImage DBus type.

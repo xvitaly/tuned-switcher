@@ -9,11 +9,21 @@
  * Contains the NotificationsManager class implementation.
 */
 
-#include <QDBusConnection>
-#include <QDBusReply>
+#include <QDBusInterface>
 #include <QDBusMetaType>
+#include <QDBusReply>
 #include <QIcon>
+#include <QImage>
+#include <QList>
+#include <QMetaType>
+#include <QObject>
+#include <QPixmap>
 #include <QRegularExpression>
+#include <QString>
+#include <QStringList>
+#include <QStringLiteral>
+#include <QVariant>
+#include <QVariantMap>
 
 #include "appconstants/appconstants.h"
 #include "notificationsmanager/notificationsmanager.h"

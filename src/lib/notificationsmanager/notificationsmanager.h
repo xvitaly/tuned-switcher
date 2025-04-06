@@ -12,8 +12,14 @@
  * Contains the NotificationsManager class definition.
 */
 
-#include <QDBusInterface>
+#include <QDBusConnection>
+#include <QImage>
+#include <QList>
 #include <QObject>
+#include <QString>
+#include <QStringLiteral>
+#include <QVariant>
+#include <QVariantMap>
 
 /**
  * Class for working with native DBus notifications.
