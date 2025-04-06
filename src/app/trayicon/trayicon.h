@@ -16,8 +16,9 @@
 #include <QMenu>
 #include <QSystemTrayIcon>
 #include <QWidget>
+#include <QString>
+#include <QHash>
 
-#include "appconstants/appconstants.h"
 #include "notificationsmanager/notificationsmanager.h"
 #include "tunedmanager/tunedmanager.h"
 
