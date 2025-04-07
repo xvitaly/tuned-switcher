@@ -13,7 +13,10 @@
 */
 
 #include <QDBusArgument>
+#include <QList>
+#include <QMetaType>
 #include <QObject>
+#include <QString>
 
 /**
  * Structure for working with a single Tuned profile entry.

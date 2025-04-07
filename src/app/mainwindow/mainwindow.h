@@ -12,7 +12,14 @@
  * Contains the MainWindow class definition.
 */
 
+#include <QCloseEvent>
+#include <QKeyEvent>
 #include <QMainWindow>
+#include <QMouseEvent>
+#include <QPoint>
+#include <QString>
+#include <QStringList>
+#include <QWidget>
 
 #include "notificationsmanager/notificationsmanager.h"
 #include "tunedmanager/tunedmanager.h"

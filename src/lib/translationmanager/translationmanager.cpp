@@ -11,8 +11,15 @@
 
 #include <QApplication>
 #include <QDir>
+#include <QFile>
 #include <QFileInfo>
 #include <QLibraryInfo>
+#include <QLocale>
+#include <QObject>
+#include <QString>
+#include <QStringList>
+#include <QStringLiteral>
+#include <QTranslator>
 
 #include "appconstants/appconstants.h"
 #include "translationmanager/translationmanager.h"
