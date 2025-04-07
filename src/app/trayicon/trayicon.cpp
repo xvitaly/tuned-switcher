@@ -56,9 +56,15 @@ void TrayIcon::initializeTuned()
 void TrayIcon::tryToStartTuned()
 {
     if (tunedManager -> Start())
+    {
+        // Sleep to allow Tuned service to be initialized correctly.
         QThread::sleep(AppConstants::SleepTime);
+    }
     else
+    {
+        notifications -> ShowNotification(tr("Startup error"), tr("Cannot start Tuned service via D-Bus call. Terminating."));
         exit(EXIT_FAILURE);
+    }
 }
 
 void TrayIcon::checkTunedRunning()
