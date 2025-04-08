@@ -88,7 +88,7 @@ private slots:
     /**
      * "Profile selected" event slot (handler).
     */
-    void on_ProfileSelector_activated(const QString&);
+    void on_ProfileSelector_textActivated(const QString&);
 
     /**
      * Button "Cancel" clicked event slot (handler).

@@ -168,7 +168,7 @@ void MainWindow::updateProfile()
     }
 }
 
-void MainWindow::on_ProfileSelector_activated(const QString &profile)
+void MainWindow::on_ProfileSelector_textActivated(const QString &profile)
 {
     QTunedResult result = tunedManager -> SetActiveProfile(profile);
     if (result.Success)
