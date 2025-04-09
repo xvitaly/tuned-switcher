@@ -86,6 +86,14 @@ protected slots:
 
 private slots:
     /**
+     * "Tuned profile changed" DBus event slot (handler).
+     * @param profile Recently switched profile name.
+     * @param result Switch result: true - success; false - failure.
+     * @param message Result message (OK on success).
+    */
+    void profileChangedEvent(const QString&, const bool, const QString&);
+
+    /**
      * "Profile selected" event slot (handler).
     */
     void on_ProfileSelector_textActivated(const QString&);
