@@ -42,6 +42,7 @@ MainWindow::MainWindow(QWidget *parent) :
     checkTunedRunning();
     getTunedProfiles();
     updateProfile();
+    subscribeToEvents();
 }
 
 MainWindow::~MainWindow()
@@ -137,6 +138,11 @@ void MainWindow::getTunedProfiles()
     availableProfiles = tunedManager -> GetAvailableProfiles();
 }
 
+void MainWindow::subscribeToEvents()
+{
+    connect(tunedManager, SIGNAL(ProfileChangedSignal(const QString&, const bool, const QString&)), this, SLOT(profileChangedEvent(const QString&, const bool, const QString&)));
+}
+
 void MainWindow::loadSettings()
 {
     QSettings settings(AppConstants::ProductCompany, AppConstants::ProductNameInternal);
@@ -168,13 +174,29 @@ void MainWindow::updateProfile()
     }
 }
 
+void MainWindow::profileChangedEvent(const QString& profile, const bool result, const QString& message)
+{
+    if (result)
+    {
+        if (ui -> ProfileSelector -> findText(profile) > 0)
+        {
+            ui -> ProfileSelector -> setCurrentText(profile);
+            notifications -> ShowNotification(tr("Profile switched"), tr("The active profile was switched to <b>%1</b>.").arg(profile));
+        }
+    }
+    else
+    {
+        notifications -> ShowNotification(tr("Profile switch error"), message);
+    }
+}
+
 void MainWindow::on_ProfileSelector_textActivated(const QString &profile)
 {
     QTunedResult result = tunedManager -> SetActiveProfile(profile);
-    if (result.Success)
-        notifications -> ShowNotification(tr("Profile switched"), tr("The active profile was switched to <b>%1</b>.").arg(profile));
-    else
+    if (!result.Success)
+    {
         notifications -> ShowNotification(tr("Profile switch error"), result.Message);
+    }
 }
 
 void MainWindow::on_ButtonCancel_clicked()
