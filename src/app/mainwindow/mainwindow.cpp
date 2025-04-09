@@ -42,6 +42,7 @@ MainWindow::MainWindow(QWidget *parent) :
     checkTunedRunning();
     getTunedProfiles();
     updateProfile();
+    subscribeToEvents();
 }
 
 MainWindow::~MainWindow()
@@ -135,6 +136,11 @@ void MainWindow::checkTunedRunning()
 void MainWindow::getTunedProfiles()
 {
     availableProfiles = tunedManager -> GetAvailableProfiles();
+}
+
+void MainWindow::subscribeToEvents()
+{
+    connect(tunedManager, SIGNAL(ProfileChangedSignal(const QString&, const bool, const QString&)), this, SLOT(profileChangedEvent(const QString&, const bool, const QString&)));
 }
 
 void MainWindow::loadSettings()

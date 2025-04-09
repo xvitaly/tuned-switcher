@@ -131,6 +131,11 @@ private:
     void getTunedProfiles();
 
     /**
+     * Subscribe to DBus events.
+    */
+    void subscribeToEvents();
+
+    /**
      * Load form settings: position and size.
     */
     void loadSettings();
