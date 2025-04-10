@@ -7,14 +7,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
   <property name="windowModality">
-   <enum>Qt::WindowModal</enum>
+   <enum>Qt::WindowModality::WindowModal</enum>
   </property>
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
     <width>288</width>
-    <height>77</height>
+    <height>104</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -97,6 +97,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
          </item>
          <item>
           <widget class="QComboBox" name="ProfileSelector"/>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="AutoSelect">
+           <property name="text">
+            <string>Auto-select profile</string>
+           </property>
+          </widget>
          </item>
         </layout>
        </item>
