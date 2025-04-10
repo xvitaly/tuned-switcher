@@ -141,6 +141,12 @@ private:
     void subscribeToEvents();
 
     /**
+     * Check if the automatic mode is enabled and mark the
+     * special checkbox.
+    */
+    void markAutoProfileMode();
+
+    /**
      * Load form settings: position and size.
     */
     void loadSettings();
