@@ -203,7 +203,12 @@ void MainWindow::profileChangedEvent(const QString& profile, const bool result, 
 void MainWindow::on_ProfileSelector_textActivated(const QString &profile)
 {
     QTunedResult result = tunedManager -> SetActiveProfile(profile);
-    if (!result.Success)
+    if (result.Success)
+    {
+        ui -> AutoSelect -> setChecked(false);
+        ui -> AutoSelect -> setDisabled(false);
+    }
+    else
     {
         notifications -> ShowNotification(tr("Profile switch error"), result.Message);
     }
