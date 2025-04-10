@@ -103,6 +103,11 @@ private slots:
     */
     void on_ButtonCancel_clicked();
 
+    /**
+     * Checkbox "Auto-select profile" clicked event slot (handler).
+    */
+    void on_AutoSelect_clicked();
+
 private:
     /**
      * Initialize the NotificationsManager class instance.

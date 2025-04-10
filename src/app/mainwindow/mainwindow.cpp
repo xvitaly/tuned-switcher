@@ -203,3 +203,21 @@ void MainWindow::on_ButtonCancel_clicked()
 {
     close();
 }
+
+void MainWindow::on_AutoSelect_clicked()
+{
+    if (ui -> AutoSelect -> isChecked())
+    {
+        QTunedResult result = tunedManager -> SetProfileModeAuto();
+        if (result.Success)
+        {
+            ui -> AutoSelect -> setDisabled(true);
+        }
+        else
+        {
+            ui -> AutoSelect -> setChecked(false);
+            ui -> AutoSelect -> setDisabled(false);
+            notifications -> ShowNotification(tr("Auto profile"), tr("Failed to enable profile auto-selection: %1").arg(result.Message));
+        }
+    }
+}
