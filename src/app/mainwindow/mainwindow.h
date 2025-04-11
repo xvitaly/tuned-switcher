@@ -162,6 +162,12 @@ private:
     void updateProfile();
 
     /**
+     * Change the state of the "Auto-select profile" checkbox
+     * on the form.
+    */
+    void setAutoProfileMode(bool);
+
+    /**
      * Stores the GUI application form instance.
     */
     Ui::MainWindow *ui;
