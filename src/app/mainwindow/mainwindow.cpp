@@ -183,10 +183,7 @@ void MainWindow::updateProfile()
 
 void MainWindow::markAutoProfileMode()
 {
-    if (tunedManager -> IsProfileModeAuto())
-    {
-        setAutoProfileMode(true);
-    }
+    setAutoProfileMode(tunedManager -> IsProfileModeAuto());
 }
 
 void MainWindow::profileChangedEvent(const QString& profile, const bool result, const QString& message)
@@ -198,6 +195,7 @@ void MainWindow::profileChangedEvent(const QString& profile, const bool result, 
             ui -> ProfileSelector -> setCurrentText(profile);
             notifications -> ShowNotification(tr("Profile switched"), tr("The active profile was switched to <b>%1</b>.").arg(profile));
         }
+        markAutoProfileMode();
     }
     else
     {
@@ -208,11 +206,7 @@ void MainWindow::profileChangedEvent(const QString& profile, const bool result, 
 void MainWindow::on_ProfileSelector_textActivated(const QString &profile)
 {
     QTunedResult result = tunedManager -> SetActiveProfile(profile);
-    if (result.Success)
-    {
-        setAutoProfileMode(false);
-    }
-    else
+    if (!result.Success)
     {
         notifications -> ShowNotification(tr("Profile switch error"), result.Message);
     }
@@ -228,11 +222,7 @@ void MainWindow::on_AutoSelect_clicked()
     if (ui -> AutoSelect -> isChecked())
     {
         QTunedResult result = tunedManager -> SetProfileModeAuto();
-        if (result.Success)
-        {
-            setAutoProfileMode(true);
-        }
-        else
+        if (!result.Success)
         {
             setAutoProfileMode(false);
             notifications -> ShowNotification(tr("Auto profile"), tr("Failed to enable profile auto-selection: %1").arg(result.Message));
