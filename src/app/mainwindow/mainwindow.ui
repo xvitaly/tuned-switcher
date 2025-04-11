@@ -100,6 +100,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
          </item>
          <item>
           <widget class="QCheckBox" name="AutoSelect">
+           <property name="styleSheet">
+            <string notr="true">:disabled { color: rgb(220,220,220); }</string>
+           </property>
            <property name="text">
             <string>Auto-select profile</string>
            </property>
