@@ -185,8 +185,7 @@ void MainWindow::markAutoProfileMode()
 {
     if (tunedManager -> IsProfileModeAuto())
     {
-        ui -> AutoSelect -> setChecked(true);
-        ui -> AutoSelect -> setDisabled(true);
+        setAutoProfileMode(true);
     }
 }
 
@@ -211,8 +210,7 @@ void MainWindow::on_ProfileSelector_textActivated(const QString &profile)
     QTunedResult result = tunedManager -> SetActiveProfile(profile);
     if (result.Success)
     {
-        ui -> AutoSelect -> setChecked(false);
-        ui -> AutoSelect -> setDisabled(false);
+        setAutoProfileMode(false);
     }
     else
     {
@@ -232,12 +230,11 @@ void MainWindow::on_AutoSelect_clicked()
         QTunedResult result = tunedManager -> SetProfileModeAuto();
         if (result.Success)
         {
-            ui -> AutoSelect -> setDisabled(true);
+            setAutoProfileMode(true);
         }
         else
         {
-            ui -> AutoSelect -> setChecked(false);
-            ui -> AutoSelect -> setDisabled(false);
+            setAutoProfileMode(false);
             notifications -> ShowNotification(tr("Auto profile"), tr("Failed to enable profile auto-selection: %1").arg(result.Message));
         }
     }
