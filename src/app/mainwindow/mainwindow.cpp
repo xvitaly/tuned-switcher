@@ -42,6 +42,7 @@ MainWindow::MainWindow(QWidget *parent) :
     checkTunedRunning();
     getTunedProfiles();
     updateProfile();
+    markAutoProfileMode();
     subscribeToEvents();
 }
 
@@ -165,6 +166,12 @@ void MainWindow::setFormStyle()
     ui -> WidgetMain -> setGraphicsEffect(shadowEffect);
 }
 
+void MainWindow::setAutoProfileMode(bool mode)
+{
+    ui -> AutoSelect -> setChecked(mode);
+    ui -> AutoSelect -> setDisabled(mode);
+}
+
 void MainWindow::updateProfile()
 {
     if (availableProfiles.count() > 0)
@@ -172,6 +179,11 @@ void MainWindow::updateProfile()
         ui -> ProfileSelector -> addItems(availableProfiles);
         ui -> ProfileSelector -> setCurrentText(tunedManager -> GetActiveProfile());
     }
+}
+
+void MainWindow::markAutoProfileMode()
+{
+    setAutoProfileMode(tunedManager -> IsProfileModeAuto());
 }
 
 void MainWindow::profileChangedEvent(const QString& profile, const bool result, const QString& message)
@@ -183,6 +195,7 @@ void MainWindow::profileChangedEvent(const QString& profile, const bool result, 
             ui -> ProfileSelector -> setCurrentText(profile);
             notifications -> ShowNotification(tr("Profile switched"), tr("The active profile was switched to <b>%1</b>.").arg(profile));
         }
+        markAutoProfileMode();
     }
     else
     {
@@ -202,4 +215,17 @@ void MainWindow::on_ProfileSelector_textActivated(const QString &profile)
 void MainWindow::on_ButtonCancel_clicked()
 {
     close();
+}
+
+void MainWindow::on_AutoSelect_clicked()
+{
+    if (ui -> AutoSelect -> isChecked())
+    {
+        QTunedResult result = tunedManager -> SetProfileModeAuto();
+        if (!result.Success)
+        {
+            setAutoProfileMode(false);
+            notifications -> ShowNotification(tr("Auto profile"), tr("Failed to enable profile auto-selection: %1").arg(result.Message));
+        }
+    }
 }

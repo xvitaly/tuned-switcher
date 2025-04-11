@@ -103,6 +103,11 @@ private slots:
     */
     void on_ButtonCancel_clicked();
 
+    /**
+     * Checkbox "Auto-select profile" clicked event slot (handler).
+    */
+    void on_AutoSelect_clicked();
+
 private:
     /**
      * Initialize the NotificationsManager class instance.
@@ -136,6 +141,12 @@ private:
     void subscribeToEvents();
 
     /**
+     * Check if the automatic mode is enabled and mark the
+     * special checkbox.
+    */
+    void markAutoProfileMode();
+
+    /**
      * Load form settings: position and size.
     */
     void loadSettings();
@@ -149,6 +160,12 @@ private:
      * Get the active Tuned profile and set it on form.
     */
     void updateProfile();
+
+    /**
+     * Change the state of the "Auto-select profile" checkbox
+     * on the form.
+    */
+    void setAutoProfileMode(bool);
 
     /**
      * Stores the GUI application form instance.
