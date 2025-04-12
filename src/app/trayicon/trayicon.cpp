@@ -107,9 +107,7 @@ void TrayIcon::setAutoProfileMode(bool mode)
 
 void TrayIcon::markAutoProfileMode()
 {
-    bool modeAuto = tunedManager -> IsProfileModeAuto();
-    autoProfile -> setChecked(modeAuto);
-    if (modeAuto) autoProfile -> setDisabled(true);
+    setAutoProfileMode(tunedManager -> IsProfileModeAuto());
 }
 
 void TrayIcon::profileChangedEvent(const QString& profile, const bool result, const QString& message)
