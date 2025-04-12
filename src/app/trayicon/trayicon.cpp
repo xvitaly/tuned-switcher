@@ -99,6 +99,12 @@ void TrayIcon::markCurrentProfile()
     if (profileAction) profileAction -> setChecked(true);
 }
 
+void TrayIcon::setAutoProfileMode(bool mode)
+{
+    autoProfile -> setChecked(mode);
+    autoProfile -> setDisabled(mode);
+}
+
 void TrayIcon::markAutoProfileMode()
 {
     bool modeAuto = tunedManager -> IsProfileModeAuto();
