@@ -103,7 +103,8 @@ private:
     void markCurrentProfile();
 
     /**
-     * Change the state of the "Auto-select profile" checkbox.
+     * Change the "Auto-select profile" mode checkbox.
+     * @param mode New mode.
     */
     void setAutoProfileMode(bool);
 

@@ -95,6 +95,7 @@ private slots:
 
     /**
      * "Profile selected" event slot (handler).
+     * @param profile Profile name.
     */
     void on_ProfileSelector_textActivated(const QString&);
 
@@ -162,8 +163,8 @@ private:
     void updateProfile();
 
     /**
-     * Change the state of the "Auto-select profile" checkbox
-     * on the form.
+     * Change the "Auto-select profile" mode checkbox on the form.
+     * @param mode New mode.
     */
     void setAutoProfileMode(bool);
 
