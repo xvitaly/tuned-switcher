@@ -95,6 +95,7 @@ private slots:
 
     /**
      * "Profile selected" event slot (handler).
+     * @param profile Profile name.
     */
     void on_ProfileSelector_textActivated(const QString&);
 
