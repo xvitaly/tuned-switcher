@@ -169,6 +169,11 @@ private:
     void setAutoProfileMode(bool);
 
     /**
+     * Exit the application immediately.
+    */
+    void exitApplication();
+
+    /**
      * Stores the GUI application form instance.
     */
     Ui::MainWindow *ui;
