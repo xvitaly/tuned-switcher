@@ -22,6 +22,7 @@
 #include <QFlags>
 #include <QStringLiteral>
 #include <QString>
+#include <QTimer>
 #include <QIcon>
 
 #include "appconstants/appconstants.h"
@@ -119,7 +120,7 @@ void MainWindow::tryToStartTuned()
     else
     {
         QMessageBox::critical(this, AppConstants::ProductName, tr("Cannot start Tuned service via D-Bus call. Terminating."));
-        exit(EXIT_FAILURE);
+        exitApplication();
     }
 }
 
@@ -130,7 +131,7 @@ void MainWindow::checkTunedRunning()
         if (QMessageBox::question(this, AppConstants::ProductName, tr("Tuned service is not running. Do you want to start it now?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::Yes)
             tryToStartTuned();
         else
-            exit(EXIT_FAILURE);
+            exitApplication();
     }
 }
 
@@ -184,6 +185,11 @@ void MainWindow::updateProfile()
 void MainWindow::markAutoProfileMode()
 {
     setAutoProfileMode(tunedManager -> IsProfileModeAuto());
+}
+
+void MainWindow::exitApplication()
+{
+    QTimer::singleShot(AppConstants::TimerDelay, qApp, SLOT(quit()));
 }
 
 void MainWindow::profileChangedEvent(const QString& profile, const bool result, const QString& message)

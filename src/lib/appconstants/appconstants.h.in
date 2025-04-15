@@ -62,6 +62,12 @@ namespace AppConstants {
      * fetch available Tuned profiles.
     */
     const int SleepTime = 2;
+
+    /**
+     * Stores the default timer delay in milliseconds before attempting
+     * to shut down the application.
+    */
+    const int TimerDelay = 10;
 }
 
 #endif // APPSTRINGS_H
