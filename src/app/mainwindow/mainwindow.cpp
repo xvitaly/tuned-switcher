@@ -22,6 +22,7 @@
 #include <QFlags>
 #include <QStringLiteral>
 #include <QString>
+#include <QTimer>
 #include <QIcon>
 
 #include "appconstants/appconstants.h"
@@ -188,7 +189,7 @@ void MainWindow::markAutoProfileMode()
 
 void MainWindow::exitApplication()
 {
-    exit(EXIT_FAILURE);
+    QTimer::singleShot(AppConstants::SleepTime, qApp, SLOT(quit()));
 }
 
 void MainWindow::profileChangedEvent(const QString& profile, const bool result, const QString& message)
