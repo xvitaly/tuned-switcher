@@ -189,7 +189,7 @@ void MainWindow::markAutoProfileMode()
 
 void MainWindow::exitApplication()
 {
-    QTimer::singleShot(AppConstants::SleepTime, qApp, SLOT(quit()));
+    QTimer::singleShot(AppConstants::TimerDelay, qApp, SLOT(quit()));
 }
 
 void MainWindow::profileChangedEvent(const QString& profile, const bool result, const QString& message)
