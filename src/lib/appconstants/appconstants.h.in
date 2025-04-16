@@ -20,46 +20,46 @@
 */
 namespace AppConstants {
     /**
-     * Stores application company name.
-     * Used as settings directory name.
+     * Stores the application company name.
+     * Used as a settings directory name.
     */
     const QString ProductCompany = QStringLiteral("EasyCoding");
 
     /**
-     * Stores application public name.
-     * Used as public name in different dialogs.
+     * Stores the application public name.
+     * Used as a public name in various dialogs.
     */
     const QString ProductName = QStringLiteral("Tuned Switcher");
 
     /**
-     * Stores application internal name (for the settings project name).
-     * Used as settings project name.
+     * Stores the application internal name.
+     * Used as a settings project name.
     */
     const QString ProductNameInternal = QStringLiteral("@CMAKE_PROJECT_NAME@");
 
     /**
-     * Stores application version number in QVersionNumber format.
+     * Stores the application version number as a QVersionNumber.
     */
     const QVersionNumber ProductVersion = QVersionNumber::fromString(QStringLiteral("@CMAKE_PROJECT_VERSION@"));
 
     /**
-     * Stores application launcher (.desktop) file name.
+     * Stores the application launcher (.desktop) file name.
     */
     const QString LauncherName = QStringLiteral("@LAUNCHER_FILE_NAME@");
 
     /**
-     * Stores application reverse domain scheme name.
+     * Stores the application reverse domain scheme name.
     */
     const QString DomainSchemeName = QStringLiteral("@SCHEME_NAME@");
 
     /**
-     * Stores data root directory installation prefix.
+     * Stores the data root directory installation prefix.
     */
     const QString DataRootPrefix = QStringLiteral("@CMAKE_INSTALL_FULL_DATAROOTDIR@/");
 
     /**
-     * Stores default application sleep time before trying to
-     * fetch available Tuned profiles.
+     * Stores the default application sleep time before trying to
+     * fetch the available performance profiles.
     */
     const int SleepTime = 2;
 
@@ -67,7 +67,7 @@ namespace AppConstants {
      * Stores the default timer delay in milliseconds before attempting
      * to shut down the application.
     */
-    const int TimerDelay = 10;
+    const int TimerDelay = 2;
 }
 
 #endif // APPSTRINGS_H
