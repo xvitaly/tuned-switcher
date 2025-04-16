@@ -67,7 +67,7 @@ namespace AppConstants {
      * Stores the default timer delay in milliseconds before attempting
      * to shut down the application.
     */
-    const int TimerDelay = 10;
+    const int TimerDelay = 2;
 }
 
 #endif // APPSTRINGS_H
