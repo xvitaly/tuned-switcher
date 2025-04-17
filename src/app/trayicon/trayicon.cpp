@@ -19,6 +19,7 @@
 #include <QStringLiteral>
 #include <QSystemTrayIcon>
 #include <QThread>
+#include <QTimer>
 #include <QWidget>
 
 #include "appconstants/appconstants.h"
@@ -63,7 +64,7 @@ void TrayIcon::tryToStartTuned()
     else
     {
         notifications -> ShowNotification(tr("Startup error"), tr("Cannot start Tuned service via D-Bus call. Terminating."));
-        exit(EXIT_FAILURE);
+        exitApplication();
     }
 }
 
@@ -108,6 +109,11 @@ void TrayIcon::setAutoProfileMode(bool mode)
 void TrayIcon::markAutoProfileMode()
 {
     setAutoProfileMode(tunedManager -> IsProfileModeAuto());
+}
+
+void TrayIcon::exitApplication()
+{
+    QTimer::singleShot(AppConstants::TimerDelay, qApp, SLOT(quit()));
 }
 
 void TrayIcon::profileChangedEvent(const QString& profile, const bool result, const QString& message)

@@ -120,6 +120,11 @@ private:
     void subscribeToEvents();
 
     /**
+     * Exit the application immediately.
+    */
+    void exitApplication();
+
+    /**
      * Build and create submenu with the list of available
      * Tuned profiles.
      * @returns Pointer to the QMenu instance.
