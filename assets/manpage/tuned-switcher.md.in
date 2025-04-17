@@ -73,11 +73,6 @@ sudo systemctl enable --now tuned.service
 
 If you want this program to start automatically, you should use the autorun settings of your desktop environment.
 
-# EXIT STATUS
-
-  * **0**: successful exit.
-  * **1**: an error occured.
-
 # AUTHORS
 
 Copyright (c) 2021-2025 EasyCoding Team and contributors.
