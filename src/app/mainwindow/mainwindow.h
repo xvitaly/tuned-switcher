@@ -97,7 +97,7 @@ private slots:
      * "Profile selected" event slot (handler).
      * @param profile Profile name.
     */
-    void on_ProfileSelector_textActivated(const QString&);
+    void profileSelectedEvent(const QString&);
 
     /**
      * Button "Cancel" clicked event slot (handler).
@@ -119,6 +119,11 @@ private:
      * Initialize the TunedManager class instance.
     */
     void initializeTuned();
+
+    /**
+     * Initialize and connect the events for the form.
+    */
+    void setFormEvents();
 
     /**
      * Try to start the Tuned service if not running.

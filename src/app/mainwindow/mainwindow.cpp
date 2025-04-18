@@ -38,6 +38,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui -> setupUi(this);
     loadSettings();
     setFormStyle();
+    setFormEvents();
     initializeNotifications();
     initializeTuned();
     checkTunedRunning();
@@ -108,6 +109,11 @@ void MainWindow::initializeNotifications()
 void MainWindow::initializeTuned()
 {
     tunedManager = new TunedManager(this);
+}
+
+void MainWindow::setFormEvents()
+{
+    connect(ui -> ProfileSelector, SIGNAL(textActivated(QString)), this, SLOT(profileSelectedEvent(const QString&)));
 }
 
 void MainWindow::tryToStartTuned()
@@ -209,7 +215,7 @@ void MainWindow::profileChangedEvent(const QString& profile, const bool result, 
     }
 }
 
-void MainWindow::on_ProfileSelector_textActivated(const QString &profile)
+void MainWindow::profileSelectedEvent(const QString &profile)
 {
     QTunedResult result = tunedManager -> SetActiveProfile(profile);
     if (!result.Success)
