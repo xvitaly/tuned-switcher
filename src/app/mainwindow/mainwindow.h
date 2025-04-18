@@ -160,7 +160,7 @@ private:
     /**
      * Get the active Tuned profile and set it on form.
     */
-    void updateProfile();
+    void markCurrentProfile();
 
     /**
      * Change the "Auto-select profile" mode checkbox on the form.

@@ -42,7 +42,7 @@ MainWindow::MainWindow(QWidget *parent) :
     initializeTuned();
     checkTunedRunning();
     getTunedProfiles();
-    updateProfile();
+    markCurrentProfile();
     markAutoProfileMode();
     subscribeToEvents();
 }
@@ -173,7 +173,7 @@ void MainWindow::setAutoProfileMode(bool mode)
     ui -> AutoSelect -> setDisabled(mode);
 }
 
-void MainWindow::updateProfile()
+void MainWindow::markCurrentProfile()
 {
     if (availableProfiles.count() > 0)
     {
