@@ -203,5 +203,5 @@ void TrayIcon::profileSelectedEvent(QAction* action)
 
 void TrayIcon::exitEvent()
 {
-    QApplication::exit(0);
+    qApp -> quit();
 }
