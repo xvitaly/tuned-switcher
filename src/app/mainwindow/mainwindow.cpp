@@ -114,6 +114,7 @@ void MainWindow::initializeTuned()
 void MainWindow::setFormEvents()
 {
     connect(ui -> ProfileSelector, SIGNAL(textActivated(QString)), this, SLOT(profileSelectedEvent(const QString&)));
+    connect(ui -> AutoSelect, SIGNAL(clicked(bool)), this, SLOT(profileAutoSelectedEvent(bool)));
 }
 
 void MainWindow::tryToStartTuned()
@@ -229,9 +230,9 @@ void MainWindow::on_ButtonCancel_clicked()
     close();
 }
 
-void MainWindow::on_AutoSelect_clicked()
+void MainWindow::profileAutoSelectedEvent(bool modeAuto)
 {
-    if (ui -> AutoSelect -> isChecked())
+    if (modeAuto)
     {
         QTunedResult result = tunedManager -> SetProfileModeAuto();
         if (!result.Success)
