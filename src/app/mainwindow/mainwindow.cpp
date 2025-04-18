@@ -115,6 +115,7 @@ void MainWindow::setFormEvents()
 {
     connect(ui -> ProfileSelector, SIGNAL(textActivated(QString)), this, SLOT(profileSelectedEvent(const QString&)));
     connect(ui -> AutoSelect, SIGNAL(clicked(bool)), this, SLOT(profileAutoSelectedEvent(bool)));
+    connect(ui -> ButtonCancel, SIGNAL(clicked()), this, SLOT(closeFormEvent()));
 }
 
 void MainWindow::tryToStartTuned()
@@ -225,7 +226,7 @@ void MainWindow::profileSelectedEvent(const QString &profile)
     }
 }
 
-void MainWindow::on_ButtonCancel_clicked()
+void MainWindow::closeFormEvent()
 {
     close();
 }

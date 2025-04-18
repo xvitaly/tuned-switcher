@@ -100,9 +100,9 @@ private slots:
     void profileSelectedEvent(const QString&);
 
     /**
-     * Button "Cancel" clicked event slot (handler).
+     * Button "Close" clicked event slot (handler).
     */
-    void on_ButtonCancel_clicked();
+    void closeFormEvent();
 
     /**
      * Checkbox "Auto-select profile" clicked event slot (handler).
