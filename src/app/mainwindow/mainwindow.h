@@ -100,7 +100,7 @@ private slots:
     void profileSelectedEvent(const QString&);
 
     /**
-     * Button "Close" clicked event slot (handler).
+     * Button "Close form" clicked event slot (handler).
     */
     void closeFormEvent();
 
