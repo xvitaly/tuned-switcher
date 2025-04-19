@@ -113,9 +113,9 @@ void MainWindow::initializeTuned()
 
 void MainWindow::setFormEvents()
 {
-    connect(ui -> ProfileSelector, SIGNAL(textActivated(QString)), this, SLOT(profileSelectedEvent(const QString&)));
     connect(ui -> AutoSelect, SIGNAL(clicked(bool)), this, SLOT(profileAutoSelectedEvent(bool)));
     connect(ui -> CloseForm, SIGNAL(clicked()), this, SLOT(closeFormEvent()));
+    connect(ui -> ProfileSelector, SIGNAL(textActivated(QString)), this, SLOT(profileSelectedEvent(const QString&)));
 }
 
 void MainWindow::tryToStartTuned()
