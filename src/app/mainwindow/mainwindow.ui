@@ -75,7 +75,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
             </widget>
            </item>
            <item>
-            <widget class="QPushButton" name="ButtonCancel">
+            <widget class="QPushButton" name="CloseForm">
              <property name="sizePolicy">
               <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                <horstretch>0</horstretch>

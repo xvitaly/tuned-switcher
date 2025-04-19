@@ -38,11 +38,12 @@ MainWindow::MainWindow(QWidget *parent) :
     ui -> setupUi(this);
     loadSettings();
     setFormStyle();
+    setFormEvents();
     initializeNotifications();
     initializeTuned();
     checkTunedRunning();
     getTunedProfiles();
-    updateProfile();
+    markCurrentProfile();
     markAutoProfileMode();
     subscribeToEvents();
 }
@@ -110,6 +111,13 @@ void MainWindow::initializeTuned()
     tunedManager = new TunedManager(this);
 }
 
+void MainWindow::setFormEvents()
+{
+    connect(ui -> AutoSelect, SIGNAL(clicked(bool)), this, SLOT(profileAutoSelectedEvent(bool)));
+    connect(ui -> CloseForm, SIGNAL(clicked()), this, SLOT(closeFormEvent()));
+    connect(ui -> ProfileSelector, SIGNAL(textActivated(QString)), this, SLOT(profileSelectedEvent(const QString&)));
+}
+
 void MainWindow::tryToStartTuned()
 {
     if (tunedManager -> Start())
@@ -173,7 +181,7 @@ void MainWindow::setAutoProfileMode(bool mode)
     ui -> AutoSelect -> setDisabled(mode);
 }
 
-void MainWindow::updateProfile()
+void MainWindow::markCurrentProfile()
 {
     if (availableProfiles.count() > 0)
     {
@@ -209,7 +217,7 @@ void MainWindow::profileChangedEvent(const QString& profile, const bool result, 
     }
 }
 
-void MainWindow::on_ProfileSelector_textActivated(const QString &profile)
+void MainWindow::profileSelectedEvent(const QString &profile)
 {
     QTunedResult result = tunedManager -> SetActiveProfile(profile);
     if (!result.Success)
@@ -218,14 +226,14 @@ void MainWindow::on_ProfileSelector_textActivated(const QString &profile)
     }
 }
 
-void MainWindow::on_ButtonCancel_clicked()
+void MainWindow::closeFormEvent()
 {
     close();
 }
 
-void MainWindow::on_AutoSelect_clicked()
+void MainWindow::profileAutoSelectedEvent(bool modeAuto)
 {
-    if (ui -> AutoSelect -> isChecked())
+    if (modeAuto)
     {
         QTunedResult result = tunedManager -> SetProfileModeAuto();
         if (!result.Success)
