@@ -82,7 +82,7 @@ void MainWindow::mouseReleaseEvent(QMouseEvent* event)
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
-    QSettings settings(AppConstants::ProductCompany, AppConstants::ProductNameInternal);
+    QSettings settings;
     settings.setValue(QStringLiteral("geometry"), saveGeometry());
     settings.setValue(QStringLiteral("windowState"), saveState());
     settings.sync();
@@ -155,7 +155,7 @@ void MainWindow::subscribeToEvents()
 
 void MainWindow::loadSettings()
 {
-    QSettings settings(AppConstants::ProductCompany, AppConstants::ProductNameInternal);
+    QSettings settings;
     restoreGeometry(settings.value(QStringLiteral("geometry")).toByteArray());
     restoreState(settings.value(QStringLiteral("windowState")).toByteArray());
 }
