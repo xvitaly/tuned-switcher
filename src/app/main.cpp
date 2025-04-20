@@ -25,7 +25,11 @@
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
+    QApplication::setApplicationName(AppConstants::ProductNameInternal);
+    QApplication::setApplicationVersion(AppConstants::ProductVersion);
     QApplication::setDesktopFileName(AppConstants::LauncherName);
+    QApplication::setOrganizationName(AppConstants::ProductCompany);
+    QApplication::setOrganizationDomain(AppConstants::DomainSchemeName);
 
     TranslationManager *translator = new TranslationManager();
     a.installTranslator(translator -> GetQtTranslator());
