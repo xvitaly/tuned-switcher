@@ -13,7 +13,6 @@
 */
 
 #include <QString>
-#include <QVersionNumber>
 
 /**
  * Namespace for working with various constants used in project.
@@ -38,9 +37,9 @@ namespace AppConstants {
     const QString ProductNameInternal = QStringLiteral("@CMAKE_PROJECT_NAME@");
 
     /**
-     * Stores the application version number as a QVersionNumber.
+     * Stores the application version number as a string.
     */
-    const QVersionNumber ProductVersion = QVersionNumber::fromString(QStringLiteral("@CMAKE_PROJECT_VERSION@"));
+    const QString ProductVersion = QStringLiteral("@CMAKE_PROJECT_VERSION@");
 
     /**
      * Stores the application launcher (.desktop) file name.
