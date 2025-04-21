@@ -123,6 +123,7 @@ endif()
 # ======================================================
 
 set(LIBRARY_HEADERS
+    src/lib/logmanager/logmanager.h
     src/lib/tunedtypes/tunedtypes.h
     src/lib/translationmanager/translationmanager.h
     src/lib/notificationsmanager/dbusconverters.h
@@ -131,6 +132,7 @@ set(LIBRARY_HEADERS
 )
 
 set(LIBRARY_SOURCES
+    src/lib/logmanager/logmanager.cpp
     src/lib/tunedtypes/tunedtypes.cpp
     src/lib/translationmanager/translationmanager.cpp
     src/lib/notificationsmanager/notificationsmanager.cpp
