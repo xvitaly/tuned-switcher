@@ -9,11 +9,21 @@
 
 /**
  * @file logmanager/logmanager.h
- * Contains the LogManager definition.
+ * Contains the LogManager namespace definition.
 */
 
 #include <QLoggingCategory>
 
-Q_DECLARE_LOGGING_CATEGORY(logdbus)
+/**
+ * Namespace with methods for working with custom
+ * logging categories.
+*/
+namespace LogManager
+{
+    /**
+     * Get the logging category for DBus related messages.
+    */
+    Q_DECLARE_LOGGING_CATEGORY(DBus)
+}
 
 #endif // LOGMANAGER_H

@@ -9,13 +9,16 @@
 
 /**
  * @file logmanager/logmanager.cpp
- * Contains the LogManager implementation.
+ * Contains the LogManager namespace implementation.
 */
 
 #include <QLoggingCategory>
 
 #include "logmanager/logmanager.h"
 
-Q_LOGGING_CATEGORY(logdbus, "tuned-switcher.dbus")
+namespace LogManager
+{
+    Q_LOGGING_CATEGORY(DBus, "tuned-switcher.dbus")
+}
 
 #endif // LOGMANAGER_H

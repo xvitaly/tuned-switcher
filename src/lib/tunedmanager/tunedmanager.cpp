@@ -31,7 +31,7 @@ QString TunedManager::GetActiveProfile() const
     QDBusInterface DBusInterface(TunedBusName, TunedBusPath, TunedBusInterface, DBusInstance);
     QDBusReply<QString> DBusReply = DBusInterface.call(TunedBusMethodNameActiveProfile);
     if (!DBusReply.isValid())
-        qCWarning(logdbus) << "Failed to get the active Tuned profile due to an error:" << DBusReply.error();
+        qCWarning(LogManager::DBus) << "Failed to get the active Tuned profile due to an error:" << DBusReply.error();
     return DBusReply.value();
 }
 
@@ -40,7 +40,7 @@ QStringList TunedManager::GetAvailableProfiles() const
     QDBusInterface DBusInterface(TunedBusName, TunedBusPath, TunedBusInterface, DBusInstance);
     QDBusReply<QStringList> DBusReply = DBusInterface.call(TunedBusMethodNameProfiles);
     if (!DBusReply.isValid())
-        qCWarning(logdbus) << "Failed to get the available Tuned profiles due to an error:" << DBusReply.error();
+        qCWarning(LogManager::DBus) << "Failed to get the available Tuned profiles due to an error:" << DBusReply.error();
     return DBusReply.value();
 }
 
@@ -49,7 +49,7 @@ QTunedProfileMode TunedManager::GetProfileMode() const
     QDBusInterface DBusInterface(TunedBusName, TunedBusPath, TunedBusInterface, DBusInstance);
     QDBusReply<QTunedProfileMode> DBusReply = DBusInterface.call(TunedBusMethodNameProfileMode);
     if (!DBusReply.isValid())
-        qCWarning(logdbus) << "Failed get current Tuned mode due to an error:" << DBusReply.error();
+        qCWarning(LogManager::DBus) << "Failed get current Tuned mode due to an error:" << DBusReply.error();
     return DBusReply.value();
 }
 
@@ -78,7 +78,7 @@ QTunedProfileList TunedManager::GetAvailableProfiles2() const
     QDBusInterface DBusInterface(TunedBusName, TunedBusPath, TunedBusInterface, DBusInstance);
     QDBusReply<QTunedProfileList> DBusReply = DBusInterface.call(TunedBusMethodNameProfiles2);
     if (!DBusReply.isValid())
-        qCWarning(logdbus) << "Failed to get the available Tuned profiles with their descriptions due to an error:" << DBusReply.error();
+        qCWarning(LogManager::DBus) << "Failed to get the available Tuned profiles with their descriptions due to an error:" << DBusReply.error();
     return DBusReply.value();
 }
 
@@ -87,7 +87,7 @@ bool TunedManager::IsRunning() const
     QDBusInterface DBusInterface(TunedBusName, TunedBusPath, TunedBusInterface, DBusInstance);
     QDBusReply<bool> DBusReply = DBusInterface.call(TunedBusMethodNameIsRunning);
     if (!DBusReply.isValid())
-        qCWarning(logdbus) << "Failed to determine if the Tuned service is running due to an error:" << DBusReply.error();
+        qCWarning(LogManager::DBus) << "Failed to determine if the Tuned service is running due to an error:" << DBusReply.error();
     return DBusReply.value();
 }
 
@@ -99,7 +99,7 @@ bool TunedManager::Start() const
     QDBusMessage DBusReply = DBusInstance.call(DBusMessage, QDBus::Block);
     bool DbusResult = !(DBusReply.type() == QDBusMessage::ErrorMessage);
     if (!DbusResult)
-        qCWarning(logdbus) << "Failed to start the Tuned service due to an error:" << DBusReply.errorMessage();
+        qCWarning(LogManager::DBus) << "Failed to start the Tuned service due to an error:" << DBusReply.errorMessage();
     return DbusResult;
 }
 
@@ -111,7 +111,7 @@ bool TunedManager::Stop() const
     QDBusMessage DBusReply = DBusInstance.call(DBusMessage, QDBus::Block);
     bool DbusResult = !(DBusReply.type() == QDBusMessage::ErrorMessage);
     if (!DbusResult)
-        qCWarning(logdbus) << "Failed to stop the Tuned service due to an error:" << DBusReply.errorMessage();
+        qCWarning(LogManager::DBus) << "Failed to stop the Tuned service due to an error:" << DBusReply.errorMessage();
     return DbusResult;
 }
 
