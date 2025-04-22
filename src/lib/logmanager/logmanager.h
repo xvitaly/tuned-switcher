@@ -16,7 +16,7 @@
 
 namespace LogManager
 {
-    Q_DECLARE_LOGGING_CATEGORY(logdbus)
+    Q_DECLARE_LOGGING_CATEGORY(DBus)
 }
 
 #endif // LOGMANAGER_H

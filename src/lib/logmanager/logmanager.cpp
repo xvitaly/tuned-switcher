@@ -18,7 +18,7 @@
 
 namespace LogManager
 {
-    Q_LOGGING_CATEGORY(logdbus, "tuned-switcher.dbus")
+    Q_LOGGING_CATEGORY(DBus, "tuned-switcher.dbus")
 }
 
 #endif // LOGMANAGER_H
