@@ -9,7 +9,7 @@
 
 /**
  * @file logmanager/logmanager.cpp
- * Contains the LogManager implementation.
+ * Contains the LogManager namespace implementation.
 */
 
 #include <QLoggingCategory>
