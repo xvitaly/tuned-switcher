@@ -16,6 +16,9 @@
 
 #include "logmanager/logmanager.h"
 
-Q_LOGGING_CATEGORY(logdbus, "tuned-switcher.dbus")
+namespace LogManager
+{
+    Q_LOGGING_CATEGORY(logdbus, "tuned-switcher.dbus")
+}
 
 #endif // LOGMANAGER_H

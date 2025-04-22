@@ -14,6 +14,9 @@
 
 #include <QLoggingCategory>
 
-Q_DECLARE_LOGGING_CATEGORY(logdbus)
+namespace LogManager
+{
+    Q_DECLARE_LOGGING_CATEGORY(logdbus)
+}
 
 #endif // LOGMANAGER_H
