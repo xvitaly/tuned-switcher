@@ -82,12 +82,7 @@ void MainWindow::mouseReleaseEvent(QMouseEvent* event)
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
-    QSettings settings;
-    settings.beginGroup("widget");
-    settings.setValue(QStringLiteral("geometry"), saveGeometry());
-    settings.setValue(QStringLiteral("windowState"), saveState());
-    settings.endGroup();
-    settings.sync();
+    saveSettings();
     QMainWindow::closeEvent(event);
 }
 
@@ -160,6 +155,16 @@ void MainWindow::loadSettings()
     QSettings settings;
     restoreGeometry(settings.value(QStringLiteral("geometry")).toByteArray());
     restoreState(settings.value(QStringLiteral("windowState")).toByteArray());
+}
+
+void MainWindow::saveSettings()
+{
+    QSettings settings;
+    settings.beginGroup("widget");
+    settings.setValue(QStringLiteral("geometry"), saveGeometry());
+    settings.setValue(QStringLiteral("windowState"), saveState());
+    settings.endGroup();
+    settings.sync();
 }
 
 void MainWindow::setFormStyle()
