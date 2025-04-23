@@ -83,8 +83,10 @@ void MainWindow::mouseReleaseEvent(QMouseEvent* event)
 void MainWindow::closeEvent(QCloseEvent *event)
 {
     QSettings settings;
+    settings.beginGroup("widget");
     settings.setValue(QStringLiteral("geometry"), saveGeometry());
     settings.setValue(QStringLiteral("windowState"), saveState());
+    settings.endGroup();
     settings.sync();
     QMainWindow::closeEvent(event);
 }
