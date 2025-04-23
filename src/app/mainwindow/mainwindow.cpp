@@ -153,8 +153,10 @@ void MainWindow::subscribeToEvents()
 void MainWindow::loadSettings()
 {
     QSettings settings;
+    settings.beginGroup("widget");
     restoreGeometry(settings.value(QStringLiteral("geometry")).toByteArray());
     restoreState(settings.value(QStringLiteral("windowState")).toByteArray());
+    settings.endGroup();
 }
 
 void MainWindow::saveSettings()
