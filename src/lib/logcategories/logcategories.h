@@ -4,12 +4,12 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef LOGMANAGER_H
-#define LOGMANAGER_H
+#ifndef LOGCATEGORIES_H
+#define LOGCATEGORIES_H
 
 /**
- * @file logmanager/logmanager.h
- * Contains the LogManager namespace definition.
+ * @file logcategories/logcategories.h
+ * Contains the LogCategories namespace definition.
 */
 
 #include <QLoggingCategory>
@@ -18,7 +18,7 @@
  * Namespace with methods for working with custom
  * logging categories.
 */
-namespace LogManager
+namespace LogCategories
 {
     /**
      * Get the logging category for DBus related messages.
@@ -26,4 +26,4 @@ namespace LogManager
     Q_DECLARE_LOGGING_CATEGORY(DBus)
 }
 
-#endif // LOGMANAGER_H
+#endif // LOGCATEGORIES_H
