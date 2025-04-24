@@ -4,9 +4,6 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef LOGMANAGER_H
-#define LOGMANAGER_H
-
 /**
  * @file logmanager/logmanager.cpp
  * Contains the LogManager namespace implementation.
@@ -20,5 +17,3 @@ namespace LogManager
 {
     Q_LOGGING_CATEGORY(DBus, "tuned-switcher.dbus")
 }
-
-#endif // LOGMANAGER_H
