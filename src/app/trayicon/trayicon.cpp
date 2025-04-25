@@ -121,12 +121,16 @@ void TrayIcon::profileChangedEvent(const QString& profile, const bool result, co
     if (result)
     {
         QAction* profileAction = tunedProfiles[profile];
+        bool autoMode = tunedManager -> IsProfileModeAuto();
         if (profileAction)
         {
             profileAction -> setChecked(true);
-            notifications -> ShowNotification(tr("Profile switched"), tr("The active profile was switched to <b>%1</b>.").arg(profile));
+            if (autoMode)
+                notifications -> ShowNotification(tr("Auto profile"), tr("The active profile was automatically switched to <b>%1</b>.").arg(profile));
+            else
+                notifications -> ShowNotification(tr("Profile switched"), tr("The active profile was switched to <b>%1</b>.").arg(profile));
         }
-        markAutoProfileMode();
+        setAutoProfileMode(autoMode);
     }
     else
     {

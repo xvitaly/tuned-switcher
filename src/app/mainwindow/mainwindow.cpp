@@ -213,12 +213,16 @@ void MainWindow::profileChangedEvent(const QString& profile, const bool result, 
 {
     if (result)
     {
+        bool autoMode = tunedManager -> IsProfileModeAuto();
         if (ui -> ProfileSelector -> findText(profile) > 0)
         {
             ui -> ProfileSelector -> setCurrentText(profile);
-            notifications -> ShowNotification(tr("Profile switched"), tr("The active profile was switched to <b>%1</b>.").arg(profile));
+            if (autoMode)
+                notifications -> ShowNotification(tr("Auto profile"), tr("The active profile was automatically switched to <b>%1</b>.").arg(profile));
+            else
+                notifications -> ShowNotification(tr("Profile switched"), tr("The active profile was switched to <b>%1</b>.").arg(profile));
         }
-        markAutoProfileMode();
+        setAutoProfileMode(autoMode);
     }
     else
     {
