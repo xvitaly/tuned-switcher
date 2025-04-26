@@ -34,14 +34,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
     </message>
     <message>
         <location line="+85"/>
-        <location line="+34"/>
-        <source>Auto profile</source>
-        <translation>Auto profile</translation>
-    </message>
-    <message>
-        <location line="-34"/>
         <source>The active profile was automatically switched to &lt;b&gt;%1&lt;/b&gt;.</source>
         <translation>The active profile was automatically switched to &lt;b&gt;%1&lt;/b&gt;.</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Profile auto-selected</source>
+        <translation>Profile auto-selected</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -60,9 +59,20 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Profile switch error</translation>
     </message>
     <message>
+        <location line="-9"/>
+        <location line="+9"/>
+        <source>Failed to switch the active profile: %1</source>
+        <translation>Failed to switch the active profile: %1</translation>
+    </message>
+    <message>
         <location line="+17"/>
         <source>Failed to enable profile auto-selection: %1</source>
         <translation>Failed to enable profile auto-selection: %1</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Profile auto-selection error</source>
+        <translation>Profile auto-selection error</translation>
     </message>
 </context>
 <context>
@@ -83,6 +93,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>The active profile was automatically switched to &lt;b&gt;%1&lt;/b&gt;.</translation>
     </message>
     <message>
+        <location line="+0"/>
+        <source>Profile auto-selected</source>
+        <translation>Profile auto-selected</translation>
+    </message>
+    <message>
         <location line="+2"/>
         <source>Profile switched</source>
         <translation>Profile switched</translation>
@@ -94,11 +109,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
     </message>
     <message>
         <location line="+6"/>
+        <location line="+67"/>
         <source>Profile switch error</source>
         <translation>Profile switch error</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="-57"/>
         <source>Profiles</source>
         <translation>Profiles</translation>
     </message>
@@ -113,25 +129,19 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Auto-select profile</translation>
     </message>
     <message>
-        <location line="-45"/>
-        <location line="+65"/>
-        <source>Auto profile</source>
-        <translation>Auto profile</translation>
-    </message>
-    <message>
-        <location line="+0"/>
-        <source>Failed to enable profile auto-selection: %1</source>
-        <translation>Failed to enable profile auto-selection: %1</translation>
+        <location line="+20"/>
+        <source>Profile auto-selection error</source>
+        <translation>Profile auto-selection error</translation>
     </message>
     <message>
         <location line="+10"/>
-        <source>Switch profile</source>
-        <translation>Switch profile</translation>
+        <source>Failed to switch the active profile: %1</source>
+        <translation>Failed to switch the active profile: %1</translation>
     </message>
     <message>
-        <location line="+0"/>
-        <source>Failed to switch profile: %1</source>
-        <translation>Failed to switch profile: %1</translation>
+        <location line="-10"/>
+        <source>Failed to enable profile auto-selection: %1</source>
+        <translation>Failed to enable profile auto-selection: %1</translation>
     </message>
 </context>
 </TS>
