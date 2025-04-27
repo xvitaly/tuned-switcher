@@ -41,6 +41,9 @@ SPDX-License-Identifier: CC0-1.0
             <image>https://www.easycoding.org/files/images/tuned-switcher-widget.png</image>
         </screenshot>
     </screenshots>
+    <categories>
+        <category>Utility</category>
+    </categories>
     <url type="homepage">@CMAKE_PROJECT_HOMEPAGE_URL@</url>
     <url type="bugtracker">@CMAKE_PROJECT_HOMEPAGE_URL@/issues</url>
     <update_contact>@CMAKE_PROJECT_HOMEPAGE_URL@</update_contact>
