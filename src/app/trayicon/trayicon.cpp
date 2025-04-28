@@ -173,7 +173,7 @@ QMenu* TrayIcon::createTrayIconMenu()
     // Setting system tray's icon menu...
     autoProfile = new QAction(tr("Auto-select profile"), this);
     autoProfile -> setCheckable(true);
-    connect(autoProfile, SIGNAL(triggered(bool)), this, SLOT(profileAutoSelectedEvent(bool)));
+    connect(autoProfile, SIGNAL(triggered(bool)), this, SLOT(profileAutoSelectedEvent(const bool)));
 
     trayIconMenu -> addAction(autoProfile);
     trayIconMenu -> addSeparator();
@@ -183,7 +183,7 @@ QMenu* TrayIcon::createTrayIconMenu()
     return trayIconMenu;
 }
 
-void TrayIcon::profileAutoSelectedEvent(bool modeAuto)
+void TrayIcon::profileAutoSelectedEvent(const bool modeAuto)
 {
     if (modeAuto)
     {
