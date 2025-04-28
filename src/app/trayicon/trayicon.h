@@ -106,7 +106,7 @@ private:
      * Change the "Auto-select profile" mode checkbox.
      * @param mode New mode.
     */
-    void setAutoProfileMode(bool);
+    void setAutoProfileMode(const bool);
 
     /**
      * Check if the automatic mode is enabled and mark the
