@@ -184,7 +184,7 @@ void MainWindow::setFormStyle()
     ui -> WidgetMain -> setGraphicsEffect(shadowEffect);
 }
 
-void MainWindow::setAutoProfileMode(bool mode)
+void MainWindow::setAutoProfileMode(const bool mode)
 {
     ui -> AutoSelect -> setChecked(mode);
     ui -> AutoSelect -> setDisabled(mode);
