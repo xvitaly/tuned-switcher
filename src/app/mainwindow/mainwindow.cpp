@@ -110,7 +110,7 @@ void MainWindow::initializeTuned()
 
 void MainWindow::setFormEvents()
 {
-    connect(ui -> AutoSelect, SIGNAL(clicked(bool)), this, SLOT(profileAutoSelectedEvent(bool)));
+    connect(ui -> AutoSelect, SIGNAL(clicked(bool)), this, SLOT(profileAutoSelectedEvent(const bool)));
     connect(ui -> CloseForm, SIGNAL(clicked()), this, SLOT(closeFormEvent()));
     connect(ui -> ProfileSelector, SIGNAL(textActivated(QString)), this, SLOT(profileSelectedEvent(const QString&)));
 }
@@ -244,7 +244,7 @@ void MainWindow::closeFormEvent()
     close();
 }
 
-void MainWindow::profileAutoSelectedEvent(bool modeAuto)
+void MainWindow::profileAutoSelectedEvent(const bool modeAuto)
 {
     if (modeAuto)
     {
