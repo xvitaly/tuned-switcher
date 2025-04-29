@@ -244,9 +244,9 @@ void MainWindow::closeFormEvent()
     close();
 }
 
-void MainWindow::profileAutoSelectedEvent(const bool modeAuto)
+void MainWindow::profileAutoSelectedEvent(const bool autoMode)
 {
-    if (modeAuto)
+    if (autoMode)
     {
         QTunedResult result = tunedManager -> SetProfileModeAuto();
         if (!result.Success)

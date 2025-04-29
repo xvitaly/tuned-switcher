@@ -106,7 +106,7 @@ private slots:
 
     /**
      * Checkbox "Auto-select profile" clicked event slot (handler).
-     * @param modeAuto Auto-mode on or off.
+     * @param autoMode "Auto-select profile" mode on or off.
     */
     void profileAutoSelectedEvent(const bool);
 
