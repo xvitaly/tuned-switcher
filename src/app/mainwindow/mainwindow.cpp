@@ -31,7 +31,7 @@
 #include "tunedmanager/tunedmanager.h"
 #include "ui_mainwindow.h"
 
-MainWindow::MainWindow(QWidget *parent) :
+MainWindow::MainWindow(QWidget* parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
@@ -80,13 +80,13 @@ void MainWindow::mouseReleaseEvent(QMouseEvent* event)
     }
 }
 
-void MainWindow::closeEvent(QCloseEvent *event)
+void MainWindow::closeEvent(QCloseEvent* event)
 {
     saveSettings();
     QMainWindow::closeEvent(event);
 }
 
-void MainWindow::keyPressEvent(QKeyEvent *event)
+void MainWindow::keyPressEvent(QKeyEvent* event)
 {
     switch (event -> key())
     {
@@ -230,7 +230,7 @@ void MainWindow::profileChangedEvent(const QString& profile, const bool result, 
     }
 }
 
-void MainWindow::profileSelectedEvent(const QString &profile)
+void MainWindow::profileSelectedEvent(const QString& profile)
 {
     QTunedResult result = tunedManager -> SetActiveProfile(profile);
     if (!result.Success)
