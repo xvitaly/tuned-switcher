@@ -52,8 +52,8 @@ private slots:
     void profileSelectedEvent(QAction*);
 
     /**
-     * "Tuned auto-profile selected" event slot (handler).
-     * @param modeAuto Auto-mode on or off.
+     * "Auto-select profile" clicked event slot (handler).
+     * @param autoMode "Auto-select profile" mode on or off.
     */
     void profileAutoSelectedEvent(const bool);
 

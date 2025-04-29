@@ -183,9 +183,9 @@ QMenu* TrayIcon::createTrayIconMenu()
     return trayIconMenu;
 }
 
-void TrayIcon::profileAutoSelectedEvent(const bool modeAuto)
+void TrayIcon::profileAutoSelectedEvent(const bool autoMode)
 {
-    if (modeAuto)
+    if (autoMode)
     {
         QTunedResult result = tunedManager -> SetProfileModeAuto();
         if (!result.Success)
