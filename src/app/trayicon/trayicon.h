@@ -104,7 +104,7 @@ private:
 
     /**
      * Change the "Auto-select profile" mode checkbox.
-     * @param mode New mode.
+     * @param autoMode New "Auto-select profile" mode value.
     */
     void setAutoProfileMode(const bool);
 

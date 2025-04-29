@@ -100,10 +100,10 @@ void TrayIcon::markCurrentProfile()
     if (profileAction) profileAction -> setChecked(true);
 }
 
-void TrayIcon::setAutoProfileMode(const bool mode)
+void TrayIcon::setAutoProfileMode(const bool autoMode)
 {
-    autoProfile -> setChecked(mode);
-    autoProfile -> setDisabled(mode);
+    autoProfile -> setChecked(autoMode);
+    autoProfile -> setDisabled(autoMode);
 }
 
 void TrayIcon::markAutoProfileMode()
