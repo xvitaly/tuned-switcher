@@ -213,7 +213,7 @@ void MainWindow::profileChangedEvent(const QString& profile, const bool result, 
 {
     if (result)
     {
-        bool autoMode = tunedManager -> IsProfileModeAuto();
+        const bool autoMode = tunedManager -> IsProfileModeAuto();
         if (ui -> ProfileSelector -> findText(profile) > 0)
         {
             ui -> ProfileSelector -> setCurrentText(profile);
@@ -232,7 +232,7 @@ void MainWindow::profileChangedEvent(const QString& profile, const bool result, 
 
 void MainWindow::profileSelectedEvent(const QString& profile)
 {
-    QTunedResult result = tunedManager -> SetActiveProfile(profile);
+    const QTunedResult result = tunedManager -> SetActiveProfile(profile);
     if (!result.Success)
     {
         notifications -> ShowNotification(tr("Profile switch error"), tr("Failed to switch the active profile: %1").arg(result.Message));
@@ -248,7 +248,7 @@ void MainWindow::profileAutoSelectedEvent(const bool autoMode)
 {
     if (autoMode)
     {
-        QTunedResult result = tunedManager -> SetProfileModeAuto();
+        const QTunedResult result = tunedManager -> SetProfileModeAuto();
         if (!result.Success)
         {
             setAutoProfileMode(false);
