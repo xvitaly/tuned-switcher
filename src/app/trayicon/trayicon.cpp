@@ -27,7 +27,7 @@
 #include "trayicon/trayicon.h"
 #include "tunedmanager/tunedmanager.h"
 
-TrayIcon::TrayIcon(QWidget *parent) : QWidget(parent)
+TrayIcon::TrayIcon(QWidget* parent) : QWidget(parent)
 {
     initializeNotifications();
     initializeTuned();
@@ -140,8 +140,8 @@ void TrayIcon::profileChangedEvent(const QString& profile, const bool result, co
 
 QMenu* TrayIcon::createProfilesSubmenu()
 {
-    QMenu *trayIconProfiles = new QMenu(this);
-    QActionGroup *trayIcontGroup = new QActionGroup(trayIconProfiles);
+    QMenu* trayIconProfiles = new QMenu(this);
+    QActionGroup* trayIcontGroup = new QActionGroup(trayIconProfiles);
     const QStringList availableProfiles = tunedManager -> GetAvailableProfiles();
 
     trayIconProfiles -> setTitle(tr("Profiles"));
@@ -164,10 +164,10 @@ QMenu* TrayIcon::createProfilesSubmenu()
 QMenu* TrayIcon::createTrayIconMenu()
 {
     // Creating QMenu object...
-    QMenu *trayIconMenu = new QMenu(this);
+    QMenu* trayIconMenu = new QMenu(this);
 
     // Setting actions and slots...
-    QAction *quitAction = new QAction(tr("Quit"), this);
+    QAction* quitAction = new QAction(tr("Quit"), this);
     connect(quitAction, SIGNAL(triggered()), this, SLOT(exitEvent()));
 
     // Setting system tray's icon menu...
