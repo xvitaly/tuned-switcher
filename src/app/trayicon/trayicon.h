@@ -52,10 +52,10 @@ private slots:
     void profileSelectedEvent(QAction*);
 
     /**
-     * "Tuned auto-profile selected" event slot (handler).
-     * @param modeAuto Auto-mode on or off.
+     * "Auto-select profile" clicked event slot (handler).
+     * @param autoMode "Auto-select profile" mode on or off.
     */
-    void profileAutoSelectedEvent(bool);
+    void profileAutoSelectedEvent(const bool);
 
     /**
      * "Tuned profile changed" DBus event slot (handler).
@@ -104,9 +104,9 @@ private:
 
     /**
      * Change the "Auto-select profile" mode checkbox.
-     * @param mode New mode.
+     * @param autoMode New "Auto-select profile" mode value.
     */
-    void setAutoProfileMode(bool);
+    void setAutoProfileMode(const bool);
 
     /**
      * Check if the automatic mode is enabled and mark the

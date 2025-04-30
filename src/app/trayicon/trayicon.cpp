@@ -27,7 +27,7 @@
 #include "trayicon/trayicon.h"
 #include "tunedmanager/tunedmanager.h"
 
-TrayIcon::TrayIcon(QWidget *parent) : QWidget(parent)
+TrayIcon::TrayIcon(QWidget* parent) : QWidget(parent)
 {
     initializeNotifications();
     initializeTuned();
@@ -100,10 +100,10 @@ void TrayIcon::markCurrentProfile()
     if (profileAction) profileAction -> setChecked(true);
 }
 
-void TrayIcon::setAutoProfileMode(bool mode)
+void TrayIcon::setAutoProfileMode(const bool autoMode)
 {
-    autoProfile -> setChecked(mode);
-    autoProfile -> setDisabled(mode);
+    autoProfile -> setChecked(autoMode);
+    autoProfile -> setDisabled(autoMode);
 }
 
 void TrayIcon::markAutoProfileMode()
@@ -121,7 +121,7 @@ void TrayIcon::profileChangedEvent(const QString& profile, const bool result, co
     if (result)
     {
         QAction* profileAction = tunedProfiles[profile];
-        bool autoMode = tunedManager -> IsProfileModeAuto();
+        const bool autoMode = tunedManager -> IsProfileModeAuto();
         if (profileAction)
         {
             profileAction -> setChecked(true);
@@ -140,8 +140,8 @@ void TrayIcon::profileChangedEvent(const QString& profile, const bool result, co
 
 QMenu* TrayIcon::createProfilesSubmenu()
 {
-    QMenu *trayIconProfiles = new QMenu(this);
-    QActionGroup *trayIcontGroup = new QActionGroup(trayIconProfiles);
+    QMenu* trayIconProfiles = new QMenu(this);
+    QActionGroup* trayIcontGroup = new QActionGroup(trayIconProfiles);
     const QStringList availableProfiles = tunedManager -> GetAvailableProfiles();
 
     trayIconProfiles -> setTitle(tr("Profiles"));
@@ -164,16 +164,16 @@ QMenu* TrayIcon::createProfilesSubmenu()
 QMenu* TrayIcon::createTrayIconMenu()
 {
     // Creating QMenu object...
-    QMenu *trayIconMenu = new QMenu(this);
+    QMenu* trayIconMenu = new QMenu(this);
 
     // Setting actions and slots...
-    QAction *quitAction = new QAction(tr("Quit"), this);
+    QAction* quitAction = new QAction(tr("Quit"), this);
     connect(quitAction, SIGNAL(triggered()), this, SLOT(exitEvent()));
 
     // Setting system tray's icon menu...
     autoProfile = new QAction(tr("Auto-select profile"), this);
     autoProfile -> setCheckable(true);
-    connect(autoProfile, SIGNAL(triggered(bool)), this, SLOT(profileAutoSelectedEvent(bool)));
+    connect(autoProfile, SIGNAL(triggered(bool)), this, SLOT(profileAutoSelectedEvent(const bool)));
 
     trayIconMenu -> addAction(autoProfile);
     trayIconMenu -> addSeparator();
@@ -183,11 +183,11 @@ QMenu* TrayIcon::createTrayIconMenu()
     return trayIconMenu;
 }
 
-void TrayIcon::profileAutoSelectedEvent(bool modeAuto)
+void TrayIcon::profileAutoSelectedEvent(const bool autoMode)
 {
-    if (modeAuto)
+    if (autoMode)
     {
-        QTunedResult result = tunedManager -> SetProfileModeAuto();
+        const QTunedResult result = tunedManager -> SetProfileModeAuto();
         if (!result.Success)
         {
             setAutoProfileMode(false);
@@ -198,7 +198,7 @@ void TrayIcon::profileAutoSelectedEvent(bool modeAuto)
 
 void TrayIcon::profileSelectedEvent(QAction* action)
 {
-    QTunedResult result = tunedManager -> SetActiveProfile(action -> data().toString());
+    const QTunedResult result = tunedManager -> SetActiveProfile(action -> data().toString());
     if (!result.Success)
     {
         notifications -> ShowNotification(tr("Profile switch error"), tr("Failed to switch the active profile: %1").arg(result.Message));

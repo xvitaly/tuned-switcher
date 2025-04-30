@@ -31,7 +31,7 @@
 #include "tunedmanager/tunedmanager.h"
 #include "ui_mainwindow.h"
 
-MainWindow::MainWindow(QWidget *parent) :
+MainWindow::MainWindow(QWidget* parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
@@ -80,13 +80,13 @@ void MainWindow::mouseReleaseEvent(QMouseEvent* event)
     }
 }
 
-void MainWindow::closeEvent(QCloseEvent *event)
+void MainWindow::closeEvent(QCloseEvent* event)
 {
     saveSettings();
     QMainWindow::closeEvent(event);
 }
 
-void MainWindow::keyPressEvent(QKeyEvent *event)
+void MainWindow::keyPressEvent(QKeyEvent* event)
 {
     switch (event -> key())
     {
@@ -110,7 +110,7 @@ void MainWindow::initializeTuned()
 
 void MainWindow::setFormEvents()
 {
-    connect(ui -> AutoSelect, SIGNAL(clicked(bool)), this, SLOT(profileAutoSelectedEvent(bool)));
+    connect(ui -> AutoSelect, SIGNAL(clicked(bool)), this, SLOT(profileAutoSelectedEvent(const bool)));
     connect(ui -> CloseForm, SIGNAL(clicked()), this, SLOT(closeFormEvent()));
     connect(ui -> ProfileSelector, SIGNAL(textActivated(QString)), this, SLOT(profileSelectedEvent(const QString&)));
 }
@@ -184,10 +184,10 @@ void MainWindow::setFormStyle()
     ui -> WidgetMain -> setGraphicsEffect(shadowEffect);
 }
 
-void MainWindow::setAutoProfileMode(bool mode)
+void MainWindow::setAutoProfileMode(const bool autoMode)
 {
-    ui -> AutoSelect -> setChecked(mode);
-    ui -> AutoSelect -> setDisabled(mode);
+    ui -> AutoSelect -> setChecked(autoMode);
+    ui -> AutoSelect -> setDisabled(autoMode);
 }
 
 void MainWindow::markCurrentProfile()
@@ -213,7 +213,7 @@ void MainWindow::profileChangedEvent(const QString& profile, const bool result, 
 {
     if (result)
     {
-        bool autoMode = tunedManager -> IsProfileModeAuto();
+        const bool autoMode = tunedManager -> IsProfileModeAuto();
         if (ui -> ProfileSelector -> findText(profile) > 0)
         {
             ui -> ProfileSelector -> setCurrentText(profile);
@@ -230,9 +230,9 @@ void MainWindow::profileChangedEvent(const QString& profile, const bool result, 
     }
 }
 
-void MainWindow::profileSelectedEvent(const QString &profile)
+void MainWindow::profileSelectedEvent(const QString& profile)
 {
-    QTunedResult result = tunedManager -> SetActiveProfile(profile);
+    const QTunedResult result = tunedManager -> SetActiveProfile(profile);
     if (!result.Success)
     {
         notifications -> ShowNotification(tr("Profile switch error"), tr("Failed to switch the active profile: %1").arg(result.Message));
@@ -244,11 +244,11 @@ void MainWindow::closeFormEvent()
     close();
 }
 
-void MainWindow::profileAutoSelectedEvent(bool modeAuto)
+void MainWindow::profileAutoSelectedEvent(const bool autoMode)
 {
-    if (modeAuto)
+    if (autoMode)
     {
-        QTunedResult result = tunedManager -> SetProfileModeAuto();
+        const QTunedResult result = tunedManager -> SetProfileModeAuto();
         if (!result.Success)
         {
             setAutoProfileMode(false);
