@@ -20,38 +20,38 @@ In order to use this program, a daemon must be installed on your system.
 
 No custom command-line options available.
 
-# APPLICATION TYPES
+# APPLICATION MODES
 
-## Available types
+## Available modes
 
 This software can operate in two modes:
 
-  * system tray icon (aka **applet**) - default and recommended mode with with support of all available functions;
-  * GUI application (aka **widget**) - simple mode with some features are not available.
+  * system tray icon (aka **applet**) - default and recommended mode controlled by the system tray icon;
+  * GUI application (aka **widget**) - simplified mode for desktop environments without a system tray support.
 
 ## Modes auto-selection
 
-If your current desktop environment has a system tray support, an applet will be used, otherwise a widget.
+If current desktop environment has a system tray support, an applet will be used, otherwise a widget.
 
-You can override this behavior using environment variables.
+This behavior can be overridden using the environment variable.
 
 # ENVIRONMENT OPTIONS
 
-You can use environment variables to override some settings.
+Environment variables can be used to override some settings.
 
 ## Supported options
 
-  * **TUNED_SWITCHER_FORCE_GUI=1** - force widget even if the system tray support is present.
+  * **TUNED_SWITCHER_FORCE_GUI=1** - force widget mode even if the system tray support is present.
 
 ## Forwarding options
 
-Export environment options using `export` command:
+Export the environment variable using the `export` command:
 
 ```
 export TUNED_SWITCHER_FORCE_GUI=1
 ```
 
-Start an application:
+Start the application:
 
 ```
 @APP_NAME@
@@ -59,11 +59,11 @@ Start an application:
 
 # STARTUP
 
-## Daemon startup
+## Tuned startup
 
-If you want your setting to be applied automatically at system startup, you need to enable the automatic start of the Tuned daemon.
+Enable startup of the Tuned service to automatically apply performance profile settings at system boot.
 
-If the system supports systemd, it can be done easily:
+If the system supports systemd, it can be done using the `systemctl` tool:
 
 ```
 sudo systemctl enable --now tuned.service
@@ -71,7 +71,7 @@ sudo systemctl enable --now tuned.service
 
 ## Application startup
 
-If you want this program to start automatically, you should use the autorun settings of your desktop environment.
+To enable program startup, the autorun settings of current desktop environment should be used.
 
 # AUTHORS
 
