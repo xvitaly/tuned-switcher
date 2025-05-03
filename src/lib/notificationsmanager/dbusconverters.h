@@ -25,7 +25,7 @@
  * @param argument QDBusArgument instance.
  * @param image QImage instance.
 */
-QDBusArgument& operator <<(QDBusArgument &argument, const QImage &image)
+QDBusArgument& operator <<(QDBusArgument& argument, const QImage& image)
 {
     if (image.isNull())
     {
