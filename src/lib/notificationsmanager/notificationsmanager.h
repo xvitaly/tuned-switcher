@@ -32,7 +32,7 @@ public:
      * Main constructor of the NotificationsManager class.
      * @param parent Parent.
     */
-    explicit NotificationsManager(QObject *parent = nullptr);
+    explicit NotificationsManager(QObject* parent = nullptr);
 
     /**
      * Shows DBus notification with specified title and message.
