@@ -34,7 +34,7 @@ QStringList TranslationManager::GetTranslationPaths() const
 
 QString TranslationManager::GetTranslationPath() const
 {
-    foreach (const QString &path, GetTranslationPaths())
+    foreach (const QString& path, GetTranslationPaths())
     {
         if (QFile::exists(path)) return path;
     }
@@ -56,7 +56,7 @@ QTranslator* TranslationManager::GetAppTranslator() const
     return AppTranslator;
 }
 
-TranslationManager::TranslationManager(QObject *parent) : QObject(parent)
+TranslationManager::TranslationManager(QObject* parent) : QObject(parent)
 {
     QtTranslator = new QTranslator(this);
     if (QtTranslator -> load(QLocale(), QStringLiteral("qt"), QStringLiteral("_"), GetQtTranslationPath()))
