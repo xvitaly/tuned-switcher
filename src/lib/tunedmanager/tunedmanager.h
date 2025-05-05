@@ -31,7 +31,7 @@ public:
      * Main constructor of the TunedManager class.
      * @param parent Parent.
     */
-    explicit TunedManager(QObject *parent = nullptr);
+    explicit TunedManager(QObject* parent = nullptr);
 
     /**
      * Get active Tuned profile.
