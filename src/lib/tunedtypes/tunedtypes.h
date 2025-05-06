@@ -40,11 +40,15 @@ struct QTunedProfile
 
     /**
      * Operator << of the QTunedProfile structure.
+     * @param argument Instance of the QDBusArgument class.
+     * @param profile Instance of the QTunedProfile class.
     */
     friend QDBusArgument& operator <<(QDBusArgument&, const QTunedProfile&);
 
     /**
      * Operator >> of the QTunedProfile structure.
+     * @param argument Instance of the QDBusArgument class.
+     * @param profile Instance of the QTunedProfile class.
     */
     friend const QDBusArgument& operator >>(const QDBusArgument&, QTunedProfile&);
 };
@@ -78,11 +82,15 @@ struct QTunedProfileMode
 
     /**
      * Operator << of the QTunedProfileMode structure.
+     * @param argument Instance of the QDBusArgument class.
+     * @param mode Instance of the QTunedProfileMode class.
     */
     friend QDBusArgument& operator <<(QDBusArgument&, const QTunedProfileMode&);
 
     /**
      * Operator >> of the QTunedProfileMode structure.
+     * @param argument Instance of the QDBusArgument class.
+     * @param mode Instance of the QTunedProfileMode class.
     */
     friend const QDBusArgument& operator >>(const QDBusArgument&, QTunedProfileMode&);
 };
@@ -120,11 +128,15 @@ struct QTunedResult
 
     /**
      * Operator << of the QTunedResult structure.
+     * @param argument Instance of the QDBusArgument class.
+     * @param result Instance of the QTunedResult class.
     */
     friend QDBusArgument& operator <<(QDBusArgument&, const QTunedResult&);
 
     /**
      * Operator >> of the QTunedResult structure.
+     * @param argument Instance of the QDBusArgument class.
+     * @param result Instance of the QTunedResult class.
     */
     friend const QDBusArgument& operator >>(const QDBusArgument&, QTunedResult&);
 };
