@@ -41,12 +41,12 @@ struct QTunedProfile
     /**
      * Operator << of the QTunedProfile structure.
     */
-    friend QDBusArgument& operator <<(QDBusArgument& argument, const QTunedProfile& arg);
+    friend QDBusArgument& operator <<(QDBusArgument&, const QTunedProfile&);
 
     /**
      * Operator >> of the QTunedProfile structure.
     */
-    friend const QDBusArgument& operator >>(const QDBusArgument& argument, QTunedProfile& arg);
+    friend const QDBusArgument& operator >>(const QDBusArgument&, QTunedProfile&);
 };
 Q_DECLARE_METATYPE(QTunedProfile)
 
@@ -79,12 +79,12 @@ struct QTunedProfileMode
     /**
      * Operator << of the QTunedProfileMode structure.
     */
-    friend QDBusArgument& operator <<(QDBusArgument& argument, const QTunedProfileMode& arg);
+    friend QDBusArgument& operator <<(QDBusArgument&, const QTunedProfileMode&);
 
     /**
      * Operator >> of the QTunedProfileMode structure.
     */
-    friend const QDBusArgument& operator >>(const QDBusArgument& argument, QTunedProfileMode& arg);
+    friend const QDBusArgument& operator >>(const QDBusArgument&, QTunedProfileMode&);
 };
 Q_DECLARE_METATYPE(QTunedProfileMode)
 
@@ -121,12 +121,12 @@ struct QTunedResult
     /**
      * Operator << of the QTunedResult structure.
     */
-    friend QDBusArgument& operator <<(QDBusArgument& argument, const QTunedResult& arg);
+    friend QDBusArgument& operator <<(QDBusArgument&, const QTunedResult&);
 
     /**
      * Operator >> of the QTunedResult structure.
     */
-    friend const QDBusArgument& operator >>(const QDBusArgument& argument, QTunedResult& arg);
+    friend const QDBusArgument& operator >>(const QDBusArgument&, QTunedResult&);
 };
 Q_DECLARE_METATYPE(QTunedResult)
 
