@@ -22,7 +22,7 @@
  * @param argc Command-line arguments count.
  * @param argv Command-line arguments array.
 */
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
     QApplication a(argc, argv);
     QApplication::setApplicationName(AppConstants::ProductNameInternal);
@@ -31,18 +31,18 @@ int main(int argc, char *argv[])
     QApplication::setOrganizationName(AppConstants::ProductCompany);
     QApplication::setOrganizationDomain(AppConstants::DomainSchemeName);
 
-    TranslationManager *translator = new TranslationManager();
+    TranslationManager* translator = new TranslationManager();
     a.installTranslator(translator -> GetQtTranslator());
     a.installTranslator(translator -> GetAppTranslator());
 
     if (QSystemTrayIcon::isSystemTrayAvailable() && !qEnvironmentVariableIsSet("TUNED_SWITCHER_FORCE_GUI"))
     {
-        TrayIcon *trayIcon = new TrayIcon();
+        TrayIcon* trayIcon = new TrayIcon();
         trayIcon -> Show();
     }
     else
     {
-        MainWindow *w = new MainWindow();
+        MainWindow* w = new MainWindow();
         w -> show();
     }
 
