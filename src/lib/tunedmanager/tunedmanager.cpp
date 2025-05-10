@@ -20,7 +20,6 @@
 #include <QObject>
 #include <QString>
 #include <QStringList>
-#include <QStringLiteral>
 #include <QVariant>
 
 #include "logcategories/logcategories.h"
@@ -57,7 +56,7 @@ QTunedProfileMode TunedManager::GetProfileMode() const
 bool TunedManager::IsProfileModeAuto() const
 {
     const QTunedProfileMode ProfileMode = GetProfileMode();
-    return ProfileMode.Mode == QStringLiteral("auto");
+    return ProfileMode.Mode == TunedBusValueAutoProfile;
 }
 
 QTunedResult TunedManager::SetProfileModeAuto() const
