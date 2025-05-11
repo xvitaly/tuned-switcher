@@ -46,7 +46,7 @@ public:
      * Main constructor of the MainWindow class.
      * @param parent Parent widget.
     */
-    explicit MainWindow(QWidget *parent = nullptr);
+    explicit MainWindow(QWidget* parent = nullptr);
 
     /**
      * Destructor of the MainWindow class.
@@ -187,17 +187,17 @@ private:
     /**
      * Stores the GUI application form instance.
     */
-    Ui::MainWindow *ui;
+    Ui::MainWindow* ui;
 
     /**
      * Stores pointer to the NotificationsManager class instance.
     */
-    NotificationsManager *notifications;
+    NotificationsManager* notifications;
 
     /**
      * Stores pointer to the TunedManager class instance.
     */
-    TunedManager *tunedManager;
+    TunedManager* tunedManager;
 
     /**
      * Stores the list of available Tuned profiles.

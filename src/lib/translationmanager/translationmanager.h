@@ -29,7 +29,7 @@ public:
      * Main constructor of the TranslationManager class.
      * @param parent Parent.
     */
-    explicit TranslationManager(QObject *parent = nullptr);
+    explicit TranslationManager(QObject* parent = nullptr);
 
     /**
      * Get Qt translator engine.

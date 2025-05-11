@@ -25,7 +25,7 @@
  * @param argument QDBusArgument instance.
  * @param image QImage instance.
 */
-QDBusArgument& operator <<(QDBusArgument &argument, const QImage &image)
+QDBusArgument& operator <<(QDBusArgument& argument, const QImage& image)
 {
     if (image.isNull())
     {
@@ -46,9 +46,9 @@ QDBusArgument& operator <<(QDBusArgument &argument, const QImage &image)
     QImage i(scaled.size(), scaled.format());
     for (int y = 0; y < i.height(); ++y)
     {
-        QRgb *p = (QRgb *)scaled.scanLine(y);
-        QRgb *q = (QRgb *)i.scanLine(y);
-        QRgb *end = p + scaled.width();
+        QRgb* p = (QRgb*)scaled.scanLine(y);
+        QRgb* q = (QRgb*)i.scanLine(y);
+        QRgb* end = p + scaled.width();
         while (p < end)
         {
             *q = qRgba(qGreen(*p), qBlue(*p), qAlpha(*p), qRed(*p));
@@ -66,7 +66,7 @@ QDBusArgument& operator <<(QDBusArgument &argument, const QImage &image)
     int channels = i.isGrayscale() ? 1 : (i.hasAlphaChannel() ? 4 : 3);
     argument << i.depth() / channels;
     argument << channels;
-    argument << QByteArray(reinterpret_cast<const char *>(i.bits()), i.sizeInBytes());
+    argument << QByteArray(reinterpret_cast<const char*>(i.bits()), i.sizeInBytes());
     argument.endStructure();
     return argument;
 }

@@ -33,7 +33,7 @@ public:
      * Main constructor of the TrayIcon class.
      * @param parent Parent widget.
     */
-    explicit TrayIcon(QWidget *parent = nullptr);
+    explicit TrayIcon(QWidget* parent = nullptr);
 
     /**
      * Destructor of the TrayIcon class.
@@ -140,17 +140,17 @@ private:
     /**
      * Stores pointer to the QSystemTrayIcon class instance.
     */
-    QSystemTrayIcon *trayIcon;
+    QSystemTrayIcon* trayIcon;
 
     /**
      * Stores pointer to the NotificationsManager class instance.
     */
-    NotificationsManager *notifications;
+    NotificationsManager* notifications;
 
     /**
      * Stores pointer to the TunedManager class instance.
     */
-    TunedManager *tunedManager;
+    TunedManager* tunedManager;
 
     /**
      * Stores special hash table with the Tuned profiles and

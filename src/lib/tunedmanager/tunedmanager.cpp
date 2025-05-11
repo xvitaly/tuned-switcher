@@ -56,7 +56,7 @@ QTunedProfileMode TunedManager::GetProfileMode() const
 bool TunedManager::IsProfileModeAuto() const
 {
     const QTunedProfileMode ProfileMode = GetProfileMode();
-    return ProfileMode.Mode == "auto";
+    return ProfileMode.Mode == TunedBusValueAutoProfile;
 }
 
 QTunedResult TunedManager::SetProfileModeAuto() const
@@ -120,7 +120,7 @@ void TunedManager::ProfileChangedEvent(const QString& NewProfile, const bool Swi
     emit ProfileChangedSignal(NewProfile, SwitchResult, ResultMessage);
 }
 
-TunedManager::TunedManager(QObject *parent) : QObject(parent)
+TunedManager::TunedManager(QObject* parent) : QObject(parent)
 {
     if (DBusInstance.isConnected())
     {

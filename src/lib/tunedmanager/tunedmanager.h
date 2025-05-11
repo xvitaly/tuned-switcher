@@ -31,7 +31,7 @@ public:
      * Main constructor of the TunedManager class.
      * @param parent Parent.
     */
-    explicit TunedManager(QObject *parent = nullptr);
+    explicit TunedManager(QObject* parent = nullptr);
 
     /**
      * Get active Tuned profile.
@@ -157,6 +157,11 @@ private:
      * Stores the Tuned DBus IsRunning method name.
     */
     const QString TunedBusMethodNameIsRunning = QStringLiteral("is_running");
+
+    /**
+     * Stores the Tuned DBus AutoProfile value.
+    */
+    const QString TunedBusValueAutoProfile = QStringLiteral("auto");
 
     /**
      * Stores the Systemd DBus interface name.
