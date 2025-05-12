@@ -42,6 +42,20 @@ public:
      * @returns Pointer to the application translation engine.
     */
     QTranslator* GetAppTranslator() const;
+
+    /**
+     * Return information about the availability and readiness
+     * of the Qt translator engine.
+     * @returns Qt translator engine state.
+    */
+    bool IsQtTranslatorAvailable() const;
+
+    /**
+     * Return information about the availability and readiness
+     * of the application translator engine.
+     * @returns Application translator engine state.
+    */
+    bool IsAppTranslatorAvailable() const;
 private:
     /**
      * Get pre-defined list of directories with compiled

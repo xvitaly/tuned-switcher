@@ -56,6 +56,16 @@ QTranslator* TranslationManager::GetAppTranslator() const
     return AppTranslator;
 }
 
+bool TranslationManager::IsQtTranslatorAvailable() const
+{
+    return QtTranslator;
+}
+
+bool TranslationManager::IsAppTranslatorAvailable() const
+{
+    return AppTranslator;
+}
+
 TranslationManager::TranslationManager(QObject* parent) : QObject(parent)
 {
     QtTranslator = new QTranslator(this);

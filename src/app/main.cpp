@@ -32,8 +32,10 @@ int main(int argc, char* argv[])
     QApplication::setOrganizationDomain(AppConstants::DomainSchemeName);
 
     TranslationManager* translator = new TranslationManager();
-    a.installTranslator(translator -> GetQtTranslator());
-    a.installTranslator(translator -> GetAppTranslator());
+    if (translator -> IsQtTranslatorAvailable())
+        a.installTranslator(translator -> GetQtTranslator());
+    if (translator -> IsAppTranslatorAvailable())
+        a.installTranslator(translator -> GetAppTranslator());
 
     if (QSystemTrayIcon::isSystemTrayAvailable() && !qEnvironmentVariableIsSet("TUNED_SWITCHER_FORCE_GUI"))
     {
