@@ -59,10 +59,10 @@ QTranslator* TranslationManager::GetAppTranslator() const
 TranslationManager::TranslationManager(QObject* parent) : QObject(parent)
 {
     QtTranslator = new QTranslator(this);
-    if (QtTranslator -> load(QLocale(), QStringLiteral("qt"), QStringLiteral("_"), GetQtTranslationPath()))
+    if (!QtTranslator -> load(QLocale(), QStringLiteral("qt"), QStringLiteral("_"), GetQtTranslationPath()))
         QtTranslator = nullptr;
 
     AppTranslator = new QTranslator(this);
-    if (AppTranslator -> load(QLocale(), AppConstants::ProductNameInternal, QStringLiteral("_"), GetTranslationPath()))
+    if (!AppTranslator -> load(QLocale(), AppConstants::ProductNameInternal, QStringLiteral("_"), GetTranslationPath()))
         AppTranslator = nullptr;
 }
