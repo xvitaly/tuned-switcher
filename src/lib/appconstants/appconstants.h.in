@@ -42,9 +42,9 @@ namespace AppConstants {
     const QString ProductVersion = QStringLiteral("@CMAKE_PROJECT_VERSION@");
 
     /**
-     * Stores the application launcher (.desktop) file name.
+     * Stores the application launcher file name without the .desktop extension.
     */
-    const QString LauncherName = QStringLiteral("@LAUNCHER_FILE_NAME@");
+    const QString LauncherName = QStringLiteral("@SCHEME_NAME@");
 
     /**
      * Stores the application reverse domain scheme name.
