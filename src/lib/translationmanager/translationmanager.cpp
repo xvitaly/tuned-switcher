@@ -56,6 +56,18 @@ QTranslator* TranslationManager::GetAppTranslator() const
     return AppTranslator;
 }
 
+QTranslator* TranslationManager::CreateQtTranslator()
+{
+    QTranslator* Translator = new QTranslator(this);
+    return Translator -> load(QLocale(), QStringLiteral("qt"), QStringLiteral("_"), GetQtTranslationPath()) ? Translator : nullptr;
+}
+
+QTranslator* TranslationManager::CreateAppTranslator()
+{
+    QTranslator* Translator = new QTranslator(this);
+    return Translator -> load(QLocale(), AppConstants::ProductNameInternal, QStringLiteral("_"), GetTranslationPath()) ? Translator : nullptr;
+}
+
 bool TranslationManager::IsQtTranslatorAvailable() const
 {
     return QtTranslator;
@@ -68,11 +80,6 @@ bool TranslationManager::IsAppTranslatorAvailable() const
 
 TranslationManager::TranslationManager(QObject* parent) : QObject(parent)
 {
-    QtTranslator = new QTranslator(this);
-    if (!QtTranslator -> load(QLocale(), QStringLiteral("qt"), QStringLiteral("_"), GetQtTranslationPath()))
-        QtTranslator = nullptr;
-
-    AppTranslator = new QTranslator(this);
-    if (!AppTranslator -> load(QLocale(), AppConstants::ProductNameInternal, QStringLiteral("_"), GetTranslationPath()))
-        AppTranslator = nullptr;
+    QtTranslator = CreateQtTranslator();
+    AppTranslator = CreateAppTranslator();
 }

@@ -77,6 +77,18 @@ private:
     QString GetQtTranslationPath() const;
 
     /**
+     * Create the Qt translator engine.
+     * @returns Pointer to the Qt translation engine.
+    */
+    QTranslator* CreateQtTranslator();
+
+    /**
+     * Create the application translator engine.
+     * @returns Pointer to the application translation engine.
+    */
+    QTranslator* CreateAppTranslator();
+
+    /**
      * Stores pointer to the Qt translator engine.
     */
     QTranslator* QtTranslator;
