@@ -11,12 +11,12 @@
 cmake_minimum_required(VERSION 3.28...4.0)
 
 project(tuned-switcher
-    VERSION 0.8.0
+    VERSION 0.8.1
     DESCRIPTION "Simple utility to manipulate the Tuned service"
     HOMEPAGE_URL "https://github.com/xvitaly/tuned-switcher"
     LANGUAGES CXX
 )
-set(RELEASE_DATE "2025-05-02")
+set(RELEASE_DATE "2025-05-12")
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
