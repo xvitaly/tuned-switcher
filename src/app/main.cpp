@@ -39,8 +39,8 @@ int main(int argc, char* argv[])
 
     if (QSystemTrayIcon::isSystemTrayAvailable() && !qEnvironmentVariableIsSet("TUNED_SWITCHER_FORCE_GUI"))
     {
-        TrayIcon* trayIcon = new TrayIcon();
-        trayIcon -> Show();
+        TrayIcon trayIcon;
+        trayIcon.Show();
     }
     else
     {
