@@ -31,11 +31,11 @@ int main(int argc, char* argv[])
     QApplication::setOrganizationName(AppConstants::ProductCompany);
     QApplication::setOrganizationDomain(AppConstants::DomainSchemeName);
 
-    TranslationManager* translator = new TranslationManager();
-    if (translator -> IsQtTranslatorAvailable())
-        a.installTranslator(translator -> GetQtTranslator());
-    if (translator -> IsAppTranslatorAvailable())
-        a.installTranslator(translator -> GetAppTranslator());
+    TranslationManager translator;
+    if (translator.IsQtTranslatorAvailable())
+        a.installTranslator(translator.GetQtTranslator());
+    if (translator.IsAppTranslatorAvailable())
+        a.installTranslator(translator.GetAppTranslator());
 
     if (QSystemTrayIcon::isSystemTrayAvailable() && !qEnvironmentVariableIsSet("TUNED_SWITCHER_FORCE_GUI"))
     {
