@@ -41,12 +41,12 @@ int main(int argc, char* argv[])
     {
         TrayIcon trayIcon;
         trayIcon.Show();
+        return a.exec();
     }
     else
     {
         MainWindow mainWindow;
         mainWindow.show();
+        return a.exec();
     }
-
-    return a.exec();
 }
