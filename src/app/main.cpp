@@ -24,7 +24,7 @@
 */
 int main(int argc, char* argv[])
 {
-    QApplication a(argc, argv);
+    QApplication app(argc, argv);
     QApplication::setApplicationName(AppConstants::ProductNameInternal);
     QApplication::setApplicationVersion(AppConstants::ProductVersion);
     QApplication::setDesktopFileName(AppConstants::LauncherName);
@@ -33,20 +33,20 @@ int main(int argc, char* argv[])
 
     TranslationManager translator;
     if (translator.IsQtTranslatorAvailable())
-        a.installTranslator(translator.GetQtTranslator());
+        app.installTranslator(translator.GetQtTranslator());
     if (translator.IsAppTranslatorAvailable())
-        a.installTranslator(translator.GetAppTranslator());
+        app.installTranslator(translator.GetAppTranslator());
 
     if (QSystemTrayIcon::isSystemTrayAvailable() && !qEnvironmentVariableIsSet("TUNED_SWITCHER_FORCE_GUI"))
     {
         TrayIcon trayIcon;
         trayIcon.Show();
-        return a.exec();
+        return app.exec();
     }
     else
     {
         MainWindow mainWindow;
         mainWindow.show();
-        return a.exec();
+        return app.exec();
     }
 }
