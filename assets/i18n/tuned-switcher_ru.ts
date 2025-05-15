@@ -9,8 +9,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
     <name>MainWindow</name>
     <message>
         <location filename="../../src/app/mainwindow/mainwindow.ui" line="+73"/>
-        <source>Performance profile:</source>
-        <translation>Выбранный профиль:</translation>
+        <source>Active profile:</source>
+        <translation>Текущий профиль:</translation>
     </message>
     <message>
         <location line="+19"/>
@@ -23,9 +23,14 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Авто-выбор профиля</translation>
     </message>
     <message>
-        <location filename="../../src/app/mainwindow/mainwindow.cpp" line="+127"/>
+        <location filename="../../src/app/mainwindow/mainwindow.cpp" line="+125"/>
         <source>Cannot start Tuned service via D-Bus call. Terminating.</source>
         <translation>Не удалось запустить сервис Tuned при помощи D-Bus. Приложение будет завершено.</translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Startup error</source>
+        <translation>Ошибка запуска</translation>
     </message>
     <message>
         <location line="+9"/>
@@ -115,8 +120,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
     </message>
     <message>
         <location line="-57"/>
-        <source>Profiles</source>
-        <translation>Профили</translation>
+        <source>Active profile</source>
+        <translation>Текущий профиль</translation>
     </message>
     <message>
         <location line="+23"/>
