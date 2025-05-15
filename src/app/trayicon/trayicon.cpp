@@ -144,7 +144,7 @@ QMenu* TrayIcon::createProfilesSubmenu()
     QActionGroup* trayIcontGroup = new QActionGroup(trayIconProfiles);
     const QStringList availableProfiles = tunedManager -> GetAvailableProfiles();
 
-    trayIconProfiles -> setTitle(tr("Profiles"));
+    trayIconProfiles -> setTitle(tr("Active profile"));
     trayIcontGroup -> setExclusive(true);
 
     for(int i = 0; i < availableProfiles.size(); i++)

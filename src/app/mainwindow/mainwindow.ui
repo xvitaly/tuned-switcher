@@ -70,7 +70,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
               <locale language="English" country="UnitedStates"/>
              </property>
              <property name="text">
-              <string>Performance profile:</string>
+              <string>Active profile:</string>
              </property>
             </widget>
            </item>
