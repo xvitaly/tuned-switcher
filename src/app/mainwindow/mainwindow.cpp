@@ -122,7 +122,7 @@ void MainWindow::tryToStartTuned()
     }
     else
     {
-        QMessageBox::critical(this, AppConstants::ProductName, tr("Cannot start Tuned service via D-Bus call. Terminating."));
+        QMessageBox::critical(this, tr("Startup error"), tr("Cannot start Tuned service via D-Bus call. Terminating."));
         exitApplication();
     }
 }
