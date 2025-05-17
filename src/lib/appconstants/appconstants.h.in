@@ -67,6 +67,11 @@ namespace AppConstants {
      * to shut down the application.
     */
     const int TimerDelay = 2;
+
+    /**
+     * Stores the logging category name for DBus related messages.
+    */
+    inline const char* CategoryNameDbus = "@CMAKE_PROJECT_NAME@.dbus";
 }
 
 #endif // APPSTRINGS_H
