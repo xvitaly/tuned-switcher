@@ -22,51 +22,56 @@ namespace AppConstants {
      * Stores the application company name.
      * Used as a settings directory name.
     */
-    const QString ProductCompany = QStringLiteral("EasyCoding");
+    inline const QString ProductCompany = QStringLiteral("EasyCoding");
 
     /**
      * Stores the application public name.
      * Used as a public name in various dialogs.
     */
-    const QString ProductName = QStringLiteral("Tuned Switcher");
+    inline const QString ProductName = QStringLiteral("Tuned Switcher");
 
     /**
      * Stores the application internal name.
      * Used as a settings project name.
     */
-    const QString ProductNameInternal = QStringLiteral("@CMAKE_PROJECT_NAME@");
+    inline const QString ProductNameInternal = QStringLiteral("@CMAKE_PROJECT_NAME@");
 
     /**
      * Stores the application version number as a string.
     */
-    const QString ProductVersion = QStringLiteral("@CMAKE_PROJECT_VERSION@");
+    inline const QString ProductVersion = QStringLiteral("@CMAKE_PROJECT_VERSION@");
 
     /**
      * Stores the application launcher file name without the .desktop extension.
     */
-    const QString LauncherName = QStringLiteral("@SCHEME_NAME@");
+    inline const QString LauncherName = QStringLiteral("@SCHEME_NAME@");
 
     /**
      * Stores the application reverse domain scheme name.
     */
-    const QString DomainSchemeName = QStringLiteral("@SCHEME_NAME@");
+    inline const QString DomainSchemeName = QStringLiteral("@SCHEME_NAME@");
 
     /**
      * Stores the data root directory installation prefix.
     */
-    const QString DataRootPrefix = QStringLiteral("@CMAKE_INSTALL_FULL_DATAROOTDIR@/");
+    inline const QString DataRootPrefix = QStringLiteral("@CMAKE_INSTALL_FULL_DATAROOTDIR@/");
 
     /**
      * Stores the default application sleep time before trying to
      * fetch the available performance profiles.
     */
-    const int SleepTime = 2;
+    inline const int SleepTime = 2;
 
     /**
      * Stores the default timer delay in milliseconds before attempting
      * to shut down the application.
     */
-    const int TimerDelay = 2;
+    inline const int TimerDelay = 2;
+
+    /**
+     * Stores the logging category name for DBus related messages.
+    */
+    inline const char* CategoryNameDbus = "@CMAKE_PROJECT_NAME@.dbus";
 }
 
 #endif // APPSTRINGS_H

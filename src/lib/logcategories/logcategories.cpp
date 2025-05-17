@@ -11,9 +11,10 @@
 
 #include <QLoggingCategory>
 
+#include "appconstants/appconstants.h"
 #include "logcategories/logcategories.h"
 
 namespace LogCategories
 {
-    Q_LOGGING_CATEGORY(DBus, "tuned-switcher.dbus")
+    Q_LOGGING_CATEGORY(DBus, AppConstants::CategoryNameDbus)
 }
