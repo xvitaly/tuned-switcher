@@ -17,6 +17,7 @@
 #include <QSystemTrayIcon>
 #include <QWidget>
 #include <QString>
+#include <QStringLiteral>
 #include <QHash>
 
 #include "notificationsmanager/notificationsmanager.h"
@@ -157,6 +158,11 @@ private:
      * assigned QMenu elements.
     */
     QHash<QString, QAction*> tunedProfiles;
+
+    /**
+     * Stores the name of the "Auto-select profile" action.
+    */
+    const QString autoProfileActionName = QStringLiteral("//autoselect//profile//action//");
 };
 
 #endif // TRAYICON_H
