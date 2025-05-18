@@ -102,8 +102,12 @@ void TrayIcon::markCurrentProfile()
 
 void TrayIcon::setAutoProfileMode(const bool autoMode)
 {
-    autoProfile -> setChecked(autoMode);
-    autoProfile -> setDisabled(autoMode);
+    QAction* autoProfile = tunedProfiles[autoProfileActionName];
+    if (autoProfile)
+    {
+        autoProfile -> setChecked(autoMode);
+        autoProfile -> setDisabled(autoMode);
+    }
 }
 
 void TrayIcon::markAutoProfileMode()
@@ -171,8 +175,9 @@ QMenu* TrayIcon::createTrayIconMenu()
     connect(quitAction, SIGNAL(triggered()), this, SLOT(exitEvent()));
 
     // Setting system tray's icon menu...
-    autoProfile = new QAction(tr("Auto-select profile"), this);
+    QAction* autoProfile = new QAction(tr("Auto-select profile"), this);
     autoProfile -> setCheckable(true);
+    tunedProfiles.insert(autoProfileActionName, autoProfile);
     connect(autoProfile, SIGNAL(triggered(bool)), this, SLOT(profileAutoSelectedEvent(const bool)));
 
     trayIconMenu -> addAction(autoProfile);
