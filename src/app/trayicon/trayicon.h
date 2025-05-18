@@ -157,11 +157,6 @@ private:
      * assigned QMenu elements.
     */
     QHash<QString, QAction*> tunedProfiles;
-
-    /**
-     * Stores pointer to the "Auto-profile" system menu entry.
-    */
-    QAction* autoProfile;
 };
 
 #endif // TRAYICON_H
