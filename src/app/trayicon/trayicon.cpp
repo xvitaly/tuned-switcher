@@ -103,8 +103,11 @@ void TrayIcon::markCurrentProfile()
 void TrayIcon::setAutoProfileMode(const bool autoMode)
 {
     QAction* autoProfile = tunedProfiles[autoProfileActionName];
-    autoProfile -> setChecked(autoMode);
-    autoProfile -> setDisabled(autoMode);
+    if (autoProfile)
+    {
+        autoProfile -> setChecked(autoMode);
+        autoProfile -> setDisabled(autoMode);
+    }
 }
 
 void TrayIcon::markAutoProfileMode()
