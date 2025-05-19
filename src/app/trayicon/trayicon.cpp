@@ -145,23 +145,23 @@ void TrayIcon::profileChangedEvent(const QString& profile, const bool result, co
 QMenu* TrayIcon::createProfilesSubmenu()
 {
     QMenu* trayIconProfiles = new QMenu(this);
-    QActionGroup* trayIcontGroup = new QActionGroup(trayIconProfiles);
+    QActionGroup* trayIconGroup = new QActionGroup(trayIconProfiles);
     const QStringList availableProfiles = tunedManager -> GetAvailableProfiles();
 
     trayIconProfiles -> setTitle(tr("Active profile"));
-    trayIcontGroup -> setExclusive(true);
+    trayIconGroup -> setExclusive(true);
 
     for (const QString& profile : availableProfiles)
     {
         QAction* profileAction = new QAction(profile, this);
         profileAction -> setData(profile);
         profileAction -> setCheckable(true);
-        trayIcontGroup -> addAction(profileAction);
+        trayIconGroup -> addAction(profileAction);
         tunedProfiles.insert(profile, profileAction);
     }
 
-    connect(trayIcontGroup, SIGNAL(triggered(QAction*)), this, SLOT(profileSelectedEvent(QAction*)));
-    trayIconProfiles -> addActions(trayIcontGroup -> actions());
+    connect(trayIconGroup, SIGNAL(triggered(QAction*)), this, SLOT(profileSelectedEvent(QAction*)));
+    trayIconProfiles -> addActions(trayIconGroup -> actions());
     return trayIconProfiles;
 }
 
