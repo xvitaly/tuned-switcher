@@ -151,13 +151,13 @@ QMenu* TrayIcon::createProfilesSubmenu()
     trayIconProfiles -> setTitle(tr("Active profile"));
     trayIcontGroup -> setExclusive(true);
 
-    for(int i = 0; i < availableProfiles.size(); i++)
+    for (const QString& profile : availableProfiles)
     {
-        QAction* profileAction = new QAction(availableProfiles[i], this);
-        profileAction -> setData(availableProfiles[i]);
+        QAction* profileAction = new QAction(profile, this);
+        profileAction -> setData(profile);
         profileAction -> setCheckable(true);
         trayIcontGroup -> addAction(profileAction);
-        tunedProfiles.insert(availableProfiles[i], profileAction);
+        tunedProfiles.insert(profile, profileAction);
     }
 
     connect(trayIcontGroup, SIGNAL(triggered(QAction*)), this, SLOT(profileSelectedEvent(QAction*)));

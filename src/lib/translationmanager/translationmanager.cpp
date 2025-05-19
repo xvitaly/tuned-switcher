@@ -34,7 +34,7 @@ QStringList TranslationManager::GetTranslationPaths() const
 
 QString TranslationManager::GetTranslationPath() const
 {
-    foreach (const QString& path, GetTranslationPaths())
+    for (const QString& path : GetTranslationPaths())
     {
         if (QFile::exists(path)) return path;
     }
