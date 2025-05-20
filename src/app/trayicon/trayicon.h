@@ -37,11 +37,6 @@ public:
     explicit TrayIcon(QWidget* parent = nullptr);
 
     /**
-     * Destructor of the TrayIcon class.
-    */
-    ~TrayIcon();
-
-    /**
      * Show the system tray icon.
     */
     void Show();

@@ -38,12 +38,6 @@ TrayIcon::TrayIcon(QWidget* parent) : QWidget(parent)
     subscribeToEvents();
 }
 
-TrayIcon::~TrayIcon()
-{
-    delete notifications;
-    delete tunedManager;
-}
-
 void TrayIcon::initializeNotifications()
 {
     notifications = new NotificationsManager(this);

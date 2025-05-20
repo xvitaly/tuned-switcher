@@ -49,8 +49,6 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWi
 MainWindow::~MainWindow()
 {
     delete ui;
-    delete notifications;
-    delete tunedManager;
 }
 
 void MainWindow::mousePressEvent(QMouseEvent* event)
