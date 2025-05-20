@@ -37,7 +37,7 @@ int main(int argc, char* argv[])
     if (translator.IsAppTranslatorAvailable())
         app.installTranslator(translator.GetAppTranslator());
 
-    if (QSystemTrayIcon::isSystemTrayAvailable() && !qEnvironmentVariableIsSet("TUNED_SWITCHER_FORCE_GUI"))
+    if (QSystemTrayIcon::isSystemTrayAvailable() && !qEnvironmentVariableIsSet(AppConstants::EnvNameGUI))
     {
         TrayIcon trayIcon;
         trayIcon.Show();
