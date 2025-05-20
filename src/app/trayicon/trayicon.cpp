@@ -38,12 +38,6 @@ TrayIcon::TrayIcon(QWidget* parent) : QWidget(parent)
     subscribeToEvents();
 }
 
-TrayIcon::~TrayIcon()
-{
-    delete notifications;
-    delete tunedManager;
-}
-
 void TrayIcon::initializeNotifications()
 {
     notifications = new NotificationsManager(this);
@@ -142,9 +136,9 @@ void TrayIcon::profileChangedEvent(const QString& profile, const bool result, co
     }
 }
 
-QMenu* TrayIcon::createProfilesSubmenu()
+QMenu* TrayIcon::createProfilesSubmenu(QWidget* parent)
 {
-    QMenu* trayIconProfiles = new QMenu(this);
+    QMenu* trayIconProfiles = new QMenu(parent);
     QActionGroup* trayIconGroup = new QActionGroup(trayIconProfiles);
     const QStringList availableProfiles = tunedManager -> GetAvailableProfiles();
 
@@ -153,10 +147,9 @@ QMenu* TrayIcon::createProfilesSubmenu()
 
     for (const QString& profile : availableProfiles)
     {
-        QAction* profileAction = new QAction(profile, this);
+        QAction* profileAction = new QAction(profile, trayIconGroup);
         profileAction -> setData(profile);
         profileAction -> setCheckable(true);
-        trayIconGroup -> addAction(profileAction);
         tunedProfiles.insert(profile, profileAction);
     }
 
@@ -171,18 +164,18 @@ QMenu* TrayIcon::createTrayIconMenu()
     QMenu* trayIconMenu = new QMenu(this);
 
     // Setting actions and slots...
-    QAction* quitAction = new QAction(tr("Quit"), this);
+    QAction* quitAction = new QAction(tr("Quit"), trayIconMenu);
     connect(quitAction, SIGNAL(triggered()), this, SLOT(exitEvent()));
 
     // Setting system tray's icon menu...
-    QAction* autoProfile = new QAction(tr("Auto-select profile"), this);
+    QAction* autoProfile = new QAction(tr("Auto-select profile"), trayIconMenu);
     autoProfile -> setCheckable(true);
     tunedProfiles.insert(autoProfileActionName, autoProfile);
     connect(autoProfile, SIGNAL(triggered(bool)), this, SLOT(profileAutoSelectedEvent(const bool)));
 
     trayIconMenu -> addAction(autoProfile);
     trayIconMenu -> addSeparator();
-    trayIconMenu -> addMenu(createProfilesSubmenu());
+    trayIconMenu -> addMenu(createProfilesSubmenu(trayIconMenu));
     trayIconMenu -> addSeparator();
     trayIconMenu -> addAction(quitAction);
     return trayIconMenu;

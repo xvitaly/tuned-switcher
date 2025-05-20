@@ -37,11 +37,6 @@ public:
     explicit TrayIcon(QWidget* parent = nullptr);
 
     /**
-     * Destructor of the TrayIcon class.
-    */
-    ~TrayIcon();
-
-    /**
      * Show the system tray icon.
     */
     void Show();
@@ -128,9 +123,10 @@ private:
     /**
      * Build and create submenu with the list of available
      * Tuned profiles.
+     * @param parent Parent widget.
      * @returns Pointer to the QMenu instance.
     */
-    QMenu* createProfilesSubmenu();
+    QMenu* createProfilesSubmenu(QWidget*);
 
     /**
      * Build and create menu for the system tray icon.
