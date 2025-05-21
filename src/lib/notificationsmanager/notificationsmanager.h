@@ -69,7 +69,7 @@ private:
     /**
      * Stores DBus instance.
     */
-    const QDBusConnection DBusInstance = QDBusConnection::sessionBus();
+    QDBusConnection DBusInstance = QDBusConnection::sessionBus();
 
     /**
      * Stores information if the Notifications service supports basic

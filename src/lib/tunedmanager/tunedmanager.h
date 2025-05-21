@@ -201,7 +201,7 @@ private:
     /**
      * Stores DBus instance.
     */
-    const QDBusConnection DBusInstance = QDBusConnection::systemBus();
+    QDBusConnection DBusInstance = QDBusConnection::systemBus();
 private slots:
     /**
      * Tuned profile changed event slot.
