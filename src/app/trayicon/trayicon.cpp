@@ -15,7 +15,6 @@
 #include <QIcon>
 #include <QMenu>
 #include <QString>
-#include <QStringList>
 #include <QStringLiteral>
 #include <QSystemTrayIcon>
 #include <QThread>
@@ -26,6 +25,7 @@
 #include "notificationsmanager/notificationsmanager.h"
 #include "trayicon/trayicon.h"
 #include "tunedmanager/tunedmanager.h"
+#include "tunedtypes/tunedtypes.h"
 
 TrayIcon::TrayIcon(QWidget* parent) : QWidget(parent)
 {
