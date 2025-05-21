@@ -132,6 +132,6 @@ TunedManager::TunedManager(QObject* parent) : QObject(parent)
         qDBusRegisterMetaType<QTunedProfileMode>();
         qRegisterMetaType<QTunedResult>("QTunedResult");
         qDBusRegisterMetaType<QTunedResult>();
-        QDBusConnection::systemBus().connect(TunedBusName, TunedBusPath, TunedBusInterface, TunedBusSignalNameProfileChanged, this, SLOT(ProfileChangedEvent(const QString&, const bool, const QString&)));
+        DBusInstance.connect(TunedBusName, TunedBusPath, TunedBusInterface, TunedBusSignalNameProfileChanged, this, SLOT(ProfileChangedEvent(const QString&, const bool, const QString&)));
     }
 }
