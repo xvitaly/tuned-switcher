@@ -140,12 +140,11 @@ QMenu* TrayIcon::createProfilesSubmenu(QWidget* parent)
 {
     QMenu* trayIconProfiles = new QMenu(parent);
     QActionGroup* trayIconGroup = new QActionGroup(trayIconProfiles);
-    const QStringList availableProfiles = tunedManager -> GetAvailableProfiles();
 
     trayIconProfiles -> setTitle(tr("Active profile"));
     trayIconGroup -> setExclusive(true);
 
-    for (const QString& profile : availableProfiles)
+    for (const QString& profile : tunedManager -> GetAvailableProfiles())
     {
         QAction* profileAction = new QAction(profile, trayIconGroup);
         profileAction -> setData(profile);
