@@ -10,7 +10,6 @@
 */
 
 #include <QGraphicsDropShadowEffect>
-#include <QMenu>
 #include <QMessageBox>
 #include <QMouseEvent>
 #include <QThread>
