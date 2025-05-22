@@ -11,8 +11,8 @@
 
 #include <QLoggingCategory>
 
-#include "appconstants/appconstants.h"
-#include "logcategories/logcategories.h"
+#include "appconstants/appconstants.hpp"
+#include "logcategories/logcategories.hpp"
 
 namespace LogCategories
 {

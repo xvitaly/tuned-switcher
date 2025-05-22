@@ -4,11 +4,11 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef TRANSLATIONMANAGER_H
-#define TRANSLATIONMANAGER_H
+#ifndef TRANSLATIONMANAGER_HPP
+#define TRANSLATIONMANAGER_HPP
 
 /**
- * @file translationmanager/translationmanager.h
+ * @file translationmanager/translationmanager.hpp
  * Contains the TranslationManager class definition.
 */
 
@@ -104,4 +104,4 @@ private:
     const QString LocaleDirectory = QStringLiteral("/translations");
 };
 
-#endif // TRANSLATIONMANAGER_H
+#endif // TRANSLATIONMANAGER_HPP

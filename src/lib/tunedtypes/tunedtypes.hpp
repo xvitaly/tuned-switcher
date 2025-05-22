@@ -4,11 +4,11 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef TUNEDTYPES_H
-#define TUNEDTYPES_H
+#ifndef TUNEDTYPES_HPP
+#define TUNEDTYPES_HPP
 
 /**
- * @file tunedtypes/tunedtypes.h
+ * @file tunedtypes/tunedtypes.hpp
  * Contains definitions of special structures for use in other classes.
 */
 
@@ -142,4 +142,4 @@ struct QTunedResult
 };
 Q_DECLARE_METATYPE(QTunedResult)
 
-#endif // TUNEDTYPES_H
+#endif // TUNEDTYPES_HPP

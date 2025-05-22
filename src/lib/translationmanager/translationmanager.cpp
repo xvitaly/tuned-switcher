@@ -21,8 +21,8 @@
 #include <QStringLiteral>
 #include <QTranslator>
 
-#include "appconstants/appconstants.h"
-#include "translationmanager/translationmanager.h"
+#include "appconstants/appconstants.hpp"
+#include "translationmanager/translationmanager.hpp"
 
 QStringList TranslationManager::GetTranslationPaths() const
 {

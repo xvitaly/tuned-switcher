@@ -123,12 +123,12 @@ endif()
 # ======================================================
 
 set(LIBRARY_HEADERS
-    src/lib/logcategories/logcategories.h
-    src/lib/tunedtypes/tunedtypes.h
-    src/lib/translationmanager/translationmanager.h
-    src/lib/notificationsmanager/dbusconverters.h
-    src/lib/notificationsmanager/notificationsmanager.h
-    src/lib/tunedmanager/tunedmanager.h
+    src/lib/logcategories/logcategories.hpp
+    src/lib/tunedtypes/tunedtypes.hpp
+    src/lib/translationmanager/translationmanager.hpp
+    src/lib/notificationsmanager/dbusconverters.hpp
+    src/lib/notificationsmanager/notificationsmanager.hpp
+    src/lib/tunedmanager/tunedmanager.hpp
 )
 
 set(LIBRARY_SOURCES
@@ -140,8 +140,8 @@ set(LIBRARY_SOURCES
 )
 
 configure_file(
-    src/lib/appconstants/appconstants.h.in
-    generated/appconstants/appconstants.h
+    src/lib/appconstants/appconstants.hpp.in
+    generated/appconstants/appconstants.hpp
     @ONLY
 )
 
@@ -183,8 +183,8 @@ endif()
 # ======================================================
 
 set(APPLICATION_HEADERS
-    src/app/trayicon/trayicon.h
-    src/app/mainwindow/mainwindow.h
+    src/app/trayicon/trayicon.hpp
+    src/app/mainwindow/mainwindow.hpp
 )
 
 set(APPLICATION_SOURCES

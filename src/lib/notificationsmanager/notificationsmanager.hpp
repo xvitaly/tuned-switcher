@@ -4,11 +4,11 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef NOTIFICATIONSMANAGER_H
-#define NOTIFICATIONSMANAGER_H
+#ifndef NOTIFICATIONSMANAGER_HPP
+#define NOTIFICATIONSMANAGER_HPP
 
 /**
- * @file notificationsmanager/notificationsmanager.h
+ * @file notificationsmanager/notificationsmanager.hpp
  * Contains the NotificationsManager class definition.
 */
 
@@ -110,4 +110,4 @@ private:
     const QList<QVariant> CreateArgListStructure(const QString&, const QString&) const;
 };
 
-#endif // NOTIFICATIONSMANAGER_H
+#endif // NOTIFICATIONSMANAGER_HPP

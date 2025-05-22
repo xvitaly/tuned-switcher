@@ -12,10 +12,10 @@
 #include <QApplication>
 #include <QSystemTrayIcon>
 
-#include "appconstants/appconstants.h"
-#include "mainwindow/mainwindow.h"
-#include "translationmanager/translationmanager.h"
-#include "trayicon/trayicon.h"
+#include "appconstants/appconstants.hpp"
+#include "mainwindow/mainwindow.hpp"
+#include "translationmanager/translationmanager.hpp"
+#include "trayicon/trayicon.hpp"
 
 /**
  * The main entry point.

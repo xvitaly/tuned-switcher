@@ -24,11 +24,12 @@
 #include <QTimer>
 #include <QIcon>
 
-#include "appconstants/appconstants.h"
-#include "mainwindow/mainwindow.h"
-#include "notificationsmanager/notificationsmanager.h"
-#include "tunedmanager/tunedmanager.h"
-#include "tunedtypes/tunedtypes.h"
+#include "appconstants/appconstants.hpp"
+#include "mainwindow/mainwindow.hpp"
+#include "notificationsmanager/notificationsmanager.hpp"
+#include "tunedmanager/tunedmanager.hpp"
+#include "tunedtypes/tunedtypes.hpp"
+
 #include "ui_mainwindow.h"
 
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWindow)

@@ -11,7 +11,7 @@
 
 #include <QDBusArgument>
 
-#include "tunedtypes/tunedtypes.h"
+#include "tunedtypes/tunedtypes.hpp"
 
 QDBusArgument& operator <<(QDBusArgument& argument, const QTunedProfile& profile)
 {

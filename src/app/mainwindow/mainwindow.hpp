@@ -4,11 +4,11 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef MAINWINDOW_HPP
+#define MAINWINDOW_HPP
 
 /**
- * @file mainwindow/mainwindow.h
+ * @file mainwindow/mainwindow.hpp
  * Contains the MainWindow class definition.
 */
 
@@ -21,8 +21,8 @@
 #include <QStringList>
 #include <QWidget>
 
-#include "notificationsmanager/notificationsmanager.h"
-#include "tunedmanager/tunedmanager.h"
+#include "notificationsmanager/notificationsmanager.hpp"
+#include "tunedmanager/tunedmanager.hpp"
 
 /**
  * UI namespace.
@@ -215,4 +215,4 @@ private:
     bool mMoving;
 };
 
-#endif // MAINWINDOW_H
+#endif // MAINWINDOW_HPP

@@ -25,9 +25,9 @@
 #include <QVariant>
 #include <QVariantMap>
 
-#include "appconstants/appconstants.h"
-#include "notificationsmanager/notificationsmanager.h"
-#include "notificationsmanager/dbusconverters.h"
+#include "appconstants/appconstants.hpp"
+#include "notificationsmanager/notificationsmanager.hpp"
+#include "notificationsmanager/dbusconverters.hpp"
 
 void NotificationsManager::GetCapabilities()
 {

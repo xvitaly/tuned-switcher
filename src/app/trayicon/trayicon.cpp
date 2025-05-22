@@ -21,11 +21,11 @@
 #include <QTimer>
 #include <QWidget>
 
-#include "appconstants/appconstants.h"
-#include "notificationsmanager/notificationsmanager.h"
-#include "trayicon/trayicon.h"
-#include "tunedmanager/tunedmanager.h"
-#include "tunedtypes/tunedtypes.h"
+#include "appconstants/appconstants.hpp"
+#include "notificationsmanager/notificationsmanager.hpp"
+#include "trayicon/trayicon.hpp"
+#include "tunedmanager/tunedmanager.hpp"
+#include "tunedtypes/tunedtypes.hpp"
 
 TrayIcon::TrayIcon(QWidget* parent) : QWidget(parent)
 {

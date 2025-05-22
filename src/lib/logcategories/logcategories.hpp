@@ -4,11 +4,11 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef LOGCATEGORIES_H
-#define LOGCATEGORIES_H
+#ifndef LOGCATEGORIES_HPP
+#define LOGCATEGORIES_HPP
 
 /**
- * @file logcategories/logcategories.h
+ * @file logcategories/logcategories.hpp
  * Contains the LogCategories namespace definition.
 */
 
@@ -26,4 +26,4 @@ namespace LogCategories
     Q_DECLARE_LOGGING_CATEGORY(DBus)
 }
 
-#endif // LOGCATEGORIES_H
+#endif // LOGCATEGORIES_HPP

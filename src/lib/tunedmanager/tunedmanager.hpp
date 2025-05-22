@@ -4,11 +4,11 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef TUNEDMANAGER_H
-#define TUNEDMANAGER_H
+#ifndef TUNEDMANAGER_HPP
+#define TUNEDMANAGER_HPP
 
 /**
- * @file tunedmanager/tunedmanager.h
+ * @file tunedmanager/tunedmanager.hpp
  * Contains the TunedManager class definition.
 */
 
@@ -18,7 +18,7 @@
 #include <QStringList>
 #include <QStringLiteral>
 
-#include "tunedtypes/tunedtypes.h"
+#include "tunedtypes/tunedtypes.hpp"
 
 /**
  * Class for working with the Tuned service.
@@ -217,4 +217,4 @@ signals:
     void ProfileChangedSignal(const QString&, const bool, const QString&);
 };
 
-#endif // TUNEDMANAGER_H
+#endif // TUNEDMANAGER_HPP

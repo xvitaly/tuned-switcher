@@ -5,11 +5,11 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef CONVERTERS_H
-#define CONVERTERS_H
+#ifndef DBUSCONVERTERS_HPP
+#define DBUSCONVERTERS_HPP
 
 /**
- * @file notificationsmanager/dbusconverters.h
+ * @file notificationsmanager/dbusconverters.hpp
  * Contains functions for automatic marshaling of a QImage
  * for the org.freedesktop.Notifications.Notify DBus method.
  *
@@ -81,4 +81,4 @@ const QDBusArgument& operator >>(const QDBusArgument& argument, QImage&)
     return argument;
 }
 
-#endif // CONVERTERS_H
+#endif // DBUSCONVERTERS_HPP

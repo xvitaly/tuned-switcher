@@ -4,11 +4,11 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef TRAYICON_H
-#define TRAYICON_H
+#ifndef TRAYICON_HPP
+#define TRAYICON_HPP
 
 /**
- * @file trayicon/trayicon.h
+ * @file trayicon/trayicon.hpp
  * Contains the TrayIcon class definition.
 */
 
@@ -20,8 +20,8 @@
 #include <QStringLiteral>
 #include <QHash>
 
-#include "notificationsmanager/notificationsmanager.h"
-#include "tunedmanager/tunedmanager.h"
+#include "notificationsmanager/notificationsmanager.hpp"
+#include "tunedmanager/tunedmanager.hpp"
 
 /**
  * Class for working with the Applet application.
@@ -161,4 +161,4 @@ private:
     const QString autoProfileActionName = QStringLiteral("//autoselect//profile//action//");
 };
 
-#endif // TRAYICON_H
+#endif // TRAYICON_HPP

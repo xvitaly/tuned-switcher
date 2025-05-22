@@ -4,11 +4,11 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef APPSTRINGS_H
-#define APPSTRINGS_H
+#ifndef APPSTRINGS_HPP
+#define APPSTRINGS_HPP
 
 /**
- * @file appconstants/appconstants.h
+ * @file appconstants/appconstants.hpp
  * This file contains AppConstants namespace.
 */
 
@@ -80,4 +80,4 @@ namespace AppConstants {
     inline const char* EnvNameGUI = "TUNED_SWITCHER_FORCE_GUI";
 }
 
-#endif // APPSTRINGS_H
+#endif // APPSTRINGS_HPP

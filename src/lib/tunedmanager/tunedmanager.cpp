@@ -22,9 +22,9 @@
 #include <QStringList>
 #include <QVariant>
 
-#include "logcategories/logcategories.h"
-#include "tunedmanager/tunedmanager.h"
-#include "tunedtypes/tunedtypes.h"
+#include "logcategories/logcategories.hpp"
+#include "tunedmanager/tunedmanager.hpp"
+#include "tunedtypes/tunedtypes.hpp"
 
 QString TunedManager::GetActiveProfile() const
 {
