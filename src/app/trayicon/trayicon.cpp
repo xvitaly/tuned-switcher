@@ -139,9 +139,8 @@ void TrayIcon::profileChangedEvent(const QString& profile, const bool result, co
 QMenu* TrayIcon::createProfilesSubmenu(QWidget* parent)
 {
     QMenu* trayIconProfiles = new QMenu(parent);
-    QActionGroup* trayIconGroup = new QActionGroup(trayIconProfiles);
-
     trayIconProfiles -> setTitle(tr("Active profile"));
+    QActionGroup* trayIconGroup = new QActionGroup(trayIconProfiles);
     trayIconGroup -> setExclusive(true);
 
     for (const QString& profile : tunedManager -> GetAvailableProfiles())
