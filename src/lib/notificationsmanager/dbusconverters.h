@@ -5,8 +5,8 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
  */
 
-#ifndef CONVERTERS_H
-#define CONVERTERS_H
+#ifndef DBUSCONVERTERS_H
+#define DBUSCONVERTERS_H
 
 /**
  * @file notificationsmanager/dbusconverters.h
@@ -81,4 +81,4 @@ const QDBusArgument& operator >>(const QDBusArgument& argument, QImage&)
     return argument;
 }
 
-#endif // CONVERTERS_H
+#endif // DBUSCONVERTERS_H
