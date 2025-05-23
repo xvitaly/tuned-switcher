@@ -12,7 +12,7 @@ cmake_minimum_required(VERSION 3.28...4.0)
 
 project(tuned-switcher
     VERSION 0.8.1
-    DESCRIPTION "Simple utility to manipulate the Tuned service"
+    DESCRIPTION "Performance profile manager"
     HOMEPAGE_URL "https://github.com/xvitaly/tuned-switcher"
     LANGUAGES CXX
 )
