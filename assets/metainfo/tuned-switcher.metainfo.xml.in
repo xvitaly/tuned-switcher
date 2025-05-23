@@ -58,6 +58,10 @@ SPDX-License-Identifier: CC0-1.0
     <launchable type="desktop-id">@LAUNCHER_FILE_NAME@</launchable>
     <developer_name>EasyCoding Team and contributors</developer_name>
     <content_rating type="oars-1.0" />
+    <branding>
+        <color type="primary" scheme_preference="light">#8ff0a4</color>
+        <color type="primary" scheme_preference="dark">#a599a5</color>
+    </branding>
     <releases>
         <release version="@CMAKE_PROJECT_VERSION@" date="@RELEASE_DATE@">
             <url>@CMAKE_PROJECT_HOMEPAGE_URL@/releases/tag/v@CMAKE_PROJECT_VERSION@</url>
