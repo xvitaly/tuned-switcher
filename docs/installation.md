@@ -24,7 +24,7 @@ This project supports the following build-time configuration options, which can 
 | BUILD_MANPAGE | Build and install manpage with documentation. | OFF |
 | BUILD_TESTS | Build various tests. | OFF |
 | LINK_ALL_STATICALLY | Link the program against all libraries statically (no dependencies mode). | OFF |
-| LINK_ENABLE_OPTIMIZATIONS | Enable link-time optimizations if supported by current C++ compiler. | ON |
+| LINK_ENABLE_OPTIMIZATIONS | Enable link-time optimizations if supported by current C++ compiler. | OFF |
 
 Any other non-default options related to external dependencies are not supported and should not be used.
 

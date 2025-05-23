@@ -31,7 +31,7 @@ option(BUILD_DOC "Build and install API and application documentation in HTML fo
 option(BUILD_MANPAGE "Build and install manpage with documentation." OFF)
 option(BUILD_TESTS "Build various tests." OFF)
 option(LINK_ALL_STATICALLY "Link the program against all libraries statically (no dependencies mode)." OFF)
-option(LINK_ENABLE_OPTIMIZATIONS "Enable link-time optimizations if supported by current C++ compiler." ON)
+option(LINK_ENABLE_OPTIMIZATIONS "Enable link-time optimizations if supported by current C++ compiler." OFF)
 
 # ======================================================
 # ==================== Target names ====================
