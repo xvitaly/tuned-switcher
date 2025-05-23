@@ -89,7 +89,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
               </size>
              </property>
              <property name="text">
-              <string>X</string>
+              <string notr="true">X</string>
              </property>
             </widget>
            </item>

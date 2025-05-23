@@ -13,17 +13,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Текущий профиль:</translation>
     </message>
     <message>
-        <location line="+19"/>
-        <source>X</source>
-        <translation>X</translation>
-    </message>
-    <message>
-        <location line="+15"/>
+        <location line="+34"/>
         <source>Auto-select profile</source>
         <translation>Авто-выбор профиля</translation>
     </message>
     <message>
-        <location filename="../../src/app/mainwindow/mainwindow.cpp" line="+125"/>
+        <location filename="../../src/app/mainwindow/mainwindow.cpp" line="+124"/>
         <source>Cannot start Tuned service via D-Bus call. Terminating.</source>
         <translation>Не удалось запустить сервис Tuned при помощи D-Bus. Приложение будет завершено.</translation>
     </message>
@@ -83,7 +78,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 <context>
     <name>TrayIcon</name>
     <message>
-        <location filename="../../src/app/trayicon/trayicon.cpp" line="+66"/>
+        <location filename="../../src/app/trayicon/trayicon.cpp" line="+60"/>
         <source>Startup error</source>
         <translation>Ошибка запуска</translation>
     </message>
@@ -93,7 +88,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Не удалось запустить сервис Tuned при помощи D-Bus. Приложение будет завершено.</translation>
     </message>
     <message>
-        <location line="+63"/>
+        <location line="+67"/>
         <source>The active profile was automatically switched to &lt;b&gt;%1&lt;/b&gt;.</source>
         <translation>Текущий профиль был автоматически переключён на &lt;b&gt;%1&lt;/b&gt;.</translation>
     </message>
@@ -114,12 +109,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
     </message>
     <message>
         <location line="+6"/>
-        <location line="+67"/>
+        <location line="+65"/>
         <source>Profile switch error</source>
         <translation>Ошибка переключения</translation>
     </message>
     <message>
-        <location line="-57"/>
+        <location line="-58"/>
         <source>Active profile</source>
         <translation>Текущий профиль</translation>
     </message>
@@ -134,7 +129,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Авто-выбор профиля</translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="+21"/>
         <source>Profile auto-selection error</source>
         <translation>Ошибка авто-выбора профиля</translation>
     </message>
