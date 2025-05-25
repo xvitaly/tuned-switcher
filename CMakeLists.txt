@@ -16,7 +16,7 @@ project(tuned-switcher
     HOMEPAGE_URL "https://github.com/xvitaly/tuned-switcher"
     LANGUAGES CXX
 )
-set(RELEASE_DATE "2025-05-12")
+set(RELEASE_DATE "2025-05-23")
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
