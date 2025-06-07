@@ -159,7 +159,7 @@ void MainWindow::loadSettings()
 void MainWindow::saveSettings()
 {
     QSettings settings;
-    settings.beginGroup("widget");
+    settings.beginGroup(QStringLiteral("widget"));
     settings.setValue(QStringLiteral("geometry"), saveGeometry());
     settings.setValue(QStringLiteral("windowState"), saveState());
     settings.endGroup();
