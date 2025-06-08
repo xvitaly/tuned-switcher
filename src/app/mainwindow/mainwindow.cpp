@@ -150,7 +150,7 @@ void MainWindow::subscribeToEvents()
 void MainWindow::loadSettings()
 {
     QSettings settings;
-    settings.beginGroup("widget");
+    settings.beginGroup(QStringLiteral("widget"));
     restoreGeometry(settings.value(QStringLiteral("geometry")).toByteArray());
     restoreState(settings.value(QStringLiteral("windowState")).toByteArray());
     settings.endGroup();
@@ -159,7 +159,7 @@ void MainWindow::loadSettings()
 void MainWindow::saveSettings()
 {
     QSettings settings;
-    settings.beginGroup("widget");
+    settings.beginGroup(QStringLiteral("widget"));
     settings.setValue(QStringLiteral("geometry"), saveGeometry());
     settings.setValue(QStringLiteral("windowState"), saveState());
     settings.endGroup();
