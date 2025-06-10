@@ -49,7 +49,7 @@ const QVariantMap NotificationsManager::CreateHintsStructure() const
     QVariantMap result;
     if (IsImagesSupported) result["image-data"] = GetNotificationImage();
     result["sound-name"] = QStringLiteral("message-new-instant");
-    result["desktop-entry"] = AppConstants::DomainSchemeName;
+    result["desktop-entry"] = AppConstants::LauncherName;
     return result;
 }
 
