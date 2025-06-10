@@ -52,9 +52,9 @@ const QString NotificationsManager::FormatNotificationMessage(const QString& mes
 const QVariantMap NotificationsManager::CreateHintsStructure() const
 {
     QVariantMap result;
-    if (IsImagesSupported) result["image-data"] = GetNotificationImage();
-    result["sound-name"] = QStringLiteral("message-new-instant");
-    result["desktop-entry"] = AppConstants::LauncherName;
+    if (IsImagesSupported) result[QStringLiteral("image-data")] = GetNotificationImage();
+    result[QStringLiteral("sound-name")] = QStringLiteral("message-new-instant");
+    result[QStringLiteral("desktop-entry")] = AppConstants::LauncherName;
     return result;
 }
 
