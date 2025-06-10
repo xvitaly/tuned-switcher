@@ -44,6 +44,11 @@ const QImage NotificationsManager::GetNotificationImage(const int size = 128) co
     return pixmap.toImage();
 }
 
+const QString NotificationsManager::FormatNotificationMessage(const QString& message) const
+{
+    return IsMarkupSupported ? message : QString(message).remove(QRegularExpression(QStringLiteral("<\\/?[bi]>"), QRegularExpression::CaseInsensitiveOption));
+}
+
 const QVariantMap NotificationsManager::CreateHintsStructure() const
 {
     QVariantMap result;
@@ -60,7 +65,7 @@ const QList<QVariant> NotificationsManager::CreateArgListStructure(const QString
     result << static_cast<unsigned int>(0);
     result << "";
     result << title;
-    result << (IsMarkupSupported ? message : QString(message).remove(QRegularExpression(QStringLiteral("<\\/?[bi]>"), QRegularExpression::CaseInsensitiveOption)));
+    result << FormatNotificationMessage(message);
     result << QStringList();
     result << CreateHintsStructure();
     result << static_cast<int>(5000);
