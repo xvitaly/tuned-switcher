@@ -33,8 +33,8 @@ void NotificationsManager::GetCapabilities()
 {
     QDBusInterface DBusInterface(NotifyBusName, NotifyBusPath, NotifyBusInterface, DBusInstance);
     QDBusReply<QStringList> DBusReply = DBusInterface.call(NotifyBusMethodNameCapabilities);
-    IsMarkupSupported = DBusReply.value().contains("body-markup");
-    IsImagesSupported = DBusReply.value().contains("body-images");
+    IsMarkupSupported = DBusReply.value().contains(QStringLiteral("body-markup"));
+    IsImagesSupported = DBusReply.value().contains(QStringLiteral("body-images"));
 }
 
 const QImage NotificationsManager::GetNotificationImage(const int size = 128) const
