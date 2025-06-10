@@ -63,7 +63,7 @@ const QList<QVariant> NotificationsManager::CreateArgListStructure(const QString
     QList<QVariant> result;
     result << AppConstants::ProductName;
     result << static_cast<unsigned int>(0);
-    result << "";
+    result << QString();
     result << title;
     result << FormatNotificationMessage(message);
     result << QStringList();
