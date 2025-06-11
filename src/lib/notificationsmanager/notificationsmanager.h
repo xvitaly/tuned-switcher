@@ -96,6 +96,14 @@ private:
     const QImage GetNotificationImage(const int) const;
 
     /**
+     * Formats a message for the Notifications service based on
+     * supported features.
+     * @param message Source string.
+     * @returns Formatted string for the Notifications service.
+    */
+    const QString FormatNotificationMessage(const QString&) const;
+
+    /**
      * Constructs and returns special Hints structure for the
      * Notifications service.
      * @returns Hints structure for the Notifications service.

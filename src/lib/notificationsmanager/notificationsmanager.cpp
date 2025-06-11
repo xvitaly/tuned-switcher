@@ -33,8 +33,8 @@ void NotificationsManager::GetCapabilities()
 {
     QDBusInterface DBusInterface(NotifyBusName, NotifyBusPath, NotifyBusInterface, DBusInstance);
     QDBusReply<QStringList> DBusReply = DBusInterface.call(NotifyBusMethodNameCapabilities);
-    IsMarkupSupported = DBusReply.value().contains("body-markup");
-    IsImagesSupported = DBusReply.value().contains("body-images");
+    IsMarkupSupported = DBusReply.value().contains(QStringLiteral("body-markup"));
+    IsImagesSupported = DBusReply.value().contains(QStringLiteral("body-images"));
 }
 
 const QImage NotificationsManager::GetNotificationImage(const int size = 128) const
@@ -44,12 +44,17 @@ const QImage NotificationsManager::GetNotificationImage(const int size = 128) co
     return pixmap.toImage();
 }
 
+const QString NotificationsManager::FormatNotificationMessage(const QString& message) const
+{
+    return IsMarkupSupported ? message : QString(message).remove(QRegularExpression(QStringLiteral("<\\/?[bi]>"), QRegularExpression::CaseInsensitiveOption));
+}
+
 const QVariantMap NotificationsManager::CreateHintsStructure() const
 {
     QVariantMap result;
-    if (IsImagesSupported) result["image-data"] = GetNotificationImage();
-    result["sound-name"] = QStringLiteral("message-new-instant");
-    result["desktop-entry"] = AppConstants::DomainSchemeName;
+    if (IsImagesSupported) result[QStringLiteral("image-data")] = GetNotificationImage();
+    result[QStringLiteral("sound-name")] = QStringLiteral("message-new-instant");
+    result[QStringLiteral("desktop-entry")] = AppConstants::LauncherName;
     return result;
 }
 
@@ -58,9 +63,9 @@ const QList<QVariant> NotificationsManager::CreateArgListStructure(const QString
     QList<QVariant> result;
     result << AppConstants::ProductName;
     result << static_cast<unsigned int>(0);
-    result << "";
+    result << QString();
     result << title;
-    result << (IsMarkupSupported ? message : QString(message).remove(QRegularExpression(QStringLiteral("<\\/?[bi]>"), QRegularExpression::CaseInsensitiveOption)));
+    result << FormatNotificationMessage(message);
     result << QStringList();
     result << CreateHintsStructure();
     result << static_cast<int>(5000);
