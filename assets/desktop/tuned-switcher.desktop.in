@@ -10,4 +10,5 @@ Comment[ru]=Простая утилита для управления серви
 Comment[tr]=Tuned hizmetini yönetmek için basit bir araç
 Icon=@SCHEME_NAME@
 Exec=@APP_NAME@
+StartupNotify=false
 Terminal=false
