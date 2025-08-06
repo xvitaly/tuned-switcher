@@ -34,14 +34,17 @@ option(LINK_ALL_STATICALLY "Link the program against all libraries statically (n
 option(LINK_ENABLE_OPTIMIZATIONS "Enable link-time optimizations if supported by current C++ compiler." OFF)
 
 # ======================================================
-# ==================== Target names ====================
+# ============ Targets and components names ============
 # ======================================================
 
 set(APP_NAME "${CMAKE_PROJECT_NAME}")
-set(LIB_NAME "${CMAKE_PROJECT_NAME}-lib")
-set(I18N_NAME "${CMAKE_PROJECT_NAME}-i18n")
-set(DOCS_NAME "${CMAKE_PROJECT_NAME}-docs")
-set(MAN_NAME "${CMAKE_PROJECT_NAME}-man")
+set(DOCS_NAME "${APP_NAME}-docs")
+set(I18N_NAME "${APP_NAME}-i18n")
+set(ICONS_NAME "${APP_NAME}-icons")
+set(LAUNCHER_NAME "${APP_NAME}-desktop")
+set(LIB_NAME "${APP_NAME}-lib")
+set(MAN_NAME "${APP_NAME}-man")
+set(METAINFO_NAME "${APP_NAME}-metainfo")
 
 # ======================================================
 # ===================== File names =====================
@@ -49,7 +52,7 @@ set(MAN_NAME "${CMAKE_PROJECT_NAME}-man")
 
 set(SCHEME_NAME "org.easycoding.TunedSwitcher")
 set(LAUNCHER_FILE_NAME "${SCHEME_NAME}.desktop")
-set(APPDATA_FILE_NAME "${SCHEME_NAME}.metainfo.xml")
+set(METAINFO_FILE_NAME "${SCHEME_NAME}.metainfo.xml")
 
 # ======================================================
 # ================= Internal imports ===================
@@ -124,19 +127,19 @@ endif()
 
 set(LIBRARY_HEADERS
     src/lib/logcategories/logcategories.h
-    src/lib/tunedtypes/tunedtypes.h
-    src/lib/translationmanager/translationmanager.h
     src/lib/notificationsmanager/dbusconverters.h
     src/lib/notificationsmanager/notificationsmanager.h
+    src/lib/translationmanager/translationmanager.h
     src/lib/tunedmanager/tunedmanager.h
+    src/lib/tunedtypes/tunedtypes.h
 )
 
 set(LIBRARY_SOURCES
     src/lib/logcategories/logcategories.cpp
-    src/lib/tunedtypes/tunedtypes.cpp
-    src/lib/translationmanager/translationmanager.cpp
     src/lib/notificationsmanager/notificationsmanager.cpp
+    src/lib/translationmanager/translationmanager.cpp
     src/lib/tunedmanager/tunedmanager.cpp
+    src/lib/tunedtypes/tunedtypes.cpp
 )
 
 configure_file(
@@ -183,13 +186,13 @@ endif()
 # ======================================================
 
 set(APPLICATION_HEADERS
-    src/app/trayicon/trayicon.h
     src/app/mainwindow/mainwindow.h
+    src/app/trayicon/trayicon.h
 )
 
 set(APPLICATION_SOURCES
-    src/app/trayicon/trayicon.cpp
     src/app/mainwindow/mainwindow.cpp
+    src/app/trayicon/trayicon.cpp
     src/app/main.cpp
 )
 
@@ -243,36 +246,36 @@ if (LINK_ALL_STATICALLY)
     )
 endif()
 
-install(TARGETS ${APP_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR})
+install(TARGETS ${APP_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR} COMPONENT ${APP_NAME})
 
-install(FILES ${APPLICATION_QM_FILES} DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/${APP_NAME}/translations")
+install(FILES ${APPLICATION_QM_FILES} DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/${APP_NAME}/translations" COMPONENT ${I18N_NAME})
 
 # ======================================================
 # =================== Assets target ====================
 # ======================================================
 
-install(FILES "assets/icons/icon.svg" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/scalable/apps" RENAME "${SCHEME_NAME}.svg")
+install(FILES "assets/icons/icon.svg" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/scalable/apps" RENAME "${SCHEME_NAME}.svg" COMPONENT ${ICONS_NAME})
 
 foreach(ICON_SIZE 16 22 24 32 48 64 128 256)
-    install(FILES "assets/icons/icon-${ICON_SIZE}.png" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/${ICON_SIZE}x${ICON_SIZE}/apps" RENAME "${SCHEME_NAME}.png")
+    install(FILES "assets/icons/icon-${ICON_SIZE}.png" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/${ICON_SIZE}x${ICON_SIZE}/apps" RENAME "${SCHEME_NAME}.png" COMPONENT ${ICONS_NAME})
 endforeach()
 
 configure_file("assets/desktop/${APP_NAME}.desktop.in" "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.desktop" @ONLY)
-install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.desktop" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/applications" RENAME "${LAUNCHER_FILE_NAME}")
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.desktop" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/applications" RENAME "${LAUNCHER_FILE_NAME}" COMPONENT ${LAUNCHER_NAME})
 
 configure_file("assets/metainfo/${APP_NAME}.metainfo.xml.in" "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.metainfo.xml" @ONLY)
-install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.metainfo.xml" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/metainfo" RENAME "${APPDATA_FILE_NAME}")
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.metainfo.xml" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/metainfo" RENAME "${METAINFO_FILE_NAME}" COMPONENT ${METAINFO_NAME})
 
 if (BUILD_DOC)
     doxygen_add_docs(${DOCS_NAME} src docs ALL WORKING_DIRECTORY ${PROJECT_SOURCE_DIR} COMMENT "Building documentation with Doxygen.")
-    install(DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/html/" DESTINATION ${CMAKE_INSTALL_DOCDIR})
+    install(DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/html/" DESTINATION ${CMAKE_INSTALL_DOCDIR} COMPONENT ${DOCS_NAME})
 endif()
 
 if (BUILD_MANPAGE)
     configure_file("assets/manpage/${APP_NAME}.md.in" "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.md" @ONLY)
     pandoc_build_manpage("${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.md" "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.1")
     add_custom_target(${MAN_NAME} ALL DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.1")
-    install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.1" DESTINATION "${CMAKE_INSTALL_MANDIR}/man1")
+    install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.1" DESTINATION "${CMAKE_INSTALL_MANDIR}/man1" COMPONENT ${MAN_NAME})
 endif()
 
 # ======================================================
