@@ -127,19 +127,19 @@ endif()
 
 set(LIBRARY_HEADERS
     src/lib/logcategories/logcategories.h
-    src/lib/tunedtypes/tunedtypes.h
-    src/lib/translationmanager/translationmanager.h
     src/lib/notificationsmanager/dbusconverters.h
     src/lib/notificationsmanager/notificationsmanager.h
+    src/lib/translationmanager/translationmanager.h
     src/lib/tunedmanager/tunedmanager.h
+    src/lib/tunedtypes/tunedtypes.h
 )
 
 set(LIBRARY_SOURCES
     src/lib/logcategories/logcategories.cpp
-    src/lib/tunedtypes/tunedtypes.cpp
-    src/lib/translationmanager/translationmanager.cpp
     src/lib/notificationsmanager/notificationsmanager.cpp
+    src/lib/translationmanager/translationmanager.cpp
     src/lib/tunedmanager/tunedmanager.cpp
+    src/lib/tunedtypes/tunedtypes.cpp
 )
 
 configure_file(
@@ -186,13 +186,13 @@ endif()
 # ======================================================
 
 set(APPLICATION_HEADERS
-    src/app/trayicon/trayicon.h
     src/app/mainwindow/mainwindow.h
+    src/app/trayicon/trayicon.h
 )
 
 set(APPLICATION_SOURCES
-    src/app/trayicon/trayicon.cpp
     src/app/mainwindow/mainwindow.cpp
+    src/app/trayicon/trayicon.cpp
     src/app/main.cpp
 )
 
