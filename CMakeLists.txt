@@ -52,7 +52,7 @@ set(METAINFO_NAME "${CMAKE_PROJECT_NAME}-metainfo")
 
 set(SCHEME_NAME "org.easycoding.TunedSwitcher")
 set(LAUNCHER_FILE_NAME "${SCHEME_NAME}.desktop")
-set(APPDATA_FILE_NAME "${SCHEME_NAME}.metainfo.xml")
+set(METAINFO_FILE_NAME "${SCHEME_NAME}.metainfo.xml")
 
 # ======================================================
 # ================= Internal imports ===================
@@ -264,7 +264,7 @@ configure_file("assets/desktop/${APP_NAME}.desktop.in" "${CMAKE_CURRENT_BINARY_D
 install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.desktop" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/applications" RENAME "${LAUNCHER_FILE_NAME}" COMPONENT ${LAUNCHER_NAME})
 
 configure_file("assets/metainfo/${APP_NAME}.metainfo.xml.in" "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.metainfo.xml" @ONLY)
-install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.metainfo.xml" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/metainfo" RENAME "${APPDATA_FILE_NAME}" COMPONENT ${METAINFO_NAME})
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.metainfo.xml" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/metainfo" RENAME "${METAINFO_FILE_NAME}" COMPONENT ${METAINFO_NAME})
 
 if (BUILD_DOC)
     doxygen_add_docs(${DOCS_NAME} src docs ALL WORKING_DIRECTORY ${PROJECT_SOURCE_DIR} COMMENT "Building documentation with Doxygen.")
