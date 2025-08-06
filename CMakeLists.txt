@@ -38,13 +38,13 @@ option(LINK_ENABLE_OPTIMIZATIONS "Enable link-time optimizations if supported by
 # ======================================================
 
 set(APP_NAME "${CMAKE_PROJECT_NAME}")
-set(DOCS_NAME "${CMAKE_PROJECT_NAME}-docs")
-set(I18N_NAME "${CMAKE_PROJECT_NAME}-i18n")
-set(ICONS_NAME "${CMAKE_PROJECT_NAME}-icons")
-set(LAUNCHER_NAME "${CMAKE_PROJECT_NAME}-desktop")
-set(LIB_NAME "${CMAKE_PROJECT_NAME}-lib")
-set(MAN_NAME "${CMAKE_PROJECT_NAME}-man")
-set(METAINFO_NAME "${CMAKE_PROJECT_NAME}-metainfo")
+set(DOCS_NAME "${APP_NAME}-docs")
+set(I18N_NAME "${APP_NAME}-i18n")
+set(ICONS_NAME "${APP_NAME}-icons")
+set(LAUNCHER_NAME "${APP_NAME}-desktop")
+set(LIB_NAME "${APP_NAME}-lib")
+set(MAN_NAME "${APP_NAME}-man")
+set(METAINFO_NAME "${APP_NAME}-metainfo")
 
 # ======================================================
 # ===================== File names =====================
