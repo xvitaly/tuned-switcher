@@ -251,11 +251,11 @@ endif()
 
 install(TARGETS ${APP_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR} COMPONENT ${APP_COMP_NAME})
 
-install(FILES ${APPLICATION_QM_FILES} DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/${APP_NAME}/translations" COMPONENT ${ASSETS_COMP_NAME})
-
 # ======================================================
 # =================== Assets target ====================
 # ======================================================
+
+install(FILES ${APPLICATION_QM_FILES} DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/${APP_NAME}/translations" COMPONENT ${ASSETS_COMP_NAME})
 
 install(FILES "assets/icons/icon.svg" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/scalable/apps" RENAME "${SCHEME_NAME}.svg" COMPONENT ${ASSETS_COMP_NAME})
 
