@@ -34,17 +34,20 @@ option(LINK_ALL_STATICALLY "Link the program against all libraries statically (n
 option(LINK_ENABLE_OPTIMIZATIONS "Enable link-time optimizations if supported by current C++ compiler." OFF)
 
 # ======================================================
-# ============ Targets and components names ============
+# ==================== Target names ====================
 # ======================================================
 
 set(APP_NAME "${CMAKE_PROJECT_NAME}")
 set(DOCS_NAME "${APP_NAME}-docs")
-set(I18N_NAME "${APP_NAME}-i18n")
-set(ICONS_NAME "${APP_NAME}-icons")
-set(LAUNCHER_NAME "${APP_NAME}-desktop")
 set(LIB_NAME "${APP_NAME}-lib")
 set(MAN_NAME "${APP_NAME}-man")
-set(METAINFO_NAME "${APP_NAME}-metainfo")
+
+# ======================================================
+# ================== Components names ==================
+# ======================================================
+
+set(APP_COMP_NAME "application")
+set(ASSETS_COMP_NAME "assets")
 
 # ======================================================
 # ===================== File names =====================
@@ -246,36 +249,36 @@ if (LINK_ALL_STATICALLY)
     )
 endif()
 
-install(TARGETS ${APP_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR} COMPONENT ${APP_NAME})
+install(TARGETS ${APP_NAME} DESTINATION ${CMAKE_INSTALL_BINDIR} COMPONENT ${APP_COMP_NAME})
 
-install(FILES ${APPLICATION_QM_FILES} DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/${APP_NAME}/translations" COMPONENT ${I18N_NAME})
+install(FILES ${APPLICATION_QM_FILES} DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/${APP_NAME}/translations" COMPONENT ${ASSETS_COMP_NAME})
 
 # ======================================================
 # =================== Assets target ====================
 # ======================================================
 
-install(FILES "assets/icons/icon.svg" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/scalable/apps" RENAME "${SCHEME_NAME}.svg" COMPONENT ${ICONS_NAME})
+install(FILES "assets/icons/icon.svg" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/scalable/apps" RENAME "${SCHEME_NAME}.svg" COMPONENT ${ASSETS_COMP_NAME})
 
 foreach(ICON_SIZE 16 22 24 32 48 64 128 256)
-    install(FILES "assets/icons/icon-${ICON_SIZE}.png" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/${ICON_SIZE}x${ICON_SIZE}/apps" RENAME "${SCHEME_NAME}.png" COMPONENT ${ICONS_NAME})
+    install(FILES "assets/icons/icon-${ICON_SIZE}.png" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/icons/hicolor/${ICON_SIZE}x${ICON_SIZE}/apps" RENAME "${SCHEME_NAME}.png" COMPONENT ${ASSETS_COMP_NAME})
 endforeach()
 
 configure_file("assets/desktop/${APP_NAME}.desktop.in" "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.desktop" @ONLY)
-install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.desktop" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/applications" RENAME "${LAUNCHER_FILE_NAME}" COMPONENT ${LAUNCHER_NAME})
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.desktop" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/applications" RENAME "${LAUNCHER_FILE_NAME}" COMPONENT ${ASSETS_COMP_NAME})
 
 configure_file("assets/metainfo/${APP_NAME}.metainfo.xml.in" "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.metainfo.xml" @ONLY)
-install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.metainfo.xml" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/metainfo" RENAME "${METAINFO_FILE_NAME}" COMPONENT ${METAINFO_NAME})
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.metainfo.xml" DESTINATION "${CMAKE_INSTALL_DATAROOTDIR}/metainfo" RENAME "${METAINFO_FILE_NAME}" COMPONENT ${ASSETS_COMP_NAME})
 
 if (BUILD_DOC)
     doxygen_add_docs(${DOCS_NAME} src docs ALL WORKING_DIRECTORY ${PROJECT_SOURCE_DIR} COMMENT "Building documentation with Doxygen.")
-    install(DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/html/" DESTINATION ${CMAKE_INSTALL_DOCDIR} COMPONENT ${DOCS_NAME})
+    install(DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}/html/" DESTINATION ${CMAKE_INSTALL_DOCDIR} COMPONENT ${ASSETS_COMP_NAME})
 endif()
 
 if (BUILD_MANPAGE)
     configure_file("assets/manpage/${APP_NAME}.md.in" "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.md" @ONLY)
     pandoc_build_manpage("${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.md" "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.1")
     add_custom_target(${MAN_NAME} ALL DEPENDS "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.1")
-    install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.1" DESTINATION "${CMAKE_INSTALL_MANDIR}/man1" COMPONENT ${MAN_NAME})
+    install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${APP_NAME}.1" DESTINATION "${CMAKE_INSTALL_MANDIR}/man1" COMPONENT ${ASSETS_COMP_NAME})
 endif()
 
 # ======================================================
