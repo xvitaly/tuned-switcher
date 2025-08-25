@@ -59,4 +59,4 @@ We cannot accept pull requests with commits without this signature.
  * Don't mix different line endings.
  * Don't upload any binary files to the repository.
  * Don't add and upload any temporary files.
- * Don't use any libraries incompatible with [current license](../LICENSE).
+ * Don't use any libraries incompatible with [current license](../COPYING).
