@@ -210,6 +210,14 @@ private:
      * @retval false An error occured when trying to start Tuned.
     */
     bool SystemdBusStart() const;
+
+    /**
+     * Stop the Tuned service using Systemd DBus API.
+     * @returns Result of current operation.
+     * @retval true Tuned was successfully stopped.
+     * @retval false An error occured when trying to stop Tuned.
+    */
+    bool SystemdBusStop() const;
 private slots:
     /**
      * Tuned profile changed event slot.
