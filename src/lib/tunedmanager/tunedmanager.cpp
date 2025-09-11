@@ -91,7 +91,7 @@ bool TunedManager::IsRunning() const
     return DBusReply.value();
 }
 
-bool TunedManager::Start() const
+bool TunedManager::SystemdBusStart() const
 {
     QDBusMessage DBusMessage = QDBusMessage::createMethodCall(SystemdBusName, SystemdBusPath, SystemdBusInterface, SystemdBusMethodNameStart);
     DBusMessage.setInteractiveAuthorizationAllowed(true);
@@ -101,6 +101,11 @@ bool TunedManager::Start() const
     if (!DbusResult)
         qCWarning(LogCategories::DBus) << "Failed to start the Tuned service due to an error:" << DBusReply.errorMessage();
     return DbusResult;
+}
+
+bool TunedManager::Start() const
+{
+    return SystemdBusStart();
 }
 
 bool TunedManager::Stop() const

@@ -202,6 +202,14 @@ private:
      * Stores DBus instance.
     */
     QDBusConnection DBusInstance = QDBusConnection::systemBus();
+
+    /**
+     * Start the Tuned service using Systemd DBus API.
+     * @returns Result of current operation.
+     * @retval true Tuned was successfully started.
+     * @retval false An error occured when trying to start Tuned.
+    */
+    bool SystemdBusStart() const;
 private slots:
     /**
      * Tuned profile changed event slot.
