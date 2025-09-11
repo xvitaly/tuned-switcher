@@ -91,7 +91,7 @@ bool TunedManager::IsRunning() const
     return DBusReply.value();
 }
 
-bool TunedManager::Start() const
+bool TunedManager::SystemdBusStart() const
 {
     QDBusMessage DBusMessage = QDBusMessage::createMethodCall(SystemdBusName, SystemdBusPath, SystemdBusInterface, SystemdBusMethodNameStart);
     DBusMessage.setInteractiveAuthorizationAllowed(true);
@@ -103,7 +103,12 @@ bool TunedManager::Start() const
     return DbusResult;
 }
 
-bool TunedManager::Stop() const
+bool TunedManager::Start() const
+{
+    return SystemdBusStart();
+}
+
+bool TunedManager::SystemdBusStop() const
 {
     QDBusMessage DBusMessage = QDBusMessage::createMethodCall(SystemdBusName, SystemdBusPath, SystemdBusInterface, SystemdBusMethodNameStop);
     DBusMessage.setInteractiveAuthorizationAllowed(true);
@@ -113,6 +118,11 @@ bool TunedManager::Stop() const
     if (!DbusResult)
         qCWarning(LogCategories::DBus) << "Failed to stop the Tuned service due to an error:" << DBusReply.errorMessage();
     return DbusResult;
+}
+
+bool TunedManager::Stop() const
+{
+    return SystemdBusStop();
 }
 
 void TunedManager::ProfileChangedEvent(const QString& NewProfile, const bool SwitchResult, const QString& ResultMessage)
