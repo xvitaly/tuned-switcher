@@ -125,6 +125,28 @@ bool TunedManager::Stop() const
     return SystemdBusStop();
 }
 
+bool TunedManager::Enable() const
+{
+    QDBusMessage DBusMessage = QDBusMessage::createMethodCall(TunedBusName, TunedBusPath, TunedBusInterface, TunedBusMethodNameStart);
+    DBusMessage.setInteractiveAuthorizationAllowed(true);
+    QDBusMessage DBusReply = DBusInstance.call(DBusMessage, QDBus::Block);
+    bool DbusResult = !(DBusReply.type() == QDBusMessage::ErrorMessage);
+    if (!DbusResult)
+        qCWarning(LogCategories::DBus) << "Failed to enable the Tuned service due to an error:" << DBusReply.errorMessage();
+    return DbusResult && !DBusReply.arguments().isEmpty() && DBusReply.arguments().first().toBool();
+}
+
+bool TunedManager::Disable() const
+{
+    QDBusMessage DBusMessage = QDBusMessage::createMethodCall(TunedBusName, TunedBusPath, TunedBusInterface, TunedBusMethodNameStop);
+    DBusMessage.setInteractiveAuthorizationAllowed(true);
+    QDBusMessage DBusReply = DBusInstance.call(DBusMessage, QDBus::Block);
+    bool DbusResult = !(DBusReply.type() == QDBusMessage::ErrorMessage);
+    if (!DbusResult)
+        qCWarning(LogCategories::DBus) << "Failed to disable the Tuned service due to an error:" << DBusReply.errorMessage();
+    return DbusResult && !DBusReply.arguments().isEmpty() && DBusReply.arguments().first().toBool();
+}
+
 void TunedManager::ProfileChangedEvent(const QString& NewProfile, const bool SwitchResult, const QString& ResultMessage)
 {
     emit ProfileChangedSignal(NewProfile, SwitchResult, ResultMessage);
