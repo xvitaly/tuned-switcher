@@ -102,6 +102,14 @@ public:
      * @retval false An error occured when trying to stop Tuned.
     */
     bool Stop() const;
+
+    /**
+     * Enable the Tuned service.
+     * @returns Result of current operation.
+     * @retval true Tuned was successfully enabled.
+     * @retval false An error occured when trying to enable Tuned.
+    */
+    bool Enable() const;
 private:
     /**
      * Stores the Tuned DBus interface name.
@@ -157,6 +165,11 @@ private:
      * Stores the Tuned DBus IsRunning method name.
     */
     const QString TunedBusMethodNameIsRunning = QStringLiteral("is_running");
+
+    /**
+     * Stores the Tuned DBus Start method name.
+    */
+    const QString TunedBusMethodNameStart = QStringLiteral("start");
 
     /**
      * Stores the Tuned DBus AutoProfile value.
