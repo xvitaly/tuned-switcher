@@ -133,7 +133,7 @@ bool TunedManager::Enable() const
     bool DbusResult = !(DBusReply.type() == QDBusMessage::ErrorMessage);
     if (!DbusResult)
         qCWarning(LogCategories::DBus) << "Failed to enable the Tuned service due to an error:" << DBusReply.errorMessage();
-    return DbusResult;
+    return DbusResult && !DBusReply.arguments().isEmpty() && DBusReply.arguments().first().toBool();
 }
 
 bool TunedManager::Disable() const
