@@ -144,7 +144,7 @@ bool TunedManager::Disable() const
     bool DbusResult = !(DBusReply.type() == QDBusMessage::ErrorMessage);
     if (!DbusResult)
         qCWarning(LogCategories::DBus) << "Failed to disable the Tuned service due to an error:" << DBusReply.errorMessage();
-    return DbusResult;
+    return DbusResult && !DBusReply.arguments().isEmpty() && DBusReply.arguments().first().toBool();
 }
 
 void TunedManager::ProfileChangedEvent(const QString& NewProfile, const bool SwitchResult, const QString& ResultMessage)
