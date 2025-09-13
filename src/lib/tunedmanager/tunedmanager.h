@@ -230,14 +230,6 @@ private:
     QDBusConnection DBusInstance = QDBusConnection::systemBus();
 
     /**
-     * Start the Tuned service using Systemd DBus API.
-     * @returns Result of current operation.
-     * @retval true Tuned was successfully started.
-     * @retval false An error occured when trying to start Tuned.
-    */
-    bool SystemdBusStart() const;
-
-    /**
      * Stop the Tuned service using Systemd DBus API.
      * @returns Result of current operation.
      * @retval true Tuned was successfully stopped.
