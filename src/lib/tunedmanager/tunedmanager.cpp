@@ -103,7 +103,7 @@ bool TunedManager::Start() const
     return DbusResult;
 }
 
-bool TunedManager::SystemdBusStop() const
+bool TunedManager::Stop() const
 {
     QDBusMessage DBusMessage = QDBusMessage::createMethodCall(SystemdBusName, SystemdBusPath, SystemdBusInterface, SystemdBusMethodNameStop);
     DBusMessage.setInteractiveAuthorizationAllowed(true);
@@ -113,11 +113,6 @@ bool TunedManager::SystemdBusStop() const
     if (!DbusResult)
         qCWarning(LogCategories::DBus) << "Failed to stop the Tuned service due to an error:" << DBusReply.errorMessage();
     return DbusResult;
-}
-
-bool TunedManager::Stop() const
-{
-    return SystemdBusStop();
 }
 
 bool TunedManager::Enable() const
