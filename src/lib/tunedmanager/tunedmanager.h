@@ -205,6 +205,11 @@ private:
     const QString SystemdBusInterface = QStringLiteral("org.freedesktop.systemd1.Manager");
 
     /**
+     * Stores the Systemd Unit DBus interface.
+    */
+    const QString SystemdBusInterfaceUnit = QStringLiteral("org.freedesktop.systemd1.Unit");
+
+    /**
      * Stores the Systemd DBus MethodNameStart method name.
     */
     const QString SystemdBusMethodNameStart = QStringLiteral("StartUnit");
