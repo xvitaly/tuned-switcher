@@ -88,6 +88,14 @@ public:
     bool IsRunning() const;
 
     /**
+     * Check if the Tuned service is operational.
+     * @returns If the Tuned sevice is operational.
+     * @retval true Tuned is operational.
+     * @retval false Tuned is not operational.
+    */
+    bool IsOperational() const;
+
+    /**
      * Start the Tuned service.
      * @returns Result of current operation.
      * @retval true Tuned was successfully started.
@@ -220,6 +228,11 @@ private:
     const QString SystemdBusMethodNameGetProperty = QStringLiteral("Get");
 
     /**
+     * Stores the Systemd DBus GetUnit method name.
+    */
+    const QString SystemdBusMethodNameGetUnit = QStringLiteral("GetUnit");
+
+    /**
      * Stores the Systemd DBus MethodNameStart method name.
     */
     const QString SystemdBusMethodNameStart = QStringLiteral("StartUnit");
@@ -228,6 +241,16 @@ private:
      * Stores the Systemd DBus MethodNameStop method name.
     */
     const QString SystemdBusMethodNameStop = QStringLiteral("StopUnit");
+
+    /**
+     * Stores the Systemd DBus ActiveState property name.
+    */
+    const QString SystemdBusPropertyNameActiveState = QStringLiteral("ActiveState");
+
+    /**
+     * Stores the Tuned DBus ServiceActive value.
+    */
+    const QString SystemdBusValueServiceActive = QStringLiteral("active");
 
     /**
      * Stores the Tuned Systemd service name.
