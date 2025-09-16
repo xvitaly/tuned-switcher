@@ -210,6 +210,16 @@ private:
     const QString SystemdBusInterfaceUnit = QStringLiteral("org.freedesktop.systemd1.Unit");
 
     /**
+     * Stores the Systemd Properties DBus interface.
+    */
+    const QString SystemdBusInterfaceProperties = QStringLiteral("org.freedesktop.DBus.Properties");
+
+    /**
+     * Stores the Systemd DBus GetProperty method name.
+    */
+    const QString SystemdBusMethodNameGetProperty = QStringLiteral("Get");
+
+    /**
      * Stores the Systemd DBus MethodNameStart method name.
     */
     const QString SystemdBusMethodNameStart = QStringLiteral("StartUnit");
@@ -233,6 +243,15 @@ private:
      * Stores DBus instance.
     */
     QDBusConnection DBusInstance = QDBusConnection::systemBus();
+
+    /**
+     * Get DBus property value.
+     * @param BusName DBus bus name.
+     * @param BusPath DBus object path.
+     * @param BusInterface DBus interface name.
+     * @param BusMethod DBus method name.
+    */
+    QString GetPropertyValue(QString, QString, QString, QString) const;
 private slots:
     /**
      * Tuned profile changed event slot.

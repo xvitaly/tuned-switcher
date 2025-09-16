@@ -15,6 +15,7 @@
 #include <QDBusMessage>
 #include <QDBusMetaType>
 #include <QDBusReply>
+#include <QDBusVariant>
 #include <QLoggingCategory>
 #include <QMetaType>
 #include <QObject>
@@ -80,6 +81,14 @@ QTunedProfileList TunedManager::GetAvailableProfiles2() const
     if (!DBusReply.isValid())
         qCWarning(LogCategories::DBus) << "Failed to get the available Tuned profiles with their descriptions due to an error:" << DBusReply.error();
     return DBusReply.value();
+}
+
+QString TunedManager::GetPropertyValue(QString BusName, QString BusPath, QString BusInterface, QString BusMethod) const
+{
+    QDBusMessage Property = QDBusMessage::createMethodCall(BusName, BusPath, SystemdBusInterfaceProperties, SystemdBusMethodNameGetProperty);
+    Property.setArguments({BusInterface, BusMethod});
+    QDBusMessage DBusReply = DBusInstance.call(Property, QDBus::Block);
+    return !(DBusReply.type() == QDBusMessage::ErrorMessage) && !DBusReply.arguments().isEmpty() ? DBusReply.arguments().first().value<QDBusVariant>().variant().toString() : QString();
 }
 
 bool TunedManager::IsRunning() const
