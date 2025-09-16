@@ -200,9 +200,9 @@ private:
     const QString SystemdBusPath = QStringLiteral("/org/freedesktop/systemd1");
 
     /**
-     * Stores the Systemd DBus interface.
+     * Stores the Systemd Manager DBus interface.
     */
-    const QString SystemdBusInterface = QStringLiteral("org.freedesktop.systemd1.Manager");
+    const QString SystemdBusInterfaceManager = QStringLiteral("org.freedesktop.systemd1.Manager");
 
     /**
      * Stores the Systemd Unit DBus interface.

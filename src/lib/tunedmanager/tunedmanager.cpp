@@ -93,7 +93,7 @@ bool TunedManager::IsRunning() const
 
 bool TunedManager::Start() const
 {
-    QDBusMessage DBusMessage = QDBusMessage::createMethodCall(SystemdBusName, SystemdBusPath, SystemdBusInterface, SystemdBusMethodNameStart);
+    QDBusMessage DBusMessage = QDBusMessage::createMethodCall(SystemdBusName, SystemdBusPath, SystemdBusInterfaceManager, SystemdBusMethodNameStart);
     DBusMessage.setInteractiveAuthorizationAllowed(true);
     DBusMessage.setArguments({SystemdTunedServiceName, SystemdTunedServiceMode});
     QDBusMessage DBusReply = DBusInstance.call(DBusMessage, QDBus::Block);
@@ -105,7 +105,7 @@ bool TunedManager::Start() const
 
 bool TunedManager::Stop() const
 {
-    QDBusMessage DBusMessage = QDBusMessage::createMethodCall(SystemdBusName, SystemdBusPath, SystemdBusInterface, SystemdBusMethodNameStop);
+    QDBusMessage DBusMessage = QDBusMessage::createMethodCall(SystemdBusName, SystemdBusPath, SystemdBusInterfaceManager, SystemdBusMethodNameStop);
     DBusMessage.setInteractiveAuthorizationAllowed(true);
     DBusMessage.setArguments({SystemdTunedServiceName, SystemdTunedServiceMode});
     QDBusMessage DBusReply = DBusInstance.call(DBusMessage, QDBus::Block);
