@@ -15,6 +15,7 @@
 #include <QDBusMessage>
 #include <QDBusMetaType>
 #include <QDBusReply>
+#include <QDBusVariant>
 #include <QLoggingCategory>
 #include <QMetaType>
 #include <QObject>
@@ -82,7 +83,25 @@ QTunedProfileList TunedManager::GetAvailableProfiles2() const
     return DBusReply.value();
 }
 
+QString TunedManager::GetPropertyValue(const QString& BusName, const QString& BusPath, const QString& BusInterface, const QString& BusProperty) const
+{
+    QDBusInterface DBusInterface(BusName, BusPath, SystemdBusInterfaceProperties, DBusInstance);
+    QDBusReply<QDBusVariant> DBusReply = DBusInterface.call(SystemdBusMethodNameGetProperty, BusInterface, BusProperty);
+    if (!DBusReply.isValid())
+        qCWarning(LogCategories::DBus) << "Failed to get the DBus property value:" << DBusReply.error();
+    return DBusReply.value().variant().toString();
+}
+
 bool TunedManager::IsRunning() const
+{
+    QDBusInterface DBusInterface(SystemdBusName, SystemdBusPath, SystemdBusInterfaceManager, DBusInstance);
+    QDBusReply<QDBusObjectPath> DBusReply = DBusInterface.call(SystemdBusMethodNameGetUnit, SystemdTunedServiceName);
+    if (!DBusReply.isValid())
+        qCWarning(LogCategories::DBus) << "Failed to get the Tuned service DBus path due to an error:" << DBusReply.error();
+    return GetPropertyValue(SystemdBusName, DBusReply.value().path(), SystemdBusInterfaceUnit, SystemdBusPropertyNameActiveState) == SystemdBusValueServiceActive;
+}
+
+bool TunedManager::IsOperational() const
 {
     QDBusInterface DBusInterface(TunedBusName, TunedBusPath, TunedBusInterface, DBusInstance);
     QDBusReply<bool> DBusReply = DBusInterface.call(TunedBusMethodNameIsRunning);
@@ -93,7 +112,7 @@ bool TunedManager::IsRunning() const
 
 bool TunedManager::Start() const
 {
-    QDBusMessage DBusMessage = QDBusMessage::createMethodCall(SystemdBusName, SystemdBusPath, SystemdBusInterface, SystemdBusMethodNameStart);
+    QDBusMessage DBusMessage = QDBusMessage::createMethodCall(SystemdBusName, SystemdBusPath, SystemdBusInterfaceManager, SystemdBusMethodNameStart);
     DBusMessage.setInteractiveAuthorizationAllowed(true);
     DBusMessage.setArguments({SystemdTunedServiceName, SystemdTunedServiceMode});
     QDBusMessage DBusReply = DBusInstance.call(DBusMessage, QDBus::Block);
@@ -105,7 +124,7 @@ bool TunedManager::Start() const
 
 bool TunedManager::Stop() const
 {
-    QDBusMessage DBusMessage = QDBusMessage::createMethodCall(SystemdBusName, SystemdBusPath, SystemdBusInterface, SystemdBusMethodNameStop);
+    QDBusMessage DBusMessage = QDBusMessage::createMethodCall(SystemdBusName, SystemdBusPath, SystemdBusInterfaceManager, SystemdBusMethodNameStop);
     DBusMessage.setInteractiveAuthorizationAllowed(true);
     DBusMessage.setArguments({SystemdTunedServiceName, SystemdTunedServiceMode});
     QDBusMessage DBusReply = DBusInstance.call(DBusMessage, QDBus::Block);

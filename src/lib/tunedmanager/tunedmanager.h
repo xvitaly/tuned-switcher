@@ -88,6 +88,14 @@ public:
     bool IsRunning() const;
 
     /**
+     * Check if the Tuned service is operational.
+     * @returns If the Tuned sevice is operational.
+     * @retval true Tuned is operational.
+     * @retval false Tuned is not operational.
+    */
+    bool IsOperational() const;
+
+    /**
      * Start the Tuned service.
      * @returns Result of current operation.
      * @retval true Tuned was successfully started.
@@ -200,9 +208,29 @@ private:
     const QString SystemdBusPath = QStringLiteral("/org/freedesktop/systemd1");
 
     /**
-     * Stores the Systemd DBus interface.
+     * Stores the Systemd Manager DBus interface.
     */
-    const QString SystemdBusInterface = QStringLiteral("org.freedesktop.systemd1.Manager");
+    const QString SystemdBusInterfaceManager = QStringLiteral("org.freedesktop.systemd1.Manager");
+
+    /**
+     * Stores the Systemd Unit DBus interface.
+    */
+    const QString SystemdBusInterfaceUnit = QStringLiteral("org.freedesktop.systemd1.Unit");
+
+    /**
+     * Stores the Systemd Properties DBus interface.
+    */
+    const QString SystemdBusInterfaceProperties = QStringLiteral("org.freedesktop.DBus.Properties");
+
+    /**
+     * Stores the Systemd DBus GetProperty method name.
+    */
+    const QString SystemdBusMethodNameGetProperty = QStringLiteral("Get");
+
+    /**
+     * Stores the Systemd DBus GetUnit method name.
+    */
+    const QString SystemdBusMethodNameGetUnit = QStringLiteral("GetUnit");
 
     /**
      * Stores the Systemd DBus MethodNameStart method name.
@@ -213,6 +241,16 @@ private:
      * Stores the Systemd DBus MethodNameStop method name.
     */
     const QString SystemdBusMethodNameStop = QStringLiteral("StopUnit");
+
+    /**
+     * Stores the Systemd DBus ActiveState property name.
+    */
+    const QString SystemdBusPropertyNameActiveState = QStringLiteral("ActiveState");
+
+    /**
+     * Stores the Tuned DBus ServiceActive value.
+    */
+    const QString SystemdBusValueServiceActive = QStringLiteral("active");
 
     /**
      * Stores the Tuned Systemd service name.
@@ -228,6 +266,16 @@ private:
      * Stores DBus instance.
     */
     QDBusConnection DBusInstance = QDBusConnection::systemBus();
+
+    /**
+     * Get the value of the specified DBus property.
+     * @param BusName DBus bus name.
+     * @param BusPath DBus object path.
+     * @param BusInterface DBus interface name.
+     * @param BusProperty DBus property name.
+     * @returns The value of the specified property, or an empty string if an error occurs.
+    */
+    QString GetPropertyValue(const QString&, const QString&, const QString&, const QString&) const;
 private slots:
     /**
      * Tuned profile changed event slot.
