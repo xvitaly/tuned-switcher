@@ -83,7 +83,7 @@ QTunedProfileList TunedManager::GetAvailableProfiles2() const
     return DBusReply.value();
 }
 
-QString TunedManager::GetPropertyValue(QString BusName, QString BusPath, QString BusInterface, QString BusMethod) const
+QString TunedManager::GetPropertyValue(const QString& BusName, const QString& BusPath, const QString& BusInterface, const QString& BusMethod) const
 {
     QDBusInterface DBusInterface(BusName, BusPath, SystemdBusInterfaceProperties, DBusInstance);
     QDBusReply<QDBusVariant> DBusReply = DBusInterface.call(SystemdBusMethodNameGetProperty, BusInterface, BusMethod);

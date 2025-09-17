@@ -274,7 +274,7 @@ private:
      * @param BusInterface DBus interface name.
      * @param BusMethod DBus method name.
     */
-    QString GetPropertyValue(QString, QString, QString, QString) const;
+    QString GetPropertyValue(const QString&, const QString&, const QString&, const QString&) const;
 private slots:
     /**
      * Tuned profile changed event slot.
