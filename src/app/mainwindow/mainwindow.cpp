@@ -128,7 +128,7 @@ void MainWindow::tryToStartTuned()
 
 void MainWindow::checkTunedRunning()
 {
-    if (!tunedManager -> IsRunning())
+    if (!tunedManager -> IsOperational())
     {
         if (QMessageBox::question(this, AppConstants::ProductName, tr("Tuned service is not running. Do you want to start it now?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::Yes)
             tryToStartTuned();
