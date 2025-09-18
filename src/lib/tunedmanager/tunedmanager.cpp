@@ -136,24 +136,20 @@ bool TunedManager::Stop() const
 
 bool TunedManager::Enable() const
 {
-    QDBusMessage DBusMessage = QDBusMessage::createMethodCall(TunedBusName, TunedBusPath, TunedBusInterface, TunedBusMethodNameStart);
-    DBusMessage.setInteractiveAuthorizationAllowed(true);
-    QDBusMessage DBusReply = DBusInstance.call(DBusMessage, QDBus::Block);
-    bool DbusResult = !(DBusReply.type() == QDBusMessage::ErrorMessage);
-    if (!DbusResult)
-        qCWarning(LogCategories::DBus) << "Failed to enable the Tuned service due to an error:" << DBusReply.errorMessage();
-    return DbusResult && !DBusReply.arguments().isEmpty() && DBusReply.arguments().first().toBool();
+    QDBusInterface DBusInterface(TunedBusName, TunedBusPath, TunedBusInterface, DBusInstance);
+    QDBusReply<bool> DBusReply = DBusInterface.call(TunedBusMethodNameStart);
+    if (!DBusReply.isValid())
+        qCWarning(LogCategories::DBus) << "Failed to enable the Tuned service due to an error:" << DBusReply.error();
+    return DBusReply.value();
 }
 
 bool TunedManager::Disable() const
 {
-    QDBusMessage DBusMessage = QDBusMessage::createMethodCall(TunedBusName, TunedBusPath, TunedBusInterface, TunedBusMethodNameStop);
-    DBusMessage.setInteractiveAuthorizationAllowed(true);
-    QDBusMessage DBusReply = DBusInstance.call(DBusMessage, QDBus::Block);
-    bool DbusResult = !(DBusReply.type() == QDBusMessage::ErrorMessage);
-    if (!DbusResult)
-        qCWarning(LogCategories::DBus) << "Failed to disable the Tuned service due to an error:" << DBusReply.errorMessage();
-    return DbusResult && !DBusReply.arguments().isEmpty() && DBusReply.arguments().first().toBool();
+    QDBusInterface DBusInterface(TunedBusName, TunedBusPath, TunedBusInterface, DBusInstance);
+    QDBusReply<bool> DBusReply = DBusInterface.call(TunedBusMethodNameStop);
+    if (!DBusReply.isValid())
+        qCWarning(LogCategories::DBus) << "Failed to disable the Tuned service due to an error:" << DBusReply.error();
+    return DBusReply.value();
 }
 
 void TunedManager::ProfileChangedEvent(const QString& NewProfile, const bool SwitchResult, const QString& ResultMessage)
