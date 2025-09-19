@@ -268,14 +268,14 @@ private:
     QDBusConnection DBusInstance = QDBusConnection::systemBus();
 
     /**
-     * Get the value of the specified DBus property.
+     * Get the value of the specified DBus property as a string.
      * @param BusName DBus bus name.
      * @param BusPath DBus object path.
      * @param BusInterface DBus interface name.
      * @param BusProperty DBus property name.
      * @returns The value of the specified property, or an empty string if an error occurs.
     */
-    QString GetPropertyValue(const QString&, const QString&, const QString&, const QString&) const;
+    QString GetPropertyString(const QString&, const QString&, const QString&, const QString&) const;
 private slots:
     /**
      * Tuned profile changed event slot.
