@@ -83,7 +83,7 @@ QTunedProfileList TunedManager::GetAvailableProfiles2() const
     return DBusReply.value();
 }
 
-QString TunedManager::GetPropertyValue(const QString& BusName, const QString& BusPath, const QString& BusInterface, const QString& BusProperty) const
+QString TunedManager::GetPropertyString(const QString& BusName, const QString& BusPath, const QString& BusInterface, const QString& BusProperty) const
 {
     QDBusInterface DBusInterface(BusName, BusPath, SystemdBusInterfaceProperties, DBusInstance);
     QDBusReply<QDBusVariant> DBusReply = DBusInterface.call(SystemdBusMethodNameGetProperty, BusInterface, BusProperty);
@@ -98,7 +98,7 @@ bool TunedManager::IsRunning() const
     QDBusReply<QDBusObjectPath> DBusReply = DBusInterface.call(SystemdBusMethodNameGetUnit, SystemdTunedServiceName);
     if (!DBusReply.isValid())
         qCWarning(LogCategories::DBus) << "Failed to get the Tuned service DBus path due to an error:" << DBusReply.error();
-    return GetPropertyValue(SystemdBusName, DBusReply.value().path(), SystemdBusInterfaceUnit, SystemdBusPropertyNameActiveState) == SystemdBusValueServiceActive;
+    return GetPropertyString(SystemdBusName, DBusReply.value().path(), SystemdBusInterfaceUnit, SystemdBusPropertyNameActiveState) == SystemdBusValueServiceActive;
 }
 
 bool TunedManager::IsOperational() const

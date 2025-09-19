@@ -275,7 +275,7 @@ private:
      * @param BusProperty DBus property name.
      * @returns The value of the specified property, or an empty string if an error occurs.
     */
-    QString GetPropertyValue(const QString&, const QString&, const QString&, const QString&) const;
+    QString GetPropertyString(const QString&, const QString&, const QString&, const QString&) const;
 private slots:
     /**
      * Tuned profile changed event slot.
