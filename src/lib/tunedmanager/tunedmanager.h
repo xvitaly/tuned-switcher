@@ -268,7 +268,7 @@ private:
     QDBusConnection DBusInstance = QDBusConnection::systemBus();
 
     /**
-     * Get the value of the specified DBus property.
+     * Get the value of the specified DBus property as a string.
      * @param BusName DBus bus name.
      * @param BusPath DBus object path.
      * @param BusInterface DBus interface name.
