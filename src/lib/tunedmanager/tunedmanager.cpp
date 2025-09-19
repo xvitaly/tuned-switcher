@@ -14,6 +14,7 @@
 #include <QDBusInterface>
 #include <QDBusMessage>
 #include <QDBusMetaType>
+#include <QDBusObjectPath>
 #include <QDBusReply>
 #include <QDBusVariant>
 #include <QLoggingCategory>
