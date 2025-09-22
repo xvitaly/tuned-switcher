@@ -72,6 +72,11 @@ private:
     QDBusConnection DBusInstance = QDBusConnection::sessionBus();
 
     /**
+     * Stores if the notification sound is enabled.
+    */
+    bool IsSoundEnabled = true;
+
+    /**
      * Stores information if the Notifications service supports basic
      * HTML markup.
     */
