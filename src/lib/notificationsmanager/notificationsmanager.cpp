@@ -79,6 +79,11 @@ bool NotificationsManager::ShowNotification(const QString& title, const QString&
     return DBusReply.isValid();
 }
 
+void NotificationsManager::SetNotificationSoundMode(const bool mode)
+{
+    IsSoundEnabled = mode;
+}
+
 NotificationsManager::NotificationsManager(QObject* parent) : QObject(parent)
 {
     if (DBusInstance.isConnected())

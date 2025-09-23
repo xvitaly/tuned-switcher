@@ -40,6 +40,8 @@ public:
      * @param message Notification message.
     */
     bool ShowNotification(const QString&, const QString&) const;
+
+    void SetNotificationSoundMode(const bool);
 private:
     /**
      * Stores the Notifications DBus interface name.
