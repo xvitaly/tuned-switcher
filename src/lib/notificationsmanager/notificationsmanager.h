@@ -41,6 +41,10 @@ public:
     */
     bool ShowNotification(const QString&, const QString&) const;
 
+    /**
+     * Sets the notification sound mode: loud or silent.
+     * @param mode Notification mode: true - loud, false - silent.
+    */
     void SetNotificationSoundMode(const bool);
 private:
     /**
