@@ -98,6 +98,7 @@ void MainWindow::keyPressEvent(QKeyEvent* event)
 void MainWindow::initializeNotifications()
 {
     notifications = new NotificationsManager(this);
+    notifications -> SetNotificationSoundMode(soundEnabled);
 }
 
 void MainWindow::initializeTuned()
