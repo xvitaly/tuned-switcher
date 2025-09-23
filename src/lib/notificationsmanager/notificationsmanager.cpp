@@ -53,7 +53,7 @@ const QVariantMap NotificationsManager::CreateHintsStructure() const
 {
     QVariantMap result;
     if (IsImagesSupported) result[QStringLiteral("image-data")] = GetNotificationImage();
-    result[QStringLiteral("sound-name")] = QStringLiteral("message-new-instant");
+    if (IsSoundEnabled) result[QStringLiteral("sound-name")] = QStringLiteral("message-new-instant");
     result[QStringLiteral("desktop-entry")] = AppConstants::LauncherName;
     return result;
 }
@@ -77,6 +77,11 @@ bool NotificationsManager::ShowNotification(const QString& title, const QString&
     QDBusInterface DBusInterface(NotifyBusName, NotifyBusPath, NotifyBusInterface, DBusInstance);
     QDBusReply<void> DBusReply = DBusInterface.callWithArgumentList(QDBus::AutoDetect, NotifyBusMethodNameNotify, CreateArgListStructure(title, message));
     return DBusReply.isValid();
+}
+
+void NotificationsManager::SetNotificationSoundMode(const bool mode)
+{
+    IsSoundEnabled = mode;
 }
 
 NotificationsManager::NotificationsManager(QObject* parent) : QObject(parent)

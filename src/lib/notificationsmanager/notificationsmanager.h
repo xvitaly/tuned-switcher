@@ -40,6 +40,12 @@ public:
      * @param message Notification message.
     */
     bool ShowNotification(const QString&, const QString&) const;
+
+    /**
+     * Sets the notification sound mode: loud or silent.
+     * @param mode Notification mode: true - loud, false - silent.
+    */
+    void SetNotificationSoundMode(const bool);
 private:
     /**
      * Stores the Notifications DBus interface name.
@@ -70,6 +76,11 @@ private:
      * Stores DBus instance.
     */
     QDBusConnection DBusInstance = QDBusConnection::sessionBus();
+
+    /**
+     * Stores if the notification sound is enabled.
+    */
+    bool IsSoundEnabled = true;
 
     /**
      * Stores information if the Notifications service supports basic

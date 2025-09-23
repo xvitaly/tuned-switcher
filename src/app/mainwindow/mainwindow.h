@@ -213,6 +213,11 @@ private:
      * Stores the form moving state.
     */
     bool mMoving;
+
+    /**
+     * Stores if the notification sound is enabled.
+    */
+    bool soundEnabled;
 };
 
 #endif // MAINWINDOW_H

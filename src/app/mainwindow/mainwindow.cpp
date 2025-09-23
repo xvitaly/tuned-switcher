@@ -98,6 +98,7 @@ void MainWindow::keyPressEvent(QKeyEvent* event)
 void MainWindow::initializeNotifications()
 {
     notifications = new NotificationsManager(this);
+    notifications -> SetNotificationSoundMode(soundEnabled);
 }
 
 void MainWindow::initializeTuned()
@@ -153,6 +154,7 @@ void MainWindow::loadSettings()
     settings.beginGroup(QStringLiteral("widget"));
     restoreGeometry(settings.value(QStringLiteral("geometry")).toByteArray());
     restoreState(settings.value(QStringLiteral("windowState")).toByteArray());
+    soundEnabled = settings.value(QStringLiteral("soundEnabled"), true).toBool();
     settings.endGroup();
 }
 
@@ -162,6 +164,7 @@ void MainWindow::saveSettings()
     settings.beginGroup(QStringLiteral("widget"));
     settings.setValue(QStringLiteral("geometry"), saveGeometry());
     settings.setValue(QStringLiteral("windowState"), saveState());
+    settings.setValue(QStringLiteral("soundEnabled"), soundEnabled);
     settings.endGroup();
     settings.sync();
 }
