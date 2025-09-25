@@ -22,6 +22,7 @@
 #include <QWidget>
 
 #include "notificationsmanager/notificationsmanager.h"
+#include "settingsmanager/settingsmanager.h"
 #include "tunedmanager/tunedmanager.h"
 
 /**
@@ -188,6 +189,11 @@ private:
      * Stores the GUI application form instance.
     */
     Ui::MainWindow* ui;
+
+    /**
+     * Stores pointer to the SettingsManager class instance.
+    */
+    SettingsManager* settings;
 
     /**
      * Stores pointer to the NotificationsManager class instance.

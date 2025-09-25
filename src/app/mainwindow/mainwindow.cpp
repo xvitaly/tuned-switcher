@@ -150,23 +150,18 @@ void MainWindow::subscribeToEvents()
 
 void MainWindow::loadSettings()
 {
-    QSettings settings;
-    settings.beginGroup(QStringLiteral("widget"));
-    restoreGeometry(settings.value(QStringLiteral("geometry")).toByteArray());
-    restoreState(settings.value(QStringLiteral("windowState")).toByteArray());
-    soundEnabled = settings.value(QStringLiteral("soundEnabled"), true).toBool();
-    settings.endGroup();
+    settings = new SettingsManager(this);
+    restoreGeometry(settings -> GetGeometry());
+    restoreState(settings -> GetWindowState());
+    soundEnabled = settings -> GetSoundEnabled();
 }
 
 void MainWindow::saveSettings()
 {
-    QSettings settings;
-    settings.beginGroup(QStringLiteral("widget"));
-    settings.setValue(QStringLiteral("geometry"), saveGeometry());
-    settings.setValue(QStringLiteral("windowState"), saveState());
-    settings.setValue(QStringLiteral("soundEnabled"), soundEnabled);
-    settings.endGroup();
-    settings.sync();
+    settings -> SetGeometry(saveGeometry());
+    settings -> SetWindowState(saveState());
+    settings -> SetSoundEnabled(soundEnabled);
+    settings -> Save();
 }
 
 void MainWindow::setFormStyle()
