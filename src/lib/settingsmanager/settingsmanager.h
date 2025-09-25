@@ -23,19 +23,56 @@ class SettingsManager : public QObject
 {
     Q_OBJECT
 public:
+    /**
+     * Get the geometry of the main window.
+     * @returns Geometry of the main window.
+    */
     QByteArray GetGeometry() const;
+
+    /**
+     * Set the geometry of the main window.
+     * @param value New geometry value.
+    */
     void SetGeometry(const QByteArray);
+
+    /**
+     * Get the window state of the main window.
+     * @returns Window state of the main window.
+    */
     QByteArray GetWindowState() const;
+
+    /**
+     * Set the window state of the main window.
+     * @param value New window state value.
+    */
     void SetWindowState(const QByteArray);
+
+    /**
+     * Get the notification sound configuration.
+     * @returns Notification sound configuration.
+    */
     bool GetSoundEnabled() const;
+
+    /**
+     * Set the notification sound configuration.
+     * @param value New notification sound configuration value.
+    */
     void SetSoundEnabled(const bool);
+
+    /**
+     * Save the program settings to file.
+    */
     void Save();
+
     /**
      * Main constructor of the SettingsManager class.
      * @param parent Parent.
     */
     explicit SettingsManager(QObject* parent = nullptr);
 private:
+    /**
+     * Stores a pointer to the QSettings class instance.
+    */
     QSettings* settings;
 };
 
