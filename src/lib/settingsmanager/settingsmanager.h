@@ -76,8 +76,20 @@ private:
      * Stores a pointer to the QSettings class instance.
     */
     QSettings* settings;
+
+    /**
+     * Stores the geometry of the main window option name.
+    */
     const QString GeometryName = QStringLiteral("widget/geometry");
+
+    /**
+     * Stores the window state of the main window option name.
+    */
     const QString WindowStateName = QStringLiteral("widget/windowState");
+
+    /**
+     * Stores the notification sound configuration option name.
+    */
     const QString SoundEnabledName = QStringLiteral("widget/soundEnabled");
 };
 
