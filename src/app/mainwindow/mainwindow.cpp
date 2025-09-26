@@ -98,7 +98,7 @@ void MainWindow::keyPressEvent(QKeyEvent* event)
 void MainWindow::initializeNotifications()
 {
     notifications = new NotificationsManager(this);
-    notifications -> SetNotificationSoundMode(soundEnabled);
+    notifications -> SetNotificationSoundMode(settings -> GetSoundEnabled());
 }
 
 void MainWindow::initializeTuned()
@@ -153,14 +153,12 @@ void MainWindow::loadSettings()
     settings = new SettingsManager(this);
     restoreGeometry(settings -> GetGeometry());
     restoreState(settings -> GetWindowState());
-    soundEnabled = settings -> GetSoundEnabled();
 }
 
 void MainWindow::saveSettings()
 {
     settings -> SetGeometry(saveGeometry());
     settings -> SetWindowState(saveState());
-    settings -> SetSoundEnabled(soundEnabled);
     settings -> Save();
 }
 
