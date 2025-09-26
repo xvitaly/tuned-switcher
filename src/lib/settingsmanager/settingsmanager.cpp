@@ -21,7 +21,7 @@ QByteArray SettingsManager::GetGeometry() const
     return settings -> value(QStringLiteral("widget/geometry")).toByteArray();
 }
 
-void SettingsManager::SetGeometry(const QByteArray value)
+void SettingsManager::SetGeometry(const QByteArray& value)
 {
     settings -> setValue(QStringLiteral("widget/geometry"), value);
 }
@@ -31,7 +31,7 @@ QByteArray SettingsManager::GetWindowState() const
     return settings -> value(QStringLiteral("widget/windowState")).toByteArray();
 }
 
-void SettingsManager::SetWindowState(const QByteArray value)
+void SettingsManager::SetWindowState(const QByteArray& value)
 {
     settings -> setValue(QStringLiteral("widget/windowState"), value);
 }

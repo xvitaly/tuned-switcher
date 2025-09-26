@@ -33,7 +33,7 @@ public:
      * Set the geometry of the main window.
      * @param value New geometry value.
     */
-    void SetGeometry(const QByteArray);
+    void SetGeometry(const QByteArray&);
 
     /**
      * Get the window state of the main window.
@@ -45,7 +45,7 @@ public:
      * Set the window state of the main window.
      * @param value New window state value.
     */
-    void SetWindowState(const QByteArray);
+    void SetWindowState(const QByteArray&);
 
     /**
      * Get the notification sound configuration.
