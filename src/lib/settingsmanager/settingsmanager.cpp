@@ -12,38 +12,37 @@
 #include <QByteArray>
 #include <QObject>
 #include <QSettings>
-#include <QStringLiteral>
 
 #include "settingsmanager/settingsmanager.h"
 
 QByteArray SettingsManager::GetGeometry() const
 {
-    return settings -> value(QStringLiteral("widget/geometry")).toByteArray();
+    return settings -> value(GeometryName).toByteArray();
 }
 
 void SettingsManager::SetGeometry(const QByteArray& value)
 {
-    settings -> setValue(QStringLiteral("widget/geometry"), value);
+    settings -> setValue(GeometryName, value);
 }
 
 QByteArray SettingsManager::GetWindowState() const
 {
-    return settings -> value(QStringLiteral("widget/windowState")).toByteArray();
+    return settings -> value(WindowStateName).toByteArray();
 }
 
 void SettingsManager::SetWindowState(const QByteArray& value)
 {
-    settings -> setValue(QStringLiteral("widget/windowState"), value);
+    settings -> setValue(WindowStateName, value);
 }
 
 bool SettingsManager::GetSoundEnabled() const
 {
-    return settings -> value(QStringLiteral("widget/soundEnabled"), true).toBool();
+    return settings -> value(SoundEnabledName, true).toBool();
 }
 
 void SettingsManager::SetSoundEnabled(const bool value)
 {
-    settings -> setValue(QStringLiteral("widget/soundEnabled"), value);
+    settings -> setValue(SoundEnabledName, value);
 }
 
 void SettingsManager::Save()

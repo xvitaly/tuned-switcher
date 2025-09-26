@@ -15,6 +15,8 @@
 #include <QByteArray>
 #include <QObject>
 #include <QSettings>
+#include <QString>
+#include <QStringLiteral>
 
 /**
  * Class for working with program settings.
@@ -74,6 +76,9 @@ private:
      * Stores a pointer to the QSettings class instance.
     */
     QSettings* settings;
+    const QString GeometryName = QStringLiteral("widget/geometry");
+    const QString WindowStateName = QStringLiteral("widget/windowState");
+    const QString SoundEnabledName = QStringLiteral("widget/soundEnabled");
 };
 
 #endif // SETTINGSMANAGER_H
