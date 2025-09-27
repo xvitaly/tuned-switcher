@@ -71,7 +71,7 @@ public:
      * @param parent Parent.
     */
     explicit SettingsManager(QObject* parent = nullptr);
-private:
+protected:
     /**
      * Stores a pointer to the QSettings class instance.
     */
