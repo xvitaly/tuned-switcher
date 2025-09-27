@@ -90,7 +90,7 @@ protected:
     /**
      * Stores the notification sound configuration option name.
     */
-    const QString SoundEnabledName = QStringLiteral("widget/soundEnabled");
+    const QString SoundEnabledName = QStringLiteral("common/soundEnabled");
 };
 
 #endif // SETTINGSMANAGER_H
