@@ -113,6 +113,11 @@ private slots:
 
 private:
     /**
+     * Initialize the SettingsManager class instance.
+    */
+    void initializeSettings();
+
+    /**
      * Initialize the NotificationsManager class instance.
     */
     void initializeNotifications();

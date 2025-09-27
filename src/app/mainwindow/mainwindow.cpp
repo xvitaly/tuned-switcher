@@ -35,6 +35,7 @@
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui -> setupUi(this);
+    initializeSettings();
     loadSettings();
     setFormStyle();
     setFormEvents();
@@ -95,6 +96,11 @@ void MainWindow::keyPressEvent(QKeyEvent* event)
     }
 }
 
+void MainWindow::initializeSettings()
+{
+    settings = new SettingsManager(this);
+}
+
 void MainWindow::initializeNotifications()
 {
     notifications = new NotificationsManager(this);
@@ -150,7 +156,6 @@ void MainWindow::subscribeToEvents()
 
 void MainWindow::loadSettings()
 {
-    settings = new SettingsManager(this);
     restoreGeometry(settings -> GetGeometry());
     restoreState(settings -> GetWindowState());
 }
