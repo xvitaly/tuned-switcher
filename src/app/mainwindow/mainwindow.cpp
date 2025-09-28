@@ -35,6 +35,7 @@
 MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWindow)
 {
     ui -> setupUi(this);
+    initializeSettings();
     loadSettings();
     setFormStyle();
     setFormEvents();
@@ -95,10 +96,15 @@ void MainWindow::keyPressEvent(QKeyEvent* event)
     }
 }
 
+void MainWindow::initializeSettings()
+{
+    settings = new SettingsManager(this);
+}
+
 void MainWindow::initializeNotifications()
 {
     notifications = new NotificationsManager(this);
-    notifications -> SetNotificationSoundMode(soundEnabled);
+    notifications -> SetNotificationSoundMode(settings -> GetSoundEnabled());
 }
 
 void MainWindow::initializeTuned()
@@ -150,23 +156,15 @@ void MainWindow::subscribeToEvents()
 
 void MainWindow::loadSettings()
 {
-    QSettings settings;
-    settings.beginGroup(QStringLiteral("widget"));
-    restoreGeometry(settings.value(QStringLiteral("geometry")).toByteArray());
-    restoreState(settings.value(QStringLiteral("windowState")).toByteArray());
-    soundEnabled = settings.value(QStringLiteral("soundEnabled"), true).toBool();
-    settings.endGroup();
+    restoreGeometry(settings -> GetWidgetGeometry());
+    restoreState(settings -> GetWidgetState());
 }
 
 void MainWindow::saveSettings()
 {
-    QSettings settings;
-    settings.beginGroup(QStringLiteral("widget"));
-    settings.setValue(QStringLiteral("geometry"), saveGeometry());
-    settings.setValue(QStringLiteral("windowState"), saveState());
-    settings.setValue(QStringLiteral("soundEnabled"), soundEnabled);
-    settings.endGroup();
-    settings.sync();
+    settings -> SetWidgetGeometry(saveGeometry());
+    settings -> SetWidgetState(saveState());
+    settings -> Save();
 }
 
 void MainWindow::setFormStyle()

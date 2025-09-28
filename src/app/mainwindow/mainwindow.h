@@ -22,6 +22,7 @@
 #include <QWidget>
 
 #include "notificationsmanager/notificationsmanager.h"
+#include "settingsmanager/settingsmanager.h"
 #include "tunedmanager/tunedmanager.h"
 
 /**
@@ -112,6 +113,11 @@ private slots:
 
 private:
     /**
+     * Initialize the SettingsManager class instance.
+    */
+    void initializeSettings();
+
+    /**
      * Initialize the NotificationsManager class instance.
     */
     void initializeNotifications();
@@ -190,6 +196,11 @@ private:
     Ui::MainWindow* ui;
 
     /**
+     * Stores pointer to the SettingsManager class instance.
+    */
+    SettingsManager* settings;
+
+    /**
      * Stores pointer to the NotificationsManager class instance.
     */
     NotificationsManager* notifications;
@@ -213,11 +224,6 @@ private:
      * Stores the form moving state.
     */
     bool mMoving;
-
-    /**
-     * Stores if the notification sound is enabled.
-    */
-    bool soundEnabled;
 };
 
 #endif // MAINWINDOW_H
