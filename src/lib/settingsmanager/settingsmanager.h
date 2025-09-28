@@ -26,28 +26,28 @@ class SettingsManager : public QObject
     Q_OBJECT
 public:
     /**
-     * Get the geometry of the main window.
-     * @returns Geometry of the main window.
+     * Get the geometry of the widget form.
+     * @returns Geometry of the widget form.
     */
-    QByteArray GetGeometry() const;
+    QByteArray GetWidgetGeometry() const;
 
     /**
-     * Set the geometry of the main window.
-     * @param value New geometry value.
+     * Set the geometry of the widget form.
+     * @param value New widget form geometry value.
     */
-    void SetGeometry(const QByteArray&);
+    void SetWidgetGeometry(const QByteArray&);
 
     /**
-     * Get the window state of the main window.
-     * @returns Window state of the main window.
+     * Get the state of the widget form.
+     * @returns State of the widget form.
     */
-    QByteArray GetWindowState() const;
+    QByteArray GetWidgetState() const;
 
     /**
-     * Set the window state of the main window.
-     * @param value New window state value.
+     * Set the state of the widget form.
+     * @param value New widget form state value.
     */
-    void SetWindowState(const QByteArray&);
+    void SetWidgetState(const QByteArray&);
 
     /**
      * Get the notification sound configuration.
@@ -78,14 +78,14 @@ protected:
     QSettings* settings;
 
     /**
-     * Stores the geometry of the main window option name.
+     * Stores the geometry of the widget form option name.
     */
-    const QString GeometryName = QStringLiteral("widget/geometry");
+    const QString WidgetGeometryName = QStringLiteral("widget/geometry");
 
     /**
-     * Stores the window state of the main window option name.
+     * Stores the state of the widget form option name.
     */
-    const QString WindowStateName = QStringLiteral("widget/windowState");
+    const QString WidgetStateName = QStringLiteral("widget/state");
 
     /**
      * Stores the notification sound configuration option name.

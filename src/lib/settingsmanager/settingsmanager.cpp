@@ -15,24 +15,24 @@
 
 #include "settingsmanager/settingsmanager.h"
 
-QByteArray SettingsManager::GetGeometry() const
+QByteArray SettingsManager::GetWidgetGeometry() const
 {
-    return settings -> value(GeometryName).toByteArray();
+    return settings -> value(WidgetGeometryName).toByteArray();
 }
 
-void SettingsManager::SetGeometry(const QByteArray& value)
+void SettingsManager::SetWidgetGeometry(const QByteArray& value)
 {
-    settings -> setValue(GeometryName, value);
+    settings -> setValue(WidgetGeometryName, value);
 }
 
-QByteArray SettingsManager::GetWindowState() const
+QByteArray SettingsManager::GetWidgetState() const
 {
-    return settings -> value(WindowStateName).toByteArray();
+    return settings -> value(WidgetStateName).toByteArray();
 }
 
-void SettingsManager::SetWindowState(const QByteArray& value)
+void SettingsManager::SetWidgetState(const QByteArray& value)
 {
-    settings -> setValue(WindowStateName, value);
+    settings -> setValue(WidgetStateName, value);
 }
 
 bool SettingsManager::GetSoundEnabled() const

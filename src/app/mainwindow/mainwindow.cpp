@@ -156,14 +156,14 @@ void MainWindow::subscribeToEvents()
 
 void MainWindow::loadSettings()
 {
-    restoreGeometry(settings -> GetGeometry());
-    restoreState(settings -> GetWindowState());
+    restoreGeometry(settings -> GetWidgetGeometry());
+    restoreState(settings -> GetWidgetState());
 }
 
 void MainWindow::saveSettings()
 {
-    settings -> SetGeometry(saveGeometry());
-    settings -> SetWindowState(saveState());
+    settings -> SetWidgetGeometry(saveGeometry());
+    settings -> SetWidgetState(saveState());
     settings -> Save();
 }
 
