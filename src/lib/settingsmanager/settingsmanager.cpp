@@ -12,6 +12,7 @@
 #include <QByteArray>
 #include <QObject>
 #include <QSettings>
+#include <QVariant>
 
 #include "settingsmanager/settingsmanager.h"
 
