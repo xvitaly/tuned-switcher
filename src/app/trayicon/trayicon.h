@@ -21,6 +21,7 @@
 #include <QHash>
 
 #include "notificationsmanager/notificationsmanager.h"
+#include "settingsmanager/settingsmanager.h"
 #include "tunedmanager/tunedmanager.h"
 
 /**
@@ -66,6 +67,11 @@ private slots:
     */
     void exitEvent();
 private:
+    /**
+     * Initialize the SettingsManager class instance.
+    */
+    void initializeSettings();
+
     /**
      * Initialize the NotificationsManager class instance.
     */
@@ -138,6 +144,11 @@ private:
      * Stores pointer to the QSystemTrayIcon class instance.
     */
     QSystemTrayIcon* trayIcon;
+
+    /**
+     * Stores pointer to the SettingsManager class instance.
+    */
+    SettingsManager* settings;
 
     /**
      * Stores pointer to the NotificationsManager class instance.
