@@ -30,6 +30,7 @@
 
 TrayIcon::TrayIcon(QWidget* parent) : QWidget(parent)
 {
+    initializeSettings();
     initializeNotifications();
     initializeTuned();
     checkTunedRunning();
@@ -47,6 +48,7 @@ void TrayIcon::initializeSettings()
 void TrayIcon::initializeNotifications()
 {
     notifications = new NotificationsManager(this);
+    notifications -> SetNotificationSoundMode(settings -> GetSoundEnabled());
 }
 
 void TrayIcon::initializeTuned()
