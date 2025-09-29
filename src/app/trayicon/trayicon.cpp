@@ -23,12 +23,14 @@
 
 #include "appconstants/appconstants.h"
 #include "notificationsmanager/notificationsmanager.h"
+#include "settingsmanager/settingsmanager.h"
 #include "trayicon/trayicon.h"
 #include "tunedmanager/tunedmanager.h"
 #include "tunedtypes/tunedtypes.h"
 
 TrayIcon::TrayIcon(QWidget* parent) : QWidget(parent)
 {
+    initializeSettings();
     initializeNotifications();
     initializeTuned();
     checkTunedRunning();
@@ -38,9 +40,15 @@ TrayIcon::TrayIcon(QWidget* parent) : QWidget(parent)
     subscribeToEvents();
 }
 
+void TrayIcon::initializeSettings()
+{
+    settings = new SettingsManager(this);
+}
+
 void TrayIcon::initializeNotifications()
 {
     notifications = new NotificationsManager(this);
+    notifications -> SetNotificationSoundMode(settings -> GetSoundEnabled());
 }
 
 void TrayIcon::initializeTuned()
