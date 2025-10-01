@@ -72,7 +72,7 @@ void TrayIcon::tryToStartTuned()
 
 void TrayIcon::checkTunedRunning()
 {
-    if (!tunedManager -> IsOperational())
+    if (!(tunedManager -> IsOperational() && tunedManager -> IsRunning()))
         tryToStartTuned();
 }
 
