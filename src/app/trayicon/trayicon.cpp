@@ -174,6 +174,7 @@ QMenu* TrayIcon::createTrayIconMenu()
     connect(quitAction, SIGNAL(triggered()), this, SLOT(exitEvent()));
     QAction* serviceAction = new QAction(tr("Enable profiles"), trayIconMenu);
     serviceAction -> setCheckable(true);
+    serviceAction -> setChecked(tunedManager -> IsOperational());
     connect(serviceAction, SIGNAL(triggered(bool)), this, SLOT(serviceEnabledEvent(const bool)));
 
     // Setting system tray's icon menu...
