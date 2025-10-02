@@ -63,6 +63,12 @@ private slots:
     void profileChangedEvent(const QString&, const bool, const QString&);
 
     /**
+     * "Enable profiles" clicked event slot (handler).
+     * @param autoMode "Enable profiles" mode on or off.
+    */
+    void serviceEnabledEvent(const bool);
+
+    /**
      * "Exit application" event slot (handler).
     */
     void exitEvent();

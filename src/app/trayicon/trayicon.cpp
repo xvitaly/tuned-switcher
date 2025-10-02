@@ -172,6 +172,9 @@ QMenu* TrayIcon::createTrayIconMenu()
     // Setting actions and slots...
     QAction* quitAction = new QAction(tr("Quit"), trayIconMenu);
     connect(quitAction, SIGNAL(triggered()), this, SLOT(exitEvent()));
+    QAction* serviceAction = new QAction(tr("Enable profiles"), trayIconMenu);
+    serviceAction -> setCheckable(true);
+    connect(serviceAction, SIGNAL(triggered(bool)), this, SLOT(serviceEnabledEvent(const bool)));
 
     // Setting system tray's icon menu...
     QAction* autoProfile = new QAction(tr("Auto-select profile"), trayIconMenu);
@@ -179,6 +182,7 @@ QMenu* TrayIcon::createTrayIconMenu()
     tunedProfiles.insert(autoProfileActionName, autoProfile);
     connect(autoProfile, SIGNAL(triggered(bool)), this, SLOT(profileAutoSelectedEvent(const bool)));
 
+    trayIconMenu -> addAction(serviceAction);
     trayIconMenu -> addAction(autoProfile);
     trayIconMenu -> addSeparator();
     trayIconMenu -> addMenu(createProfilesSubmenu(trayIconMenu));
@@ -207,6 +211,14 @@ void TrayIcon::profileSelectedEvent(QAction* action)
     {
         notifications -> ShowNotification(tr("Profile switch error"), tr("Failed to switch the active profile: %1").arg(result.Message));
     }
+}
+
+void TrayIcon::serviceEnabledEvent(const bool mode)
+{
+    if (mode)
+        tunedManager -> Enable();
+    else
+        tunedManager -> Disable();
 }
 
 void TrayIcon::exitEvent()
