@@ -133,6 +133,13 @@ private:
     void exitApplication();
 
     /**
+     * Build and create submenu for various settings.
+     * @param parent Parent widget.
+     * @returns Pointer to the QMenu instance.
+    */
+    QMenu* createSettingsSubmenu(QWidget*);
+
+    /**
      * Build and create submenu with the list of available
      * Tuned profiles.
      * @param parent Parent widget.

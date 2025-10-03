@@ -144,6 +144,20 @@ void TrayIcon::profileChangedEvent(const QString& profile, const bool result, co
     }
 }
 
+QMenu* TrayIcon::createSettingsSubmenu(QWidget* parent)
+{
+    QMenu* trayIconSettings = new QMenu(parent);
+    trayIconSettings -> setTitle(tr("Settings"));
+
+    QAction* serviceAction = new QAction(tr("Enable profiles"), trayIconSettings);
+    serviceAction -> setCheckable(true);
+    serviceAction -> setChecked(tunedManager -> IsOperational());
+
+    connect(serviceAction, SIGNAL(triggered(bool)), this, SLOT(serviceEnabledEvent(const bool)));
+    trayIconSettings -> addAction(serviceAction);
+    return trayIconSettings;
+}
+
 QMenu* TrayIcon::createProfilesSubmenu(QWidget* parent)
 {
     QMenu* trayIconProfiles = new QMenu(parent);
@@ -172,10 +186,6 @@ QMenu* TrayIcon::createTrayIconMenu()
     // Setting actions and slots...
     QAction* quitAction = new QAction(tr("Quit"), trayIconMenu);
     connect(quitAction, SIGNAL(triggered()), this, SLOT(exitEvent()));
-    QAction* serviceAction = new QAction(tr("Enable profiles"), trayIconMenu);
-    serviceAction -> setCheckable(true);
-    serviceAction -> setChecked(tunedManager -> IsOperational());
-    connect(serviceAction, SIGNAL(triggered(bool)), this, SLOT(serviceEnabledEvent(const bool)));
 
     // Setting system tray's icon menu...
     QAction* autoProfile = new QAction(tr("Auto-select profile"), trayIconMenu);
@@ -183,9 +193,9 @@ QMenu* TrayIcon::createTrayIconMenu()
     tunedProfiles.insert(autoProfileActionName, autoProfile);
     connect(autoProfile, SIGNAL(triggered(bool)), this, SLOT(profileAutoSelectedEvent(const bool)));
 
-    trayIconMenu -> addAction(serviceAction);
     trayIconMenu -> addAction(autoProfile);
     trayIconMenu -> addSeparator();
+    trayIconMenu -> addMenu(createSettingsSubmenu(trayIconMenu));
     trayIconMenu -> addMenu(createProfilesSubmenu(trayIconMenu));
     trayIconMenu -> addSeparator();
     trayIconMenu -> addAction(quitAction);
