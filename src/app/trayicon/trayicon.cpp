@@ -232,7 +232,10 @@ void TrayIcon::serviceEnabledEvent(const bool mode)
         else
             notifications -> ShowNotification(tr("Service control error"), tr("Failed to enable the service and activate the profile!"));
     else
-        tunedManager -> Disable();
+        if (tunedManager -> Disable())
+            notifications -> ShowNotification(tr("Service disabled"), tr("The service has been successfully disabled and the active profile is no longer in use."));
+        else
+            notifications -> ShowNotification(tr("Service control error"), tr("Failed to disable the service and deactivate the profile!"));
 }
 
 void TrayIcon::exitEvent()
