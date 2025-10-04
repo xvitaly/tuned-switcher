@@ -226,16 +226,11 @@ void TrayIcon::profileSelectedEvent(QAction* action)
 
 void TrayIcon::serviceEnabledEvent(const bool mode)
 {
-    if (mode)
-        if (tunedManager -> Enable())
-            notifications -> ShowNotification(tr("Service enabled"), tr("The service has been successfully enabled and the active profile is now in use."));
-        else
-            notifications -> ShowNotification(tr("Service control error"), tr("Failed to enable the service and activate the profile!"));
-    else
-        if (tunedManager -> Disable())
-            notifications -> ShowNotification(tr("Service disabled"), tr("The service has been successfully disabled and the active profile is no longer in use."));
-        else
-            notifications -> ShowNotification(tr("Service control error"), tr("Failed to disable the service and deactivate the profile!"));
+    const bool result = mode ? tunedManager -> Enable() : tunedManager -> Disable();
+    if (!result)
+    {
+        notifications -> ShowNotification(tr("Service control error"), tr("Failed to change the service configuration. Current settings remain unchanged."));
+    }
 }
 
 void TrayIcon::exitEvent()
