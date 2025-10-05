@@ -188,7 +188,7 @@ private:
     /**
      * Stores the name of the "Auto-select profile" action.
     */
-    const QString autoProfileActionName = QStringLiteral("//autoselect//profile//action//");
+    const QString autoProfileActionName = QStringLiteral("autoselect");
 };
 
 #endif // TRAYICON_H
