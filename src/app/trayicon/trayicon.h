@@ -188,7 +188,7 @@ private:
     /**
      * Stores the name of the "Auto-select profile" action.
     */
-    const QString autoProfileActionName = QStringLiteral("autoselect");
+    const QString autoProfileActionName = QStringLiteral("auto-profile");
 
     /**
      * Stores the name of the "Service enabled" action.
