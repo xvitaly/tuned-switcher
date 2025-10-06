@@ -153,6 +153,7 @@ QMenu* TrayIcon::createSettingsSubmenu(QWidget* parent)
     serviceAction -> setCheckable(true);
     serviceAction -> setChecked(tunedManager -> IsOperational());
 
+    menuActions.insert(serviceEnabledActionName, serviceAction);
     connect(serviceAction, SIGNAL(triggered(bool)), this, SLOT(serviceEnabledEvent(const bool)));
     trayIconSettings -> addAction(serviceAction);
     return trayIconSettings;
