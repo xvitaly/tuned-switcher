@@ -189,6 +189,11 @@ private:
      * Stores the name of the "Auto-select profile" action.
     */
     const QString autoProfileActionName = QStringLiteral("autoselect");
+
+    /**
+     * Stores the name of the "Service enabled" action.
+    */
+    const QString serviceEnabledActionName = QStringLiteral("service-enabled");
 };
 
 #endif // TRAYICON_H
