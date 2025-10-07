@@ -123,6 +123,12 @@ private:
     void markAutoProfileMode();
 
     /**
+     * Change the "Service enabled" mode checkbox.
+     * @param autoMode New "Service enabled" mode value.
+    */
+    void setServiceEnabledMode(const bool);
+
+    /**
      * Subscribe to DBus events.
     */
     void subscribeToEvents();

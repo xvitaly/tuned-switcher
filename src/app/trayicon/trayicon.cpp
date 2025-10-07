@@ -117,6 +117,11 @@ void TrayIcon::markAutoProfileMode()
     setAutoProfileMode(tunedManager -> IsProfileModeAuto());
 }
 
+void TrayIcon::setServiceEnabledMode(const bool mode)
+{
+    menuActions[serviceEnabledActionName] -> setChecked(mode);
+}
+
 void TrayIcon::exitApplication()
 {
     QTimer::singleShot(AppConstants::TimerDelay, qApp, SLOT(quit()));
