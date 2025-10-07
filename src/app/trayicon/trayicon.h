@@ -129,6 +129,12 @@ private:
     void setServiceEnabledMode(const bool);
 
     /**
+     * Check if the service is enabled and mark the
+     * special checkbox.
+    */
+    void markServiceEnabledMode();
+
+    /**
      * Subscribe to DBus events.
     */
     void subscribeToEvents();

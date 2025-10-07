@@ -122,6 +122,11 @@ void TrayIcon::setServiceEnabledMode(const bool mode)
     menuActions[serviceEnabledActionName] -> setChecked(mode);
 }
 
+void TrayIcon::markServiceEnabledMode()
+{
+    setServiceEnabledMode(tunedManager -> IsOperational());
+}
+
 void TrayIcon::exitApplication()
 {
     QTimer::singleShot(AppConstants::TimerDelay, qApp, SLOT(quit()));
