@@ -37,6 +37,7 @@ TrayIcon::TrayIcon(QWidget* parent) : QWidget(parent)
     setTrayIcon();
     markCurrentProfile();
     markAutoProfileMode();
+    markServiceEnabledMode();
     subscribeToEvents();
 }
 
@@ -161,9 +162,8 @@ QMenu* TrayIcon::createSettingsSubmenu(QWidget* parent)
 
     QAction* serviceAction = new QAction(tr("Enable profiles"), trayIconSettings);
     serviceAction -> setCheckable(true);
-    serviceAction -> setChecked(tunedManager -> IsOperational());
-
     menuActions.insert(serviceEnabledActionName, serviceAction);
+
     connect(serviceAction, SIGNAL(triggered(bool)), this, SLOT(serviceEnabledEvent(const bool)));
     trayIconSettings -> addAction(serviceAction);
     return trayIconSettings;
