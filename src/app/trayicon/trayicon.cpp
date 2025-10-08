@@ -196,8 +196,8 @@ QMenu* TrayIcon::createTrayIconMenu()
     connect(autoProfile, SIGNAL(triggered(bool)), this, SLOT(profileAutoSelectedEvent(const bool)));
 
     trayIconMenu -> addAction(autoProfile);
-    trayIconMenu -> addSeparator();
     trayIconMenu -> addMenu(createProfilesSubmenu(trayIconMenu));
+    trayIconMenu -> addSeparator();
     trayIconMenu -> addMenu(createServiceControlSubmenu(trayIconMenu));
     trayIconMenu -> addSeparator();
     trayIconMenu -> addAction(quitAction);
