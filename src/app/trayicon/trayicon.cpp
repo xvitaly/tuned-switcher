@@ -37,7 +37,6 @@ TrayIcon::TrayIcon(QWidget* parent) : QWidget(parent)
     setTrayIcon();
     markCurrentProfile();
     markAutoProfileMode();
-    markServiceEnabledMode();
     subscribeToEvents();
 }
 
@@ -118,16 +117,6 @@ void TrayIcon::markAutoProfileMode()
     setAutoProfileMode(tunedManager -> IsProfileModeAuto());
 }
 
-void TrayIcon::setServiceEnabledMode(const bool mode)
-{
-    menuActions[serviceEnabledActionName] -> setChecked(mode);
-}
-
-void TrayIcon::markServiceEnabledMode()
-{
-    setServiceEnabledMode(tunedManager -> IsOperational());
-}
-
 void TrayIcon::exitApplication()
 {
     QTimer::singleShot(AppConstants::TimerDelay, qApp, SLOT(quit()));
@@ -155,18 +144,20 @@ void TrayIcon::profileChangedEvent(const QString& profile, const bool result, co
     }
 }
 
-QMenu* TrayIcon::createSettingsSubmenu(QWidget* parent)
+QMenu* TrayIcon::createServiceControlSubmenu(QWidget* parent)
 {
-    QMenu* trayIconSettings = new QMenu(parent);
-    trayIconSettings -> setTitle(tr("Settings"));
+    QMenu* trayIconServiceControl = new QMenu(parent);
+    trayIconServiceControl -> setTitle(tr("Service control"));
 
-    QAction* serviceAction = new QAction(tr("Enable profiles"), trayIconSettings);
-    serviceAction -> setCheckable(true);
-    menuActions.insert(serviceEnabledActionName, serviceAction);
+    QAction* enableAction = new QAction(tr("Enable service"), trayIconServiceControl);
+    connect(enableAction, SIGNAL(triggered()), this, SLOT(enableServiceEvent()));
+    trayIconServiceControl -> addAction(enableAction);
 
-    connect(serviceAction, SIGNAL(triggered(bool)), this, SLOT(serviceEnabledEvent(const bool)));
-    trayIconSettings -> addAction(serviceAction);
-    return trayIconSettings;
+    QAction* disableAction = new QAction(tr("Disable service"), trayIconServiceControl);
+    connect(disableAction, SIGNAL(triggered()), this, SLOT(disableServiceEvent()));
+    trayIconServiceControl -> addAction(disableAction);
+
+    return trayIconServiceControl;
 }
 
 QMenu* TrayIcon::createProfilesSubmenu(QWidget* parent)
@@ -206,8 +197,8 @@ QMenu* TrayIcon::createTrayIconMenu()
 
     trayIconMenu -> addAction(autoProfile);
     trayIconMenu -> addSeparator();
-    trayIconMenu -> addMenu(createSettingsSubmenu(trayIconMenu));
     trayIconMenu -> addMenu(createProfilesSubmenu(trayIconMenu));
+    trayIconMenu -> addMenu(createServiceControlSubmenu(trayIconMenu));
     trayIconMenu -> addSeparator();
     trayIconMenu -> addAction(quitAction);
     return trayIconMenu;
@@ -235,12 +226,19 @@ void TrayIcon::profileSelectedEvent(QAction* action)
     }
 }
 
-void TrayIcon::serviceEnabledEvent(const bool mode)
+void TrayIcon::enableServiceEvent()
 {
-    const bool result = mode ? tunedManager -> Enable() : tunedManager -> Disable();
-    if (!result)
+    if (!tunedManager -> Enable())
     {
-        notifications -> ShowNotification(tr("Service control error"), tr("Failed to change the service configuration. Current settings remain unchanged."));
+        notifications -> ShowNotification(tr("Service control error"), tr("Failed to enable the service! Current settings remain unchanged."));
+    }
+}
+
+void TrayIcon::disableServiceEvent()
+{
+    if (!tunedManager -> Disable())
+    {
+        notifications -> ShowNotification(tr("Service control error"), tr("Failed to disable the service! Current settings remain unchanged."));
     }
 }
 

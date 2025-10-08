@@ -63,10 +63,14 @@ private slots:
     void profileChangedEvent(const QString&, const bool, const QString&);
 
     /**
-     * "Enable profiles" clicked event slot (handler).
-     * @param autoMode "Enable profiles" mode on or off.
+     * "Enable service" clicked event slot (handler).
     */
-    void serviceEnabledEvent(const bool);
+    void enableServiceEvent();
+
+    /**
+     * "Disable service" clicked event slot (handler).
+    */
+    void disableServiceEvent();
 
     /**
      * "Exit application" event slot (handler).
@@ -123,18 +127,6 @@ private:
     void markAutoProfileMode();
 
     /**
-     * Change the "Service enabled" mode checkbox.
-     * @param autoMode New "Service enabled" mode value.
-    */
-    void setServiceEnabledMode(const bool);
-
-    /**
-     * Check if the service is enabled and mark the
-     * special checkbox.
-    */
-    void markServiceEnabledMode();
-
-    /**
      * Subscribe to DBus events.
     */
     void subscribeToEvents();
@@ -149,7 +141,7 @@ private:
      * @param parent Parent widget.
      * @returns Pointer to the QMenu instance.
     */
-    QMenu* createSettingsSubmenu(QWidget*);
+    QMenu* createServiceControlSubmenu(QWidget*);
 
     /**
      * Build and create submenu with the list of available
@@ -201,11 +193,6 @@ private:
      * Stores the name of the "Auto-select profile" action.
     */
     const QString autoProfileActionName = QStringLiteral("auto-profile");
-
-    /**
-     * Stores the name of the "Service enabled" action.
-    */
-    const QString serviceEnabledActionName = QStringLiteral("service-enabled");
 };
 
 #endif // TRAYICON_H
