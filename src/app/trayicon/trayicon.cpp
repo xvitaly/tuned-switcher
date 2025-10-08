@@ -149,11 +149,11 @@ QMenu* TrayIcon::createServiceControlSubmenu(QWidget* parent)
     QMenu* trayIconServiceControl = new QMenu(parent);
     trayIconServiceControl -> setTitle(tr("Service control"));
 
-    QAction* enableAction = new QAction(tr("Enable service"), trayIconServiceControl);
+    QAction* enableAction = new QAction(tr("Enable the service"), trayIconServiceControl);
     connect(enableAction, SIGNAL(triggered()), this, SLOT(enableServiceEvent()));
     trayIconServiceControl -> addAction(enableAction);
 
-    QAction* disableAction = new QAction(tr("Disable service"), trayIconServiceControl);
+    QAction* disableAction = new QAction(tr("Disable the service"), trayIconServiceControl);
     connect(disableAction, SIGNAL(triggered()), this, SLOT(disableServiceEvent()));
     trayIconServiceControl -> addAction(disableAction);
 
@@ -230,7 +230,7 @@ void TrayIcon::enableServiceEvent()
 {
     if (!tunedManager -> Enable())
     {
-        notifications -> ShowNotification(tr("Service control error"), tr("Failed to enable the service! Current settings remain unchanged."));
+        notifications -> ShowNotification(tr("Service enabling error"), tr("Failed to enable the service! Current settings remain unchanged."));
     }
 }
 
@@ -238,7 +238,7 @@ void TrayIcon::disableServiceEvent()
 {
     if (!tunedManager -> Disable())
     {
-        notifications -> ShowNotification(tr("Service control error"), tr("Failed to disable the service! Current settings remain unchanged."));
+        notifications -> ShowNotification(tr("Service disabling error"), tr("Failed to disable the service! Current settings remain unchanged."));
     }
 }
 
