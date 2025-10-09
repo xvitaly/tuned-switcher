@@ -64,6 +64,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <layout class="QVBoxLayout" name="LayoutHorisontal">
          <item>
           <layout class="QHBoxLayout" name="LayoutVertical">
+           <property name="spacing">
+            <number>1</number>
+           </property>
            <item>
             <widget class="QLabel" name="ProfileLabel">
              <property name="locale">
@@ -71,6 +74,22 @@ SPDX-License-Identifier: GPL-3.0-or-later
              </property>
              <property name="text">
               <string>Active profile:</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="Advanced">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>24</width>
+               <height>24</height>
+              </size>
              </property>
             </widget>
            </item>

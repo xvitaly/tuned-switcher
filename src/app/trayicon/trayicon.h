@@ -63,6 +63,16 @@ private slots:
     void profileChangedEvent(const QString&, const bool, const QString&);
 
     /**
+     * "Enable service" clicked event slot (handler).
+    */
+    void enableServiceEvent();
+
+    /**
+     * "Disable service" clicked event slot (handler).
+    */
+    void disableServiceEvent();
+
+    /**
      * "Exit application" event slot (handler).
     */
     void exitEvent();
@@ -127,6 +137,13 @@ private:
     void exitApplication();
 
     /**
+     * Build and create submenu for various settings.
+     * @param parent Parent widget.
+     * @returns Pointer to the QMenu instance.
+    */
+    QMenu* createServiceControlSubmenu(QWidget*);
+
+    /**
      * Build and create submenu with the list of available
      * Tuned profiles.
      * @param parent Parent widget.
@@ -167,9 +184,15 @@ private:
     QHash<QString, QAction*> tunedProfiles;
 
     /**
+     * Stores special hash table with various assigned
+     * internal QMenu actions.
+    */
+    QHash<QString, QAction*> menuActions;
+
+    /**
      * Stores the name of the "Auto-select profile" action.
     */
-    const QString autoProfileActionName = QStringLiteral("//autoselect//profile//action//");
+    const QString autoProfileActionName = QStringLiteral("auto-profile");
 };
 
 #endif // TRAYICON_H

@@ -72,7 +72,7 @@ void TrayIcon::tryToStartTuned()
 
 void TrayIcon::checkTunedRunning()
 {
-    if (!(tunedManager -> IsOperational() && tunedManager -> IsRunning()))
+    if (!(tunedManager -> IsOperational() || tunedManager -> IsRunning()))
         tryToStartTuned();
 }
 
@@ -104,7 +104,7 @@ void TrayIcon::markCurrentProfile()
 
 void TrayIcon::setAutoProfileMode(const bool autoMode)
 {
-    QAction* autoProfile = tunedProfiles[autoProfileActionName];
+    QAction* autoProfile = menuActions[autoProfileActionName];
     if (autoProfile)
     {
         autoProfile -> setChecked(autoMode);
@@ -144,6 +144,22 @@ void TrayIcon::profileChangedEvent(const QString& profile, const bool result, co
     }
 }
 
+QMenu* TrayIcon::createServiceControlSubmenu(QWidget* parent)
+{
+    QMenu* trayIconServiceControl = new QMenu(parent);
+    trayIconServiceControl -> setTitle(tr("Service control"));
+
+    QAction* enableAction = new QAction(tr("Enable the service"), trayIconServiceControl);
+    connect(enableAction, SIGNAL(triggered()), this, SLOT(enableServiceEvent()));
+    trayIconServiceControl -> addAction(enableAction);
+
+    QAction* disableAction = new QAction(tr("Disable the service"), trayIconServiceControl);
+    connect(disableAction, SIGNAL(triggered()), this, SLOT(disableServiceEvent()));
+    trayIconServiceControl -> addAction(disableAction);
+
+    return trayIconServiceControl;
+}
+
 QMenu* TrayIcon::createProfilesSubmenu(QWidget* parent)
 {
     QMenu* trayIconProfiles = new QMenu(parent);
@@ -176,12 +192,13 @@ QMenu* TrayIcon::createTrayIconMenu()
     // Setting system tray's icon menu...
     QAction* autoProfile = new QAction(tr("Auto-select profile"), trayIconMenu);
     autoProfile -> setCheckable(true);
-    tunedProfiles.insert(autoProfileActionName, autoProfile);
+    menuActions.insert(autoProfileActionName, autoProfile);
     connect(autoProfile, SIGNAL(triggered(bool)), this, SLOT(profileAutoSelectedEvent(const bool)));
 
     trayIconMenu -> addAction(autoProfile);
-    trayIconMenu -> addSeparator();
     trayIconMenu -> addMenu(createProfilesSubmenu(trayIconMenu));
+    trayIconMenu -> addSeparator();
+    trayIconMenu -> addMenu(createServiceControlSubmenu(trayIconMenu));
     trayIconMenu -> addSeparator();
     trayIconMenu -> addAction(quitAction);
     return trayIconMenu;
@@ -206,6 +223,22 @@ void TrayIcon::profileSelectedEvent(QAction* action)
     if (!result.Success)
     {
         notifications -> ShowNotification(tr("Profile switch error"), tr("Failed to switch the active profile: %1").arg(result.Message));
+    }
+}
+
+void TrayIcon::enableServiceEvent()
+{
+    if (!tunedManager -> Enable())
+    {
+        notifications -> ShowNotification(tr("Service enabling error"), tr("Failed to enable the service! Current settings remain unchanged."));
+    }
+}
+
+void TrayIcon::disableServiceEvent()
+{
+    if (!tunedManager -> Disable())
+    {
+        notifications -> ShowNotification(tr("Service disabling error"), tr("Failed to disable the service! Current settings remain unchanged."));
     }
 }
 
