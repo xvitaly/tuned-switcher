@@ -16,6 +16,7 @@
 #include <QSettings>
 #include <QWidget>
 #include <QMainWindow>
+#include <QMenu>
 #include <QCloseEvent>
 #include <QKeyEvent>
 #include <QFlags>
@@ -38,6 +39,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui -> setupUi(this);
     initializeSettings();
     loadSettings();
+    setFormControls();
     setFormStyle();
     setFormEvents();
     initializeNotifications();
@@ -183,6 +185,24 @@ void MainWindow::setFormStyle()
     ui -> WidgetMain -> setGraphicsEffect(shadowEffect);
 }
 
+void MainWindow::setFormControls()
+{
+    QMenu* advancedMenu = new QMenu(ui -> Advanced);
+    QMenu* serviceControlMenu = new QMenu(advancedMenu);
+    serviceControlMenu -> setTitle(tr("Service control"));
+
+    QAction* enableAction = new QAction(tr("Enable the service"), serviceControlMenu);
+    connect(enableAction, SIGNAL(triggered()), this, SLOT(enableServiceEvent()));
+    serviceControlMenu -> addAction(enableAction);
+
+    QAction* disableAction = new QAction(tr("Disable the service"), serviceControlMenu);
+    connect(disableAction, SIGNAL(triggered()), this, SLOT(disableServiceEvent()));
+    serviceControlMenu -> addAction(disableAction);
+
+    advancedMenu -> addMenu(serviceControlMenu);
+    ui -> Advanced -> setMenu(advancedMenu);
+}
+
 void MainWindow::setAutoProfileMode(const bool autoMode)
 {
     ui -> AutoSelect -> setChecked(autoMode);
@@ -201,6 +221,22 @@ void MainWindow::markCurrentProfile()
 void MainWindow::markAutoProfileMode()
 {
     setAutoProfileMode(tunedManager -> IsProfileModeAuto());
+}
+
+void MainWindow::enableServiceEvent()
+{
+    if (!tunedManager -> Enable())
+    {
+        notifications -> ShowNotification(tr("Service enabling error"), tr("Failed to enable the service! Current settings remain unchanged."));
+    }
+}
+
+void MainWindow::disableServiceEvent()
+{
+    if (!tunedManager -> Disable())
+    {
+        notifications -> ShowNotification(tr("Service disabling error"), tr("Failed to disable the service! Current settings remain unchanged."));
+    }
 }
 
 void MainWindow::exitApplication()

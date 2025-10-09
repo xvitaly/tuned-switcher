@@ -111,6 +111,16 @@ private slots:
     */
     void profileAutoSelectedEvent(const bool);
 
+    /**
+     * "Enable service" clicked event slot (handler).
+    */
+    void enableServiceEvent();
+
+    /**
+     * "Disable service" clicked event slot (handler).
+    */
+    void disableServiceEvent();
+
 private:
     /**
      * Initialize the SettingsManager class instance.
@@ -173,6 +183,11 @@ private:
      * Set custom form style: remove border, apply gradients, etc.
     */
     void setFormStyle();
+
+    /**
+     * Set custom form controls.
+    */
+    void setFormControls();
 
     /**
      * Get the active Tuned profile and set it on form.
