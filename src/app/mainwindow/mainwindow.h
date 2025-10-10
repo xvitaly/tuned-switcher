@@ -185,7 +185,7 @@ private:
     void setFormStyle();
 
     /**
-     * Set custom form controls.
+     * Set custom form controls: menu and its handlers.
     */
     void setFormControls();
 

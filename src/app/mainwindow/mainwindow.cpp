@@ -39,8 +39,8 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui -> setupUi(this);
     initializeSettings();
     loadSettings();
-    setFormControls();
     setFormStyle();
+    setFormControls();
     setFormEvents();
     initializeNotifications();
     initializeTuned();

@@ -137,7 +137,7 @@ private:
     void exitApplication();
 
     /**
-     * Build and create submenu for various settings.
+     * Build and create submenu for service control functions.
      * @param parent Parent widget.
      * @returns Pointer to the QMenu instance.
     */
