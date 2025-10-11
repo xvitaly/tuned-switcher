@@ -126,6 +126,14 @@ public:
      * @retval false An error occured when trying to disable Tuned.
     */
     bool Disable() const;
+
+    /**
+     * Reload the Tuned service configuration.
+     * @returns Result of current operation.
+     * @retval true Tuned service configuration was reloaded.
+     * @retval false An error occured when trying to reload Tuned service configuration.
+    */
+    bool Reload() const;
 private:
     /**
      * Stores the Tuned DBus interface name.
@@ -191,6 +199,11 @@ private:
      * Stores the Tuned DBus Stop method name.
     */
     const QString TunedBusMethodNameStop = QStringLiteral("stop");
+
+    /**
+     * Stores the Tuned DBus Reload method name.
+    */
+    const QString TunedBusMethodNameReload = QStringLiteral("reload");
 
     /**
      * Stores the Tuned DBus AutoProfile value.

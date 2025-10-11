@@ -153,6 +153,15 @@ bool TunedManager::Disable() const
     return DBusReply.value();
 }
 
+bool TunedManager::Reload() const
+{
+    QDBusInterface DBusInterface(TunedBusName, TunedBusPath, TunedBusInterface, DBusInstance);
+    QDBusReply<bool> DBusReply = DBusInterface.call(TunedBusMethodNameReload);
+    if (!DBusReply.isValid())
+        qCWarning(LogCategories::DBus) << "Failed to reload the Tuned service configuration due to an error:" << DBusReply.error();
+    return DBusReply.value();
+}
+
 void TunedManager::ProfileChangedEvent(const QString& NewProfile, const bool SwitchResult, const QString& ResultMessage)
 {
     emit ProfileChangedSignal(NewProfile, SwitchResult, ResultMessage);
