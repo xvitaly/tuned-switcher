@@ -99,7 +99,7 @@ public:
      * Start the Tuned service.
      * @returns Result of current operation.
      * @retval true Tuned was successfully started.
-     * @retval false An error occured when trying to start Tuned.
+     * @retval false An error occurred when trying to start the Tuned service.
     */
     bool Start() const;
 
@@ -107,7 +107,7 @@ public:
      * Stop the Tuned service.
      * @returns Result of current operation.
      * @retval true Tuned was successfully stopped.
-     * @retval false An error occured when trying to stop Tuned.
+     * @retval false An error occurred when trying to stop the Tuned service.
     */
     bool Stop() const;
 
@@ -115,7 +115,7 @@ public:
      * Enable the Tuned service.
      * @returns Result of current operation.
      * @retval true Tuned was successfully enabled.
-     * @retval false An error occured when trying to enable Tuned.
+     * @retval false An error occurred when trying to enable the Tuned service.
     */
     bool Enable() const;
 
@@ -123,7 +123,7 @@ public:
      * Disable the Tuned service.
      * @returns Result of current operation.
      * @retval true Tuned was successfully disabled.
-     * @retval false An error occured when trying to disable Tuned.
+     * @retval false An error occurred when trying to disable the Tuned service.
     */
     bool Disable() const;
 
@@ -131,9 +131,17 @@ public:
      * Reload the Tuned service configuration.
      * @returns Result of current operation.
      * @retval true Tuned service configuration was reloaded.
-     * @retval false An error occured when trying to reload Tuned service configuration.
+     * @retval false An error occurred when trying to reload the Tuned service configuration.
     */
     bool Reload() const;
+
+    /**
+     * Shutdown the Tuned service and disable all configurations.
+     * @returns Result of current operation.
+     * @retval true Tuned service configuration was shut down and configurations disabled.
+     * @retval false An error occurred when trying to shut down the Tuned service and disable configurations.
+    */
+    bool Shutdown() const;
 private:
     /**
      * Stores the Tuned DBus interface name.
@@ -204,6 +212,11 @@ private:
      * Stores the Tuned DBus Reload method name.
     */
     const QString TunedBusMethodNameReload = QStringLiteral("reload");
+
+    /**
+     * Stores the Tuned DBus Disable method name.
+    */
+    const QString TunedBusMethodNameDisable = QStringLiteral("disable");
 
     /**
      * Stores the Tuned DBus AutoProfile value.

@@ -162,6 +162,15 @@ bool TunedManager::Reload() const
     return DBusReply.value();
 }
 
+bool TunedManager::Shutdown() const
+{
+    QDBusInterface DBusInterface(TunedBusName, TunedBusPath, TunedBusInterface, DBusInstance);
+    QDBusReply<bool> DBusReply = DBusInterface.call(TunedBusMethodNameDisable);
+    if (!DBusReply.isValid())
+        qCWarning(LogCategories::DBus) << "Failed to shut down the Tuned service and disable configurations due to an error:" << DBusReply.error();
+    return DBusReply.value();
+}
+
 void TunedManager::ProfileChangedEvent(const QString& NewProfile, const bool SwitchResult, const QString& ResultMessage)
 {
     emit ProfileChangedSignal(NewProfile, SwitchResult, ResultMessage);
