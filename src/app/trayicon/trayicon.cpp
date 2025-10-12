@@ -161,6 +161,10 @@ QMenu* TrayIcon::createServiceControlSubmenu(QWidget* parent)
     connect(reloadAction, SIGNAL(triggered()), this, SLOT(reloadServiceEvent()));
     trayIconServiceControl -> addAction(reloadAction);
 
+    QAction* shutdownAction = new QAction(tr("Shutdown the service"), trayIconServiceControl);
+    connect(shutdownAction, SIGNAL(triggered()), this, SLOT(shutdownServiceEvent()));
+    trayIconServiceControl -> addAction(shutdownAction);
+
     return trayIconServiceControl;
 }
 
@@ -251,6 +255,14 @@ void TrayIcon::reloadServiceEvent()
     if (!tunedManager -> Reload())
     {
         notifications -> ShowNotification(tr("Service reloading error"), tr("Failed to reload the service configuration! Current settings remain unchanged."));
+    }
+}
+
+void TrayIcon::shutdownServiceEvent()
+{
+    if (!tunedManager -> Shutdown())
+    {
+        notifications -> ShowNotification(tr("Service shutdown error"), tr("Failed to shut down the service and disable all configurations! Current settings remain unchanged."));
     }
 }
 

@@ -78,6 +78,11 @@ private slots:
     void reloadServiceEvent();
 
     /**
+     * "Shutdown service" clicked event slot (handler).
+    */
+    void shutdownServiceEvent();
+
+    /**
      * "Exit application" event slot (handler).
     */
     void exitEvent();
