@@ -203,6 +203,10 @@ void MainWindow::setFormControls()
     connect(reloadAction, SIGNAL(triggered()), this, SLOT(reloadServiceEvent()));
     serviceControlMenu -> addAction(reloadAction);
 
+    QAction* shutdownAction = new QAction(tr("Shutdown the service"), serviceControlMenu);
+    connect(shutdownAction, SIGNAL(triggered()), this, SLOT(shutdownServiceEvent()));
+    serviceControlMenu -> addAction(shutdownAction);
+
     advancedMenu -> addMenu(serviceControlMenu);
     ui -> Advanced -> setMenu(advancedMenu);
 }
@@ -248,6 +252,14 @@ void MainWindow::reloadServiceEvent()
     if (!tunedManager -> Reload())
     {
         notifications -> ShowNotification(tr("Service reloading error"), tr("Failed to reload the service configuration! Current settings remain unchanged."));
+    }
+}
+
+void MainWindow::shutdownServiceEvent()
+{
+    if (!tunedManager -> Shutdown())
+    {
+        notifications -> ShowNotification(tr("Service shutdown error"), tr("Failed to shut down the service and disable all configurations! Current settings remain unchanged."));
     }
 }
 

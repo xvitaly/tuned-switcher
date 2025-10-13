@@ -126,6 +126,11 @@ private slots:
     */
     void reloadServiceEvent();
 
+    /**
+     * "Shutdown service" clicked event slot (handler).
+    */
+    void shutdownServiceEvent();
+
 private:
     /**
      * Initialize the SettingsManager class instance.
