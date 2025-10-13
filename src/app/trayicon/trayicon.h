@@ -73,6 +73,16 @@ private slots:
     void disableServiceEvent();
 
     /**
+     * "Reload service" clicked event slot (handler).
+    */
+    void reloadServiceEvent();
+
+    /**
+     * "Shutdown service" clicked event slot (handler).
+    */
+    void shutdownServiceEvent();
+
+    /**
      * "Exit application" event slot (handler).
     */
     void exitEvent();
