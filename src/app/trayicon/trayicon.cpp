@@ -93,7 +93,7 @@ void TrayIcon::setTrayIcon()
 
 void TrayIcon::subscribeToEvents()
 {
-    connect(tunedManager, SIGNAL(ProfileChangedSignal(const QString&, const bool, const QString&)), this, SLOT(profileChangedEvent(const QString&, const bool, const QString&)));
+    connect(tunedManager, &TunedManager::ProfileChangedSignal, this, &TrayIcon::profileChangedEvent);
 }
 
 void TrayIcon::markCurrentProfile()
@@ -119,7 +119,7 @@ void TrayIcon::markAutoProfileMode()
 
 void TrayIcon::exitApplication()
 {
-    QTimer::singleShot(AppConstants::TimerDelay, qApp, SLOT(quit()));
+    QTimer::singleShot(AppConstants::TimerDelay, qApp, &QApplication::quit);
 }
 
 void TrayIcon::profileChangedEvent(const QString& profile, const bool result, const QString& message)
@@ -150,19 +150,19 @@ QMenu* TrayIcon::createServiceControlSubmenu(QWidget* parent)
     trayIconServiceControl -> setTitle(tr("Service control"));
 
     QAction* enableAction = new QAction(tr("Enable the service"), trayIconServiceControl);
-    connect(enableAction, SIGNAL(triggered()), this, SLOT(enableServiceEvent()));
+    connect(enableAction, &QAction::triggered, this, &TrayIcon::enableServiceEvent);
     trayIconServiceControl -> addAction(enableAction);
 
     QAction* disableAction = new QAction(tr("Disable the service"), trayIconServiceControl);
-    connect(disableAction, SIGNAL(triggered()), this, SLOT(disableServiceEvent()));
+    connect(disableAction, &QAction::triggered, this, &TrayIcon::disableServiceEvent);
     trayIconServiceControl -> addAction(disableAction);
 
     QAction* reloadAction = new QAction(tr("Reload the service"), trayIconServiceControl);
-    connect(reloadAction, SIGNAL(triggered()), this, SLOT(reloadServiceEvent()));
+    connect(reloadAction, &QAction::triggered, this, &TrayIcon::reloadServiceEvent);
     trayIconServiceControl -> addAction(reloadAction);
 
     QAction* shutdownAction = new QAction(tr("Shutdown the service"), trayIconServiceControl);
-    connect(shutdownAction, SIGNAL(triggered()), this, SLOT(shutdownServiceEvent()));
+    connect(shutdownAction, &QAction::triggered, this, &TrayIcon::shutdownServiceEvent);
     trayIconServiceControl -> addAction(shutdownAction);
 
     return trayIconServiceControl;
@@ -183,7 +183,7 @@ QMenu* TrayIcon::createProfilesSubmenu(QWidget* parent)
         tunedProfiles.insert(profile, profileAction);
     }
 
-    connect(trayIconGroup, SIGNAL(triggered(QAction*)), this, SLOT(profileSelectedEvent(QAction*)));
+    connect(trayIconGroup, &QActionGroup::triggered, this, &TrayIcon::profileSelectedEvent);
     trayIconProfiles -> addActions(trayIconGroup -> actions());
     return trayIconProfiles;
 }
@@ -195,13 +195,13 @@ QMenu* TrayIcon::createTrayIconMenu()
 
     // Setting actions and slots...
     QAction* quitAction = new QAction(tr("Quit"), trayIconMenu);
-    connect(quitAction, SIGNAL(triggered()), this, SLOT(exitEvent()));
+    connect(quitAction, &QAction::triggered, this, &TrayIcon::exitEvent);
 
     // Setting system tray's icon menu...
     QAction* autoProfile = new QAction(tr("Auto-select profile"), trayIconMenu);
     autoProfile -> setCheckable(true);
     menuActions.insert(autoProfileActionName, autoProfile);
-    connect(autoProfile, SIGNAL(triggered(bool)), this, SLOT(profileAutoSelectedEvent(const bool)));
+    connect(autoProfile, &QAction::triggered, this, &TrayIcon::profileAutoSelectedEvent);
 
     trayIconMenu -> addAction(autoProfile);
     trayIconMenu -> addMenu(createProfilesSubmenu(trayIconMenu));
