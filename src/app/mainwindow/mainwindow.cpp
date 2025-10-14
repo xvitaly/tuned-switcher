@@ -9,21 +9,26 @@
  * Contains the MainWindow class implementation.
 */
 
+#include <QAction>
+#include <QApplication>
+#include <QCheckBox>
+#include <QCloseEvent>
+#include <QComboBox>
+#include <QFlags>
 #include <QGraphicsDropShadowEffect>
-#include <QMessageBox>
-#include <QMouseEvent>
-#include <QThread>
-#include <QSettings>
-#include <QWidget>
+#include <QIcon>
+#include <QKeyEvent>
 #include <QMainWindow>
 #include <QMenu>
-#include <QCloseEvent>
-#include <QKeyEvent>
-#include <QFlags>
-#include <QStringLiteral>
+#include <QMessageBox>
+#include <QMouseEvent>
+#include <QPushButton>
+#include <QSettings>
 #include <QString>
+#include <QStringLiteral>
+#include <QThread>
 #include <QTimer>
-#include <QIcon>
+#include <QWidget>
 
 #include "appconstants/appconstants.h"
 #include "mainwindow/mainwindow.h"
@@ -117,9 +122,9 @@ void MainWindow::initializeTuned()
 
 void MainWindow::setFormEvents()
 {
-    connect(ui -> AutoSelect, SIGNAL(clicked(bool)), this, SLOT(profileAutoSelectedEvent(const bool)));
-    connect(ui -> CloseForm, SIGNAL(clicked()), this, SLOT(closeFormEvent()));
-    connect(ui -> ProfileSelector, SIGNAL(textActivated(QString)), this, SLOT(profileSelectedEvent(const QString&)));
+    connect(ui -> AutoSelect, &QCheckBox::clicked, this, &MainWindow::profileAutoSelectedEvent);
+    connect(ui -> CloseForm, &QPushButton::clicked, this, &MainWindow::closeFormEvent);
+    connect(ui -> ProfileSelector, &QComboBox::textActivated, this, &MainWindow::profileSelectedEvent);
 }
 
 void MainWindow::tryToStartTuned()
@@ -154,7 +159,7 @@ void MainWindow::getTunedProfiles()
 
 void MainWindow::subscribeToEvents()
 {
-    connect(tunedManager, SIGNAL(ProfileChangedSignal(const QString&, const bool, const QString&)), this, SLOT(profileChangedEvent(const QString&, const bool, const QString&)));
+    connect(tunedManager, &TunedManager::ProfileChangedSignal, this, &MainWindow::profileChangedEvent);
 }
 
 void MainWindow::loadSettings()
@@ -192,19 +197,19 @@ void MainWindow::setFormControls()
     serviceControlMenu -> setTitle(tr("Service control"));
 
     QAction* enableAction = new QAction(tr("Enable the service"), serviceControlMenu);
-    connect(enableAction, SIGNAL(triggered()), this, SLOT(enableServiceEvent()));
+    connect(enableAction, &QAction::triggered, this, &MainWindow::enableServiceEvent);
     serviceControlMenu -> addAction(enableAction);
 
     QAction* disableAction = new QAction(tr("Disable the service"), serviceControlMenu);
-    connect(disableAction, SIGNAL(triggered()), this, SLOT(disableServiceEvent()));
+    connect(disableAction, &QAction::triggered, this, &MainWindow::disableServiceEvent);
     serviceControlMenu -> addAction(disableAction);
 
     QAction* reloadAction = new QAction(tr("Reload the service"), serviceControlMenu);
-    connect(reloadAction, SIGNAL(triggered()), this, SLOT(reloadServiceEvent()));
+    connect(reloadAction, &QAction::triggered, this, &MainWindow::reloadServiceEvent);
     serviceControlMenu -> addAction(reloadAction);
 
     QAction* shutdownAction = new QAction(tr("Shutdown the service"), serviceControlMenu);
-    connect(shutdownAction, SIGNAL(triggered()), this, SLOT(shutdownServiceEvent()));
+    connect(shutdownAction, &QAction::triggered, this, &MainWindow::shutdownServiceEvent);
     serviceControlMenu -> addAction(shutdownAction);
 
     advancedMenu -> addMenu(serviceControlMenu);
@@ -265,7 +270,7 @@ void MainWindow::shutdownServiceEvent()
 
 void MainWindow::exitApplication()
 {
-    QTimer::singleShot(AppConstants::TimerDelay, qApp, SLOT(quit()));
+    QTimer::singleShot(AppConstants::TimerDelay, qApp, &QApplication::quit);
 }
 
 void MainWindow::profileChangedEvent(const QString& profile, const bool result, const QString& message)
