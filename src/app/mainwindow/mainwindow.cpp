@@ -197,19 +197,19 @@ void MainWindow::setFormControls()
     serviceControlMenu -> setTitle(tr("Service control"));
 
     QAction* enableAction = new QAction(tr("Enable the service"), serviceControlMenu);
-    connect(enableAction, &QAction::triggered, this, &MainWindow::enableServiceEvent);
+    connect(enableAction, &QAction::triggered, this, [this](){ serviceControlEvent(0); });
     serviceControlMenu -> addAction(enableAction);
 
     QAction* disableAction = new QAction(tr("Disable the service"), serviceControlMenu);
-    connect(disableAction, &QAction::triggered, this, &MainWindow::disableServiceEvent);
+    connect(disableAction, &QAction::triggered, this, [this](){ serviceControlEvent(1); });
     serviceControlMenu -> addAction(disableAction);
 
     QAction* reloadAction = new QAction(tr("Reload the service"), serviceControlMenu);
-    connect(reloadAction, &QAction::triggered, this, &MainWindow::reloadServiceEvent);
+    connect(reloadAction, &QAction::triggered, this, [this](){ serviceControlEvent(2); });
     serviceControlMenu -> addAction(reloadAction);
 
     QAction* shutdownAction = new QAction(tr("Shutdown the service"), serviceControlMenu);
-    connect(shutdownAction, &QAction::triggered, this, &MainWindow::shutdownServiceEvent);
+    connect(shutdownAction, &QAction::triggered, this, [this](){ serviceControlEvent(3); });
     serviceControlMenu -> addAction(shutdownAction);
 
     advancedMenu -> addMenu(serviceControlMenu);
@@ -236,36 +236,12 @@ void MainWindow::markAutoProfileMode()
     setAutoProfileMode(tunedManager -> IsProfileModeAuto());
 }
 
-void MainWindow::enableServiceEvent()
+void MainWindow::serviceControlEvent(const int index)
 {
-    if (!tunedManager -> Enable())
-    {
-        notifications -> ShowNotification(tr("Service enabling error"), tr("Failed to enable the service! Current settings remain unchanged."));
-    }
-}
-
-void MainWindow::disableServiceEvent()
-{
-    if (!tunedManager -> Disable())
-    {
-        notifications -> ShowNotification(tr("Service disabling error"), tr("Failed to disable the service! Current settings remain unchanged."));
-    }
-}
-
-void MainWindow::reloadServiceEvent()
-{
-    if (!tunedManager -> Reload())
-    {
-        notifications -> ShowNotification(tr("Service reloading error"), tr("Failed to reload the service configuration! Current settings remain unchanged."));
-    }
-}
-
-void MainWindow::shutdownServiceEvent()
-{
-    if (!tunedManager -> Shutdown())
-    {
-        notifications -> ShowNotification(tr("Service shutdown error"), tr("Failed to shut down the service and disable all configurations! Current settings remain unchanged."));
-    }
+    if (tunedManager -> RunServiceMethod(index))
+        notifications -> ShowNotification(tr("Service control"), tr("The requested service control operation completed successfully."));
+    else
+        notifications -> ShowNotification(tr("Service control error"), tr("Failed to perform the requested service control operation! Current settings remain unchanged."));
 }
 
 void MainWindow::exitApplication()
