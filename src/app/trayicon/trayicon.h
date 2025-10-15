@@ -63,24 +63,10 @@ private slots:
     void profileChangedEvent(const QString&, const bool, const QString&);
 
     /**
-     * "Enable service" clicked event slot (handler).
+     * "Service control" menu item clicked event slot (handler).
+     * @param index Method ID.
     */
-    void enableServiceEvent();
-
-    /**
-     * "Disable service" clicked event slot (handler).
-    */
-    void disableServiceEvent();
-
-    /**
-     * "Reload service" clicked event slot (handler).
-    */
-    void reloadServiceEvent();
-
-    /**
-     * "Shutdown service" clicked event slot (handler).
-    */
-    void shutdownServiceEvent();
+    void serviceControlEvent(const int);
 
     /**
      * "Exit application" event slot (handler).
