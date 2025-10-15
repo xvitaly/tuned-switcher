@@ -142,6 +142,15 @@ public:
      * @retval false An error occurred when trying to shut down the Tuned service and disable configurations.
     */
     bool Shutdown() const;
+
+    /**
+     * Run service control method by specified ID.
+     * @param index Method ID.
+     * @returns Result of the requested service control operation.
+     * @retval true The requested service control operation completed successfully.
+     * @retval false An error occurred when trying to perform the requested opeation.
+    */
+    bool RunServiceMethod(const int) const;
 private:
     /**
      * Stores the Tuned DBus interface name.
