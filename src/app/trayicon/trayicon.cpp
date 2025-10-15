@@ -150,19 +150,19 @@ QMenu* TrayIcon::createServiceControlSubmenu(QWidget* parent)
     trayIconServiceControl -> setTitle(tr("Service control"));
 
     QAction* enableAction = new QAction(tr("Enable the service"), trayIconServiceControl);
-    connect(enableAction, &QAction::triggered, this, &TrayIcon::enableServiceEvent);
+    connect(enableAction, &QAction::triggered, this, [this](){ serviceControlEvent(0); });
     trayIconServiceControl -> addAction(enableAction);
 
     QAction* disableAction = new QAction(tr("Disable the service"), trayIconServiceControl);
-    connect(disableAction, &QAction::triggered, this, &TrayIcon::disableServiceEvent);
+    connect(disableAction, &QAction::triggered, this, [this](){ serviceControlEvent(1); });
     trayIconServiceControl -> addAction(disableAction);
 
     QAction* reloadAction = new QAction(tr("Reload the service"), trayIconServiceControl);
-    connect(reloadAction, &QAction::triggered, this, &TrayIcon::reloadServiceEvent);
+    connect(reloadAction, &QAction::triggered, this, [this](){ serviceControlEvent(2); });
     trayIconServiceControl -> addAction(reloadAction);
 
     QAction* shutdownAction = new QAction(tr("Shutdown the service"), trayIconServiceControl);
-    connect(shutdownAction, &QAction::triggered, this, &TrayIcon::shutdownServiceEvent);
+    connect(shutdownAction, &QAction::triggered, this, [this](){ serviceControlEvent(3); });
     trayIconServiceControl -> addAction(shutdownAction);
 
     return trayIconServiceControl;
@@ -234,36 +234,12 @@ void TrayIcon::profileSelectedEvent(QAction* action)
     }
 }
 
-void TrayIcon::enableServiceEvent()
+void TrayIcon::serviceControlEvent(const int index)
 {
-    if (!tunedManager -> Enable())
-    {
-        notifications -> ShowNotification(tr("Service enabling error"), tr("Failed to enable the service! Current settings remain unchanged."));
-    }
-}
-
-void TrayIcon::disableServiceEvent()
-{
-    if (!tunedManager -> Disable())
-    {
-        notifications -> ShowNotification(tr("Service disabling error"), tr("Failed to disable the service! Current settings remain unchanged."));
-    }
-}
-
-void TrayIcon::reloadServiceEvent()
-{
-    if (!tunedManager -> Reload())
-    {
-        notifications -> ShowNotification(tr("Service reloading error"), tr("Failed to reload the service configuration! Current settings remain unchanged."));
-    }
-}
-
-void TrayIcon::shutdownServiceEvent()
-{
-    if (!tunedManager -> Shutdown())
-    {
-        notifications -> ShowNotification(tr("Service shutdown error"), tr("Failed to shut down the service and disable all configurations! Current settings remain unchanged."));
-    }
+    if (tunedManager -> RunServiceMethod(index))
+        notifications -> ShowNotification(tr("Service control"), tr("The requested service control operation completed successfully."));
+    else
+        notifications -> ShowNotification(tr("Service control error"), tr("Failed to perform the requested service control operation! Current settings remain unchanged."));
 }
 
 void TrayIcon::exitEvent()

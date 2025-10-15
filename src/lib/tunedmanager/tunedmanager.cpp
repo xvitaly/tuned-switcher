@@ -171,6 +171,23 @@ bool TunedManager::Shutdown() const
     return DBusReply.value();
 }
 
+bool TunedManager::RunServiceMethod(const int index) const
+{
+    switch (index)
+    {
+        case 0:
+            return Enable();
+        case 1:
+            return Disable();
+        case 2:
+            return Reload();
+        case 3:
+            return Shutdown();
+        default:
+            return false;
+    }
+}
+
 void TunedManager::ProfileChangedEvent(const QString& NewProfile, const bool SwitchResult, const QString& ResultMessage)
 {
     emit ProfileChangedSignal(NewProfile, SwitchResult, ResultMessage);
