@@ -197,19 +197,19 @@ void MainWindow::setFormControls()
     serviceControlMenu -> setTitle(tr("Service control"));
 
     QAction* enableAction = new QAction(tr("Enable the service"), serviceControlMenu);
-    connect(enableAction, &QAction::triggered, this, [this](){ serviceControlEvent(QTunedServiceMethod::ServiceMethodEnable); });
+    connect(enableAction, &QAction::triggered, this, [this](){ serviceControlEvent(TunedManager::ServiceMethod::MethodEnable); });
     serviceControlMenu -> addAction(enableAction);
 
     QAction* disableAction = new QAction(tr("Disable the service"), serviceControlMenu);
-    connect(disableAction, &QAction::triggered, this, [this](){ serviceControlEvent(QTunedServiceMethod::ServiceMethodDisable); });
+    connect(disableAction, &QAction::triggered, this, [this](){ serviceControlEvent(TunedManager::ServiceMethod::MethodDisable); });
     serviceControlMenu -> addAction(disableAction);
 
     QAction* reloadAction = new QAction(tr("Reload the service"), serviceControlMenu);
-    connect(reloadAction, &QAction::triggered, this, [this](){ serviceControlEvent(QTunedServiceMethod::ServiceMethodReload); });
+    connect(reloadAction, &QAction::triggered, this, [this](){ serviceControlEvent(TunedManager::ServiceMethod::MethodReload); });
     serviceControlMenu -> addAction(reloadAction);
 
     QAction* shutdownAction = new QAction(tr("Shutdown the service"), serviceControlMenu);
-    connect(shutdownAction, &QAction::triggered, this, [this](){ serviceControlEvent(QTunedServiceMethod::ServiceMethodShutdown); });
+    connect(shutdownAction, &QAction::triggered, this, [this](){ serviceControlEvent(TunedManager::ServiceMethod::MethodShutdown); });
     serviceControlMenu -> addAction(shutdownAction);
 
     advancedMenu -> addMenu(serviceControlMenu);
@@ -236,7 +236,7 @@ void MainWindow::markAutoProfileMode()
     setAutoProfileMode(tunedManager -> IsProfileModeAuto());
 }
 
-void MainWindow::serviceControlEvent(const QTunedServiceMethod index)
+void MainWindow::serviceControlEvent(const TunedManager::ServiceMethod index)
 {
     if (tunedManager -> RunServiceMethod(index))
         notifications -> ShowNotification(tr("Service control"), tr("The requested service control operation completed successfully."));

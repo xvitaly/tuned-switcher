@@ -142,31 +142,4 @@ struct QTunedResult
 };
 Q_DECLARE_METATYPE(QTunedResult)
 
-/**
- * Enum with IDs of service methods, used by various methods.
-*/
-enum class QTunedServiceMethod
-{
-    /**
-     * ID for service method "Enable" with integer value 0.
-    */
-    ServiceMethodEnable = 0,
-
-    /**
-     * ID for service method "Disable" with integer value 1.
-    */
-    ServiceMethodDisable = 1,
-
-    /**
-     * ID for service method "Reload" with integer value 2.
-    */
-    ServiceMethodReload = 2,
-
-    /**
-     * ID for service method "Shutdown" with integer value 3.
-    */
-    ServiceMethodShutdown = 3
-};
-Q_DECLARE_METATYPE(QTunedServiceMethod)
-
 #endif // TUNEDTYPES_H

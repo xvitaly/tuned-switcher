@@ -171,17 +171,17 @@ bool TunedManager::Shutdown() const
     return DBusReply.value();
 }
 
-bool TunedManager::RunServiceMethod(const QTunedServiceMethod index) const
+bool TunedManager::RunServiceMethod(const ServiceMethod index) const
 {
     switch (index)
     {
-        case QTunedServiceMethod::ServiceMethodEnable:
+        case ServiceMethod::MethodEnable:
             return Enable();
-        case QTunedServiceMethod::ServiceMethodDisable:
+        case ServiceMethod::MethodDisable:
             return Disable();
-        case QTunedServiceMethod::ServiceMethodReload:
+        case ServiceMethod::MethodReload:
             return Reload();
-        case QTunedServiceMethod::ServiceMethodShutdown:
+        case ServiceMethod::MethodShutdown:
             return Shutdown();
         default:
             return false;

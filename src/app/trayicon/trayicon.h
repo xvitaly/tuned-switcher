@@ -23,7 +23,6 @@
 #include "notificationsmanager/notificationsmanager.h"
 #include "settingsmanager/settingsmanager.h"
 #include "tunedmanager/tunedmanager.h"
-#include "tunedtypes/tunedtypes.h"
 
 /**
  * Class for working with the Applet application.
@@ -67,7 +66,7 @@ private slots:
      * "Service control" menu item clicked event slot (handler).
      * @param index Method ID.
     */
-    void serviceControlEvent(const QTunedServiceMethod);
+    void serviceControlEvent(const TunedManager::ServiceMethod);
 
     /**
      * "Exit application" event slot (handler).
