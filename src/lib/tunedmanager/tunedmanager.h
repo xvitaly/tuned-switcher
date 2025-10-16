@@ -150,7 +150,7 @@ public:
      * @retval true The requested service control operation completed successfully.
      * @retval false An error occurred when trying to perform the requested opeation.
     */
-    bool RunServiceMethod(const int) const;
+    bool RunServiceMethod(const QTunedServiceMethod) const;
 private:
     /**
      * Stores the Tuned DBus interface name.
