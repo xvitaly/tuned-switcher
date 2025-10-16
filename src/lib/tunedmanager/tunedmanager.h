@@ -144,13 +144,19 @@ public:
     bool Shutdown() const;
 
     /**
+     * Enum with IDs of service methods, used by various methods.
+    */
+    enum class ServiceMethod { MethodEnable, MethodDisable, MethodReload, MethodShutdown };
+    Q_ENUM(ServiceMethod)
+
+    /**
      * Run service control method by specified ID.
      * @param index Method ID.
      * @returns Result of the requested service control operation.
      * @retval true The requested service control operation completed successfully.
      * @retval false An error occurred when trying to perform the requested opeation.
     */
-    bool RunServiceMethod(const int) const;
+    bool RunServiceMethod(const ServiceMethod) const;
 private:
     /**
      * Stores the Tuned DBus interface name.
