@@ -234,9 +234,9 @@ void TrayIcon::profileSelectedEvent(QAction* action)
     }
 }
 
-void TrayIcon::serviceControlEvent(const TunedManager::ServiceMethod index)
+void TrayIcon::serviceControlEvent(const TunedManager::ServiceMethod method)
 {
-    if (tunedManager -> RunServiceMethod(index))
+    if (tunedManager -> RunServiceMethod(method))
         notifications -> ShowNotification(tr("Service control"), tr("The requested service control operation completed successfully."));
     else
         notifications -> ShowNotification(tr("Service control error"), tr("Failed to perform the requested service control operation! Current settings remain unchanged."));
