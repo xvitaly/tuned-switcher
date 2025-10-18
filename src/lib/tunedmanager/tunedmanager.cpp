@@ -171,9 +171,9 @@ bool TunedManager::Shutdown() const
     return DBusReply.value();
 }
 
-bool TunedManager::RunServiceMethod(const ServiceMethod index) const
+bool TunedManager::RunServiceMethod(const ServiceMethod method) const
 {
-    switch (index)
+    switch (method)
     {
         case ServiceMethod::MethodEnable:
             return Enable();
