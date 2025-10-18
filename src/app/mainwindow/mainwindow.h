@@ -113,7 +113,7 @@ private slots:
 
     /**
      * "Service control" menu item clicked event slot (handler).
-     * @param index Method ID.
+     * @param method Service control method name.
     */
     void serviceControlEvent(const TunedManager::ServiceMethod);
 
