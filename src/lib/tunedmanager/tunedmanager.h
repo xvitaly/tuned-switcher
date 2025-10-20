@@ -259,16 +259,6 @@ private:
     const QString SystemdBusInterfaceUnit = QStringLiteral("org.freedesktop.systemd1.Unit");
 
     /**
-     * Stores the Systemd Properties DBus interface.
-    */
-    const QString SystemdBusInterfaceProperties = QStringLiteral("org.freedesktop.DBus.Properties");
-
-    /**
-     * Stores the Systemd DBus GetProperty method name.
-    */
-    const QString SystemdBusMethodNameGetProperty = QStringLiteral("Get");
-
-    /**
      * Stores the Systemd DBus GetUnit method name.
     */
     const QString SystemdBusMethodNameGetUnit = QStringLiteral("GetUnit");
@@ -302,6 +292,16 @@ private:
      * Stores the Systemd start/stop service mode.
     */
     const QString SystemdTunedServiceMode = QStringLiteral("replace");
+
+    /**
+     * Stores the Systemd Properties DBus interface.
+    */
+    const QString DBusPropertyInterface = QStringLiteral("org.freedesktop.DBus.Properties");
+
+    /**
+     * Stores the Systemd DBus GetProperty method name.
+    */
+    const QString DBusPropertyMethodNameGet = QStringLiteral("Get");
 
     /**
      * Stores DBus instance.

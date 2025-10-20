@@ -86,8 +86,8 @@ QTunedProfileList TunedManager::GetAvailableProfiles2() const
 
 QString TunedManager::GetPropertyString(const QString& BusName, const QString& BusPath, const QString& BusInterface, const QString& BusProperty) const
 {
-    QDBusInterface DBusInterface(BusName, BusPath, SystemdBusInterfaceProperties, DBusInstance);
-    QDBusReply<QDBusVariant> DBusReply = DBusInterface.call(SystemdBusMethodNameGetProperty, BusInterface, BusProperty);
+    QDBusInterface DBusInterface(BusName, BusPath, DBusPropertyInterface, DBusInstance);
+    QDBusReply<QDBusVariant> DBusReply = DBusInterface.call(DBusPropertyMethodNameGet, BusInterface, BusProperty);
     if (!DBusReply.isValid())
         qCWarning(LogCategories::DBus) << "Failed to get the DBus property value:" << DBusReply.error();
     return DBusReply.value().variant().toString();
