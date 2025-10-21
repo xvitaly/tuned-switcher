@@ -199,6 +199,13 @@ QMenu* MainWindow::createServiceControlSubmenu(QWidget* parent)
     return serviceControlMenu;
 }
 
+QMenu* MainWindow::createMainMenu(QWidget* parent)
+{
+    QMenu* mainMenu = new QMenu(parent);
+    mainMenu -> addMenu(createServiceControlSubmenu(mainMenu));
+    return mainMenu;
+}
+
 void MainWindow::setFormStyle()
 {
     // Setting form style...
@@ -216,9 +223,7 @@ void MainWindow::setFormStyle()
 
 void MainWindow::setFormControls()
 {
-    QMenu* advancedMenu = new QMenu(ui -> Advanced);
-    advancedMenu -> addMenu(createServiceControlSubmenu(advancedMenu));
-    ui -> Advanced -> setMenu(advancedMenu);
+    ui -> Advanced -> setMenu(createMainMenu(ui -> Advanced));
 }
 
 void MainWindow::setAutoProfileMode(const bool autoMode)

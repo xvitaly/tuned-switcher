@@ -210,6 +210,12 @@ private:
     QMenu* createServiceControlSubmenu(QWidget*);
 
     /**
+     * Build and create main menu.
+     * @returns Pointer to the QMenu instance.
+    */
+    QMenu* createMainMenu(QWidget*);
+
+    /**
      * Stores the GUI application form instance.
     */
     Ui::MainWindow* ui;
