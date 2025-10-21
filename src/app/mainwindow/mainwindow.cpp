@@ -175,25 +175,9 @@ void MainWindow::saveSettings()
     settings -> Save();
 }
 
-void MainWindow::setFormStyle()
+QMenu* MainWindow::createServiceControlSubmenu(QWidget* parent)
 {
-    // Setting form style...
-    setWindowIcon(QIcon::fromTheme(AppConstants::DomainSchemeName, QIcon(QStringLiteral(":/icons/fallback.png"))));
-    setWindowFlags(Qt::FramelessWindowHint);
-    setAttribute(Qt::WA_TranslucentBackground);
-
-    // Adding shadows for widgets...
-    QGraphicsDropShadowEffect* shadowEffect = new QGraphicsDropShadowEffect(ui -> WidgetMain);
-    shadowEffect -> setBlurRadius(9.0);
-    shadowEffect -> setColor(QColor(0, 0, 0, 160));
-    shadowEffect -> setOffset(4.0);
-    ui -> WidgetMain -> setGraphicsEffect(shadowEffect);
-}
-
-void MainWindow::setFormControls()
-{
-    QMenu* advancedMenu = new QMenu(ui -> Advanced);
-    QMenu* serviceControlMenu = new QMenu(advancedMenu);
+    QMenu* serviceControlMenu = new QMenu(parent);
     serviceControlMenu -> setTitle(tr("Service control"));
 
     QAction* enableAction = new QAction(tr("Enable the service"), serviceControlMenu);
@@ -212,7 +196,28 @@ void MainWindow::setFormControls()
     connect(shutdownAction, &QAction::triggered, this, [this](){ serviceControlEvent(TunedManager::ServiceMethod::MethodShutdown); });
     serviceControlMenu -> addAction(shutdownAction);
 
-    advancedMenu -> addMenu(serviceControlMenu);
+    return serviceControlMenu;
+}
+
+void MainWindow::setFormStyle()
+{
+    // Setting form style...
+    setWindowIcon(QIcon::fromTheme(AppConstants::DomainSchemeName, QIcon(QStringLiteral(":/icons/fallback.png"))));
+    setWindowFlags(Qt::FramelessWindowHint);
+    setAttribute(Qt::WA_TranslucentBackground);
+
+    // Adding shadows for widgets...
+    QGraphicsDropShadowEffect* shadowEffect = new QGraphicsDropShadowEffect(ui -> WidgetMain);
+    shadowEffect -> setBlurRadius(9.0);
+    shadowEffect -> setColor(QColor(0, 0, 0, 160));
+    shadowEffect -> setOffset(4.0);
+    ui -> WidgetMain -> setGraphicsEffect(shadowEffect);
+}
+
+void MainWindow::setFormControls()
+{
+    QMenu* advancedMenu = new QMenu(ui -> Advanced);
+    advancedMenu -> addMenu(createServiceControlSubmenu(advancedMenu));
     ui -> Advanced -> setMenu(advancedMenu);
 }
 

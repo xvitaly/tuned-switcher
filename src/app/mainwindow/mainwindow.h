@@ -15,6 +15,7 @@
 #include <QCloseEvent>
 #include <QKeyEvent>
 #include <QMainWindow>
+#include <QMenu>
 #include <QMouseEvent>
 #include <QPoint>
 #include <QString>
@@ -200,6 +201,13 @@ private:
      * Exit the application immediately.
     */
     void exitApplication();
+
+    /**
+     * Build and create submenu for service control functions.
+     * @param parent Parent widget.
+     * @returns Pointer to the QMenu instance.
+    */
+    QMenu* createServiceControlSubmenu(QWidget*);
 
     /**
      * Stores the GUI application form instance.
