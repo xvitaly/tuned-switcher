@@ -192,7 +192,7 @@ QMenu* MainWindow::createServiceControlSubmenu(QWidget* parent)
     connect(reloadAction, &QAction::triggered, this, [this](){ serviceControlEvent(TunedManager::ServiceMethod::MethodReload); });
     serviceControlMenu -> addAction(reloadAction);
 
-    QAction* shutdownAction = new QAction(tr("Shutdown the service"), serviceControlMenu);
+    QAction* shutdownAction = new QAction(tr("Shut down the service"), serviceControlMenu);
     connect(shutdownAction, &QAction::triggered, this, [this](){ serviceControlEvent(TunedManager::ServiceMethod::MethodShutdown); });
     serviceControlMenu -> addAction(shutdownAction);
 
