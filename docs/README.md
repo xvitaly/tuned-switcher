@@ -5,6 +5,7 @@
   * [Features](features.md)
   * [Installation](installation.md)
   * [Modes](modes.md)
+  * [Startup](startup.md)
   * [Using application](using-application.md)
   * [Configuration](configuration.md)
   * [Screenshots](screenshots.md)
