@@ -4,7 +4,8 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "settings.h"
+#include "settings/settings.h"
+
 #include "ui_settings.h"
 
 Settings::Settings(QWidget *parent)
