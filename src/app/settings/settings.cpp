@@ -4,6 +4,11 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
 */
 
+/**
+ * @file settings/settings.cpp
+ * Contains the Settings class implementation.
+*/
+
 #include "settings/settings.h"
 
 #include "ui_settings.h"
