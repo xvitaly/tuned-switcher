@@ -35,7 +35,7 @@ public:
      * Main constructor of the Settings class.
      * @param parent Parent widget.
     */
-    explicit Settings(QWidget *parent = nullptr);
+    explicit Settings(QWidget* parent = nullptr);
     
     /**
      * Destructor of the Settings class.
@@ -46,7 +46,7 @@ private:
     /**
      * Stores the GUI application form instance.
     */
-    Ui::Settings *ui;
+    Ui::Settings* ui;
 };
 
 #endif // SETTINGS_H
