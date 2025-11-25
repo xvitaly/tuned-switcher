@@ -26,6 +26,18 @@ class SettingsManager : public QObject
     Q_OBJECT
 public:
     /**
+     * Get whether saving the widget geometry is enabled.
+     * @returns Whether saving the widget geometry is enabled.
+    */
+    bool GetWidgetGeometryEnabled() const;
+
+    /**
+     * Set whether saving the widget geometry is enabled.
+     * @param value Enable or disable saving the widget geometry.
+    */
+    void SetWidgetGeometryEnabled(const bool);
+
+    /**
      * Get the geometry of the widget form.
      * @returns Geometry of the widget form.
     */
@@ -76,6 +88,11 @@ private:
      * Stores a pointer to the QSettings class instance.
     */
     QSettings* settings;
+
+    /**
+     * Stores whether saving the widget geometry is enabled.
+    */
+    const QString WidgetGeometryEnabledName = QStringLiteral("widget/saveGeometry");
 
     /**
      * Stores the geometry of the widget form option name.
