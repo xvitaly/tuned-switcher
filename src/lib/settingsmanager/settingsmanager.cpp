@@ -36,6 +36,16 @@ void SettingsManager::SetWidgetGeometry(const QByteArray& value)
     settings -> setValue(WidgetGeometryName, value);
 }
 
+bool SettingsManager::GetWidgetStateEnabled() const
+{
+    return settings -> value(WidgetStateEnabledName, true).toBool();
+}
+
+void SettingsManager::SetWidgetStateEnabled(const bool value)
+{
+    settings -> setValue(WidgetStateEnabledName, value);
+}
+
 QByteArray SettingsManager::GetWidgetState() const
 {
     return settings -> value(WidgetStateName).toByteArray();
