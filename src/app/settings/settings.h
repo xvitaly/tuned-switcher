@@ -42,7 +42,23 @@ public:
     */
     ~Settings();
 
+private slots:
+    /**
+     * Settings accepted event slot (handler).
+    */
+    void settingsAcceptedEvent();
+
+    /**
+     * Settings rejected event slot (handler).
+    */
+    void settingsRejectedEvent();
+
 private:
+    /**
+     * Initialize and connect the events for the form.
+    */
+    void setFormEvents();
+
     /**
      * Stores the GUI application form instance.
     */
