@@ -11,6 +11,7 @@
 
 #include <QDialog>
 
+#include "settingsmanager/settingsmanager.h"
 #include "settings/settings.h"
 
 #include "ui_settings.h"
@@ -18,12 +19,18 @@
 Settings::Settings(QWidget* parent) : QDialog(parent), ui(new Ui::Settings)
 {
     ui -> setupUi(this);
+    initializeSettings();
     setFormEvents();
 }
 
 Settings::~Settings()
 {
     delete ui;
+}
+
+void Settings::initializeSettings()
+{
+    settings = new SettingsManager(this);
 }
 
 void Settings::setFormEvents()
