@@ -20,6 +20,7 @@ Settings::Settings(QWidget* parent) : QDialog(parent), ui(new Ui::Settings)
 {
     ui -> setupUi(this);
     initializeSettings();
+    loadSettings();
     setFormEvents();
 }
 
@@ -31,6 +32,13 @@ Settings::~Settings()
 void Settings::initializeSettings()
 {
     settings = new SettingsManager(this);
+}
+
+void Settings::loadSettings()
+{
+    ui -> SaveFormGeometry -> setChecked(settings -> GetWidgetGeometryEnabled());
+    ui -> SaveFormState -> setChecked(settings -> GetWidgetStateEnabled());
+    ui -> EnableSound -> setChecked(settings -> GetSoundEnabled());
 }
 
 void Settings::setFormEvents()

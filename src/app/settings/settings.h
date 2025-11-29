@@ -62,6 +62,11 @@ private:
     void initializeSettings();
 
     /**
+     * Load settings from file.
+    */
+    void loadSettings();
+
+    /**
      * Initialize and connect the events for the form.
     */
     void setFormEvents();
