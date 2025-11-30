@@ -41,6 +41,13 @@ void Settings::loadSettings()
     ui -> EnableSound -> setChecked(settings -> GetSoundEnabled());
 }
 
+void Settings::saveSettings()
+{
+    settings -> SetWidgetGeometryEnabled(ui -> SaveFormGeometry -> isChecked());
+    settings -> SetWidgetStateEnabled(ui -> SaveFormState -> isChecked());
+    settings -> SetSoundEnabled(ui -> EnableSound -> isChecked());
+}
+
 void Settings::setFormEvents()
 {
     connect(this, &QDialog::accepted, this, &Settings::settingsAcceptedEvent);

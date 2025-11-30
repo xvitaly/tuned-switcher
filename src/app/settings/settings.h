@@ -67,6 +67,11 @@ private:
     void loadSettings();
 
     /**
+     * Save settings to file.
+    */
+    void saveSettings();
+
+    /**
      * Initialize and connect the events for the form.
     */
     void setFormEvents();
