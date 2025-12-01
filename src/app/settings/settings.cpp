@@ -56,7 +56,8 @@ void Settings::setFormEvents()
 
 void Settings::settingsAcceptedEvent()
 {
-    //
+    saveSettings();
+    this -> close();
 }
 
 void Settings::settingsRejectedEvent()
