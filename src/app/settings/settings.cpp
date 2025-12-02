@@ -62,5 +62,5 @@ void Settings::settingsAcceptedEvent()
 
 void Settings::settingsRejectedEvent()
 {
-    //
+    this -> close();
 }
