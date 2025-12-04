@@ -192,11 +192,13 @@ endif()
 
 set(APPLICATION_HEADERS
     src/app/mainwindow/mainwindow.h
+    src/app/settings/settings.h
     src/app/trayicon/trayicon.h
 )
 
 set(APPLICATION_SOURCES
     src/app/mainwindow/mainwindow.cpp
+    src/app/settings/settings.cpp
     src/app/trayicon/trayicon.cpp
     src/app/main.cpp
 )
@@ -207,6 +209,7 @@ set(APPLICATION_RESOURCES
 
 set(APPLICATION_UI_SOURCES
     src/app/mainwindow/mainwindow.ui
+    src/app/settings/settings.ui
 )
 
 file(GLOB APPLICATION_TS_SOURCES "assets/i18n/${APP_NAME}_*.ts")

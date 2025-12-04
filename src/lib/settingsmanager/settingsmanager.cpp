@@ -16,6 +16,16 @@
 
 #include "settingsmanager/settingsmanager.h"
 
+bool SettingsManager::GetWidgetGeometryEnabled() const
+{
+    return settings -> value(WidgetGeometryEnabledName, true).toBool();
+}
+
+void SettingsManager::SetWidgetGeometryEnabled(const bool value)
+{
+    settings -> setValue(WidgetGeometryEnabledName, value);
+}
+
 QByteArray SettingsManager::GetWidgetGeometry() const
 {
     return settings -> value(WidgetGeometryName).toByteArray();
@@ -24,6 +34,16 @@ QByteArray SettingsManager::GetWidgetGeometry() const
 void SettingsManager::SetWidgetGeometry(const QByteArray& value)
 {
     settings -> setValue(WidgetGeometryName, value);
+}
+
+bool SettingsManager::GetWidgetStateEnabled() const
+{
+    return settings -> value(WidgetStateEnabledName, true).toBool();
+}
+
+void SettingsManager::SetWidgetStateEnabled(const bool value)
+{
+    settings -> setValue(WidgetStateEnabledName, value);
 }
 
 QByteArray SettingsManager::GetWidgetState() const
