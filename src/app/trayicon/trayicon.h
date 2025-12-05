@@ -69,7 +69,12 @@ private slots:
     void serviceControlEvent(const TunedManager::ServiceMethod);
 
     /**
-     * "Exit application" event slot (handler).
+     * "Show settings" menu item clicked event slot (handler).
+    */
+    void showSettingsEvent();
+
+    /**
+     * "Exit application" menu item clicked event slot (handler).
     */
     void exitEvent();
 private:

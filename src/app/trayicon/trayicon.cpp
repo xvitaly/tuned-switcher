@@ -24,6 +24,7 @@
 #include "appconstants/appconstants.h"
 #include "notificationsmanager/notificationsmanager.h"
 #include "settingsmanager/settingsmanager.h"
+#include "settings/settings.h"
 #include "trayicon/trayicon.h"
 #include "tunedmanager/tunedmanager.h"
 #include "tunedtypes/tunedtypes.h"
@@ -193,11 +194,15 @@ QMenu* TrayIcon::createTrayIconMenu()
     // Creating QMenu object...
     QMenu* trayIconMenu = new QMenu(this);
 
-    // Setting actions and slots...
+    // Setting "Show settings" menu action...
+    QAction* settingsAction = new QAction(tr("Settings"), trayIconMenu);
+    connect(settingsAction, &QAction::triggered, this, &TrayIcon::showSettingsEvent);
+
+    // Setting "Quit application" menu action...
     QAction* quitAction = new QAction(tr("Quit"), trayIconMenu);
     connect(quitAction, &QAction::triggered, this, &TrayIcon::exitEvent);
 
-    // Setting system tray's icon menu...
+    // Setting "Auto-select profile" menu action...
     QAction* autoProfile = new QAction(tr("Auto-select profile"), trayIconMenu);
     autoProfile -> setCheckable(true);
     menuActions.insert(autoProfileActionName, autoProfile);
@@ -207,6 +212,7 @@ QMenu* TrayIcon::createTrayIconMenu()
     trayIconMenu -> addMenu(createProfilesSubmenu(trayIconMenu));
     trayIconMenu -> addSeparator();
     trayIconMenu -> addMenu(createServiceControlSubmenu(trayIconMenu));
+    trayIconMenu -> addAction(settingsAction);
     trayIconMenu -> addSeparator();
     trayIconMenu -> addAction(quitAction);
     return trayIconMenu;
@@ -240,6 +246,12 @@ void TrayIcon::serviceControlEvent(const TunedManager::ServiceMethod method)
         notifications -> ShowNotification(tr("Service control"), tr("The requested service control operation completed successfully."));
     else
         notifications -> ShowNotification(tr("Service control error"), tr("Failed to perform the requested service control operation! Current settings remain unchanged."));
+}
+
+void TrayIcon::showSettingsEvent()
+{
+    Settings* settingsForm = new Settings(this);
+    settingsForm -> exec();
 }
 
 void TrayIcon::exitEvent()
