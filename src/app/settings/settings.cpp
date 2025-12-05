@@ -46,6 +46,7 @@ void Settings::saveSettings()
     settings -> SetWidgetGeometryEnabled(ui -> SaveFormGeometry -> isChecked());
     settings -> SetWidgetStateEnabled(ui -> SaveFormState -> isChecked());
     settings -> SetSoundEnabled(ui -> EnableSound -> isChecked());
+    settings -> Save();
 }
 
 void Settings::setFormEvents()
