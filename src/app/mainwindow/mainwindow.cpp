@@ -34,6 +34,7 @@
 #include "mainwindow/mainwindow.h"
 #include "notificationsmanager/notificationsmanager.h"
 #include "settingsmanager/settingsmanager.h"
+#include "settings/settings.h"
 #include "tunedmanager/tunedmanager.h"
 #include "tunedtypes/tunedtypes.h"
 
@@ -207,6 +208,11 @@ QMenu* MainWindow::createMainMenu(QWidget* parent)
 {
     QMenu* mainMenu = new QMenu(parent);
     mainMenu -> addMenu(createServiceControlSubmenu(mainMenu));
+
+    QAction* settingsAction = new QAction(tr("Settings"), mainMenu);
+    connect(settingsAction, &QAction::triggered, this, &MainWindow::showSettingsEvent);
+    mainMenu -> addAction(settingsAction);
+
     return mainMenu;
 }
 
@@ -309,4 +315,10 @@ void MainWindow::profileAutoSelectedEvent(const bool autoMode)
             notifications -> ShowNotification(tr("Profile auto-selection error"), tr("Failed to enable profile auto-selection: %1").arg(result.Message));
         }
     }
+}
+
+void MainWindow::showSettingsEvent()
+{
+    Settings* settingsForm = new Settings(this);
+    settingsForm -> exec();
 }

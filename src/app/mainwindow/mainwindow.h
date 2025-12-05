@@ -118,6 +118,11 @@ private slots:
     */
     void serviceControlEvent(const TunedManager::ServiceMethod);
 
+    /**
+     * "Show settings" menu item clicked event slot (handler).
+    */
+    void showSettingsEvent();
+
 private:
     /**
      * Initialize the SettingsManager class instance.
