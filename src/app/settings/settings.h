@@ -72,6 +72,11 @@ private:
     void saveSettings();
 
     /**
+     * Set custom form style.
+    */
+    void setFormStyle();
+
+    /**
      * Initialize and connect the events for the form.
     */
     void setFormEvents();

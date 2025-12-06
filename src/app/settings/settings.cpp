@@ -21,6 +21,7 @@ Settings::Settings(QWidget* parent) : QDialog(parent), ui(new Ui::Settings)
     ui -> setupUi(this);
     initializeSettings();
     loadSettings();
+    setFormStyle();
     setFormEvents();
 }
 
@@ -47,6 +48,11 @@ void Settings::saveSettings()
     settings -> SetWidgetStateEnabled(ui -> SaveFormState -> isChecked());
     settings -> SetSoundEnabled(ui -> EnableSound -> isChecked());
     settings -> Save();
+}
+
+void Settings::setFormStyle()
+{
+    setFixedSize(width(), height());
 }
 
 void Settings::setFormEvents()
