@@ -64,10 +64,10 @@ void Settings::setFormEvents()
 void Settings::settingsAcceptedEvent()
 {
     saveSettings();
-    this -> close();
+    close();
 }
 
 void Settings::settingsRejectedEvent()
 {
-    this -> close();
+    close();
 }
