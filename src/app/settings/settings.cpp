@@ -10,6 +10,7 @@
 */
 
 #include <QDialog>
+#include <QMessageBox>
 
 #include "settingsmanager/settingsmanager.h"
 #include "settings/settings.h"
@@ -21,6 +22,7 @@ Settings::Settings(QWidget* parent) : QDialog(parent), ui(new Ui::Settings)
     ui -> setupUi(this);
     initializeSettings();
     loadSettings();
+    setFormStyle();
     setFormEvents();
 }
 
@@ -49,6 +51,11 @@ void Settings::saveSettings()
     settings -> Save();
 }
 
+void Settings::setFormStyle()
+{
+    setFixedSize(width(), height());
+}
+
 void Settings::setFormEvents()
 {
     connect(this, &QDialog::accepted, this, &Settings::settingsAcceptedEvent);
@@ -58,10 +65,11 @@ void Settings::setFormEvents()
 void Settings::settingsAcceptedEvent()
 {
     saveSettings();
-    this -> close();
+    QMessageBox::information(this, tr("Settings saved"), tr("Settings have been saved successfully!"));
+    close();
 }
 
 void Settings::settingsRejectedEvent()
 {
-    this -> close();
+    close();
 }
