@@ -11,6 +11,7 @@
 
 #include <QDialog>
 #include <QMessageBox>
+#include <QWidget>
 
 #include "settingsmanager/settingsmanager.h"
 #include "settings/settings.h"
