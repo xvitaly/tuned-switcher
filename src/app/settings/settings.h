@@ -13,6 +13,7 @@
 */
 
 #include <QDialog>
+#include <QWidget>
 
 #include "settingsmanager/settingsmanager.h"
 
