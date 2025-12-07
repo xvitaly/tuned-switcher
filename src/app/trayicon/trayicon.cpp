@@ -23,8 +23,8 @@
 
 #include "appconstants/appconstants.h"
 #include "notificationsmanager/notificationsmanager.h"
-#include "settingsmanager/settingsmanager.h"
 #include "settings/settings.h"
+#include "settingsmanager/settingsmanager.h"
 #include "trayicon/trayicon.h"
 #include "tunedmanager/tunedmanager.h"
 #include "tunedtypes/tunedtypes.h"

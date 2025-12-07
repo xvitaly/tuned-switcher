@@ -33,8 +33,8 @@
 #include "appconstants/appconstants.h"
 #include "mainwindow/mainwindow.h"
 #include "notificationsmanager/notificationsmanager.h"
-#include "settingsmanager/settingsmanager.h"
 #include "settings/settings.h"
+#include "settingsmanager/settingsmanager.h"
 #include "tunedmanager/tunedmanager.h"
 #include "tunedtypes/tunedtypes.h"
 
