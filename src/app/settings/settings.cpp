@@ -13,8 +13,8 @@
 #include <QMessageBox>
 #include <QWidget>
 
-#include "settingsmanager/settingsmanager.h"
 #include "settings/settings.h"
+#include "settingsmanager/settingsmanager.h"
 
 #include "ui_settings.h"
 
