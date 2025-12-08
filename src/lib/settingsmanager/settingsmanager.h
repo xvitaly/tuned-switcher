@@ -104,12 +104,12 @@ private:
     /**
      * Stores whether saving the form geometry is enabled.
     */
-    const QString GeometrySavingEnabledName = QStringLiteral("widget/saveGeometry");
+    const QString GeometrySavingEnabledName = QStringLiteral("common/saveGeometry");
 
     /**
      * Stores whether saving the form state is enabled.
     */
-    const QString StateSavingEnabledName = QStringLiteral("widget/saveState");
+    const QString StateSavingEnabledName = QStringLiteral("common/saveState");
 
     /**
      * Stores the geometry of the widget form option name.
