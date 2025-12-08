@@ -18,22 +18,22 @@
 
 bool SettingsManager::GetGeometrySavingEnabled() const
 {
-    return settings -> value(WidgetGeometryEnabledName, true).toBool();
+    return settings -> value(GeometrySavingEnabledName, true).toBool();
 }
 
 void SettingsManager::SetGeometrySavingEnabled(const bool value)
 {
-    settings -> setValue(WidgetGeometryEnabledName, value);
+    settings -> setValue(GeometrySavingEnabledName, value);
 }
 
 bool SettingsManager::GetStateSavingEnabled() const
 {
-    return settings -> value(WidgetStateEnabledName, true).toBool();
+    return settings -> value(StateSavingEnabledName, true).toBool();
 }
 
 void SettingsManager::SetStateSavingEnabled(const bool value)
 {
-    settings -> setValue(WidgetStateEnabledName, value);
+    settings -> setValue(StateSavingEnabledName, value);
 }
 
 QByteArray SettingsManager::GetWidgetGeometry() const
