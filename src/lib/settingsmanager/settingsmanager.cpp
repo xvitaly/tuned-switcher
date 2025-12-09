@@ -56,6 +56,16 @@ void SettingsManager::SetWidgetState(const QByteArray& value)
     settings -> setValue(WidgetStateName, value);
 }
 
+QByteArray SettingsManager::GetSettingsGeometry() const
+{
+    return settings -> value(SettingsGeometryName).toByteArray();
+}
+
+void SettingsManager::SetSettingsGeometry(const QByteArray& value)
+{
+    settings -> setValue(SettingsGeometryName, value);
+}
+
 bool SettingsManager::GetSoundEnabled() const
 {
     return settings -> value(SoundEnabledName, true).toBool();
