@@ -74,6 +74,18 @@ public:
     void SetWidgetState(const QByteArray&);
 
     /**
+     * Get the geometry of the settings form.
+     * @returns Geometry of the settings form.
+    */
+    QByteArray GetSettingsGeometry() const;
+
+    /**
+     * Set the geometry of the settings form.
+     * @param value New settings form geometry value.
+    */
+    void SetSettingsGeometry(const QByteArray&);
+
+    /**
      * Get the notification sound configuration.
      * @returns Notification sound configuration.
     */
@@ -120,6 +132,11 @@ private:
      * Stores the state of the widget form option name.
     */
     const QString WidgetStateName = QStringLiteral("widget/state");
+
+    /**
+     * Stores the geometry of the settings form option name.
+    */
+    const QString SettingsGeometryName = QStringLiteral("settings/geometry");
 
     /**
      * Stores the notification sound configuration option name.
