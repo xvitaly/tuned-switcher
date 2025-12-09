@@ -48,6 +48,8 @@ void Settings::loadSettings()
 
 void Settings::saveSettings()
 {
+    if (settings -> GetGeometrySavingEnabled())
+        settings -> SetSettingsGeometry(saveGeometry());
     settings -> SetGeometrySavingEnabled(ui -> SaveFormGeometry -> isChecked());
     settings -> SetStateSavingEnabled(ui -> SaveFormState -> isChecked());
     settings -> SetSoundEnabled(ui -> EnableSound -> isChecked());
