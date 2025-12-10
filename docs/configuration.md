@@ -13,5 +13,6 @@ Supported options:
 | common | saveGeometry | bool | true | Stores whether saving the form geometry is enabled. |
 | common | saveState | bool | true | Stores whether saving the form state is enabled. |
 | common | soundEnabled | bool | true | Stores whether the notification sound is enabled. |
+| settings | geometry | QByteArray | not set | Stores the geometry of the Settings form. |
 | widget | geometry | QByteArray | not set | Stores the geometry of the Widget form. |
 | widget | state | QByteArray | not set | Stores the state of the Widget form. |
