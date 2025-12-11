@@ -14,6 +14,7 @@
 #include <QCheckBox>
 #include <QCloseEvent>
 #include <QComboBox>
+#include <QDialog>
 #include <QFlags>
 #include <QGraphicsDropShadowEffect>
 #include <QIcon>
@@ -320,5 +321,6 @@ void MainWindow::profileAutoSelectedEvent(const bool autoMode)
 void MainWindow::showSettingsEvent()
 {
     Settings* settingsForm = new Settings(this);
-    settingsForm -> exec();
+    if (settingsForm -> exec() == QDialog::Accepted)
+        notifications -> ShowNotification(tr("Settings saved"), tr("The program settings have been saved successfully!"));
 }

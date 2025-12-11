@@ -10,7 +10,6 @@
 */
 
 #include <QDialog>
-#include <QMessageBox>
 #include <QWidget>
 
 #include "settings/settings.h"
@@ -70,7 +69,6 @@ void Settings::setFormEvents()
 void Settings::settingsAcceptedEvent()
 {
     saveSettings();
-    QMessageBox::information(this, tr("Settings saved"), tr("Settings have been saved successfully!"));
     close();
 }
 

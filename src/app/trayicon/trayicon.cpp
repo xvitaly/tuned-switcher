@@ -12,6 +12,7 @@
 #include <QAction>
 #include <QActionGroup>
 #include <QApplication>
+#include <QDialog>
 #include <QIcon>
 #include <QMenu>
 #include <QString>
@@ -251,7 +252,8 @@ void TrayIcon::serviceControlEvent(const TunedManager::ServiceMethod method)
 void TrayIcon::showSettingsEvent()
 {
     Settings* settingsForm = new Settings(this);
-    settingsForm -> exec();
+    if (settingsForm -> exec() == QDialog::Accepted)
+        notifications -> ShowNotification(tr("Settings saved"), tr("The program settings have been saved successfully!"));
 }
 
 void TrayIcon::exitEvent()
