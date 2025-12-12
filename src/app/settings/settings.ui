@@ -29,7 +29,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <item>
          <widget class="QCheckBox" name="SaveFormGeometry">
           <property name="text">
-           <string>Save and restore window geometry</string>
+           <string>Save and restore form geometry</string>
           </property>
          </widget>
         </item>
