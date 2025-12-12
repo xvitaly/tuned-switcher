@@ -253,7 +253,7 @@ void TrayIcon::showSettingsEvent()
 {
     Settings* settingsForm = new Settings(this);
     if (settingsForm -> exec() == QDialog::Accepted)
-        notifications -> ShowNotification(tr("Settings saved"), tr("The program settings have been saved successfully!"));
+        notifications -> ShowNotification(tr("Settings saved"), tr("The application settings have been saved successfully!"));
 }
 
 void TrayIcon::exitEvent()
