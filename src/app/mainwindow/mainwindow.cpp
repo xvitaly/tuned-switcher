@@ -50,6 +50,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWi
     setFormControls();
     setFormEvents();
     initializeNotifications();
+    setNotificationsMode();
     initializeTuned();
     checkTunedRunning();
     getTunedProfiles();
@@ -114,7 +115,6 @@ void MainWindow::initializeSettings()
 void MainWindow::initializeNotifications()
 {
     notifications = new NotificationsManager(this);
-    notifications -> SetNotificationSoundMode(settings -> GetSoundEnabled());
 }
 
 void MainWindow::initializeTuned()
@@ -257,6 +257,11 @@ void MainWindow::markAutoProfileMode()
     setAutoProfileMode(tunedManager -> IsProfileModeAuto());
 }
 
+void MainWindow::setNotificationsMode()
+{
+    notifications -> SetNotificationSoundMode(settings -> GetSoundEnabled());
+}
+
 void MainWindow::serviceControlEvent(const TunedManager::ServiceMethod method)
 {
     if (tunedManager -> RunServiceMethod(method))
@@ -322,5 +327,8 @@ void MainWindow::showSettingsEvent()
 {
     Settings* settingsForm = new Settings(this);
     if (settingsForm -> exec() == QDialog::Accepted)
+    {
+        setNotificationsMode();
         notifications -> ShowNotification(tr("Settings saved"), tr("The application settings have been saved successfully!"));
+    }
 }

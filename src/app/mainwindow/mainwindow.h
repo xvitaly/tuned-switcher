@@ -203,6 +203,11 @@ private:
     void setAutoProfileMode(const bool);
 
     /**
+     * Set the notifications sound mode.
+    */
+    void setNotificationsMode();
+
+    /**
      * Exit the application immediately.
     */
     void exitApplication();
