@@ -34,6 +34,7 @@ TrayIcon::TrayIcon(QWidget* parent) : QWidget(parent)
 {
     initializeSettings();
     initializeNotifications();
+    setNotificationsMode();
     initializeTuned();
     checkTunedRunning();
     setTrayIcon();
@@ -50,7 +51,6 @@ void TrayIcon::initializeSettings()
 void TrayIcon::initializeNotifications()
 {
     notifications = new NotificationsManager(this);
-    notifications -> SetNotificationSoundMode(settings -> GetSoundEnabled());
 }
 
 void TrayIcon::initializeTuned()
@@ -117,6 +117,11 @@ void TrayIcon::setAutoProfileMode(const bool autoMode)
 void TrayIcon::markAutoProfileMode()
 {
     setAutoProfileMode(tunedManager -> IsProfileModeAuto());
+}
+
+void TrayIcon::setNotificationsMode()
+{
+    notifications -> SetNotificationSoundMode(settings -> GetSoundEnabled());
 }
 
 void TrayIcon::exitApplication()
@@ -254,7 +259,7 @@ void TrayIcon::showSettingsEvent()
     Settings* settingsForm = new Settings(this);
     if (settingsForm -> exec() == QDialog::Accepted)
     {
-        notifications -> SetNotificationSoundMode(settings -> GetSoundEnabled());
+        setNotificationsMode();
         notifications -> ShowNotification(tr("Settings saved"), tr("The application settings have been saved successfully!"));
     }
 }

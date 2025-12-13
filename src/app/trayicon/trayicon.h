@@ -128,6 +128,11 @@ private:
     void markAutoProfileMode();
 
     /**
+     * Set the notifications sound mode.
+    */
+    void setNotificationsMode();
+
+    /**
      * Subscribe to DBus events.
     */
     void subscribeToEvents();
