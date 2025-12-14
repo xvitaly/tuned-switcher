@@ -34,12 +34,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
     </message>
     <message>
         <location line="+37"/>
-        <location line="+76"/>
+        <location line="+81"/>
         <source>Service control</source>
         <translation>Управление сервисом</translation>
     </message>
     <message>
-        <location line="-74"/>
+        <location line="-79"/>
         <source>Enable the service</source>
         <translation>Запустить сервис</translation>
     </message>
@@ -64,7 +64,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Настройки</translation>
     </message>
     <message>
-        <location line="+50"/>
+        <location line="+55"/>
         <source>The requested service control operation completed successfully.</source>
         <translation>Выбранная операция по управлению сервисом была успешно выполнена.</translation>
     </message>
@@ -121,7 +121,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Ошибка авто-выбора профиля</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+11"/>
         <source>Settings saved</source>
         <translation>Настройки сохранены</translation>
     </message>
@@ -135,7 +135,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
     <name>Settings</name>
     <message>
         <location filename="../../src/app/settings/settings.ui" line="+21"/>
-        <source>Options</source>
+        <source>Settings</source>
         <translation>Настройки</translation>
     </message>
     <message>
@@ -167,7 +167,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Не удалось запустить сервис Tuned при помощи D-Bus. Приложение будет завершено.</translation>
     </message>
     <message>
-        <location line="+67"/>
+        <location line="+72"/>
         <source>The active profile was automatically switched to &lt;b&gt;%1&lt;/b&gt;.</source>
         <translation>Текущий профиль был автоматически переключён на &lt;b&gt;%1&lt;/b&gt;.</translation>
     </message>
@@ -264,7 +264,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Не удалось выполнить запрошенную операцию по управлению сервисом! Текущие настройки не были изменены.</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+9"/>
         <source>Settings saved</source>
         <translation>Настройки сохранены</translation>
     </message>
@@ -274,7 +274,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Настройки приложения были успешно сохранены!</translation>
     </message>
     <message>
-        <location line="-26"/>
+        <location line="-28"/>
         <source>Failed to enable profile auto-selection: %1</source>
         <translation>Не удалось активировать авто-выбор профиля из-за ошибки: %1</translation>
     </message>
