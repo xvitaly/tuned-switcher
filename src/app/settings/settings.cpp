@@ -47,12 +47,19 @@ void Settings::loadSettings()
 
 void Settings::saveSettings()
 {
-    if (settings -> GetGeometrySavingEnabled())
-        settings -> SetSettingsGeometry(saveGeometry());
     settings -> SetGeometrySavingEnabled(ui -> SaveFormGeometry -> isChecked());
     settings -> SetStateSavingEnabled(ui -> SaveFormState -> isChecked());
     settings -> SetSoundEnabled(ui -> EnableSound -> isChecked());
     settings -> Save();
+}
+
+void Settings::saveFormGeometry()
+{
+    if (settings -> GetGeometrySavingEnabled())
+    {
+        settings -> SetSettingsGeometry(saveGeometry());
+        settings -> Save();
+    }
 }
 
 void Settings::setFormStyle()
@@ -69,10 +76,12 @@ void Settings::setFormEvents()
 void Settings::settingsAcceptedEvent()
 {
     saveSettings();
+    saveFormGeometry();
     close();
 }
 
 void Settings::settingsRejectedEvent()
 {
+    saveFormGeometry();
     close();
 }
