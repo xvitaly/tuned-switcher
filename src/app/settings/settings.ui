@@ -18,7 +18,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Options</string>
+   <string>Settings</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>

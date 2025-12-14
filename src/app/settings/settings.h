@@ -73,6 +73,11 @@ private:
     void saveSettings();
 
     /**
+     * Save form geometry: position and size.
+    */
+    void saveFormGeometry();
+
+    /**
      * Set custom form style.
     */
     void setFormStyle();
