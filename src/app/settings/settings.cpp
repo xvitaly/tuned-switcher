@@ -77,11 +77,9 @@ void Settings::settingsAcceptedEvent()
 {
     saveSettings();
     saveFormGeometry();
-    close();
 }
 
 void Settings::settingsRejectedEvent()
 {
     saveFormGeometry();
-    close();
 }
