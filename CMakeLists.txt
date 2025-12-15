@@ -191,12 +191,14 @@ endif()
 # ======================================================
 
 set(APPLICATION_HEADERS
+    src/app/about/about.h
     src/app/mainwindow/mainwindow.h
     src/app/settings/settings.h
     src/app/trayicon/trayicon.h
 )
 
 set(APPLICATION_SOURCES
+    src/app/about/about.cpp
     src/app/mainwindow/mainwindow.cpp
     src/app/settings/settings.cpp
     src/app/trayicon/trayicon.cpp
@@ -208,6 +210,7 @@ set(APPLICATION_RESOURCES
 )
 
 set(APPLICATION_UI_SOURCES
+    src/app/about/about.ui
     src/app/mainwindow/mainwindow.ui
     src/app/settings/settings.ui
 )
