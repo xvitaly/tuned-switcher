@@ -15,11 +15,9 @@
 
 #include "ui_about.h"
 
-About::About(QWidget *parent)
-    : QWidget(parent)
-    , ui(new Ui::About)
+About::About(QWidget* parent) : QWidget(parent), ui(new Ui::About)
 {
-    ui->setupUi(this);
+    ui -> setupUi(this);
 }
 
 About::~About()
