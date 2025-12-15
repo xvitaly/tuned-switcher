@@ -4,7 +4,10 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#include "about.h"
+#include <QWidget>
+
+#include "about/about.h"
+
 #include "ui_about.h"
 
 About::About(QWidget *parent)
