@@ -4,6 +4,11 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
 */
 
+/**
+ * @file about/about.cpp
+ * Contains the About class implementation.
+*/
+
 #include <QWidget>
 
 #include "about/about.h"
