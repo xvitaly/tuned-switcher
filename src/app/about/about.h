@@ -35,7 +35,7 @@ public:
      * Main constructor of the About class.
      * @param parent Parent widget.
     */
-    explicit About(QWidget *parent = nullptr);
+    explicit About(QWidget* parent = nullptr);
 
     /**
      * Destructor of the About class.
@@ -46,7 +46,7 @@ private:
     /**
      * Stores the GUI application form instance.
     */
-    Ui::About *ui;
+    Ui::About* ui;
 };
 
 #endif // ABOUT_H
