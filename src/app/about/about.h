@@ -7,21 +7,45 @@
 #ifndef ABOUT_H
 #define ABOUT_H
 
+/**
+ * @file about/about.h
+ * Contains the About class definition.
+*/
+
 #include <QWidget>
 
+/**
+ * UI namespace.
+*/
 namespace Ui {
-class About;
+    /**
+     * GUI application form elements.
+    */
+    class About;
 }
 
+/**
+ * Class for working with the About form.
+*/
 class About : public QWidget
 {
     Q_OBJECT
-
 public:
+    /**
+     * Main constructor of the About class.
+     * @param parent Parent widget.
+    */
     explicit About(QWidget *parent = nullptr);
+
+    /**
+     * Destructor of the About class.
+    */
     ~About();
 
 private:
+    /**
+     * Stores the GUI application form instance.
+    */
     Ui::About *ui;
 };
 
