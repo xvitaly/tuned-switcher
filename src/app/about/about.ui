@@ -5,7 +5,7 @@ SPDX-FileCopyrightText: 2021-2025 EasyCoding Team and contributors
 SPDX-License-Identifier: GPL-3.0-or-later
  </author>
  <class>About</class>
- <widget class="QWidget" name="About">
+ <widget class="QDialog" name="About">
   <property name="windowModality">
    <enum>Qt::WindowModality::WindowModal</enum>
   </property>

@@ -9,13 +9,13 @@
  * Contains the About class implementation.
 */
 
-#include <QWidget>
+#include <QDialog>
 
 #include "about/about.h"
 
 #include "ui_about.h"
 
-About::About(QWidget* parent) : QWidget(parent), ui(new Ui::About)
+About::About(QWidget* parent) : QDialog(parent), ui(new Ui::About)
 {
     ui -> setupUi(this);
 }

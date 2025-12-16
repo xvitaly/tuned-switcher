@@ -12,7 +12,7 @@
  * Contains the About class definition.
 */
 
-#include <QWidget>
+#include <QDialog>
 
 /**
  * UI namespace.
@@ -27,7 +27,7 @@ namespace Ui {
 /**
  * Class for working with the About form.
 */
-class About : public QWidget
+class About : public QDialog
 {
     Q_OBJECT
 public:
