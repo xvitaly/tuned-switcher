@@ -10,6 +10,7 @@
 */
 
 #include <QDialog>
+#include <QWidget>
 
 #include "about/about.h"
 
