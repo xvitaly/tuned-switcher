@@ -13,6 +13,7 @@
 */
 
 #include <QDialog>
+#include <QWidget>
 
 /**
  * UI namespace.
