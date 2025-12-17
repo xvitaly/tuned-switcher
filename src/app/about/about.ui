@@ -25,6 +25,27 @@ SPDX-License-Identifier: GPL-3.0-or-later
     <widget class="QWidget" name="MainWidget" native="true">
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
+       <widget class="QLabel" name="AppName">
+        <property name="font">
+         <font>
+          <pointsize>16</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string notr="true">AppName</string>
+        </property>
+        <property name="textFormat">
+         <enum>Qt::TextFormat::PlainText</enum>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignmentFlag::AlignCenter</set>
+        </property>
+        <property name="textInteractionFlags">
+         <set>Qt::TextInteractionFlag::NoTextInteraction</set>
+        </property>
+       </widget>
+      </item>
+      <item>
        <spacer name="VerticalSpacer">
         <property name="orientation">
          <enum>Qt::Orientation::Vertical</enum>
