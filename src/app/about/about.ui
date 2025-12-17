@@ -13,8 +13,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>369</width>
-    <height>420</height>
+    <width>343</width>
+    <height>478</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -98,7 +98,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
           <item>
            <widget class="QLabel" name="AppLicense">
             <property name="text">
-             <string>Provided under the terms of the GPLv3+ license. The included components may use a variety of other licenses.</string>
+             <string notr="true">Provided under the terms of the GPL-3.0-or-later license. The included components may use a variety of other licenses.</string>
             </property>
             <property name="wordWrap">
              <bool>true</bool>
@@ -113,6 +113,26 @@ SPDX-License-Identifier: GPL-3.0-or-later
        <widget class="QLabel" name="AppCopyright">
         <property name="text">
          <string notr="true">(c) 2021-2025 EasyCoding Team and contributors</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPlainTextEdit" name="AppDescription">
+        <property name="acceptDrops">
+         <bool>false</bool>
+        </property>
+        <property name="readOnly">
+         <bool>true</bool>
+        </property>
+        <property name="plainText">
+         <string notr="true">Special thanks to all contributors and testers, as well as developers and authors of libraries and assets used in this application.
+
+The application icon is licensed under the terms of the Apache-2.0 license.
+
+Third party libraries (dynamically linked):
+ - Qt (GPL-3.0-only license).
+
+Additional information about the components used in this project, including the name of the author of each component, full license names, and important links, can be found in the official documentation.</string>
         </property>
        </widget>
       </item>
