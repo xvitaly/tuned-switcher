@@ -32,7 +32,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
          </font>
         </property>
         <property name="text">
-         <string notr="true">AppName</string>
+         <string notr="true">Application Name</string>
         </property>
         <property name="textFormat">
          <enum>Qt::TextFormat::PlainText</enum>
