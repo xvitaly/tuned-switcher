@@ -215,6 +215,10 @@ QMenu* MainWindow::createMainMenu(QWidget* parent)
     connect(settingsAction, &QAction::triggered, this, &MainWindow::showSettingsEvent);
     mainMenu -> addAction(settingsAction);
 
+    QAction* aboutAction = new QAction(tr("About"), mainMenu);
+    connect(aboutAction, &QAction::triggered, this, &MainWindow::showAboutEvent);
+    mainMenu -> addAction(aboutAction);
+
     return mainMenu;
 }
 
