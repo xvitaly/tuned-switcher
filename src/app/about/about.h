@@ -45,6 +45,11 @@ public:
 
 private:
     /**
+     * Set custom form style.
+    */
+    void setFormStyle();
+
+    /**
      * Stores the GUI application form instance.
     */
     Ui::About* ui;

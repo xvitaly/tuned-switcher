@@ -19,9 +19,15 @@
 About::About(QWidget* parent) : QDialog(parent), ui(new Ui::About)
 {
     ui -> setupUi(this);
+    setFormStyle();
 }
 
 About::~About()
 {
     delete ui;
+}
+
+void About::setFormStyle()
+{
+    setFixedSize(width(), height());
 }
