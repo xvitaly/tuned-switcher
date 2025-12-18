@@ -74,6 +74,11 @@ private slots:
     void showSettingsEvent();
 
     /**
+     * "Show About form" menu item clicked event slot (handler).
+    */
+    void showAboutEvent();
+
+    /**
      * "Exit application" menu item clicked event slot (handler).
     */
     void exitEvent();

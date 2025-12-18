@@ -22,6 +22,7 @@
 #include <QTimer>
 #include <QWidget>
 
+#include "about/about.h"
 #include "appconstants/appconstants.h"
 #include "notificationsmanager/notificationsmanager.h"
 #include "settings/settings.h"
@@ -262,6 +263,12 @@ void TrayIcon::showSettingsEvent()
         setNotificationsMode();
         notifications -> ShowNotification(tr("Settings saved"), tr("The application settings have been saved successfully!"));
     }
+}
+
+void TrayIcon::showAboutEvent()
+{
+    About* aboutForm = new About(this);
+    aboutForm -> exec();
 }
 
 void TrayIcon::exitEvent()
