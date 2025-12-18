@@ -205,6 +205,10 @@ QMenu* TrayIcon::createTrayIconMenu()
     QAction* settingsAction = new QAction(tr("Settings"), trayIconMenu);
     connect(settingsAction, &QAction::triggered, this, &TrayIcon::showSettingsEvent);
 
+    // Setting "Show About form" menu action...
+    QAction* aboutAction = new QAction(tr("About"), trayIconMenu);
+    connect(aboutAction, &QAction::triggered, this, &TrayIcon::showAboutEvent);
+
     // Setting "Quit application" menu action...
     QAction* quitAction = new QAction(tr("Quit"), trayIconMenu);
     connect(quitAction, &QAction::triggered, this, &TrayIcon::exitEvent);
@@ -220,6 +224,7 @@ QMenu* TrayIcon::createTrayIconMenu()
     trayIconMenu -> addSeparator();
     trayIconMenu -> addMenu(createServiceControlSubmenu(trayIconMenu));
     trayIconMenu -> addAction(settingsAction);
+    trayIconMenu -> addAction(aboutAction);
     trayIconMenu -> addSeparator();
     trayIconMenu -> addAction(quitAction);
     return trayIconMenu;
