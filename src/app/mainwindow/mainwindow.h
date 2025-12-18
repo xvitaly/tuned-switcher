@@ -123,6 +123,11 @@ private slots:
     */
     void showSettingsEvent();
 
+    /**
+     * "Show About form" menu item clicked event slot (handler).
+    */
+    void showAboutEvent();
+
 private:
     /**
      * Initialize the SettingsManager class instance.

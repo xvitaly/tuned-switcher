@@ -31,6 +31,7 @@
 #include <QTimer>
 #include <QWidget>
 
+#include "about/about.h"
 #include "appconstants/appconstants.h"
 #include "mainwindow/mainwindow.h"
 #include "notificationsmanager/notificationsmanager.h"
@@ -331,4 +332,10 @@ void MainWindow::showSettingsEvent()
         setNotificationsMode();
         notifications -> ShowNotification(tr("Settings saved"), tr("The application settings have been saved successfully!"));
     }
+}
+
+void MainWindow::showAboutEvent()
+{
+    About* aboutForm = new About(this);
+    aboutForm -> exec();
 }
