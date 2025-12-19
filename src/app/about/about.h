@@ -57,6 +57,11 @@ private:
     void loadFormSettings();
 
     /**
+     * Save form settings to file: position and size.
+    */
+    void saveFormSettings();
+
+    /**
      * Set custom form style.
     */
     void setFormStyle();

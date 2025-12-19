@@ -41,6 +41,15 @@ void About::loadFormSettings()
         restoreGeometry(settings -> GetAboutGeometry());
 }
 
+void About::saveFormSettings()
+{
+    if (settings -> GetGeometrySavingEnabled())
+    {
+        settings -> SetAboutGeometry(saveGeometry());
+        settings -> Save();
+    }
+}
+
 void About::setFormStyle()
 {
     setFixedSize(width(), height());
