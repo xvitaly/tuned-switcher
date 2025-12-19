@@ -92,6 +92,12 @@ public:
     QByteArray GetAboutGeometry() const;
 
     /**
+     * Set the geometry of the About form.
+     * @param value New About form geometry value.
+    */
+    void SetAboutGeometry(const QByteArray&);
+
+    /**
      * Get the notification sound configuration.
      * @returns Notification sound configuration.
     */
