@@ -52,6 +52,11 @@ private:
     void initializeSettings();
 
     /**
+     * Load form settings from file: position and size.
+    */
+    void loadFormSettings();
+
+    /**
      * Set custom form style.
     */
     void setFormStyle();

@@ -21,6 +21,7 @@ About::About(QWidget* parent) : QDialog(parent), ui(new Ui::About)
 {
     ui -> setupUi(this);
     initializeSettings();
+    loadFormSettings();
     setFormStyle();
 }
 
@@ -32,6 +33,12 @@ About::~About()
 void About::initializeSettings()
 {
     settings = new SettingsManager(this);
+}
+
+void About::loadFormSettings()
+{
+    if (settings -> GetGeometrySavingEnabled())
+        restoreGeometry(settings -> GetAboutGeometry());
 }
 
 void About::setFormStyle()
