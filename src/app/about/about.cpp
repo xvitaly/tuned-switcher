@@ -13,18 +13,25 @@
 #include <QWidget>
 
 #include "about/about.h"
+#include "settingsmanager/settingsmanager.h"
 
 #include "ui_about.h"
 
 About::About(QWidget* parent) : QDialog(parent), ui(new Ui::About)
 {
     ui -> setupUi(this);
+    initializeSettings();
     setFormStyle();
 }
 
 About::~About()
 {
     delete ui;
+}
+
+void About::initializeSettings()
+{
+    settings = new SettingsManager(this);
 }
 
 void About::setFormStyle()

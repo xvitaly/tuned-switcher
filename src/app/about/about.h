@@ -15,6 +15,8 @@
 #include <QDialog>
 #include <QWidget>
 
+#include "settingsmanager/settingsmanager.h"
+
 /**
  * UI namespace.
 */
@@ -45,6 +47,11 @@ public:
 
 private:
     /**
+     * Initialize the SettingsManager class instance.
+    */
+    void initializeSettings();
+
+    /**
      * Set custom form style.
     */
     void setFormStyle();
@@ -53,6 +60,11 @@ private:
      * Stores the GUI application form instance.
     */
     Ui::About* ui;
+
+    /**
+     * Stores pointer to the SettingsManager class instance.
+    */
+    SettingsManager* settings;
 };
 
 #endif // ABOUT_H
