@@ -45,6 +45,12 @@ public:
     */
     ~About();
 
+private slots:
+    /**
+     * Form closed event slot (handler).
+    */
+    void formClosedEvent();
+
 private:
     /**
      * Initialize the SettingsManager class instance.

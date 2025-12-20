@@ -54,3 +54,8 @@ void About::setFormStyle()
 {
     setFixedSize(width(), height());
 }
+
+void About::formClosedEvent()
+{
+    saveFormSettings();
+}
