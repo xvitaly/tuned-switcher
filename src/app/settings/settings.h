@@ -68,7 +68,7 @@ private:
     void loadFormSettings();
 
     /**
-     * Load settings from file.
+     * Load application settings from file.
     */
     void loadSettings();
 
@@ -78,7 +78,7 @@ private:
     void saveFormSettings();
 
     /**
-     * Save settings to file.
+     * Save application settings to file.
     */
     void saveSettings();
 
