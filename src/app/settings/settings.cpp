@@ -50,21 +50,21 @@ void Settings::loadSettings()
     ui -> EnableSound -> setChecked(settings -> GetSoundEnabled());
 }
 
-void Settings::saveSettings()
-{
-    settings -> SetGeometrySavingEnabled(ui -> SaveFormGeometry -> isChecked());
-    settings -> SetStateSavingEnabled(ui -> SaveFormState -> isChecked());
-    settings -> SetSoundEnabled(ui -> EnableSound -> isChecked());
-    settings -> Save();
-}
-
-void Settings::saveFormGeometry()
+void Settings::saveFormSettings()
 {
     if (settings -> GetGeometrySavingEnabled())
     {
         settings -> SetSettingsGeometry(saveGeometry());
         settings -> Save();
     }
+}
+
+void Settings::saveSettings()
+{
+    settings -> SetGeometrySavingEnabled(ui -> SaveFormGeometry -> isChecked());
+    settings -> SetStateSavingEnabled(ui -> SaveFormState -> isChecked());
+    settings -> SetSoundEnabled(ui -> EnableSound -> isChecked());
+    settings -> Save();
 }
 
 void Settings::setFormStyle()
@@ -81,10 +81,10 @@ void Settings::setFormEvents()
 void Settings::settingsAcceptedEvent()
 {
     saveSettings();
-    saveFormGeometry();
+    saveFormSettings();
 }
 
 void Settings::settingsRejectedEvent()
 {
-    saveFormGeometry();
+    saveFormSettings();
 }

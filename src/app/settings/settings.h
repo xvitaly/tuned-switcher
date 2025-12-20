@@ -73,14 +73,14 @@ private:
     void loadSettings();
 
     /**
+     * Save form settings to file: position and size.
+    */
+    void saveFormSettings();
+
+    /**
      * Save settings to file.
     */
     void saveSettings();
-
-    /**
-     * Save form geometry: position and size.
-    */
-    void saveFormGeometry();
 
     /**
      * Set custom form style.
