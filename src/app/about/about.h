@@ -73,6 +73,11 @@ private:
     void setFormStyle();
 
     /**
+     * Initialize and connect the events for the form.
+    */
+    void setFormEvents();
+
+    /**
      * Stores the GUI application form instance.
     */
     Ui::About* ui;

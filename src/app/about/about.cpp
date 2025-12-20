@@ -23,6 +23,7 @@ About::About(QWidget* parent) : QDialog(parent), ui(new Ui::About)
     initializeSettings();
     loadFormSettings();
     setFormStyle();
+    setFormEvents();
 }
 
 About::~About()
@@ -53,6 +54,12 @@ void About::saveFormSettings()
 void About::setFormStyle()
 {
     setFixedSize(width(), height());
+}
+
+void About::setFormEvents()
+{
+    connect(this, &QDialog::accepted, this, &About::formClosedEvent);
+    connect(this, &QDialog::rejected, this, &About::formClosedEvent);
 }
 
 void About::formClosedEvent()
