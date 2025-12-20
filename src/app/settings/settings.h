@@ -63,6 +63,11 @@ private:
     void initializeSettings();
 
     /**
+     * Load form settings from file: position and size.
+    */
+    void loadFormSettings();
+
+    /**
      * Load settings from file.
     */
     void loadSettings();

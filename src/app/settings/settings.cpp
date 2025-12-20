@@ -21,6 +21,7 @@ Settings::Settings(QWidget* parent) : QDialog(parent), ui(new Ui::Settings)
 {
     ui -> setupUi(this);
     initializeSettings();
+    loadFormSettings();
     loadSettings();
     setFormStyle();
     setFormEvents();
@@ -36,10 +37,14 @@ void Settings::initializeSettings()
     settings = new SettingsManager(this);
 }
 
-void Settings::loadSettings()
+void Settings::loadFormSettings()
 {
     if (settings -> GetGeometrySavingEnabled())
         restoreGeometry(settings -> GetSettingsGeometry());
+}
+
+void Settings::loadSettings()
+{
     ui -> SaveFormGeometry -> setChecked(settings -> GetGeometrySavingEnabled());
     ui -> SaveFormState -> setChecked(settings -> GetStateSavingEnabled());
     ui -> EnableSound -> setChecked(settings -> GetSoundEnabled());
