@@ -6,6 +6,19 @@ SPDX-License-Identifier: GPL-3.0-or-later
 <!DOCTYPE TS>
 <TS version="2.1" language="ru">
 <context>
+    <name>About</name>
+    <message>
+        <location filename="../../src/app/about/about.ui" line="+21"/>
+        <source>About</source>
+        <translation>О программе</translation>
+    </message>
+    <message>
+        <location filename="../../src/app/about/about.cpp" line="+71"/>
+        <source>Version: %1</source>
+        <translation>Версия: %1</translation>
+    </message>
+</context>
+<context>
     <name>MainWindow</name>
     <message>
         <location filename="../../src/app/mainwindow/mainwindow.ui" line="+76"/>
@@ -18,7 +31,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Авто-выбор профиля</translation>
     </message>
     <message>
-        <location filename="../../src/app/mainwindow/mainwindow.cpp" line="+141"/>
+        <location filename="../../src/app/mainwindow/mainwindow.cpp" line="+142"/>
         <source>Cannot start Tuned service via D-Bus call. Terminating.</source>
         <translation>Не удалось запустить сервис Tuned при помощи D-Bus. Приложение будет завершено.</translation>
     </message>
@@ -34,12 +47,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
     </message>
     <message>
         <location line="+37"/>
-        <location line="+81"/>
+        <location line="+85"/>
         <source>Service control</source>
         <translation>Управление сервисом</translation>
     </message>
     <message>
-        <location line="-79"/>
+        <location line="-83"/>
         <source>Enable the service</source>
         <translation>Запустить сервис</translation>
     </message>
@@ -62,6 +75,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <location line="+12"/>
         <source>Settings</source>
         <translation>Настройки</translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>About</source>
+        <translation>О программе</translation>
     </message>
     <message>
         <location line="+55"/>
@@ -157,7 +175,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 <context>
     <name>TrayIcon</name>
     <message>
-        <location filename="../../src/app/trayicon/trayicon.cpp" line="+70"/>
+        <location filename="../../src/app/trayicon/trayicon.cpp" line="+71"/>
         <source>Startup error</source>
         <translation>Ошибка запуска</translation>
     </message>
@@ -188,18 +206,18 @@ SPDX-License-Identifier: GPL-3.0-or-later
     </message>
     <message>
         <location line="+6"/>
-        <location line="+95"/>
+        <location line="+100"/>
         <source>Profile switch error</source>
         <translation>Ошибка переключения</translation>
     </message>
     <message>
-        <location line="-88"/>
-        <location line="+95"/>
+        <location line="-93"/>
+        <location line="+100"/>
         <source>Service control</source>
         <translation>Управление сервисом</translation>
     </message>
     <message>
-        <location line="-93"/>
+        <location line="-98"/>
         <source>Enable the service</source>
         <translation>Запустить сервис</translation>
     </message>
@@ -230,6 +248,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
     </message>
     <message>
         <location line="+4"/>
+        <source>About</source>
+        <translation>О программе</translation>
+    </message>
+    <message>
+        <location line="+4"/>
         <source>Quit</source>
         <translation>Выход</translation>
     </message>
@@ -239,7 +262,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Авто-выбор профиля</translation>
     </message>
     <message>
-        <location line="+23"/>
+        <location line="+24"/>
         <source>Profile auto-selection error</source>
         <translation>Ошибка авто-выбора профиля</translation>
     </message>
