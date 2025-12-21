@@ -13,8 +13,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>343</width>
-    <height>478</height>
+    <width>353</width>
+    <height>425</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -56,7 +56,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
            </size>
           </property>
           <property name="text">
-           <string/>
+           <string notr="true"/>
           </property>
           <property name="alignment">
            <set>Qt::AlignmentFlag::AlignCenter</set>
@@ -87,10 +87,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
             <property name="orientation">
              <enum>Qt::Orientation::Vertical</enum>
             </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Policy::Fixed</enum>
+            </property>
             <property name="sizeHint" stdset="0">
              <size>
               <width>20</width>
-              <height>40</height>
+              <height>10</height>
              </size>
             </property>
            </spacer>
@@ -141,10 +144,13 @@ Additional information about the components used in this project, including the 
         <property name="orientation">
          <enum>Qt::Orientation::Vertical</enum>
         </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Policy::Fixed</enum>
+        </property>
         <property name="sizeHint" stdset="0">
          <size>
           <width>20</width>
-          <height>40</height>
+          <height>5</height>
          </size>
         </property>
        </spacer>
