@@ -10,9 +10,15 @@
 */
 
 #include <QDialog>
+#include <QIcon>
+#include <QPixmap>
+#include <QSize>
+#include <QString>
+#include <QStringLiteral>
 #include <QWidget>
 
 #include "about/about.h"
+#include "appconstants/appconstants.h"
 #include "settingsmanager/settingsmanager.h"
 
 #include "ui_about.h"
@@ -23,6 +29,7 @@ About::About(QWidget* parent) : QDialog(parent), ui(new Ui::About)
     initializeSettings();
     loadFormSettings();
     setFormStyle();
+    setFormControls();
     setFormEvents();
 }
 
@@ -54,6 +61,15 @@ void About::saveFormSettings()
 void About::setFormStyle()
 {
     setFixedSize(width(), height());
+}
+
+void About::setFormControls()
+{
+    QIcon AppIcon = QIcon::fromTheme(AppConstants::DomainSchemeName, QIcon(QStringLiteral(":/icons/fallback.png")));
+    ui -> AppIcon -> setPixmap(AppIcon.pixmap(AppIcon.actualSize(QSize(128, 128))));
+    ui -> AppName -> setText(AppConstants::ProductName);
+    ui -> AppVersion -> setText(tr("Version: %1").arg(AppConstants::ProductVersion));
+    ui -> AppDeveloper -> setText(AppConstants::ProductCompany);
 }
 
 void About::setFormEvents()

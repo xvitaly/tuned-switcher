@@ -73,6 +73,11 @@ private:
     void setFormStyle();
 
     /**
+     * Set custom form controls.
+    */
+    void setFormControls();
+
+    /**
      * Initialize and connect the events for the form.
     */
     void setFormEvents();
