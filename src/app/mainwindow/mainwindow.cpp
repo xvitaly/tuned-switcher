@@ -31,6 +31,7 @@
 #include <QTimer>
 #include <QWidget>
 
+#include "about/about.h"
 #include "appconstants/appconstants.h"
 #include "mainwindow/mainwindow.h"
 #include "notificationsmanager/notificationsmanager.h"
@@ -214,6 +215,10 @@ QMenu* MainWindow::createMainMenu(QWidget* parent)
     connect(settingsAction, &QAction::triggered, this, &MainWindow::showSettingsEvent);
     mainMenu -> addAction(settingsAction);
 
+    QAction* aboutAction = new QAction(tr("About"), mainMenu);
+    connect(aboutAction, &QAction::triggered, this, &MainWindow::showAboutEvent);
+    mainMenu -> addAction(aboutAction);
+
     return mainMenu;
 }
 
@@ -331,4 +336,10 @@ void MainWindow::showSettingsEvent()
         setNotificationsMode();
         notifications -> ShowNotification(tr("Settings saved"), tr("The application settings have been saved successfully!"));
     }
+}
+
+void MainWindow::showAboutEvent()
+{
+    About* aboutForm = new About(this);
+    aboutForm -> exec();
 }

@@ -86,6 +86,18 @@ public:
     void SetSettingsGeometry(const QByteArray&);
 
     /**
+     * Get the geometry of the About form.
+     * @returns Geometry of the About form.
+    */
+    QByteArray GetAboutGeometry() const;
+
+    /**
+     * Set the geometry of the About form.
+     * @param value New About form geometry value.
+    */
+    void SetAboutGeometry(const QByteArray&);
+
+    /**
      * Get the notification sound configuration.
      * @returns Notification sound configuration.
     */
@@ -137,6 +149,11 @@ private:
      * Stores the geometry of the settings form option name.
     */
     const QString SettingsGeometryName = QStringLiteral("settings/geometry");
+
+    /**
+     * Stores the geometry of the About form option name.
+    */
+    const QString AboutGeometryName = QStringLiteral("about/geometry");
 
     /**
      * Stores the notification sound configuration option name.

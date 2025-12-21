@@ -4,12 +4,12 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef SETTINGS_H
-#define SETTINGS_H
+#ifndef ABOUT_H
+#define ABOUT_H
 
 /**
- * @file settings/settings.h
- * Contains the Settings class definition.
+ * @file about/about.h
+ * Contains the About class definition.
 */
 
 #include <QDialog>
@@ -24,37 +24,32 @@ namespace Ui {
     /**
      * GUI application form elements.
     */
-    class Settings;
+    class About;
 }
 
 /**
- * Class for working with the program settings.
+ * Class for working with the About form.
 */
-class Settings : public QDialog
+class About : public QDialog
 {
     Q_OBJECT
 public:
     /**
-     * Main constructor of the Settings class.
+     * Main constructor of the About class.
      * @param parent Parent widget.
     */
-    explicit Settings(QWidget* parent = nullptr);
-    
+    explicit About(QWidget* parent = nullptr);
+
     /**
-     * Destructor of the Settings class.
+     * Destructor of the About class.
     */
-    ~Settings();
+    ~About();
 
 private slots:
     /**
-     * Settings accepted event slot (handler).
+     * Form closed event slot (handler).
     */
-    void settingsAcceptedEvent();
-
-    /**
-     * Settings rejected event slot (handler).
-    */
-    void settingsRejectedEvent();
+    void formClosedEvent();
 
 private:
     /**
@@ -68,24 +63,19 @@ private:
     void loadFormSettings();
 
     /**
-     * Load application settings from file.
-    */
-    void loadSettings();
-
-    /**
      * Save form settings to file: position and size.
     */
     void saveFormSettings();
 
     /**
-     * Save application settings to file.
-    */
-    void saveSettings();
-
-    /**
      * Set custom form style.
     */
     void setFormStyle();
+
+    /**
+     * Set custom form controls.
+    */
+    void setFormControls();
 
     /**
      * Initialize and connect the events for the form.
@@ -95,7 +85,7 @@ private:
     /**
      * Stores the GUI application form instance.
     */
-    Ui::Settings* ui;
+    Ui::About* ui;
 
     /**
      * Stores pointer to the SettingsManager class instance.
@@ -103,4 +93,4 @@ private:
     SettingsManager* settings;
 };
 
-#endif // SETTINGS_H
+#endif // ABOUT_H

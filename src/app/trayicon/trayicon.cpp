@@ -22,6 +22,7 @@
 #include <QTimer>
 #include <QWidget>
 
+#include "about/about.h"
 #include "appconstants/appconstants.h"
 #include "notificationsmanager/notificationsmanager.h"
 #include "settings/settings.h"
@@ -204,6 +205,10 @@ QMenu* TrayIcon::createTrayIconMenu()
     QAction* settingsAction = new QAction(tr("Settings"), trayIconMenu);
     connect(settingsAction, &QAction::triggered, this, &TrayIcon::showSettingsEvent);
 
+    // Setting "Show About form" menu action...
+    QAction* aboutAction = new QAction(tr("About"), trayIconMenu);
+    connect(aboutAction, &QAction::triggered, this, &TrayIcon::showAboutEvent);
+
     // Setting "Quit application" menu action...
     QAction* quitAction = new QAction(tr("Quit"), trayIconMenu);
     connect(quitAction, &QAction::triggered, this, &TrayIcon::exitEvent);
@@ -219,6 +224,7 @@ QMenu* TrayIcon::createTrayIconMenu()
     trayIconMenu -> addSeparator();
     trayIconMenu -> addMenu(createServiceControlSubmenu(trayIconMenu));
     trayIconMenu -> addAction(settingsAction);
+    trayIconMenu -> addAction(aboutAction);
     trayIconMenu -> addSeparator();
     trayIconMenu -> addAction(quitAction);
     return trayIconMenu;
@@ -262,6 +268,12 @@ void TrayIcon::showSettingsEvent()
         setNotificationsMode();
         notifications -> ShowNotification(tr("Settings saved"), tr("The application settings have been saved successfully!"));
     }
+}
+
+void TrayIcon::showAboutEvent()
+{
+    About* aboutForm = new About(this);
+    aboutForm -> exec();
 }
 
 void TrayIcon::exitEvent()

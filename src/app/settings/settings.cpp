@@ -21,6 +21,7 @@ Settings::Settings(QWidget* parent) : QDialog(parent), ui(new Ui::Settings)
 {
     ui -> setupUi(this);
     initializeSettings();
+    loadFormSettings();
     loadSettings();
     setFormStyle();
     setFormEvents();
@@ -36,13 +37,26 @@ void Settings::initializeSettings()
     settings = new SettingsManager(this);
 }
 
-void Settings::loadSettings()
+void Settings::loadFormSettings()
 {
     if (settings -> GetGeometrySavingEnabled())
         restoreGeometry(settings -> GetSettingsGeometry());
+}
+
+void Settings::loadSettings()
+{
     ui -> SaveFormGeometry -> setChecked(settings -> GetGeometrySavingEnabled());
     ui -> SaveFormState -> setChecked(settings -> GetStateSavingEnabled());
     ui -> EnableSound -> setChecked(settings -> GetSoundEnabled());
+}
+
+void Settings::saveFormSettings()
+{
+    if (settings -> GetGeometrySavingEnabled())
+    {
+        settings -> SetSettingsGeometry(saveGeometry());
+        settings -> Save();
+    }
 }
 
 void Settings::saveSettings()
@@ -51,15 +65,6 @@ void Settings::saveSettings()
     settings -> SetStateSavingEnabled(ui -> SaveFormState -> isChecked());
     settings -> SetSoundEnabled(ui -> EnableSound -> isChecked());
     settings -> Save();
-}
-
-void Settings::saveFormGeometry()
-{
-    if (settings -> GetGeometrySavingEnabled())
-    {
-        settings -> SetSettingsGeometry(saveGeometry());
-        settings -> Save();
-    }
 }
 
 void Settings::setFormStyle()
@@ -76,10 +81,10 @@ void Settings::setFormEvents()
 void Settings::settingsAcceptedEvent()
 {
     saveSettings();
-    saveFormGeometry();
+    saveFormSettings();
 }
 
 void Settings::settingsRejectedEvent()
 {
-    saveFormGeometry();
+    saveFormSettings();
 }

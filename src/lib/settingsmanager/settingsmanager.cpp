@@ -66,6 +66,16 @@ void SettingsManager::SetSettingsGeometry(const QByteArray& value)
     settings -> setValue(SettingsGeometryName, value);
 }
 
+QByteArray SettingsManager::GetAboutGeometry() const
+{
+    return settings -> value(AboutGeometryName).toByteArray();
+}
+
+void SettingsManager::SetAboutGeometry(const QByteArray& value)
+{
+    settings -> setValue(AboutGeometryName, value);
+}
+
 bool SettingsManager::GetSoundEnabled() const
 {
     return settings -> value(SoundEnabledName, true).toBool();
