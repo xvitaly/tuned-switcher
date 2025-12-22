@@ -157,17 +157,17 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Настройки</translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+9"/>
         <source>Save and restore form geometry</source>
         <translation>Восстанавливать размеры форм</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+14"/>
         <source>Save and restore form state</source>
         <translation>Восстанавливать состояние форм</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="-7"/>
         <source>Use sound for notifications</source>
         <translation>Использовать звук в уведомлениях</translation>
     </message>
