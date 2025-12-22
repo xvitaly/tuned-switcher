@@ -20,10 +20,10 @@ SPDX-License-Identifier: GPL-3.0-or-later
   <property name="windowTitle">
    <string>About</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
+  <layout class="QVBoxLayout" name="VerticalLayout">
    <item>
     <widget class="QWidget" name="MainWidget" native="true">
-     <layout class="QVBoxLayout" name="verticalLayout_2">
+     <layout class="QVBoxLayout" name="VerticalLayout_2">
       <item>
        <widget class="QLabel" name="AppName">
         <property name="font">
@@ -67,7 +67,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
          </widget>
         </item>
         <item>
-         <layout class="QVBoxLayout" name="VerticalLayout2">
+         <layout class="QVBoxLayout" name="VerticalLayout_3">
           <item>
            <widget class="QLabel" name="AppVersion">
             <property name="text">
