@@ -23,7 +23,9 @@
 #include <QMenu>
 #include <QMessageBox>
 #include <QMouseEvent>
+#include <QPoint>
 #include <QPushButton>
+#include <QScreen>
 #include <QSettings>
 #include <QString>
 #include <QStringLiteral>
@@ -169,6 +171,8 @@ void MainWindow::loadFormSettings()
 {
     if (settings -> GetGeometrySavingEnabled())
         restoreGeometry(settings -> GetWidgetGeometry());
+    else
+        move(screen() -> availableGeometry().center() - frameGeometry().center());
     if (settings -> GetStateSavingEnabled())
         restoreState(settings -> GetWidgetState());
 }
