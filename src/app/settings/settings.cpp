@@ -10,6 +10,8 @@
 */
 
 #include <QDialog>
+#include <QPoint>
+#include <QScreen>
 #include <QWidget>
 
 #include "settings/settings.h"
@@ -41,6 +43,8 @@ void Settings::loadFormSettings()
 {
     if (settings -> GetGeometrySavingEnabled())
         restoreGeometry(settings -> GetSettingsGeometry());
+    else
+        move(screen() -> availableGeometry().center() - frameGeometry().center());
 }
 
 void Settings::loadSettings()
