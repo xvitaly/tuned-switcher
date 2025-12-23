@@ -46,7 +46,7 @@ MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWi
 {
     ui -> setupUi(this);
     initializeSettings();
-    loadSettings();
+    loadFormSettings();
     setFormStyle();
     setFormControls();
     setFormEvents();
@@ -92,7 +92,7 @@ void MainWindow::mouseReleaseEvent(QMouseEvent* event)
 
 void MainWindow::closeEvent(QCloseEvent* event)
 {
-    saveSettings();
+    saveFormSettings();
     QMainWindow::closeEvent(event);
 }
 
@@ -165,7 +165,7 @@ void MainWindow::subscribeToEvents()
     connect(tunedManager, &TunedManager::ProfileChangedSignal, this, &MainWindow::profileChangedEvent);
 }
 
-void MainWindow::loadSettings()
+void MainWindow::loadFormSettings()
 {
     if (settings -> GetGeometrySavingEnabled())
         restoreGeometry(settings -> GetWidgetGeometry());
@@ -173,7 +173,7 @@ void MainWindow::loadSettings()
         restoreState(settings -> GetWidgetState());
 }
 
-void MainWindow::saveSettings()
+void MainWindow::saveFormSettings()
 {
     if (settings -> GetGeometrySavingEnabled())
         settings -> SetWidgetGeometry(saveGeometry());

@@ -179,12 +179,12 @@ private:
     /**
      * Load form settings: position and size.
     */
-    void loadSettings();
+    void loadFormSettings();
 
     /**
      * Save form settings: position and size.
     */
-    void saveSettings();
+    void saveFormSettings();
 
     /**
      * Set custom form style: remove border, apply gradients, etc.
