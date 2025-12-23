@@ -12,6 +12,8 @@
 #include <QDialog>
 #include <QIcon>
 #include <QPixmap>
+#include <QPoint>
+#include <QScreen>
 #include <QSize>
 #include <QString>
 #include <QStringLiteral>
@@ -47,6 +49,8 @@ void About::loadFormSettings()
 {
     if (settings -> GetGeometrySavingEnabled())
         restoreGeometry(settings -> GetAboutGeometry());
+    else
+        move(screen() -> availableGeometry().center() - frameGeometry().center());
 }
 
 void About::saveFormSettings()
