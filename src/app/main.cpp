@@ -28,7 +28,7 @@ int main(int argc, char* argv[])
     QApplication::setApplicationName(AppConstants::ProductNameInternal);
     QApplication::setApplicationVersion(AppConstants::ProductVersion);
     QApplication::setDesktopFileName(AppConstants::LauncherName);
-    QApplication::setOrganizationName(AppConstants::ProductCompany);
+    QApplication::setOrganizationName(AppConstants::ProductCompanyInternal);
     QApplication::setOrganizationDomain(AppConstants::DomainSchemeName);
 
     TranslationManager translator;
