@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>О программе</translation>
     </message>
     <message>
-        <location filename="../../src/app/about/about.cpp" line="+71"/>
+        <location filename="../../src/app/about/about.cpp" line="+75"/>
         <source>Version: %1</source>
         <translation>Версия: %1</translation>
     </message>
@@ -31,7 +31,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Авто-выбор профиля</translation>
     </message>
     <message>
-        <location filename="../../src/app/mainwindow/mainwindow.cpp" line="+142"/>
+        <location filename="../../src/app/mainwindow/mainwindow.cpp" line="+144"/>
         <source>Cannot start Tuned service via D-Bus call. Terminating.</source>
         <translation>Не удалось запустить сервис Tuned при помощи D-Bus. Приложение будет завершено.</translation>
     </message>
@@ -46,7 +46,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Сервис Tuned не запущен. Хотите ли вы запустить его прямо сейчас?</translation>
     </message>
     <message>
-        <location line="+37"/>
+        <location line="+39"/>
         <location line="+85"/>
         <source>Service control</source>
         <translation>Управление сервисом</translation>
@@ -162,12 +162,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Восстанавливать размеры форм</translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+7"/>
         <source>Save and restore form state</source>
         <translation>Восстанавливать состояние форм</translation>
     </message>
     <message>
-        <location line="-7"/>
+        <location line="+7"/>
         <source>Use sound for notifications</source>
         <translation>Использовать звук в уведомлениях</translation>
     </message>

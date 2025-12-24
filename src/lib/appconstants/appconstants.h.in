@@ -19,10 +19,16 @@
 */
 namespace AppConstants {
     /**
-     * Stores the application company name.
+     * Stores the application company public name.
+     * Used as a public name in various dialogs.
+    */
+    inline const QString ProductCompany = QStringLiteral("EasyCoding Team");
+
+    /**
+     * Stores the application company internal name.
      * Used as a settings directory name.
     */
-    inline const QString ProductCompany = QStringLiteral("EasyCoding");
+    inline const QString ProductCompanyInternal = QStringLiteral("EasyCoding");
 
     /**
      * Stores the application public name.
