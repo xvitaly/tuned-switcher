@@ -44,7 +44,7 @@ void Settings::loadFormSettings()
     if (settings -> GetGeometrySavingEnabled())
         restoreGeometry(settings -> GetSettingsGeometry());
     else
-        move(screen() -> availableGeometry().center() - frameGeometry().center());
+        setDefaultFormPosition();
 }
 
 void Settings::loadSettings()
@@ -69,6 +69,11 @@ void Settings::saveSettings()
     settings -> SetStateSavingEnabled(ui -> SaveFormState -> isChecked());
     settings -> SetSoundEnabled(ui -> EnableSound -> isChecked());
     settings -> Save();
+}
+
+void Settings::setDefaultFormPosition()
+{
+    move(screen() -> availableGeometry().center() - frameGeometry().center());
 }
 
 void Settings::setFormStyle()
