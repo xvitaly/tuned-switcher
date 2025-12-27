@@ -50,7 +50,7 @@ void About::loadFormSettings()
     if (settings -> GetGeometrySavingEnabled())
         restoreGeometry(settings -> GetAboutGeometry());
     else
-        move(screen() -> availableGeometry().center() - frameGeometry().center());
+        setDefaultFormPosition();
 }
 
 void About::saveFormSettings()
@@ -60,6 +60,11 @@ void About::saveFormSettings()
         settings -> SetAboutGeometry(saveGeometry());
         settings -> Save();
     }
+}
+
+void About::setDefaultFormPosition()
+{
+    move(screen() -> availableGeometry().center() - frameGeometry().center());
 }
 
 void About::setFormStyle()
