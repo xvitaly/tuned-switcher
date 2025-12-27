@@ -172,7 +172,7 @@ void MainWindow::loadFormSettings()
     if (settings -> GetGeometrySavingEnabled())
         restoreGeometry(settings -> GetWidgetGeometry());
     else
-        move(screen() -> availableGeometry().center() - frameGeometry().center());
+        setDefaultFormPosition();
     if (settings -> GetStateSavingEnabled())
         restoreState(settings -> GetWidgetState());
 }
@@ -224,6 +224,11 @@ QMenu* MainWindow::createMainMenu(QWidget* parent)
     mainMenu -> addAction(aboutAction);
 
     return mainMenu;
+}
+
+void MainWindow::setDefaultFormPosition()
+{
+    move(screen() -> availableGeometry().center() - frameGeometry().center());
 }
 
 void MainWindow::setFormStyle()

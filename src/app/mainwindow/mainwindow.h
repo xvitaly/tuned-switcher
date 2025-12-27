@@ -187,6 +187,11 @@ private:
     void saveFormSettings();
 
     /**
+     * Set the default form position to the center of the screen.
+    */
+    void setDefaultFormPosition();
+
+    /**
      * Set custom form style: remove border, apply gradients, etc.
     */
     void setFormStyle();
