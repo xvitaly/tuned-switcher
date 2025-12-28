@@ -9,20 +9,21 @@
 
 /**
  * @file guihelpers/guihelpers.h
- * Contains the GuiHelpers class definition.
+ * Contains the GuiHelpers namespace definition.
 */
 
-#include <QObject>
 #include <QPoint>
 #include <QWidget>
 
-class GuiHelpers : public QObject
+/**
+ * Namespace with static methods for working with GUI.
+*/
+namespace GuiHelpers
 {
-    Q_OBJECT
-public:
-    static QPoint GetDefaultFormPosition(const QWidget*);
-private:
-    explicit GuiHelpers(QObject* parent = nullptr);
-};
+    /**
+     * Get the default form position at the center of the screen.
+    */
+    QPoint GetDefaultFormPosition(const QWidget*);
+}
 
 #endif // GUIHELPERS_H

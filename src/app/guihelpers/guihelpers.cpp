@@ -6,19 +6,15 @@
 
 /**
  * @file guihelpers/guihelpers.cpp
- * Contains the GuiHelpers class implementation.
+ * Contains the GuiHelpers namespace implementation.
 */
 
-#include <QObject>
 #include <QPoint>
 #include <QRect>
 #include <QScreen>
 #include <QWidget>
 
 #include "guihelpers/guihelpers.h"
-
-GuiHelpers::GuiHelpers(QObject* parent) : QObject(parent)
-{}
 
 QPoint GuiHelpers::GetDefaultFormPosition(const QWidget* widget)
 {
