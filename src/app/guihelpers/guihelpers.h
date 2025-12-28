@@ -13,11 +13,14 @@
 */
 
 #include <QObject>
+#include <QPoint>
+#include <QWidget>
 
 class GuiHelpers : public QObject
 {
     Q_OBJECT
 public:
+    static QPoint GetDefaultFormPosition(QWidget*);
 private:
     explicit GuiHelpers(QObject* parent = nullptr);
 };

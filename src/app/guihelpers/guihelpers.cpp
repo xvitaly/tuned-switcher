@@ -10,8 +10,17 @@
 */
 
 #include <QObject>
+#include <QPoint>
+#include <QRect>
+#include <QScreen>
+#include <QWidget>
 
 #include "guihelpers/guihelpers.h"
 
 GuiHelpers::GuiHelpers(QObject* parent) : QObject(parent)
 {}
+
+QPoint GuiHelpers::GetDefaultFormPosition(QWidget* widget)
+{
+    return widget -> screen() -> availableGeometry().center() - widget -> frameGeometry().center();
+}
