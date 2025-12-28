@@ -20,7 +20,7 @@
 GuiHelpers::GuiHelpers(QObject* parent) : QObject(parent)
 {}
 
-QPoint GuiHelpers::GetDefaultFormPosition(QWidget* widget)
+QPoint GuiHelpers::GetDefaultFormPosition(const QWidget* widget)
 {
     return widget -> screen() -> availableGeometry().center() - widget -> frameGeometry().center();
 }

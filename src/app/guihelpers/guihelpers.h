@@ -20,7 +20,7 @@ class GuiHelpers : public QObject
 {
     Q_OBJECT
 public:
-    static QPoint GetDefaultFormPosition(QWidget*);
+    static QPoint GetDefaultFormPosition(const QWidget*);
 private:
     explicit GuiHelpers(QObject* parent = nullptr);
 };
