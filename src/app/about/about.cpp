@@ -12,8 +12,6 @@
 #include <QDialog>
 #include <QIcon>
 #include <QPixmap>
-#include <QPoint>
-#include <QScreen>
 #include <QSize>
 #include <QString>
 #include <QStringLiteral>
@@ -21,6 +19,7 @@
 
 #include "about/about.h"
 #include "appconstants/appconstants.h"
+#include "guihelpers/guihelpers.h"
 #include "settingsmanager/settingsmanager.h"
 
 #include "ui_about.h"
@@ -64,7 +63,7 @@ void About::saveFormSettings()
 
 void About::setDefaultFormPosition()
 {
-    move(screen() -> availableGeometry().center() - frameGeometry().center());
+    move(GuiHelpers::GetDefaultFormPosition(window()));
 }
 
 void About::setFormStyle()

@@ -23,9 +23,7 @@
 #include <QMenu>
 #include <QMessageBox>
 #include <QMouseEvent>
-#include <QPoint>
 #include <QPushButton>
-#include <QScreen>
 #include <QSettings>
 #include <QString>
 #include <QStringLiteral>
@@ -35,6 +33,7 @@
 
 #include "about/about.h"
 #include "appconstants/appconstants.h"
+#include "guihelpers/guihelpers.h"
 #include "mainwindow/mainwindow.h"
 #include "notificationsmanager/notificationsmanager.h"
 #include "settings/settings.h"
@@ -228,7 +227,7 @@ QMenu* MainWindow::createMainMenu(QWidget* parent)
 
 void MainWindow::setDefaultFormPosition()
 {
-    move(screen() -> availableGeometry().center() - frameGeometry().center());
+    move(GuiHelpers::GetDefaultFormPosition(window()));
 }
 
 void MainWindow::setFormStyle()

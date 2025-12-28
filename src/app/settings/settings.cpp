@@ -10,10 +10,9 @@
 */
 
 #include <QDialog>
-#include <QPoint>
-#include <QScreen>
 #include <QWidget>
 
+#include "guihelpers/guihelpers.h"
 #include "settings/settings.h"
 #include "settingsmanager/settingsmanager.h"
 
@@ -73,7 +72,7 @@ void Settings::saveSettings()
 
 void Settings::setDefaultFormPosition()
 {
-    move(screen() -> availableGeometry().center() - frameGeometry().center());
+    move(GuiHelpers::GetDefaultFormPosition(window()));
 }
 
 void Settings::setFormStyle()
