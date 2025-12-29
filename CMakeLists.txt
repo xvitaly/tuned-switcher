@@ -164,8 +164,9 @@ target_include_directories(${LIB_NAME} PUBLIC
 )
 
 target_link_libraries(${LIB_NAME} PUBLIC
-    Qt6::Widgets
+    Qt6::Core
     Qt6::DBus
+    Qt6::Widgets
 )
 
 if (LINK_ENABLE_OPTIMIZATIONS AND CMAKE_CXX_LINK_IPO_SUPPORTED)
@@ -236,8 +237,10 @@ target_include_directories(${APP_NAME} PRIVATE
 )
 
 target_link_libraries(${APP_NAME} PRIVATE
-    Qt6::Widgets
+    Qt6::Core
     Qt6::DBus
+    Qt6::Gui
+    Qt6::Widgets
     ${LIB_NAME}
 )
 
