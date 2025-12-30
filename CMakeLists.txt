@@ -67,8 +67,10 @@ include(GNUInstallDirs)
 # ============= External custom imports ================
 # ======================================================
 
-include(cmake/FindPandoc.cmake)
-include(cmake/FindTestHelpers.cmake)
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cmake")
+
+include(FindPandoc)
+include(FindTestHelpers)
 
 # ======================================================
 # =========== Link time optimizations checks ===========
