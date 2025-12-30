@@ -168,6 +168,7 @@ target_include_directories(${LIB_NAME} PUBLIC
 target_link_libraries(${LIB_NAME} PUBLIC
     Qt6::Core
     Qt6::DBus
+    Qt6::Gui
     Qt6::Widgets
 )
 
