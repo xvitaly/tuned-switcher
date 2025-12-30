@@ -129,6 +129,7 @@ endif()
 # ======================================================
 
 set(LIBRARY_HEADERS
+    src/lib/guihelpers/guihelpers.h
     src/lib/logcategories/logcategories.h
     src/lib/notificationsmanager/dbusconverters.h
     src/lib/notificationsmanager/notificationsmanager.h
@@ -139,6 +140,7 @@ set(LIBRARY_HEADERS
 )
 
 set(LIBRARY_SOURCES
+    src/lib/guihelpers/guihelpers.cpp
     src/lib/logcategories/logcategories.cpp
     src/lib/notificationsmanager/notificationsmanager.cpp
     src/lib/settingsmanager/settingsmanager.cpp
@@ -193,7 +195,6 @@ endif()
 
 set(APPLICATION_HEADERS
     src/app/about/about.h
-    src/app/guihelpers/guihelpers.h
     src/app/mainwindow/mainwindow.h
     src/app/settings/settings.h
     src/app/trayicon/trayicon.h
@@ -201,7 +202,6 @@ set(APPLICATION_HEADERS
 
 set(APPLICATION_SOURCES
     src/app/about/about.cpp
-    src/app/guihelpers/guihelpers.cpp
     src/app/mainwindow/mainwindow.cpp
     src/app/settings/settings.cpp
     src/app/trayicon/trayicon.cpp
