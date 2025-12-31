@@ -9,9 +9,11 @@
  * Contains the GuiHelpers namespace implementation.
 */
 
+#include <QByteArray>
 #include <QPoint>
 #include <QRect>
 #include <QScreen>
+#include <QVariant>
 #include <QWidget>
 
 #include "guihelpers/guihelpers.h"
@@ -19,4 +21,10 @@
 QPoint GuiHelpers::GetDefaultFormPosition(const QWidget* widget)
 {
     return widget -> screen() -> availableGeometry().center() - widget -> frameGeometry().center();
+}
+
+bool GuiHelpers::CheckGeometryValid(const QByteArray& geometry)
+{
+    const QVariant result(geometry);
+    return result.isValid() && result.toBool();
 }
