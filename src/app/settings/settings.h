@@ -88,6 +88,11 @@ private:
     void setDefaultFormPosition();
 
     /**
+     * Set the form position based on saved settings.
+    */
+    void setSavedFormPosition();
+
+    /**
      * Set custom form style.
     */
     void setFormStyle();

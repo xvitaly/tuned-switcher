@@ -9,6 +9,7 @@
  * Contains the About class implementation.
 */
 
+#include <QByteArray>
 #include <QDialog>
 #include <QIcon>
 #include <QPixmap>
@@ -47,7 +48,7 @@ void About::initializeSettings()
 void About::loadFormSettings()
 {
     if (settings -> GetGeometrySavingEnabled())
-        restoreGeometry(settings -> GetAboutGeometry());
+        setSavedFormPosition();
     else
         setDefaultFormPosition();
 }
@@ -64,6 +65,15 @@ void About::saveFormSettings()
 void About::setDefaultFormPosition()
 {
     move(GuiHelpers::GetDefaultFormPosition(window()));
+}
+
+void About::setSavedFormPosition()
+{
+    const QByteArray savedGeometry = settings -> GetAboutGeometry();
+    if (GuiHelpers::CheckGeometryValid(savedGeometry))
+        restoreGeometry(savedGeometry);
+    else
+        setDefaultFormPosition();
 }
 
 void About::setFormStyle()

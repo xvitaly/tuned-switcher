@@ -9,6 +9,7 @@
  * Contains the Settings class implementation.
 */
 
+#include <QByteArray>
 #include <QDialog>
 #include <QWidget>
 
@@ -41,7 +42,7 @@ void Settings::initializeSettings()
 void Settings::loadFormSettings()
 {
     if (settings -> GetGeometrySavingEnabled())
-        restoreGeometry(settings -> GetSettingsGeometry());
+        setSavedFormPosition();
     else
         setDefaultFormPosition();
 }
@@ -73,6 +74,15 @@ void Settings::saveSettings()
 void Settings::setDefaultFormPosition()
 {
     move(GuiHelpers::GetDefaultFormPosition(window()));
+}
+
+void Settings::setSavedFormPosition()
+{
+    const QByteArray savedGeometry = settings -> GetSettingsGeometry();
+    if (GuiHelpers::CheckGeometryValid(savedGeometry))
+        restoreGeometry(savedGeometry);
+    else
+        setDefaultFormPosition();
 }
 
 void Settings::setFormStyle()
