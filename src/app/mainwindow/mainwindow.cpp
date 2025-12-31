@@ -11,6 +11,7 @@
 
 #include <QAction>
 #include <QApplication>
+#include <QByteArray>
 #include <QCheckBox>
 #include <QCloseEvent>
 #include <QComboBox>
@@ -169,7 +170,7 @@ void MainWindow::subscribeToEvents()
 void MainWindow::loadFormSettings()
 {
     if (settings -> GetGeometrySavingEnabled())
-        restoreGeometry(settings -> GetWidgetGeometry());
+        setSavedFormPosition();
     else
         setDefaultFormPosition();
     if (settings -> GetStateSavingEnabled())
@@ -228,6 +229,15 @@ QMenu* MainWindow::createMainMenu(QWidget* parent)
 void MainWindow::setDefaultFormPosition()
 {
     move(GuiHelpers::GetDefaultFormPosition(window()));
+}
+
+void MainWindow::setSavedFormPosition()
+{
+    const QByteArray savedGeometry = settings -> GetWidgetGeometry();
+    if (GuiHelpers::CheckGeometryValid(savedGeometry))
+        restoreGeometry(savedGeometry);
+    else
+        setDefaultFormPosition();
 }
 
 void MainWindow::setFormStyle()

@@ -192,6 +192,11 @@ private:
     void setDefaultFormPosition();
 
     /**
+     * Set the form position based on saved settings.
+    */
+    void setSavedFormPosition();
+
+    /**
      * Set custom form style: remove border, apply gradients, etc.
     */
     void setFormStyle();
