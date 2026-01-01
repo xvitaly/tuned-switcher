@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-SPDX-FileCopyrightText: 2021-2025 EasyCoding Team and contributors
+SPDX-FileCopyrightText: 2021-2026 EasyCoding Team and contributors
 SPDX-License-Identifier: GPL-3.0-or-later
 -->
 <!DOCTYPE TS>

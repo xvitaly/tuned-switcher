@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <author>
-SPDX-FileCopyrightText: 2021-2025 EasyCoding Team and contributors
+SPDX-FileCopyrightText: 2021-2026 EasyCoding Team and contributors
 SPDX-License-Identifier: GPL-3.0-or-later
  </author>
  <class>About</class>
@@ -115,7 +115,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
       <item>
        <widget class="QLabel" name="AppCopyright">
         <property name="text">
-         <string notr="true">(c) 2021-2025 EasyCoding Team and contributors</string>
+         <string notr="true">(c) 2021-2026 EasyCoding Team and contributors</string>
         </property>
        </widget>
       </item>
