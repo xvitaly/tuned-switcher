@@ -115,7 +115,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
       <item>
        <widget class="QLabel" name="AppCopyright">
         <property name="text">
-         <string notr="true">(c) 2021-2026 EasyCoding Team and contributors</string>
+         <string notr="true">Copyright</string>
         </property>
        </widget>
       </item>
