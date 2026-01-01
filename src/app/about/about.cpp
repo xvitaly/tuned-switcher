@@ -88,6 +88,7 @@ void About::setFormControls()
     ui -> AppName -> setText(AppConstants::ProductName);
     ui -> AppVersion -> setText(tr("Version: %1").arg(AppConstants::ProductVersion));
     ui -> AppDeveloper -> setText(AppConstants::ProductCompany);
+    ui -> AppCopyright -> setText(AppConstants::ProductCopyright);
 }
 
 void About::setFormEvents()
