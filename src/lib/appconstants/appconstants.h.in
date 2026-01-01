@@ -31,6 +31,12 @@ namespace AppConstants {
     inline const QString ProductCompanyInternal = QStringLiteral("EasyCoding");
 
     /**
+     * Stores the application copyright.
+     * Used in various dialogs and messages.
+    */
+    inline const QString ProductCopyright = QStringLiteral("(c) 2021-2026 EasyCoding Team and contributors");
+
+    /**
      * Stores the application public name.
      * Used as a public name in various dialogs.
     */
