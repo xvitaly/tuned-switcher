@@ -37,6 +37,12 @@ namespace AppConstants {
     inline const QString ProductCopyright = QStringLiteral("(c) 2021-2026 EasyCoding Team and contributors");
 
     /**
+     * Stores the application description.
+     * Used in various dialogs and messages.
+    */
+    inline const QString ProductDescription = QStringLiteral("@CMAKE_PROJECT_DESCRIPTION@");
+
+    /**
      * Stores the application public name.
      * Used as a public name in various dialogs.
     */
