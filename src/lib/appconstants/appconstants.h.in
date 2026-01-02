@@ -43,6 +43,12 @@ namespace AppConstants {
     inline const QString ProductDescription = QStringLiteral("@CMAKE_PROJECT_DESCRIPTION@");
 
     /**
+     * Stores the application homepage URL.
+     * Used in various dialogs and menu items.
+    */
+    inline const QString ProductHomepage = QStringLiteral("@CMAKE_PROJECT_HOMEPAGE_URL@");
+
+    /**
      * Stores the application public name.
      * Used as a public name in various dialogs.
     */
