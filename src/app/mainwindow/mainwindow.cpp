@@ -243,11 +243,11 @@ void MainWindow::setFormStyle()
     setAttribute(Qt::WA_TranslucentBackground);
 
     // Adding shadows for widgets...
-    QGraphicsDropShadowEffect* shadowEffect = new QGraphicsDropShadowEffect(ui -> WidgetMain);
+    QGraphicsDropShadowEffect* shadowEffect = new QGraphicsDropShadowEffect(ui -> MainWidget);
     shadowEffect -> setBlurRadius(9.0);
     shadowEffect -> setColor(QColor(0, 0, 0, 160));
     shadowEffect -> setOffset(4.0);
-    ui -> WidgetMain -> setGraphicsEffect(shadowEffect);
+    ui -> MainWidget -> setGraphicsEffect(shadowEffect);
 }
 
 void MainWindow::setFormControls()
