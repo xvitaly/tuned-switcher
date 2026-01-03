@@ -14,7 +14,6 @@
 
 #include <QCloseEvent>
 #include <QKeyEvent>
-#include <QMainWindow>
 #include <QMenu>
 #include <QMouseEvent>
 #include <QPoint>
@@ -40,7 +39,7 @@ namespace Ui
 /**
  * Class for working with the GUI application.
 */
-class MainWindow : public QMainWindow
+class MainWindow : public QWidget
 {
     Q_OBJECT
 public:

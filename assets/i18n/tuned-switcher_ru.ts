@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>О программе</translation>
     </message>
     <message>
-        <location filename="../../src/app/about/about.cpp" line="+75"/>
+        <location filename="../../src/app/about/about.cpp" line="+89"/>
         <source>Version: %1</source>
         <translation>Версия: %1</translation>
     </message>
@@ -21,7 +21,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../src/app/mainwindow/mainwindow.ui" line="+76"/>
+        <location filename="../../src/app/mainwindow/mainwindow.ui" line="+49"/>
         <source>Active profile:</source>
         <translation>Текущий профиль:</translation>
     </message>
@@ -31,7 +31,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Авто-выбор профиля</translation>
     </message>
     <message>
-        <location filename="../../src/app/mainwindow/mainwindow.cpp" line="+144"/>
+        <location filename="../../src/app/mainwindow/mainwindow.cpp" line="+143"/>
         <source>Cannot start Tuned service via D-Bus call. Terminating.</source>
         <translation>Не удалось запустить сервис Tuned при помощи D-Bus. Приложение будет завершено.</translation>
     </message>
@@ -46,13 +46,13 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Сервис Tuned не запущен. Хотите ли вы запустить его прямо сейчас?</translation>
     </message>
     <message>
-        <location line="+39"/>
-        <location line="+85"/>
+        <location line="+35"/>
+        <location line="+99"/>
         <source>Service control</source>
         <translation>Управление сервисом</translation>
     </message>
     <message>
-        <location line="-83"/>
+        <location line="-97"/>
         <source>Enable the service</source>
         <translation>Запустить сервис</translation>
     </message>
@@ -82,7 +82,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>О программе</translation>
     </message>
     <message>
-        <location line="+55"/>
+        <location line="+69"/>
         <source>The requested service control operation completed successfully.</source>
         <translation>Выбранная операция по управлению сервисом была успешно выполнена.</translation>
     </message>

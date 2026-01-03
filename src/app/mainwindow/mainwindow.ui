@@ -5,7 +5,7 @@ SPDX-FileCopyrightText: 2021-2026 EasyCoding Team and contributors
 SPDX-License-Identifier: GPL-3.0-or-later
  </author>
  <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <widget class="QWidget" name="MainWindow">
   <property name="windowModality">
    <enum>Qt::WindowModality::WindowModal</enum>
   </property>
@@ -14,126 +14,96 @@ SPDX-License-Identifier: GPL-3.0-or-later
     <x>0</x>
     <y>0</y>
     <width>300</width>
-    <height>104</height>
+    <height>114</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string notr="true">Tuned Switcher</string>
   </property>
-  <property name="styleSheet">
-   <string notr="true">QWidget#WidgetMain
+  <layout class="QVBoxLayout" name="VerticalLayout">
+   <item>
+    <widget class="QWidget" name="MainWidget" native="true">
+     <property name="styleSheet">
+      <string notr="true">QWidget#MainWidget
 {
-	border-style: none;
-	border-top-style: none;
-	border-width: 1px;
-	border-color: rgb(255, 255, 255);
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-	border-bottom-left-radius: 5px;
-	border-bottom-right-radius: 5px;
-	background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(128, 128, 128, 255), stop:1 rgba(225, 225, 225, 180));
+    border-style: none;
+    border-top-style: none;
+    border-width: 1px;
+    border-color: rgb(255, 255, 255);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(128, 128, 128, 255), stop:1 rgba(225, 225, 225, 180));
 }</string>
-  </property>
-  <property name="locale">
-   <locale language="English" country="UnitedStates"/>
-  </property>
-  <widget class="QWidget" name="WidgetCentral">
-   <layout class="QVBoxLayout" name="verticalLayout_3">
-    <property name="spacing">
-     <number>0</number>
-    </property>
-    <property name="leftMargin">
-     <number>0</number>
-    </property>
-    <property name="topMargin">
-     <number>0</number>
-    </property>
-    <property name="rightMargin">
-     <number>0</number>
-    </property>
-    <property name="bottomMargin">
-     <number>0</number>
-    </property>
-    <item>
-     <widget class="QWidget" name="WidgetMain" native="true">
-      <property name="locale">
-       <locale language="English" country="UnitedStates"/>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_2">
-       <item>
-        <layout class="QVBoxLayout" name="LayoutHorisontal">
-         <item>
-          <layout class="QHBoxLayout" name="LayoutVertical">
-           <property name="spacing">
-            <number>1</number>
-           </property>
-           <item>
-            <widget class="QLabel" name="ProfileLabel">
-             <property name="locale">
-              <locale language="English" country="UnitedStates"/>
-             </property>
-             <property name="text">
-              <string>Active profile:</string>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="Advanced">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>24</width>
-               <height>24</height>
-              </size>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <widget class="QPushButton" name="CloseForm">
-             <property name="sizePolicy">
-              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-               <horstretch>0</horstretch>
-               <verstretch>0</verstretch>
-              </sizepolicy>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>24</width>
-               <height>24</height>
-              </size>
-             </property>
-             <property name="text">
-              <string notr="true">X</string>
-             </property>
-            </widget>
-           </item>
-          </layout>
-         </item>
-         <item>
-          <widget class="QComboBox" name="ProfileSelector"/>
-         </item>
-         <item>
-          <widget class="QCheckBox" name="AutoSelect">
-           <property name="styleSheet">
-            <string notr="true">:disabled { color: rgb(220,220,220); }</string>
-           </property>
-           <property name="text">
-            <string>Auto-select profile</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
-     </widget>
-    </item>
-   </layout>
-  </widget>
+     </property>
+     <layout class="QVBoxLayout" name="VerticalLayout">
+      <item>
+       <layout class="QHBoxLayout" name="VerticalLayout_2">
+        <property name="spacing">
+         <number>1</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="ProfileLabel">
+          <property name="text">
+           <string>Active profile:</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="Advanced">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>24</width>
+            <height>24</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="CloseForm">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>24</width>
+            <height>24</height>
+           </size>
+          </property>
+          <property name="text">
+           <string notr="true">X</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QComboBox" name="ProfileSelector"/>
+      </item>
+      <item>
+       <widget class="QCheckBox" name="AutoSelect">
+        <property name="styleSheet">
+         <string notr="true">:disabled { color: rgb(220,220,220); }</string>
+        </property>
+        <property name="text">
+         <string>Auto-select profile</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
