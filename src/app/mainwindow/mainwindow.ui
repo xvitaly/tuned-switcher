@@ -5,7 +5,7 @@ SPDX-FileCopyrightText: 2021-2026 EasyCoding Team and contributors
 SPDX-License-Identifier: GPL-3.0-or-later
  </author>
  <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <widget class="QWidget" name="MainWindow">
   <property name="windowModality">
    <enum>Qt::WindowModality::WindowModal</enum>
   </property>

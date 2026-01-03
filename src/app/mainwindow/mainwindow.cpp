@@ -20,7 +20,6 @@
 #include <QGraphicsDropShadowEffect>
 #include <QIcon>
 #include <QKeyEvent>
-#include <QMainWindow>
 #include <QMenu>
 #include <QMessageBox>
 #include <QMouseEvent>
@@ -44,7 +43,7 @@
 
 #include "ui_mainwindow.h"
 
-MainWindow::MainWindow(QWidget* parent) : QMainWindow(parent), ui(new Ui::MainWindow)
+MainWindow::MainWindow(QWidget* parent) : QWidget(parent), ui(new Ui::MainWindow)
 {
     ui -> setupUi(this);
     initializeSettings();
@@ -95,7 +94,7 @@ void MainWindow::mouseReleaseEvent(QMouseEvent* event)
 void MainWindow::closeEvent(QCloseEvent* event)
 {
     saveFormSettings();
-    QMainWindow::closeEvent(event);
+    QWidget::closeEvent(event);
 }
 
 void MainWindow::keyPressEvent(QKeyEvent* event)
@@ -106,7 +105,7 @@ void MainWindow::keyPressEvent(QKeyEvent* event)
             close();
             break;
         default:
-            QMainWindow::keyPressEvent(event);
+            QWidget::keyPressEvent(event);
     }
 }
 
@@ -173,16 +172,12 @@ void MainWindow::loadFormSettings()
         setSavedFormPosition();
     else
         setDefaultFormPosition();
-    if (settings -> GetStateSavingEnabled())
-        restoreState(settings -> GetWidgetState());
 }
 
 void MainWindow::saveFormSettings()
 {
     if (settings -> GetGeometrySavingEnabled())
         settings -> SetWidgetGeometry(saveGeometry());
-    if (settings -> GetStateSavingEnabled())
-        settings -> SetWidgetState(saveState());
     settings -> Save();
 }
 
