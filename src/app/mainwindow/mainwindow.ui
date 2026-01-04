@@ -37,9 +37,9 @@ SPDX-License-Identifier: GPL-3.0-or-later
     background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:1, stop:0 rgba(128, 128, 128, 255), stop:1 rgba(225, 225, 225, 180));
 }</string>
      </property>
-     <layout class="QVBoxLayout" name="VerticalLayout">
+     <layout class="QVBoxLayout" name="VerticalLayout_2">
       <item>
-       <layout class="QHBoxLayout" name="VerticalLayout_2">
+       <layout class="QHBoxLayout" name="VerticalLayout_3">
         <property name="spacing">
          <number>1</number>
         </property>
