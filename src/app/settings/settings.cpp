@@ -50,7 +50,6 @@ void Settings::loadFormSettings()
 void Settings::loadSettings()
 {
     ui -> SaveFormGeometry -> setChecked(settings -> GetGeometrySavingEnabled());
-    ui -> SaveFormState -> setChecked(settings -> GetStateSavingEnabled());
     ui -> EnableSound -> setChecked(settings -> GetSoundEnabled());
 }
 
@@ -66,7 +65,6 @@ void Settings::saveFormSettings()
 void Settings::saveSettings()
 {
     settings -> SetGeometrySavingEnabled(ui -> SaveFormGeometry -> isChecked());
-    settings -> SetStateSavingEnabled(ui -> SaveFormState -> isChecked());
     settings -> SetSoundEnabled(ui -> EnableSound -> isChecked());
     settings -> Save();
 }

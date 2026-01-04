@@ -46,7 +46,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Сервис Tuned не запущен. Хотите ли вы запустить его прямо сейчас?</translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+37"/>
         <location line="+99"/>
         <source>Service control</source>
         <translation>Управление сервисом</translation>
@@ -160,11 +160,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <location line="+9"/>
         <source>Save and restore form geometry</source>
         <translation>Восстанавливать размеры форм</translation>
-    </message>
-    <message>
-        <location line="+7"/>
-        <source>Save and restore form state</source>
-        <translation>Восстанавливать состояние форм</translation>
     </message>
     <message>
         <location line="+7"/>

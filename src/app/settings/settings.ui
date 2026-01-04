@@ -32,13 +32,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
        </widget>
       </item>
       <item>
-       <widget class="QCheckBox" name="SaveFormState">
-        <property name="text">
-         <string>Save and restore form state</string>
-        </property>
-       </widget>
-      </item>
-      <item>
        <widget class="QCheckBox" name="EnableSound">
         <property name="text">
          <string>Use sound for notifications</string>
