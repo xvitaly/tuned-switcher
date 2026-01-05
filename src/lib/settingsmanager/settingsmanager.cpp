@@ -46,16 +46,6 @@ void SettingsManager::SetWidgetGeometry(const QByteArray& value)
     settings -> setValue(WidgetGeometryName, value);
 }
 
-QByteArray SettingsManager::GetWidgetState() const
-{
-    return settings -> value(WidgetStateName).toByteArray();
-}
-
-void SettingsManager::SetWidgetState(const QByteArray& value)
-{
-    settings -> setValue(WidgetStateName, value);
-}
-
 QByteArray SettingsManager::GetSettingsGeometry() const
 {
     return settings -> value(SettingsGeometryName).toByteArray();

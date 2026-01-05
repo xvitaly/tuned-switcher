@@ -62,18 +62,6 @@ public:
     void SetWidgetGeometry(const QByteArray&);
 
     /**
-     * Get the state of the widget form.
-     * @returns State of the widget form.
-    */
-    QByteArray GetWidgetState() const;
-
-    /**
-     * Set the state of the widget form.
-     * @param value New widget form state value.
-    */
-    void SetWidgetState(const QByteArray&);
-
-    /**
      * Get the geometry of the settings form.
      * @returns Geometry of the settings form.
     */
@@ -139,11 +127,6 @@ private:
      * Stores the geometry of the widget form option name.
     */
     const QString WidgetGeometryName = QStringLiteral("widget/geometry");
-
-    /**
-     * Stores the state of the widget form option name.
-    */
-    const QString WidgetStateName = QStringLiteral("widget/state");
 
     /**
      * Stores the geometry of the settings form option name.
