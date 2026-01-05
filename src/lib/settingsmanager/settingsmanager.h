@@ -38,18 +38,6 @@ public:
     void SetGeometrySavingEnabled(const bool);
 
     /**
-     * Get whether saving the form state is enabled.
-     * @returns Whether saving the form state is enabled.
-    */
-    bool GetStateSavingEnabled() const;
-
-    /**
-     * Set whether saving the form state is enabled.
-     * @param value Enable or disable saving the form state.
-    */
-    void SetStateSavingEnabled(const bool);
-
-    /**
      * Get the geometry of the widget form.
      * @returns Geometry of the widget form.
     */
@@ -60,18 +48,6 @@ public:
      * @param value New widget form geometry value.
     */
     void SetWidgetGeometry(const QByteArray&);
-
-    /**
-     * Get the state of the widget form.
-     * @returns State of the widget form.
-    */
-    QByteArray GetWidgetState() const;
-
-    /**
-     * Set the state of the widget form.
-     * @param value New widget form state value.
-    */
-    void SetWidgetState(const QByteArray&);
 
     /**
      * Get the geometry of the settings form.
@@ -131,19 +107,9 @@ private:
     const QString GeometrySavingEnabledName = QStringLiteral("common/saveGeometry");
 
     /**
-     * Stores whether saving the form state is enabled.
-    */
-    const QString StateSavingEnabledName = QStringLiteral("common/saveState");
-
-    /**
      * Stores the geometry of the widget form option name.
     */
     const QString WidgetGeometryName = QStringLiteral("widget/geometry");
-
-    /**
-     * Stores the state of the widget form option name.
-    */
-    const QString WidgetStateName = QStringLiteral("widget/state");
 
     /**
      * Stores the geometry of the settings form option name.

@@ -26,16 +26,6 @@ void SettingsManager::SetGeometrySavingEnabled(const bool value)
     settings -> setValue(GeometrySavingEnabledName, value);
 }
 
-bool SettingsManager::GetStateSavingEnabled() const
-{
-    return settings -> value(StateSavingEnabledName, true).toBool();
-}
-
-void SettingsManager::SetStateSavingEnabled(const bool value)
-{
-    settings -> setValue(StateSavingEnabledName, value);
-}
-
 QByteArray SettingsManager::GetWidgetGeometry() const
 {
     return settings -> value(WidgetGeometryName).toByteArray();
@@ -44,16 +34,6 @@ QByteArray SettingsManager::GetWidgetGeometry() const
 void SettingsManager::SetWidgetGeometry(const QByteArray& value)
 {
     settings -> setValue(WidgetGeometryName, value);
-}
-
-QByteArray SettingsManager::GetWidgetState() const
-{
-    return settings -> value(WidgetStateName).toByteArray();
-}
-
-void SettingsManager::SetWidgetState(const QByteArray& value)
-{
-    settings -> setValue(WidgetStateName, value);
 }
 
 QByteArray SettingsManager::GetSettingsGeometry() const
