@@ -13,7 +13,7 @@
 */
 
 #include <QByteArray>
-#include <QPoint>
+#include <QRect>
 #include <QWidget>
 
 /**
@@ -26,7 +26,7 @@ namespace GuiHelpers
      * @param widget Widget instance.
      * @returns Form position at the center of the screen.
     */
-    QPoint GetDefaultFormPosition(const QWidget*);
+    QRect GetDefaultFormPosition(const QWidget*);
 
     /**
      * Check whether the geometry value is valid.

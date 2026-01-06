@@ -10,17 +10,17 @@
 */
 
 #include <QByteArray>
-#include <QPoint>
 #include <QRect>
 #include <QScreen>
+#include <QStyle>
 #include <QVariant>
 #include <QWidget>
 
 #include "guihelpers/guihelpers.h"
 
-QPoint GuiHelpers::GetDefaultFormPosition(const QWidget* widget)
+QRect GuiHelpers::GetDefaultFormPosition(const QWidget* widget)
 {
-    return widget -> screen() -> availableGeometry().center() - widget -> frameGeometry().center();
+    return QStyle::alignedRect(Qt::LeftToRight, Qt::AlignCenter, widget -> size(), widget -> screen() -> availableGeometry());
 }
 
 bool GuiHelpers::CheckGeometryValid(const QByteArray& geometry)
