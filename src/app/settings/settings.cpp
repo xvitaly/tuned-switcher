@@ -71,7 +71,7 @@ void Settings::saveSettings()
 
 void Settings::setDefaultFormPosition()
 {
-    move(GuiHelpers::GetDefaultFormPosition(window()));
+    setGeometry(GuiHelpers::GetDefaultFormPosition(window()));
 }
 
 void Settings::setSavedFormPosition()
