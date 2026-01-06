@@ -225,7 +225,7 @@ QMenu* MainWindow::createMainMenu(QWidget* parent)
 
 void MainWindow::setDefaultFormPosition()
 {
-    move(GuiHelpers::GetDefaultFormPosition(window()));
+    setGeometry(GuiHelpers::GetDefaultFormPosition(window()));
 }
 
 void MainWindow::setSavedFormPosition()
