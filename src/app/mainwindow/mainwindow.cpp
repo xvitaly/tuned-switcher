@@ -177,10 +177,7 @@ void MainWindow::loadFormSettings()
 void MainWindow::saveFormSettings()
 {
     if (settings -> GetGeometrySavingEnabled())
-    {
         settings -> SetWidgetGeometry(saveGeometry());
-        settings -> Save();
-    }
 }
 
 QMenu* MainWindow::createServiceControlSubmenu(QWidget* parent)

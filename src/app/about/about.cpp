@@ -56,10 +56,7 @@ void About::loadFormSettings()
 void About::saveFormSettings()
 {
     if (settings -> GetGeometrySavingEnabled())
-    {
         settings -> SetAboutGeometry(saveGeometry());
-        settings -> Save();
-    }
 }
 
 void About::setDefaultFormPosition()

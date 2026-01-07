@@ -66,11 +66,6 @@ void SettingsManager::SetSoundEnabled(const bool value)
     settings -> setValue(SoundEnabledName, value);
 }
 
-void SettingsManager::Save()
-{
-    settings -> sync();
-}
-
 SettingsManager::SettingsManager(QObject* parent) : QObject(parent)
 {
     settings = new QSettings(this);

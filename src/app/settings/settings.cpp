@@ -56,17 +56,13 @@ void Settings::loadSettings()
 void Settings::saveFormSettings()
 {
     if (settings -> GetGeometrySavingEnabled())
-    {
         settings -> SetSettingsGeometry(saveGeometry());
-        settings -> Save();
-    }
 }
 
 void Settings::saveSettings()
 {
     settings -> SetGeometrySavingEnabled(ui -> SaveFormGeometry -> isChecked());
     settings -> SetSoundEnabled(ui -> EnableSound -> isChecked());
-    settings -> Save();
 }
 
 void Settings::setDefaultFormPosition()

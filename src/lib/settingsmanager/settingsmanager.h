@@ -86,11 +86,6 @@ public:
     void SetSoundEnabled(const bool);
 
     /**
-     * Save the program settings to file.
-    */
-    void Save();
-
-    /**
      * Main constructor of the SettingsManager class.
      * @param parent Parent.
     */
