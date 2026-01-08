@@ -10,12 +10,16 @@
 */
 
 #include <QByteArray>
+#include <QIcon>
+#include <QPixmap>
 #include <QRect>
 #include <QScreen>
+#include <QSize>
 #include <QStyle>
 #include <QVariant>
 #include <QWidget>
 
+#include "appconstants/appconstants.h"
 #include "guihelpers/guihelpers.h"
 
 QRect GuiHelpers::GetDefaultFormPosition(const QWidget* widget)
@@ -27,4 +31,15 @@ bool GuiHelpers::CheckGeometryValid(const QByteArray& geometry)
 {
     const QVariant result(geometry);
     return result.isValid() && result.toBool();
+}
+
+QIcon GuiHelpers::GetApplicationIcon()
+{
+    return QIcon::fromTheme(AppConstants::DomainSchemeName, QIcon(QStringLiteral(":/icons/fallback.png")));
+}
+
+QPixmap GuiHelpers::GetApplicationPixmap(const int size)
+{
+    const QIcon icon = GetApplicationIcon();
+    return icon.pixmap(icon.actualSize(QSize(size, size)));
 }

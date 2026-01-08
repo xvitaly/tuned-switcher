@@ -12,7 +12,6 @@
 #include <QDBusInterface>
 #include <QDBusMetaType>
 #include <QDBusReply>
-#include <QIcon>
 #include <QImage>
 #include <QList>
 #include <QMetaType>
@@ -26,6 +25,7 @@
 #include <QVariantMap>
 
 #include "appconstants/appconstants.h"
+#include "guihelpers/guihelpers.h"
 #include "notificationsmanager/notificationsmanager.h"
 #include "notificationsmanager/dbusconverters.h"
 
@@ -39,9 +39,7 @@ void NotificationsManager::GetCapabilities()
 
 const QImage NotificationsManager::GetNotificationImage(const int size = 128) const
 {
-    QIcon icon = QIcon::fromTheme(AppConstants::DomainSchemeName, QIcon(QStringLiteral(":/icons/fallback.png")));
-    QPixmap pixmap = icon.pixmap(icon.actualSize(QSize(size, size)));
-    return pixmap.toImage();
+    return GuiHelpers::GetApplicationPixmap(size).toImage();
 }
 
 const QString NotificationsManager::FormatNotificationMessage(const QString& message) const
