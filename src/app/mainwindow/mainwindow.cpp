@@ -18,7 +18,6 @@
 #include <QDialog>
 #include <QFlags>
 #include <QGraphicsDropShadowEffect>
-#include <QIcon>
 #include <QKeyEvent>
 #include <QMenu>
 #include <QMessageBox>
@@ -237,7 +236,7 @@ void MainWindow::setSavedFormPosition()
 void MainWindow::setFormStyle()
 {
     // Setting form style...
-    setWindowIcon(QIcon::fromTheme(AppConstants::DomainSchemeName, QIcon(QStringLiteral(":/icons/fallback.png"))));
+    setWindowIcon(GuiHelpers::GetApplicationIcon());
     setWindowFlags(Qt::FramelessWindowHint);
     setAttribute(Qt::WA_TranslucentBackground);
 
