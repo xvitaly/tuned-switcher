@@ -13,9 +13,10 @@
 */
 
 #include <QByteArray>
+#include <QIcon>
+#include <QPixmap>
 #include <QRect>
 #include <QWidget>
-#include <QPixmap>
 
 /**
  * Namespace with static methods for working with GUI.
@@ -37,6 +38,13 @@ namespace GuiHelpers
      * @retval false The geometry value is not valid.
     */
     bool CheckGeometryValid(const QByteArray&);
+
+    /**
+     * Get the application icon from the installed theme or form
+     * the included resource.
+     * @returns The application icon.
+    */
+    QIcon GetApplicationIcon();
 
     /**
      * Get the application icon from the installed theme or form

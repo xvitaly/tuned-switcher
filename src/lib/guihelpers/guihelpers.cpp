@@ -10,14 +10,14 @@
 */
 
 #include <QByteArray>
+#include <QIcon>
+#include <QPixmap>
 #include <QRect>
 #include <QScreen>
+#include <QSize>
 #include <QStyle>
 #include <QVariant>
 #include <QWidget>
-#include <QSize>
-#include <QPixmap>
-#include <QIcon>
 
 #include "appconstants/appconstants.h"
 #include "guihelpers/guihelpers.h"
@@ -33,8 +33,13 @@ bool GuiHelpers::CheckGeometryValid(const QByteArray& geometry)
     return result.isValid() && result.toBool();
 }
 
+QIcon GuiHelpers::GetApplicationIcon()
+{
+    return QIcon::fromTheme(AppConstants::DomainSchemeName, QIcon(QStringLiteral(":/icons/fallback.png")));
+}
+
 QPixmap GuiHelpers::GetApplicationPixmap(const int size)
 {
-    const QIcon icon = QIcon::fromTheme(AppConstants::DomainSchemeName, QIcon(QStringLiteral(":/icons/fallback.png")));
+    const QIcon icon = GetApplicationIcon();
     return icon.pixmap(icon.actualSize(QSize(size, size)));
 }
