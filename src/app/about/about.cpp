@@ -11,7 +11,6 @@
 
 #include <QByteArray>
 #include <QDialog>
-#include <QIcon>
 #include <QPixmap>
 #include <QSize>
 #include <QString>
@@ -80,8 +79,7 @@ void About::setFormStyle()
 
 void About::setFormControls()
 {
-    QIcon AppIcon = QIcon::fromTheme(AppConstants::DomainSchemeName, QIcon(QStringLiteral(":/icons/fallback.png")));
-    ui -> AppIcon -> setPixmap(AppIcon.pixmap(AppIcon.actualSize(QSize(128, 128))));
+    ui -> AppIcon -> setPixmap(GuiHelpers::GetApplicationPixmap(128));
     ui -> AppName -> setText(AppConstants::ProductName);
     ui -> AppVersion -> setText(tr("Version: %1").arg(AppConstants::ProductVersion));
     ui -> AppDeveloper -> setText(AppConstants::ProductCompany);
