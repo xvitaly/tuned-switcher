@@ -10,10 +10,14 @@
 */
 
 #include <QByteArray>
+#include <QDir>
+#include <QFile>
 #include <QObject>
 #include <QSettings>
+#include <QString>
 #include <QVariant>
 
+#include "appconstants/appconstants.h"
 #include "settingsmanager/settingsmanager.h"
 
 bool SettingsManager::GetGeometrySavingEnabled() const
@@ -64,6 +68,11 @@ bool SettingsManager::GetSoundEnabled() const
 void SettingsManager::SetSoundEnabled(const bool value)
 {
     settings -> setValue(SoundEnabledName, value);
+}
+
+QString SettingsManager::GetAutorunFileName() const
+{
+    return AutorunFilePath.arg(QDir::homePath(), AppConstants::LauncherName);
 }
 
 SettingsManager::SettingsManager(QObject* parent) : QObject(parent)
