@@ -110,6 +110,12 @@ private:
     QString GenerateAutorunFile() const;
 
     /**
+     * Write autorun file to disk.
+     * @param value Autorun file contents.
+    */
+    void WriteAutorunFile(const QString&) const;
+
+    /**
      * Stores a pointer to the QSettings class instance.
     */
     QSettings* settings;

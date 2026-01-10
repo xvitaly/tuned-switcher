@@ -94,6 +94,15 @@ QString SettingsManager::GenerateAutorunFile() const
                             AppConstants::ProductNameInternal);
 }
 
+void SettingsManager::WriteAutorunFile(const QString& value) const
+{
+    QFile autorun(GetAutorunFileName());
+    if (value.isEmpty() || !autorun.open(QFile::WriteOnly | QFile::Text))
+        return;
+    QTextStream af(&autorun);
+    af << value;
+}
+
 SettingsManager::SettingsManager(QObject* parent) : QObject(parent)
 {
     settings = new QSettings(this);
