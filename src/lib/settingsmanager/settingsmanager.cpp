@@ -15,6 +15,8 @@
 #include <QObject>
 #include <QSettings>
 #include <QString>
+#include <QStringLiteral>
+#include <QTextStream>
 #include <QVariant>
 
 #include "appconstants/appconstants.h"
@@ -78,6 +80,18 @@ QString SettingsManager::GetAutorunFileName() const
 bool SettingsManager::GetAutorunEnabled() const
 {
     return QFile::exists(GetAutorunFileName());
+}
+
+QString SettingsManager::GenerateAutorunFile() const
+{
+    QFile autorun(QStringLiteral(":/assets/autorun.desktop"));
+    if (!autorun.open(QFile::ReadOnly | QFile::Text))
+        return QString();
+    QTextStream af(&autorun);
+    return af.readAll().arg(AppConstants::ProductName,
+                            AppConstants::ProductDescription,
+                            AppConstants::DomainSchemeName,
+                            AppConstants::ProductNameInternal);
 }
 
 SettingsManager::SettingsManager(QObject* parent) : QObject(parent)

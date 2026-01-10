@@ -104,6 +104,12 @@ private:
     QString GetAutorunFileName() const;
 
     /**
+     * Generate autorun file contents.
+     * @returns Autorun file contents.
+    */
+    QString GenerateAutorunFile() const;
+
+    /**
      * Stores a pointer to the QSettings class instance.
     */
     QSettings* settings;
