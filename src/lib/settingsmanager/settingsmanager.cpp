@@ -75,6 +75,11 @@ QString SettingsManager::GetAutorunFileName() const
     return AutorunFilePath.arg(QDir::homePath(), AppConstants::LauncherName);
 }
 
+bool SettingsManager::GetAutorunEnabled() const
+{
+    return QFile::exists(GetAutorunFileName());
+}
+
 SettingsManager::SettingsManager(QObject* parent) : QObject(parent)
 {
     settings = new QSettings(this);

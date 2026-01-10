@@ -86,6 +86,12 @@ public:
     void SetSoundEnabled(const bool);
 
     /**
+     * Get whether the autorun feature is enabled.
+     * @returns Whether the autorun feature is enabled.
+    */
+    bool GetAutorunEnabled() const;
+
+    /**
      * Main constructor of the SettingsManager class.
      * @param parent Parent.
     */
