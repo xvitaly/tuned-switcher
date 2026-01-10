@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=%1
+GenericName=%2
+Icon=%3
+Exec=%4
+Categories=System;
+NoDisplay=true
+StartupNotify=false
+Terminal=false
