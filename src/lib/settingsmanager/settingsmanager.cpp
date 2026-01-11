@@ -103,6 +103,22 @@ void SettingsManager::WriteAutorunFile(const QString& value) const
     af << value;
 }
 
+void SettingsManager::SetAutorunEnabled(const bool value) const
+{
+    QString autorun = GetAutorunFileName();
+    bool enabled = QFile::exists(autorun);
+    if (value)
+    {
+        if (!enabled)
+            WriteAutorunFile(GenerateAutorunFile());
+    }
+    else
+    {
+        if (enabled)
+            QFile::remove(autorun);
+    }
+}
+
 SettingsManager::SettingsManager(QObject* parent) : QObject(parent)
 {
     settings = new QSettings(this);

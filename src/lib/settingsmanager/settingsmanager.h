@@ -92,6 +92,12 @@ public:
     bool GetAutorunEnabled() const;
 
     /**
+     * Set whether the autorun feature is enabled.
+     * @param value Enable or disable the autorun feature.
+    */
+    void SetAutorunEnabled(const bool) const;
+
+    /**
      * Main constructor of the SettingsManager class.
      * @param parent Parent.
     */
