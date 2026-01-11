@@ -26,8 +26,20 @@ public:
     */
     explicit AutorunManager(QObject* parent = nullptr);
 
+    /**
+     * Get whether the autorun feature is enabled.
+     * @returns Whether the autorun feature is enabled.
+    */
     bool IsEnabled();
+
+    /**
+     * Enable the autorun feature.
+    */
     void Enable();
+
+    /**
+     * Disable the autorun feature.
+    */
     void Disable();
 private:
     /**
