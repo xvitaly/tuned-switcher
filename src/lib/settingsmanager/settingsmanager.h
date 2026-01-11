@@ -104,24 +104,6 @@ public:
     explicit SettingsManager(QObject* parent = nullptr);
 private:
     /**
-     * Get autorun file name.
-     * @returns Fully-qualified autorun file name.
-    */
-    QString GetAutorunFileName() const;
-
-    /**
-     * Generate autorun file contents.
-     * @returns Autorun file contents.
-    */
-    QString GenerateAutorunFile() const;
-
-    /**
-     * Write autorun file to disk.
-     * @param value Autorun file contents.
-    */
-    void WriteAutorunFile(const QString&) const;
-
-    /**
      * Stores a pointer to the QSettings class instance.
     */
     QSettings* settings;
@@ -150,11 +132,6 @@ private:
      * Stores the notification sound configuration option name.
     */
     const QString SoundEnabledName = QStringLiteral("common/soundEnabled");
-
-    /**
-     * Stores the autorun file path.
-    */
-    const QString AutorunFilePath = QStringLiteral("%1/.config/autostart/%2.desktop");
 };
 
 #endif // SETTINGSMANAGER_H

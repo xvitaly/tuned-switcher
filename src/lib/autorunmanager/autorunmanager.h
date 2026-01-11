@@ -13,6 +13,8 @@
 */
 
 #include <QObject>
+#include <QString>
+#include <QStringLiteral>
 
 class AutorunManager : public QObject
 {
@@ -23,7 +25,33 @@ public:
      * @param parent Parent.
     */
     explicit AutorunManager(QObject* parent = nullptr);
+
+    bool IsEnabled();
+    void Enable();
+    void Disable();
 private:
+    /**
+     * Get autorun file name.
+     * @returns Fully-qualified autorun file name.
+    */
+    QString GetAutorunFileName() const;
+
+    /**
+     * Generate autorun file contents.
+     * @returns Autorun file contents.
+    */
+    QString GenerateAutorunFile() const;
+
+    /**
+     * Write autorun file to disk.
+     * @param value Autorun file contents.
+    */
+    void WriteAutorunFile(const QString&) const;
+
+    /**
+     * Stores the autorun file path.
+    */
+    const QString AutorunFilePath = QStringLiteral("%1/.config/autostart/%2.desktop");
 };
 
 #endif // AUTORUNMANAGER_H

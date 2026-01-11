@@ -10,16 +10,10 @@
 */
 
 #include <QByteArray>
-#include <QDir>
-#include <QFile>
 #include <QObject>
 #include <QSettings>
-#include <QString>
-#include <QStringLiteral>
-#include <QTextStream>
 #include <QVariant>
 
-#include "appconstants/appconstants.h"
 #include "settingsmanager/settingsmanager.h"
 
 bool SettingsManager::GetGeometrySavingEnabled() const
@@ -72,51 +66,14 @@ void SettingsManager::SetSoundEnabled(const bool value)
     settings -> setValue(SoundEnabledName, value);
 }
 
-QString SettingsManager::GetAutorunFileName() const
-{
-    return AutorunFilePath.arg(QDir::homePath(), AppConstants::LauncherName);
-}
-
 bool SettingsManager::GetAutorunEnabled() const
 {
-    return QFile::exists(GetAutorunFileName());
-}
-
-QString SettingsManager::GenerateAutorunFile() const
-{
-    QFile autorun(QStringLiteral(":/assets/autorun.desktop"));
-    if (!autorun.open(QFile::ReadOnly | QFile::Text))
-        return QString();
-    QTextStream af(&autorun);
-    return af.readAll().arg(AppConstants::ProductName,
-                            AppConstants::ProductDescription,
-                            AppConstants::DomainSchemeName,
-                            AppConstants::ProductNameInternal);
-}
-
-void SettingsManager::WriteAutorunFile(const QString& value) const
-{
-    QFile autorun(GetAutorunFileName());
-    if (value.isEmpty() || !autorun.open(QFile::WriteOnly | QFile::Text))
-        return;
-    QTextStream af(&autorun);
-    af << value;
+    return false;
 }
 
 void SettingsManager::SetAutorunEnabled(const bool value) const
 {
-    QString autorun = GetAutorunFileName();
-    bool enabled = QFile::exists(autorun);
-    if (value)
-    {
-        if (!enabled)
-            WriteAutorunFile(GenerateAutorunFile());
-    }
-    else
-    {
-        if (enabled)
-            QFile::remove(autorun);
-    }
+    //
 }
 
 SettingsManager::SettingsManager(QObject* parent) : QObject(parent)
