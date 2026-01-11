@@ -131,6 +131,7 @@ endif()
 # ======================================================
 
 set(LIBRARY_HEADERS
+    src/lib/autorunmanager/autorunmanager.h
     src/lib/guihelpers/guihelpers.h
     src/lib/logcategories/logcategories.h
     src/lib/notificationsmanager/dbusconverters.h
@@ -142,6 +143,7 @@ set(LIBRARY_HEADERS
 )
 
 set(LIBRARY_SOURCES
+    src/lib/autorunmanager/autorunmanager.cpp
     src/lib/guihelpers/guihelpers.cpp
     src/lib/logcategories/logcategories.cpp
     src/lib/notificationsmanager/notificationsmanager.cpp
