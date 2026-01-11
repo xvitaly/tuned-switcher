@@ -18,6 +18,8 @@
 #include <QString>
 #include <QStringLiteral>
 
+#include "autorunmanager/autorunmanager.h"
+
 /**
  * Class for working with program settings.
 */
@@ -107,6 +109,11 @@ private:
      * Stores a pointer to the QSettings class instance.
     */
     QSettings* settings;
+
+    /**
+     * Stores a pointer to the AutorunManager class instance.
+    */
+    AutorunManager* autorun;
 
     /**
      * Stores whether saving the form geometry is enabled.
