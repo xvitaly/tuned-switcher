@@ -42,7 +42,7 @@ QString AutorunManager::GenerateAutorunFile() const
 
 void AutorunManager::WriteAutorunFile(const QString& value) const
 {
-    QFile autorun(GetAutorunFileName());
+    QFile autorun(AutorunFileName);
     if (value.isEmpty() || !autorun.open(QFile::WriteOnly | QFile::Text))
         return;
     QTextStream af(&autorun);
@@ -51,7 +51,7 @@ void AutorunManager::WriteAutorunFile(const QString& value) const
 
 bool AutorunManager::IsEnabled()
 {
-    return QFile::exists(GetAutorunFileName());
+    return QFile::exists(AutorunFileName);
 }
 
 void AutorunManager::Enable()
@@ -63,5 +63,5 @@ void AutorunManager::Enable()
 void AutorunManager::Disable()
 {
     if (IsEnabled())
-        QFile::remove(GetAutorunFileName());
+        QFile::remove(AutorunFileName);
 }
