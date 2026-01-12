@@ -34,6 +34,13 @@ QString AutorunManager::GetAutorunFileName() const
     return AutorunFilePath.arg(QDir::homePath(), AppConstants::LauncherName);
 }
 
+void AutorunManager::CreateAutorunDirectory() const
+{
+    const QDir directory(AutorunDirectoryName);
+    if (!directory.exists())
+        directory.mkpath(QStringLiteral("."));
+}
+
 QString AutorunManager::GenerateAutorunFile() const
 {
     QFile autorun(QStringLiteral(":/assets/autorun.desktop"));

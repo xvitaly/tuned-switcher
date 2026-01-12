@@ -55,6 +55,11 @@ private:
     QString GetAutorunFileName() const;
 
     /**
+     * Create autorun directory if doesn't exists.
+    */
+    void CreateAutorunDirectory() const;
+
+    /**
      * Generate autorun file contents.
      * @returns Autorun file contents.
     */
