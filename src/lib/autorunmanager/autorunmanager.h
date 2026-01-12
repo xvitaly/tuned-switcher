@@ -61,6 +61,11 @@ private:
     void WriteAutorunFile(const QString&) const;
 
     /**
+     * Stores full path to the autorun file.
+    */
+    QString AutorunFileName;
+
+    /**
      * Stores the autorun file path.
     */
     const QString AutorunFilePath = QStringLiteral("%1/.config/autostart/%2.desktop");

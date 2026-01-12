@@ -19,7 +19,9 @@
 #include "autorunmanager/autorunmanager.h"
 
 AutorunManager::AutorunManager(QObject* parent) : QObject(parent)
-{}
+{
+    AutorunFileName = GetAutorunFileName();
+}
 
 QString AutorunManager::GetAutorunFileName() const
 {
