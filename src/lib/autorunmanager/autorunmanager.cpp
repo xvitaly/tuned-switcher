@@ -11,10 +11,9 @@
 
 #include <QDir>
 #include <QFile>
-#include <QTextStream>
-#include <QString>
 #include <QString>
 #include <QStringLiteral>
+#include <QTextStream>
 
 #include "appconstants/appconstants.h"
 #include "autorunmanager/autorunmanager.h"
