@@ -20,7 +20,13 @@
 
 AutorunManager::AutorunManager(QObject* parent) : QObject(parent)
 {
+    AutorunDirectoryName = GetAutorunDirectoryName();
     AutorunFileName = GetAutorunFileName();
+}
+
+QString AutorunManager::GetAutorunDirectoryName() const
+{
+    return AutorunDirectoryPath.arg(QDir::homePath());
 }
 
 QString AutorunManager::GetAutorunFileName() const

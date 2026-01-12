@@ -43,6 +43,12 @@ public:
     void Disable();
 private:
     /**
+     * Get autorun directory path.
+     * @returns Fully-qualified autorun directory path.
+    */
+    QString GetAutorunDirectoryName() const;
+
+    /**
      * Get autorun file name.
      * @returns Fully-qualified autorun file name.
     */
@@ -61,9 +67,19 @@ private:
     void WriteAutorunFile(const QString&) const;
 
     /**
+     * Stores full path to the autorun directory.
+    */
+    QString AutorunDirectoryName;
+
+    /**
      * Stores full path to the autorun file.
     */
     QString AutorunFileName;
+
+    /**
+     * Stores the path to the autorun directory.
+    */
+    const QString AutorunDirectoryPath = QStringLiteral("%1/.config/autostart");
 
     /**
      * Stores the autorun file path.
