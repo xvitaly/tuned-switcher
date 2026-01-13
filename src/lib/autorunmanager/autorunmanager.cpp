@@ -27,12 +27,13 @@ AutorunManager::AutorunManager(QObject* parent) : QObject(parent)
 
 QString AutorunManager::GetAutorunDirectoryName() const
 {
-    return AutorunDirectoryPath.arg(QDir::homePath());
+    return QStringLiteral("%1/.config/autostart").arg(QDir::homePath());
 }
 
 QString AutorunManager::GetAutorunFileName() const
 {
-    return AutorunFilePath.arg(QDir::homePath(), AppConstants::LauncherName);
+    return QStringLiteral("%1/.config/autostart/%2.desktop").arg(
+        QDir::homePath(), AppConstants::LauncherName);
 }
 
 void AutorunManager::CreateAutorunDirectory() const

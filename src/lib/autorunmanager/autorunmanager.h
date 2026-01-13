@@ -14,7 +14,6 @@
 
 #include <QObject>
 #include <QString>
-#include <QStringLiteral>
 
 class AutorunManager : public QObject
 {
@@ -97,16 +96,6 @@ private:
      * Stores full path to the autorun file.
     */
     QString AutorunFileName;
-
-    /**
-     * Stores the path to the autorun directory.
-    */
-    const QString AutorunDirectoryPath = QStringLiteral("%1/.config/autostart");
-
-    /**
-     * Stores the autorun file path.
-    */
-    const QString AutorunFilePath = QStringLiteral("%1/.config/autostart/%2.desktop");
 };
 
 #endif // AUTORUNMANAGER_H
