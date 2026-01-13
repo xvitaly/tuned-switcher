@@ -33,6 +33,12 @@ public:
     bool IsEnabled();
 
     /**
+     * Get whether the autorun feature is supported on running platform.
+     * @returns Whether the autorun feature is supported.
+    */
+    bool IsSupported();
+
+    /**
      * Enable the autorun feature.
     */
     void Enable();
@@ -76,6 +82,11 @@ private:
      * @param value Autorun file contents.
     */
     void WriteAutorunFile(const QString&) const;
+
+    /**
+     * Stores whether the autorun feature is supported.
+    */
+    bool AutorunSupported;
 
     /**
      * Stores full path to the autorun directory.

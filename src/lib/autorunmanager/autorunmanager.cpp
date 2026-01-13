@@ -22,6 +22,7 @@ AutorunManager::AutorunManager(QObject* parent) : QObject(parent)
 {
     AutorunDirectoryName = GetAutorunDirectoryName();
     AutorunFileName = GetAutorunFileName();
+    AutorunSupported = !CheckSandbox();
 }
 
 QString AutorunManager::GetAutorunDirectoryName() const
@@ -70,6 +71,11 @@ bool AutorunManager::CheckSandbox() const
 bool AutorunManager::IsEnabled()
 {
     return QFile::exists(AutorunFileName);
+}
+
+bool AutorunManager::IsSupported()
+{
+    return AutorunSupported;
 }
 
 void AutorunManager::Enable()
