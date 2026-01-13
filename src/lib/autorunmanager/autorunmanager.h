@@ -55,6 +55,12 @@ private:
     QString GetAutorunFileName() const;
 
     /**
+     * Check whether the application is running in a sandbox.
+     * @returns Whether the application is running in a sandbox.
+    */
+    bool CheckSandbox() const;
+
+    /**
      * Create autorun directory if doesn't exists.
     */
     void CreateAutorunDirectory() const;

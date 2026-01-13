@@ -62,6 +62,11 @@ void AutorunManager::WriteAutorunFile(const QString& value) const
     af << value;
 }
 
+bool AutorunManager::CheckSandbox() const
+{
+    return QFile::exists(QStringLiteral("/.flatpak-info"));
+}
+
 bool AutorunManager::IsEnabled()
 {
     return QFile::exists(AutorunFileName);
