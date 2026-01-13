@@ -81,7 +81,10 @@ bool AutorunManager::IsSupported() const
 void AutorunManager::Enable() const
 {
     if (!IsEnabled())
+    {
+        CreateAutorunDirectory();
         WriteAutorunFile(GenerateAutorunFile());
+    }
 }
 
 void AutorunManager::Disable() const
