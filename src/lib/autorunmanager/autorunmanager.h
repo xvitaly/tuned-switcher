@@ -30,23 +30,23 @@ public:
      * Get whether the autorun feature is enabled.
      * @returns Whether the autorun feature is enabled.
     */
-    bool IsEnabled();
+    bool IsEnabled() const;
 
     /**
      * Get whether the autorun feature is supported on running platform.
      * @returns Whether the autorun feature is supported.
     */
-    bool IsSupported();
+    bool IsSupported() const;
 
     /**
      * Enable the autorun feature.
     */
-    void Enable();
+    void Enable() const;
 
     /**
      * Disable the autorun feature.
     */
-    void Disable();
+    void Disable() const;
 private:
     /**
      * Get autorun directory path.
