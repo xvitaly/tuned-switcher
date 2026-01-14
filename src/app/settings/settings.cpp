@@ -51,6 +51,8 @@ void Settings::loadSettings()
 {
     ui -> SaveFormGeometry -> setChecked(settings -> GetGeometrySavingEnabled());
     ui -> EnableSound -> setChecked(settings -> GetSoundEnabled());
+    ui -> Autorun -> setChecked(settings -> GetAutorunEnabled());
+    ui -> Autorun -> setEnabled(settings -> IsAutorunSupported());
 }
 
 void Settings::saveFormSettings()
@@ -63,6 +65,7 @@ void Settings::saveSettings()
 {
     settings -> SetGeometrySavingEnabled(ui -> SaveFormGeometry -> isChecked());
     settings -> SetSoundEnabled(ui -> EnableSound -> isChecked());
+    settings -> SetAutorunEnabled(ui -> Autorun -> isChecked());
 }
 
 void Settings::setDefaultFormPosition()
