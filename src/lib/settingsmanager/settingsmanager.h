@@ -18,6 +18,8 @@
 #include <QString>
 #include <QStringLiteral>
 
+#include "autorunmanager/autorunmanager.h"
+
 /**
  * Class for working with program settings.
 */
@@ -86,6 +88,24 @@ public:
     void SetSoundEnabled(const bool);
 
     /**
+     * Get whether the autorun feature is supported.
+     * @returns Whether the autorun feature is supported.
+    */
+    bool IsAutorunSupported() const;
+
+    /**
+     * Get whether the autorun feature is enabled.
+     * @returns Whether the autorun feature is enabled.
+    */
+    bool GetAutorunEnabled() const;
+
+    /**
+     * Set whether the autorun feature is enabled.
+     * @param value Enable or disable the autorun feature.
+    */
+    void SetAutorunEnabled(const bool) const;
+
+    /**
      * Main constructor of the SettingsManager class.
      * @param parent Parent.
     */
@@ -95,6 +115,11 @@ private:
      * Stores a pointer to the QSettings class instance.
     */
     QSettings* settings;
+
+    /**
+     * Stores a pointer to the AutorunManager class instance.
+    */
+    AutorunManager* autorun;
 
     /**
      * Stores whether saving the form geometry is enabled.

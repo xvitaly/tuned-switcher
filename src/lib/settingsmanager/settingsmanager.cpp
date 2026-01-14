@@ -14,6 +14,7 @@
 #include <QSettings>
 #include <QVariant>
 
+#include "autorunmanager/autorunmanager.h"
 #include "settingsmanager/settingsmanager.h"
 
 bool SettingsManager::GetGeometrySavingEnabled() const
@@ -66,7 +67,26 @@ void SettingsManager::SetSoundEnabled(const bool value)
     settings -> setValue(SoundEnabledName, value);
 }
 
+bool SettingsManager::IsAutorunSupported() const
+{
+    return autorun -> IsSupported();
+}
+
+bool SettingsManager::GetAutorunEnabled() const
+{
+    return autorun -> IsEnabled();
+}
+
+void SettingsManager::SetAutorunEnabled(const bool value) const
+{
+    if (value)
+        autorun -> Enable();
+    else
+        autorun -> Disable();
+}
+
 SettingsManager::SettingsManager(QObject* parent) : QObject(parent)
 {
     settings = new QSettings(this);
+    autorun = new AutorunManager(this);
 }

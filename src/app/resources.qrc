@@ -7,4 +7,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
     <qresource prefix="/icons">
         <file alias="fallback.png">../../assets/icons/icon-48.png</file>
     </qresource>
+    <qresource prefix="/assets">
+        <file alias="autorun.desktop">../../assets/desktop/autorun.desktop.in</file>
+    </qresource>
 </RCC>
