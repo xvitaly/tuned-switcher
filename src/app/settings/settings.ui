@@ -41,7 +41,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
       <item>
        <widget class="QCheckBox" name="Autorun">
         <property name="text">
-         <string>Run this application on startup</string>
+         <string>Run application on startup</string>
         </property>
        </widget>
       </item>

@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>О программе</translation>
     </message>
     <message>
-        <location filename="../../src/app/about/about.cpp" line="+89"/>
+        <location filename="../../src/app/about/about.cpp" line="+84"/>
         <source>Version: %1</source>
         <translation>Версия: %1</translation>
     </message>
@@ -31,7 +31,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Авто-выбор профиля</translation>
     </message>
     <message>
-        <location filename="../../src/app/mainwindow/mainwindow.cpp" line="+143"/>
+        <location filename="../../src/app/mainwindow/mainwindow.cpp" line="+142"/>
         <source>Cannot start Tuned service via D-Bus call. Terminating.</source>
         <translation>Не удалось запустить сервис Tuned при помощи D-Bus. Приложение будет завершено.</translation>
     </message>
@@ -46,7 +46,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Сервис Tuned не запущен. Хотите ли вы запустить его прямо сейчас?</translation>
     </message>
     <message>
-        <location line="+37"/>
+        <location line="+34"/>
         <location line="+99"/>
         <source>Service control</source>
         <translation>Управление сервисом</translation>
@@ -165,6 +165,11 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <location line="+7"/>
         <source>Use sound for notifications</source>
         <translation>Использовать звук в уведомлениях</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Run application on startup</source>
+        <translation>Запускать приложение автоматически</translation>
     </message>
 </context>
 <context>
