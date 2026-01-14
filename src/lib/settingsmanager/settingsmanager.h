@@ -88,6 +88,12 @@ public:
     void SetSoundEnabled(const bool);
 
     /**
+     * Get whether the autorun feature is supported.
+     * @returns Whether the autorun feature is supported.
+    */
+    bool IsAutorunSupported() const;
+
+    /**
      * Get whether the autorun feature is enabled.
      * @returns Whether the autorun feature is enabled.
     */

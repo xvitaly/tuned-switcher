@@ -67,6 +67,11 @@ void SettingsManager::SetSoundEnabled(const bool value)
     settings -> setValue(SoundEnabledName, value);
 }
 
+bool SettingsManager::IsAutorunSupported() const
+{
+    return autorun -> IsSupported();
+}
+
 bool SettingsManager::GetAutorunEnabled() const
 {
     return autorun -> IsEnabled();
