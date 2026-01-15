@@ -58,10 +58,11 @@ QString AutorunManager::GenerateAutorunFile() const
 void AutorunManager::WriteAutorunFile(const QString& value) const
 {
     QFile autorun(AutorunFileName);
-    if (value.isEmpty() || !autorun.open(QFile::WriteOnly | QFile::Text))
-        return;
-    QTextStream af(&autorun);
-    af << value;
+    if (!value.isEmpty() && autorun.open(QFile::WriteOnly | QFile::Text))
+    {
+        QTextStream af(&autorun);
+        af << value;
+    }
 }
 
 bool AutorunManager::CheckSandbox() const
