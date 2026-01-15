@@ -58,10 +58,11 @@ QString AutorunManager::GenerateAutorunFile() const
 void AutorunManager::WriteAutorunFile(const QString& value) const
 {
     QFile autorun(AutorunFileName);
-    if (value.isEmpty() || !autorun.open(QFile::WriteOnly | QFile::Text))
-        return;
-    QTextStream af(&autorun);
-    af << value;
+    if (!value.isEmpty() && autorun.open(QFile::WriteOnly | QFile::Text))
+    {
+        QTextStream af(&autorun);
+        af << value;
+    }
 }
 
 bool AutorunManager::CheckSandbox() const
@@ -81,7 +82,7 @@ bool AutorunManager::IsSupported() const
 
 void AutorunManager::Enable() const
 {
-    if (!IsEnabled())
+    if (AutorunSupported && !IsEnabled())
     {
         CreateAutorunDirectory();
         WriteAutorunFile(GenerateAutorunFile());
@@ -90,6 +91,6 @@ void AutorunManager::Enable() const
 
 void AutorunManager::Disable() const
 {
-    if (IsEnabled())
+    if (AutorunSupported && IsEnabled())
         QFile::remove(AutorunFileName);
 }
