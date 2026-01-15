@@ -90,6 +90,6 @@ void AutorunManager::Enable() const
 
 void AutorunManager::Disable() const
 {
-    if (IsEnabled())
+    if (AutorunSupported && IsEnabled())
         QFile::remove(AutorunFileName);
 }
