@@ -98,6 +98,11 @@ namespace AppConstants {
     inline const char* CategoryNameDbus = "@CMAKE_PROJECT_NAME@.dbus";
 
     /**
+     * Stores the logging category name for autorun related messages.
+    */
+    inline const char* CategoryNameAutorun = "@CMAKE_PROJECT_NAME@.autorun";
+
+    /**
      * Stores the environment variable name used to start the application
      * in GUI mode.
     */
