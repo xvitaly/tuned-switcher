@@ -24,6 +24,11 @@ namespace LogCategories
      * Get the logging category for DBus related messages.
     */
     Q_DECLARE_LOGGING_CATEGORY(DBus)
+
+    /**
+     * Get the logging category for autorun related messages.
+    */
+    Q_DECLARE_LOGGING_CATEGORY(Autorun)
 }
 
 #endif // LOGCATEGORIES_H
