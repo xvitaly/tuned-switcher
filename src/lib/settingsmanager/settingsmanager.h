@@ -110,6 +110,8 @@ public:
     */
     void Reset() const;
 
+    void ResetGeometry() const;
+
     /**
      * Main constructor of the SettingsManager class.
      * @param parent Parent.
