@@ -105,6 +105,9 @@ public:
     */
     void SetAutorunEnabled(const bool) const;
 
+    /**
+     * Reset all settings to default values.
+    */
     void Reset() const;
 
     /**
