@@ -85,6 +85,18 @@ void SettingsManager::SetAutorunEnabled(const bool value) const
         autorun -> Disable();
 }
 
+void SettingsManager::Reset() const
+{
+    settings -> clear();
+}
+
+void SettingsManager::ResetGeometry() const
+{
+    settings -> remove(AboutGeometryName);
+    settings -> remove(SettingsGeometryName);
+    settings -> remove(WidgetGeometryName);
+}
+
 SettingsManager::SettingsManager(QObject* parent) : QObject(parent)
 {
     settings = new QSettings(this);

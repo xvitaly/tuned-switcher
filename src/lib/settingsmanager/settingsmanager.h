@@ -106,6 +106,16 @@ public:
     void SetAutorunEnabled(const bool) const;
 
     /**
+     * Reset all settings to default values.
+    */
+    void Reset() const;
+
+    /**
+     * Reset the geometry settings to default values.
+    */
+    void ResetGeometry() const;
+
+    /**
      * Main constructor of the SettingsManager class.
      * @param parent Parent.
     */
