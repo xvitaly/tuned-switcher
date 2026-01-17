@@ -85,6 +85,11 @@ void SettingsManager::SetAutorunEnabled(const bool value) const
         autorun -> Disable();
 }
 
+void SettingsManager::Reset() const
+{
+    settings -> clear();
+}
+
 SettingsManager::SettingsManager(QObject* parent) : QObject(parent)
 {
     settings = new QSettings(this);

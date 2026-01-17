@@ -105,6 +105,8 @@ public:
     */
     void SetAutorunEnabled(const bool) const;
 
+    void Reset() const;
+
     /**
      * Main constructor of the SettingsManager class.
      * @param parent Parent.
