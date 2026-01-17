@@ -110,6 +110,9 @@ public:
     */
     void Reset() const;
 
+    /**
+     * Reset the geometry settings to default values.
+    */
     void ResetGeometry() const;
 
     /**
