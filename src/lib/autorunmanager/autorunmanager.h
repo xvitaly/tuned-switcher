@@ -20,82 +20,50 @@ class AutorunManager : public QObject
     Q_OBJECT
 public:
     /**
+     * Create an instance of the AutorunManager class. Factory method.
+     * @param parent Parent.
+     * @returns Instance of the AutorunManager class.
+    */
+    static AutorunManager* Create(QObject*);
+
+    /**
      * Main constructor of the AutorunManager class.
      * @param parent Parent.
     */
     explicit AutorunManager(QObject* parent = nullptr);
 
     /**
+     * Destructor of the AutorunManager class.
+    */
+    virtual ~AutorunManager();
+
+    /**
      * Get whether the autorun feature is enabled.
      * @returns Whether the autorun feature is enabled.
     */
-    bool IsEnabled() const;
+    virtual bool IsEnabled() const = 0;
 
     /**
      * Get whether the autorun feature is supported on running platform.
      * @returns Whether the autorun feature is supported.
     */
-    bool IsSupported() const;
+    virtual bool IsSupported() const;
 
     /**
      * Enable the autorun feature.
     */
-    void Enable() const;
+    virtual void Enable() const = 0;
 
     /**
      * Disable the autorun feature.
     */
-    void Disable() const;
+    virtual void Disable() const = 0;
 private:
-    /**
-     * Get autorun directory path.
-     * @returns Fully-qualified autorun directory path.
-    */
-    QString GetAutorunDirectoryName() const;
-
-    /**
-     * Get autorun file name.
-     * @returns Fully-qualified autorun file name.
-    */
-    QString GetAutorunFileName() const;
-
     /**
      * Check whether the application is running in a sandbox.
      * @returns Whether the application is running in a sandbox.
     */
-    bool CheckSandbox() const;
-
-    /**
-     * Create autorun directory if doesn't exists.
-    */
-    void CreateAutorunDirectory() const;
-
-    /**
-     * Generate autorun file contents.
-     * @returns Autorun file contents.
-    */
-    QString GenerateAutorunFile() const;
-
-    /**
-     * Write autorun file to disk.
-     * @param value Autorun file contents.
-    */
-    void WriteAutorunFile(const QString&) const;
-
-    /**
-     * Stores whether the autorun feature is supported.
-    */
-    bool AutorunSupported;
-
-    /**
-     * Stores full path to the autorun directory.
-    */
-    QString AutorunDirectoryName;
-
-    /**
-     * Stores full path to the autorun file.
-    */
-    QString AutorunFileName;
+    static bool CheckSandbox();
 };
 
 #endif // AUTORUNMANAGER_H
