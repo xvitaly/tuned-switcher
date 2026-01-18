@@ -15,10 +15,14 @@
 
 #include "autorunfile/autorunfile.h"
 #include "autorunmanager/autorunmanager.h"
+#include "autorunportal/autorunportal.h"
 
 AutorunManager* AutorunManager::Create(QObject* parent)
 {
-    return new AutorunFile(parent);
+    if (!CheckSandbox())
+        return new AutorunFile(parent);
+    else
+        return new AutorunPortal(parent);
 }
 
 AutorunManager::AutorunManager(QObject* parent) : QObject(parent)
