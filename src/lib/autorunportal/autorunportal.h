@@ -16,6 +16,9 @@
 
 #include "autorunmanager/autorunmanager.h"
 
+/**
+ * Class for working with autorun configurations using portals.
+*/
 class AutorunPortal : public AutorunManager
 {
     Q_OBJECT
