@@ -13,7 +13,6 @@
 */
 
 #include <QObject>
-#include <QString>
 
 /**
  * Abstract class for working with autorun configurations.
