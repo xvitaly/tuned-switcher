@@ -50,7 +50,7 @@ public:
      * Get whether the autorun feature is supported on running platform.
      * @returns Whether the autorun feature is supported.
     */
-    virtual bool IsSupported() const;
+    virtual bool IsSupported() const = 0;
 
     /**
      * Enable the autorun feature.

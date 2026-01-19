@@ -35,8 +35,3 @@ bool AutorunManager::CheckSandbox()
 {
     return QFile::exists(QStringLiteral("/.flatpak-info"));
 }
-
-bool AutorunManager::IsSupported() const
-{
-    return false;
-}
