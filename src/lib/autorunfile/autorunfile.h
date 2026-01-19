@@ -17,6 +17,9 @@
 
 #include "autorunmanager/autorunmanager.h"
 
+/**
+ * Class for working with standard autorun files.
+*/
 class AutorunFile : public AutorunManager
 {
     Q_OBJECT
