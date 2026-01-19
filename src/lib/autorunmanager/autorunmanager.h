@@ -15,6 +15,9 @@
 #include <QObject>
 #include <QString>
 
+/**
+ * Abstract class for working with autorun configurations.
+*/
 class AutorunManager : public QObject
 {
     Q_OBJECT
