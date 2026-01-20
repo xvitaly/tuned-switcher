@@ -70,6 +70,11 @@ private:
     const QString PortalBusInterface = QStringLiteral("org.freedesktop.portal.Background");
 
     /**
+     * Stores the desktop portal DBus RequestBackground method name.
+    */
+    const QString PortalBusMethodNameRequestBackground = QStringLiteral("RequestBackground");
+
+    /**
      * Stores DBus instance.
     */
     QDBusConnection DBusInstance = QDBusConnection::sessionBus();
