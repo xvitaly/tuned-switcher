@@ -65,6 +65,11 @@ private:
     const QString PortalBusPath = QStringLiteral("/org/freedesktop/portal/desktop");
 
     /**
+     * Stores the desktop portal DBus interface.
+    */
+    const QString PortalBusInterface = QStringLiteral("org.freedesktop.portal.Background");
+
+    /**
      * Stores DBus instance.
     */
     QDBusConnection DBusInstance = QDBusConnection::sessionBus();
