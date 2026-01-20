@@ -12,6 +12,7 @@
  * Contains the AutorunPortal class definition.
 */
 
+#include <QDBusConnection>
 #include <QObject>
 
 #include "autorunmanager/autorunmanager.h"
@@ -51,6 +52,10 @@ public:
     */
     void Disable() const override;
 private:
+    /**
+     * Stores DBus instance.
+    */
+    QDBusConnection DBusInstance = QDBusConnection::sessionBus();
 };
 
 #endif // AUTORUNPORTAL_H
