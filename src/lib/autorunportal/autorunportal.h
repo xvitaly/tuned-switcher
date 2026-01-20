@@ -14,6 +14,8 @@
 
 #include <QDBusConnection>
 #include <QObject>
+#include <QString>
+#include <QStringLiteral>
 
 #include "autorunmanager/autorunmanager.h"
 
@@ -52,6 +54,11 @@ public:
     */
     void Disable() const override;
 private:
+    /**
+     * Stores the desktop portal DBus interface name.
+    */
+    const QString PortalBusName = QStringLiteral("org.freedesktop.portal.Desktop");
+
     /**
      * Stores DBus instance.
     */
