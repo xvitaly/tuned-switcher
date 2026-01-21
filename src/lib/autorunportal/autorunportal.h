@@ -80,6 +80,13 @@ private:
     */
     QDBusConnection DBusInstance = QDBusConnection::sessionBus();
 
+    /**
+     * Constructs and returns special Options structure for
+     * the desktop portal service.
+     * @param reason Reason of the requested operation.
+     * @param autostart New autorun status.
+     * @returns Options structure for the desktop portal service.
+    */
     const QVariantMap CreateOptionsStructure(const QString&, const bool) const;
 };
 
