@@ -66,6 +66,11 @@ private:
     const QString PortalBusPath = QStringLiteral("/org/freedesktop/portal/desktop");
 
     /**
+     * Stores the desktop portal DBus request interface.
+    */
+    const QString PortalBusRequestPath = QStringLiteral("/org/freedesktop/portal/desktop/request/{1}/{2}");
+
+    /**
      * Stores the desktop portal DBus interface.
     */
     const QString PortalBusInterface = QStringLiteral("org.freedesktop.portal.Background");

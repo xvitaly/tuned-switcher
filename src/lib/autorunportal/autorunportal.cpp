@@ -42,7 +42,7 @@ void AutorunPortal::Disable() const
 const QVariantMap AutorunPortal::CreateOptionsStructure(const QString& reason, const bool autostart) const
 {
     QVariantMap result;
-    result[QStringLiteral("handle_token")] = QStringLiteral("/org/freedesktop/portal/desktop/request/{1}/{2}").arg(DBusInstance.baseService().remove(QChar(':')).replace(QChar('.'), QChar('_')), AppConstants::ProductNameInternal);
+    result[QStringLiteral("handle_token")] = PortalBusRequestPath.arg(DBusInstance.baseService().remove(QChar(':')).replace(QChar('.'), QChar('_')), AppConstants::ProductNameInternal);
     result[QStringLiteral("reason")] = reason;
     result[QStringLiteral("autostart")] = autostart;
     result[QStringLiteral("dbus-activatable")] = false;
