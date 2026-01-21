@@ -16,6 +16,7 @@
 #include <QObject>
 #include <QString>
 #include <QStringLiteral>
+#include <QVariantMap>
 
 #include "autorunmanager/autorunmanager.h"
 
@@ -78,6 +79,8 @@ private:
      * Stores DBus instance.
     */
     QDBusConnection DBusInstance = QDBusConnection::sessionBus();
+
+    const QVariantMap CreateOptionsStructure(const QString&, const bool) const;
 };
 
 #endif // AUTORUNPORTAL_H

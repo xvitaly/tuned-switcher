@@ -9,8 +9,13 @@
  * Contains the AutorunPortal class implementation.
 */
 
+#include <QChar>
 #include <QObject>
+#include <QString>
+#include <QStringLiteral>
+#include <QVariantMap>
 
+#include "appconstants/appconstants.h"
 #include "autorunportal/autorunportal.h"
 
 AutorunPortal::AutorunPortal(QObject* parent) : AutorunManager(parent)
@@ -32,4 +37,14 @@ void AutorunPortal::Enable() const
 
 void AutorunPortal::Disable() const
 {
+}
+
+const QVariantMap AutorunPortal::CreateOptionsStructure(const QString& reason, const bool autostart) const
+{
+    QVariantMap result;
+    result[QStringLiteral("handle_token")] = QStringLiteral("/org/freedesktop/portal/desktop/request/{1}/{2}").arg(DBusInstance.baseService().remove(QChar(':')).replace(QChar('.'), QChar('_')), AppConstants::ProductNameInternal);
+    result[QStringLiteral("reason")] = reason;
+    result[QStringLiteral("autostart")] = autostart;
+    result[QStringLiteral("dbus-activatable")] = false;
+    return result;
 }
