@@ -68,7 +68,7 @@ private:
     /**
      * Stores the desktop portal DBus request interface.
     */
-    const QString PortalBusRequestPath = QStringLiteral("/org/freedesktop/portal/desktop/request/{1}/{2}");
+    const QString PortalBusRequestPath = QStringLiteral("{1}/request/{2}/{3}");
 
     /**
      * Stores the desktop portal DBus interface.
@@ -84,6 +84,8 @@ private:
      * Stores DBus instance.
     */
     QDBusConnection DBusInstance = QDBusConnection::sessionBus();
+
+    const QString CreateHandleToken() const;
 
     /**
      * Constructs and returns special Options structure for

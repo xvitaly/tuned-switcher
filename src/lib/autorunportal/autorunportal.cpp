@@ -39,10 +39,15 @@ void AutorunPortal::Disable() const
 {
 }
 
+const QString AutorunPortal::CreateHandleToken() const
+{
+    return PortalBusRequestPath.arg(PortalBusPath, DBusInstance.baseService().remove(QChar(':')).replace(QChar('.'), QChar('_')), AppConstants::ProductNameInternal);
+}
+
 const QVariantMap AutorunPortal::CreateOptionsStructure(const QString& reason, const bool autostart) const
 {
     QVariantMap result;
-    result[QStringLiteral("handle_token")] = PortalBusRequestPath.arg(DBusInstance.baseService().remove(QChar(':')).replace(QChar('.'), QChar('_')), AppConstants::ProductNameInternal);
+    result[QStringLiteral("handle_token")] = CreateHandleToken();
     result[QStringLiteral("reason")] = reason;
     result[QStringLiteral("autostart")] = autostart;
     result[QStringLiteral("dbus-activatable")] = false;
