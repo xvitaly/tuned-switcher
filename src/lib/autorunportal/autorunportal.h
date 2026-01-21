@@ -85,6 +85,11 @@ private:
     */
     QDBusConnection DBusInstance = QDBusConnection::sessionBus();
 
+    /**
+     * Constructs and returns special DBus object path for the
+     * request interface.
+     * @returns Fully-qualified DBus object path.
+    */
     const QString CreateHandleToken() const;
 
     /**
