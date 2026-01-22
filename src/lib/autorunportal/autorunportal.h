@@ -34,6 +34,11 @@ public:
     explicit AutorunPortal(QObject* parent = nullptr);
 
     /**
+     * Destructor of the AutorunPortal class.
+    */
+    ~AutorunPortal() = default;
+
+    /**
      * Get whether the autorun feature is enabled.
      * @returns Whether the autorun feature is enabled.
     */
