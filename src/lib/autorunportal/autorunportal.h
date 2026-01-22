@@ -13,9 +13,11 @@
 */
 
 #include <QDBusConnection>
+#include <QList>
 #include <QObject>
 #include <QString>
 #include <QStringLiteral>
+#include <QVariant>
 #include <QVariantMap>
 
 #include "autorunmanager/autorunmanager.h"
@@ -105,6 +107,8 @@ private:
      * @returns Options structure for the desktop portal service.
     */
     const QVariantMap CreateOptionsStructure(const QString&, const bool) const;
+
+    const QList<QVariant> CreateRequestStructure(const QString&, const bool) const;
 };
 
 #endif // AUTORUNPORTAL_H

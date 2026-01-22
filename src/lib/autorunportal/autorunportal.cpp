@@ -10,9 +10,11 @@
 */
 
 #include <QChar>
+#include <QList>
 #include <QObject>
 #include <QString>
 #include <QStringLiteral>
+#include <QVariant>
 #include <QVariantMap>
 
 #include "appconstants/appconstants.h"
@@ -51,5 +53,13 @@ const QVariantMap AutorunPortal::CreateOptionsStructure(const QString& reason, c
     result[QStringLiteral("reason")] = reason;
     result[QStringLiteral("autostart")] = autostart;
     result[QStringLiteral("dbus-activatable")] = false;
+    return result;
+}
+
+const QList<QVariant> AutorunPortal::CreateRequestStructure(const QString& reason, const bool autostart) const
+{
+    QList<QVariant> result;
+    result << QString();
+    result << CreateOptionsStructure(reason, autostart);
     return result;
 }
