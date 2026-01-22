@@ -108,6 +108,13 @@ private:
     */
     const QVariantMap CreateOptionsStructure(const QString&, const bool) const;
 
+    /**
+     * Constructs and returns special Request structure for
+     * the desktop portal service.
+     * @param reason Reason of the requested operation.
+     * @param autostart New autorun status.
+     * @returns Request structure for the desktop portal service.
+    */
     const QList<QVariant> CreateRequestStructure(const QString&, const bool) const;
 };
 
