@@ -37,7 +37,7 @@ public:
     /**
      * Destructor of the AutorunManager class.
     */
-    virtual ~AutorunManager();
+    virtual ~AutorunManager() = default;
 
     /**
      * Get whether the autorun feature is enabled.

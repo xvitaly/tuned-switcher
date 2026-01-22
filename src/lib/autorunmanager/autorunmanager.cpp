@@ -28,9 +28,6 @@ AutorunManager* AutorunManager::Create(QObject* parent)
 AutorunManager::AutorunManager(QObject* parent) : QObject(parent)
 {}
 
-AutorunManager::~AutorunManager()
-{}
-
 bool AutorunManager::CheckSandbox()
 {
     return QFile::exists(QStringLiteral("/.flatpak-info"));
