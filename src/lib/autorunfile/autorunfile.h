@@ -31,6 +31,11 @@ public:
     explicit AutorunFile(QObject* parent = nullptr);
 
     /**
+     * Destructor of the AutorunFile class.
+    */
+    ~AutorunFile() = default;
+
+    /**
      * Get whether the autorun feature is enabled.
      * @returns Whether the autorun feature is enabled.
     */
