@@ -138,6 +138,7 @@ set(LIBRARY_HEADERS
     src/lib/logcategories/logcategories.h
     src/lib/notificationsmanager/dbusconverters.h
     src/lib/notificationsmanager/notificationsmanager.h
+    src/lib/portaltypes/portaltypes.h
     src/lib/settingsmanager/settingsmanager.h
     src/lib/translationmanager/translationmanager.h
     src/lib/tunedmanager/tunedmanager.h
@@ -151,6 +152,7 @@ set(LIBRARY_SOURCES
     src/lib/guihelpers/guihelpers.cpp
     src/lib/logcategories/logcategories.cpp
     src/lib/notificationsmanager/notificationsmanager.cpp
+    src/lib/portaltypes/portaltypes.cpp
     src/lib/settingsmanager/settingsmanager.cpp
     src/lib/translationmanager/translationmanager.cpp
     src/lib/tunedmanager/tunedmanager.cpp
