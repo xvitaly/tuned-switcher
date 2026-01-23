@@ -10,7 +10,9 @@
 */
 
 #include <QChar>
+#include <QDBusMetaType>
 #include <QList>
+#include <QMetaType>
 #include <QObject>
 #include <QString>
 #include <QStringLiteral>
@@ -19,9 +21,16 @@
 
 #include "appconstants/appconstants.h"
 #include "autorunportal/autorunportal.h"
+#include "portaltypes/portaltypes.h"
 
 AutorunPortal::AutorunPortal(QObject* parent) : AutorunManager(parent)
-{}
+{
+    if (DBusInstance.isConnected())
+    {
+        qRegisterMetaType<QRequestResponse>();
+        qDBusRegisterMetaType<QRequestResponse>();
+    }
+}
 
 bool AutorunPortal::IsEnabled() const
 {
