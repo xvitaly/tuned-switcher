@@ -38,6 +38,11 @@ struct QRequestResponse
     QRequestResponse() : Code(), Data() {}
 
     /**
+     * QRequestResponse check operator.
+    */
+    operator bool() const { return !Code; }
+
+    /**
      * Operator << of the QRequestResponse structure.
      * @param argument Instance of the QDBusArgument class.
      * @param profile Instance of the QRequestResponse class.
