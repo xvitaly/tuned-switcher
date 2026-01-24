@@ -57,6 +57,11 @@ const QString AutorunPortal::CreateHandleToken() const
     return PortalBusRequestPath.arg(PortalBusPath, DBusInstance.baseService().remove(QChar(':')).replace(QChar('.'), QChar('_')), AppConstants::ProductNameInternal);
 }
 
+const QString AutorunPortal::CreateReasonString(const QString& query) const
+{
+    return QStringLiteral("{1} the autorun feature for the {2}").arg(query, AppConstants::ProductName);
+}
+
 const QVariantMap AutorunPortal::CreateOptionsStructure(const QString& reason, const bool autostart) const
 {
     QVariantMap result;

@@ -102,6 +102,14 @@ private:
     const QString CreateHandleToken() const;
 
     /**
+     * Constructs and returns DBus activation reason for the
+     * request interface.
+     * @param query Query name.
+     * @returns DBus activation reason.
+    */
+    const QString CreateReasonString(const QString&) const;
+
+    /**
      * Constructs and returns special Options structure for
      * the desktop portal service.
      * @param reason Reason of the requested operation.
