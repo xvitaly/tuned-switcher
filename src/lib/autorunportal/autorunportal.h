@@ -112,7 +112,7 @@ private:
     /**
      * Constructs and returns special Options structure for
      * the desktop portal service.
-     * @param reason Reason of the requested operation.
+     * @param query Query name.
      * @param autostart New autorun status.
      * @returns Options structure for the desktop portal service.
     */
@@ -121,7 +121,7 @@ private:
     /**
      * Constructs and returns special Request structure for
      * the desktop portal service.
-     * @param reason Reason of the requested operation.
+     * @param query Query name.
      * @param autostart New autorun status.
      * @returns Request structure for the desktop portal service.
     */

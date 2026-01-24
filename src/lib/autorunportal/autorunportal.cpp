@@ -62,20 +62,20 @@ const QString AutorunPortal::CreateReasonString(const QString& query) const
     return QStringLiteral("{1} the autorun feature for the {2}").arg(query, AppConstants::ProductName);
 }
 
-const QVariantMap AutorunPortal::CreateOptionsStructure(const QString& reason, const bool autostart) const
+const QVariantMap AutorunPortal::CreateOptionsStructure(const QString& query, const bool autostart) const
 {
     QVariantMap result;
     result[QStringLiteral("handle_token")] = CreateHandleToken();
-    result[QStringLiteral("reason")] = reason;
+    result[QStringLiteral("reason")] = CreateReasonString(query);
     result[QStringLiteral("autostart")] = autostart;
     result[QStringLiteral("dbus-activatable")] = false;
     return result;
 }
 
-const QList<QVariant> AutorunPortal::CreateRequestStructure(const QString& reason, const bool autostart) const
+const QList<QVariant> AutorunPortal::CreateRequestStructure(const QString& query, const bool autostart) const
 {
     QList<QVariant> result;
     result << QString();
-    result << CreateOptionsStructure(reason, autostart);
+    result << CreateOptionsStructure(query, autostart);
     return result;
 }
