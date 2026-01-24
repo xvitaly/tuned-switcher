@@ -53,13 +53,15 @@ public:
 
     /**
      * Enable the autorun feature.
+     * @returns Result of the requested operation.
     */
-    virtual void Enable() const = 0;
+    virtual bool Enable() const = 0;
 
     /**
      * Disable the autorun feature.
+     * @returns Result of the requested operation.
     */
-    virtual void Disable() const = 0;
+    virtual bool Disable() const = 0;
 private:
     /**
      * Check whether the application is running in a sandbox.
