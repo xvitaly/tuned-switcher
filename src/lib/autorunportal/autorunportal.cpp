@@ -42,12 +42,14 @@ bool AutorunPortal::IsSupported() const
     return false;
 }
 
-void AutorunPortal::Enable() const
+bool AutorunPortal::Enable() const
 {
+    return false;
 }
 
-void AutorunPortal::Disable() const
+bool AutorunPortal::Disable() const
 {
+    return false;
 }
 
 const QString AutorunPortal::CreateHandleToken() const
