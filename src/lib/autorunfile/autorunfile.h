@@ -49,13 +49,15 @@ public:
 
     /**
      * Enable the autorun feature.
+     * @returns Result of the requested operation.
     */
-    void Enable() const override;
+    bool Enable() const override;
 
     /**
      * Disable the autorun feature.
+     * @returns Result of the requested operation.
     */
-    void Disable() const override;
+    bool Disable() const override;
 private:
     /**
      * Get autorun directory path.

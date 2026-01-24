@@ -75,17 +75,23 @@ bool AutorunFile::IsSupported() const
     return true;
 }
 
-void AutorunFile::Enable() const
+bool AutorunFile::Enable() const
 {
     if (!IsEnabled())
     {
         CreateAutorunDirectory();
         WriteAutorunFile(GenerateAutorunFile());
+        return IsEnabled();
     }
+    return false;
 }
 
-void AutorunFile::Disable() const
+bool AutorunFile::Disable() const
 {
     if (IsEnabled())
+    {
         QFile::remove(AutorunFileName);
+        return !IsEnabled();
+    }
+    return false;
 }
