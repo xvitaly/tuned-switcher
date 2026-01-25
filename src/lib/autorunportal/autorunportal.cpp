@@ -10,8 +10,11 @@
 */
 
 #include <QChar>
+#include <QDBusInterface>
 #include <QDBusMetaType>
+#include <QDBusReply>
 #include <QList>
+#include <QLoggingCategory>
 #include <QMetaType>
 #include <QObject>
 #include <QString>
@@ -21,6 +24,7 @@
 
 #include "appconstants/appconstants.h"
 #include "autorunportal/autorunportal.h"
+#include "logcategories/logcategories.h"
 #include "portaltypes/portaltypes.h"
 
 AutorunPortal::AutorunPortal(QObject* parent) : AutorunManager(parent)
@@ -91,4 +95,13 @@ const QList<QVariant> AutorunPortal::CreateRequestStructure(const DBusMethod met
     result << QString();
     result << CreateOptionsStructure(method, autostart);
     return result;
+}
+
+bool AutorunPortal::RunDBusRequestMethod(const DBusMethod method, const bool autostart) const
+{
+    QDBusInterface DBusInterface(PortalBusName, PortalBusPath, PortalBusInterface, DBusInstance);
+    QDBusReply<QRequestResponse> DBusReply = DBusInterface.callWithArgumentList(QDBus::AutoDetect, PortalBusMethodNameRequestBackground, CreateRequestStructure(method, autostart));
+    if (!DBusReply.isValid())
+        qCWarning(LogCategories::Autorun) << "Failed to configure the autorun feature using portal due to an error:" << DBusReply.error();
+    return DBusReply.isValid() && DBusReply.value();
 }

@@ -139,6 +139,14 @@ private:
      * @returns Request structure for the desktop portal service.
     */
     const QList<QVariant> CreateRequestStructure(const DBusMethod, const bool) const;
+
+    /**
+     * Runs the Request method and returns the result.
+     * @param method DBus method ID.
+     * @param autostart New autorun status.
+     * @returns Result of the operation.
+    */
+    bool RunDBusRequestMethod(const DBusMethod, const bool) const;
 };
 
 #endif // AUTORUNPORTAL_H
