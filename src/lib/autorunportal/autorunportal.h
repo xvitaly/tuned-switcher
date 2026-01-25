@@ -65,6 +65,12 @@ public:
     bool Disable() const override;
 private:
     /**
+     * Enum with IDs of DBus methods, used by various methods.
+    */
+    enum class DBusMethod { MethodDisable, MethodEnable };
+    Q_ENUM(DBusMethod)
+
+    /**
      * Stores the desktop portal DBus interface name.
     */
     const QString PortalBusName = QStringLiteral("org.freedesktop.portal.Desktop");
