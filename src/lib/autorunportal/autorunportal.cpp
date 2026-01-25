@@ -57,22 +57,22 @@ const QString AutorunPortal::CreateHandleToken() const
     return PortalBusRequestPath.arg(PortalBusPath, DBusInstance.baseService().remove(QChar(':')).replace(QChar('.'), QChar('_')), AppConstants::ProductNameInternal);
 }
 
-const QString AutorunPortal::CreateReasonString(const DBusMethod method) const
+const QString AutorunPortal::CreateMethodName(const DBusMethod method) const
 {
-    QString method_name;
     switch (method)
     {
         case DBusMethod::MethodDisable:
-            method_name = QStringLiteral("Disable");
-            break;
+            return QStringLiteral("Disable");
         case DBusMethod::MethodEnable:
-            method_name = QStringLiteral("Enable");
-            break;
+            return QStringLiteral("Enable");
         default:
-            method_name = QStringLiteral("Unknown");
-            break;
+            return QStringLiteral("Unknown");
     }
-    return QStringLiteral("{1} the autorun feature for the {2}").arg(method_name, AppConstants::ProductName);
+}
+
+const QString AutorunPortal::CreateReasonString(const DBusMethod method) const
+{
+    return QStringLiteral("{1} the autorun feature for the {2}").arg(CreateMethodName(method), AppConstants::ProductName);
 }
 
 const QVariantMap AutorunPortal::CreateOptionsStructure(const DBusMethod method, const bool autostart) const
