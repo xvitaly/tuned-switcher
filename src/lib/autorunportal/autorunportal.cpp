@@ -57,25 +57,38 @@ const QString AutorunPortal::CreateHandleToken() const
     return PortalBusRequestPath.arg(PortalBusPath, DBusInstance.baseService().remove(QChar(':')).replace(QChar('.'), QChar('_')), AppConstants::ProductNameInternal);
 }
 
-const QString AutorunPortal::CreateReasonString(const QString& query) const
+const QString AutorunPortal::CreateReasonString(const DBusMethod method) const
 {
-    return QStringLiteral("{1} the autorun feature for the {2}").arg(query, AppConstants::ProductName);
+    QString method_name;
+    switch (method)
+    {
+        case DBusMethod::MethodDisable:
+            method_name = QStringLiteral("Disable");
+            break;
+        case DBusMethod::MethodEnable:
+            method_name = QStringLiteral("Enable");
+            break;
+        default:
+            method_name = QStringLiteral("Unknown");
+            break;
+    }
+    return QStringLiteral("{1} the autorun feature for the {2}").arg(method_name, AppConstants::ProductName);
 }
 
-const QVariantMap AutorunPortal::CreateOptionsStructure(const QString& query, const bool autostart) const
+const QVariantMap AutorunPortal::CreateOptionsStructure(const DBusMethod method, const bool autostart) const
 {
     QVariantMap result;
     result[QStringLiteral("handle_token")] = CreateHandleToken();
-    result[QStringLiteral("reason")] = CreateReasonString(query);
+    result[QStringLiteral("reason")] = CreateReasonString(method);
     result[QStringLiteral("autostart")] = autostart;
     result[QStringLiteral("dbus-activatable")] = false;
     return result;
 }
 
-const QList<QVariant> AutorunPortal::CreateRequestStructure(const QString& query, const bool autostart) const
+const QList<QVariant> AutorunPortal::CreateRequestStructure(const DBusMethod method, const bool autostart) const
 {
     QList<QVariant> result;
     result << QString();
-    result << CreateOptionsStructure(query, autostart);
+    result << CreateOptionsStructure(method, autostart);
     return result;
 }

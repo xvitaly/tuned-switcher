@@ -110,28 +110,28 @@ private:
     /**
      * Constructs and returns DBus activation reason for the
      * request interface.
-     * @param query Query name.
+     * @param method DBus method ID.
      * @returns DBus activation reason.
     */
-    const QString CreateReasonString(const QString&) const;
+    const QString CreateReasonString(const DBusMethod) const;
 
     /**
      * Constructs and returns special Options structure for
      * the desktop portal service.
-     * @param query Query name.
+     * @param method DBus method ID.
      * @param autostart New autorun status.
      * @returns Options structure for the desktop portal service.
     */
-    const QVariantMap CreateOptionsStructure(const QString&, const bool) const;
+    const QVariantMap CreateOptionsStructure(const DBusMethod, const bool) const;
 
     /**
      * Constructs and returns special Request structure for
      * the desktop portal service.
-     * @param query Query name.
+     * @param method DBus method ID.
      * @param autostart New autorun status.
      * @returns Request structure for the desktop portal service.
     */
-    const QList<QVariant> CreateRequestStructure(const QString&, const bool) const;
+    const QList<QVariant> CreateRequestStructure(const DBusMethod, const bool) const;
 };
 
 #endif // AUTORUNPORTAL_H
