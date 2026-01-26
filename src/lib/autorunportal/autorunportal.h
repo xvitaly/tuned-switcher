@@ -117,7 +117,7 @@ private:
 
     /**
      * Constructs and returns DBus method name by specified ID.
-     * @param method DBus method ID.
+     * @param autostart New autorun status.
      * @returns DBus method name.
     */
     const QString CreateMethodName(const DBusMethod) const;
@@ -125,38 +125,34 @@ private:
     /**
      * Constructs and returns DBus activation reason for the
      * request interface.
-     * @param method DBus method ID.
      * @returns DBus activation reason.
     */
-    const QString CreateReasonString(const DBusMethod) const;
+    const QString CreateReasonString(const bool) const;
 
     /**
      * Constructs and returns special Options structure for
      * the desktop portal service.
-     * @param method DBus method ID.
      * @param autostart New autorun status.
      * @returns Options structure for the desktop portal service.
     */
-    const QVariantMap CreateOptionsStructure(const DBusMethod, const bool) const;
+    const QVariantMap CreateOptionsStructure(const bool) const;
 
     /**
      * Constructs and returns special Request structure for
      * the desktop portal service.
-     * @param method DBus method ID.
      * @param autostart New autorun status.
      * @returns Request structure for the desktop portal service.
     */
-    const QList<QVariant> CreateRequestStructure(const DBusMethod, const bool) const;
+    const QList<QVariant> CreateRequestStructure(const bool) const;
 
     /**
      * Runs the Request method and returns the result.
-     * @param method DBus method ID.
      * @param autostart New autorun status.
      * @returns Result of the operation.
      * @retval true The requested operation completed successfully.
      * @retval false An error occurred when trying to perform the requested operation.
     */
-    bool RunDBusRequestMethod(const DBusMethod, const bool) const;
+    bool RunDBusRequestMethod(const bool) const;
 };
 
 #endif // AUTORUNPORTAL_H

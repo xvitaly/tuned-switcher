@@ -48,12 +48,12 @@ bool AutorunPortal::IsSupported() const
 
 bool AutorunPortal::Enable() const
 {
-    return RunDBusRequestMethod(DBusMethod::MethodEnable, true);
+    return RunDBusRequestMethod(true);
 }
 
 bool AutorunPortal::Disable() const
 {
-    return RunDBusRequestMethod(DBusMethod::MethodDisable, false);
+    return RunDBusRequestMethod(false);
 }
 
 const QString AutorunPortal::CreateHandleToken() const
@@ -71,36 +71,36 @@ const QString AutorunPortal::CreateMethodName(const DBusMethod method) const
             return QStringLiteral("Enable");
         default:
             return QStringLiteral("Unknown");
-    }
+        }
 }
 
-const QString AutorunPortal::CreateReasonString(const DBusMethod method) const
+const QString AutorunPortal::CreateReasonString(const bool autostart) const
 {
-    return QStringLiteral("{1} the autorun feature for the {2}").arg(CreateMethodName(method), AppConstants::ProductName);
+    return QStringLiteral("{1} the autorun feature for the {2}").arg(autostart ? QStringLiteral("Enable") : QStringLiteral("Disable"), AppConstants::ProductName);
 }
 
-const QVariantMap AutorunPortal::CreateOptionsStructure(const DBusMethod method, const bool autostart) const
+const QVariantMap AutorunPortal::CreateOptionsStructure(const bool autostart) const
 {
     QVariantMap result;
     result[QStringLiteral("handle_token")] = CreateHandleToken();
-    result[QStringLiteral("reason")] = CreateReasonString(method);
+    result[QStringLiteral("reason")] = CreateReasonString(autostart);
     result[QStringLiteral("autostart")] = autostart;
     result[QStringLiteral("dbus-activatable")] = false;
     return result;
 }
 
-const QList<QVariant> AutorunPortal::CreateRequestStructure(const DBusMethod method, const bool autostart) const
+const QList<QVariant> AutorunPortal::CreateRequestStructure(const bool autostart) const
 {
     QList<QVariant> result;
     result << QString();
-    result << CreateOptionsStructure(method, autostart);
+    result << CreateOptionsStructure(autostart);
     return result;
 }
 
-bool AutorunPortal::RunDBusRequestMethod(const DBusMethod method, const bool autostart) const
+bool AutorunPortal::RunDBusRequestMethod(const bool autostart) const
 {
     QDBusInterface DBusInterface(PortalBusName, PortalBusPath, PortalBusInterface, DBusInstance);
-    QDBusReply<QRequestResponse> DBusReply = DBusInterface.callWithArgumentList(QDBus::AutoDetect, PortalBusMethodNameRequestBackground, CreateRequestStructure(method, autostart));
+    QDBusReply<QRequestResponse> DBusReply = DBusInterface.callWithArgumentList(QDBus::AutoDetect, PortalBusMethodNameRequestBackground, CreateRequestStructure(autostart));
     if (!DBusReply.isValid())
         qCWarning(LogCategories::Autorun) << "Failed to configure the autorun feature using portal due to an error:" << DBusReply.error();
     return DBusReply.isValid() && DBusReply.value();
