@@ -61,19 +61,6 @@ const QString AutorunPortal::CreateHandleToken() const
     return PortalBusRequestPath.arg(PortalBusPath, DBusInstance.baseService().remove(QChar(':')).replace(QChar('.'), QChar('_')), AppConstants::ProductNameInternal);
 }
 
-const QString AutorunPortal::CreateMethodName(const DBusMethod method) const
-{
-    switch (method)
-    {
-        case DBusMethod::MethodDisable:
-            return QStringLiteral("Disable");
-        case DBusMethod::MethodEnable:
-            return QStringLiteral("Enable");
-        default:
-            return QStringLiteral("Unknown");
-        }
-}
-
 const QString AutorunPortal::CreateReasonString(const bool autostart) const
 {
     return QStringLiteral("{1} the autorun feature for the {2}").arg(autostart ? QStringLiteral("Enable") : QStringLiteral("Disable"), AppConstants::ProductName);

@@ -116,13 +116,6 @@ private:
     const QString CreateHandleToken() const;
 
     /**
-     * Constructs and returns DBus method name by specified ID.
-     * @param autostart New autorun status.
-     * @returns DBus method name.
-    */
-    const QString CreateMethodName(const DBusMethod) const;
-
-    /**
      * Constructs and returns DBus activation reason for the
      * request interface.
      * @returns DBus activation reason.
