@@ -48,7 +48,7 @@ bool AutorunPortal::IsSupported() const
 
 bool AutorunPortal::Enable() const
 {
-    return false;
+    return RunDBusRequestMethod(DBusMethod::MethodEnable, true);
 }
 
 bool AutorunPortal::Disable() const
