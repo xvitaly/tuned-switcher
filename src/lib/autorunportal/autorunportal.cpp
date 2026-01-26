@@ -43,7 +43,7 @@ bool AutorunPortal::IsEnabled() const
 
 bool AutorunPortal::IsSupported() const
 {
-    return false;
+    return true;
 }
 
 bool AutorunPortal::Enable() const
