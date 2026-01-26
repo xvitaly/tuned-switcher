@@ -53,7 +53,7 @@ bool AutorunPortal::Enable() const
 
 bool AutorunPortal::Disable() const
 {
-    return false;
+    return RunDBusRequestMethod(DBusMethod::MethodDisable, false);
 }
 
 const QString AutorunPortal::CreateHandleToken() const
