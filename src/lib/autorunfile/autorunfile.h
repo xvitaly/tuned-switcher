@@ -68,41 +68,41 @@ public:
     bool Disable() const override;
 private:
     /**
-     * Get autorun directory path.
+     * Get the fully-qualified autorun directory path.
      * @returns Fully-qualified autorun directory path.
     */
     QString GetAutorunDirectoryName() const;
 
     /**
-     * Get autorun file name.
+     * Get the fully-qualified autorun file name.
      * @returns Fully-qualified autorun file name.
     */
     QString GetAutorunFileName() const;
 
     /**
-     * Create autorun directory if doesn't exists.
+     * Create the autorun directory if it doesn't exists.
     */
     void CreateAutorunDirectory() const;
 
     /**
-     * Generate autorun file contents.
+     * Generate the autorun file contents using stored template.
      * @returns Autorun file contents.
     */
     QString GenerateAutorunFile() const;
 
     /**
-     * Write autorun file to disk.
+     * Write the autorun file contents to disk.
      * @param value Autorun file contents.
     */
     void WriteAutorunFile(const QString&) const;
 
     /**
-     * Stores full path to the autorun directory.
+     * Stores the full path to the autorun directory.
     */
     QString AutorunDirectoryName;
 
     /**
-     * Stores full path to the autorun file.
+     * Stores the full path to the autorun file.
     */
     QString AutorunFileName;
 };
