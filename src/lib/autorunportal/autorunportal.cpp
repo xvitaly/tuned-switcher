@@ -56,12 +56,12 @@ bool AutorunPortal::Disable() const
     return RunDBusRequestMethod(false);
 }
 
-const QString AutorunPortal::CreateHandleToken() const
+QString AutorunPortal::CreateHandleToken() const
 {
     return PortalBusRequestPath.arg(PortalBusPath, DBusInstance.baseService().remove(QChar(':')).replace(QChar('.'), QChar('_')), AppConstants::ProductNameInternal);
 }
 
-const QString AutorunPortal::CreateReasonString(const bool autostart) const
+QString AutorunPortal::CreateReasonString(const bool autostart) const
 {
     return QStringLiteral("{1} the autorun feature for the {2}").arg(autostart ? QStringLiteral("Enable") : QStringLiteral("Disable"), AppConstants::ProductName);
 }

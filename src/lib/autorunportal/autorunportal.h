@@ -107,14 +107,14 @@ private:
      * request interface.
      * @returns Fully-qualified DBus object path.
     */
-    const QString CreateHandleToken() const;
+    QString CreateHandleToken() const;
 
     /**
      * Constructs and returns DBus activation reason for the
      * request interface.
      * @returns DBus activation reason.
     */
-    const QString CreateReasonString(const bool) const;
+    QString CreateReasonString(const bool) const;
 
     /**
      * Constructs and returns special Options structure for
