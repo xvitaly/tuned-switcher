@@ -42,24 +42,32 @@ public:
     /**
      * Get whether the autorun feature is enabled.
      * @returns Whether the autorun feature is enabled.
+     * @retval true The autorun feature is enabled.
+     * @retval false The autorun feature is not enabled.
     */
     virtual bool IsEnabled() const = 0;
 
     /**
      * Get whether the autorun feature is supported on running platform.
-     * @returns Whether the autorun feature is supported.
+     * @returns Whether the autorun feature is supported on running platform.
+     * @retval true The autorun feature is supported on running platform.
+     * @retval false The autorun feature is not supported on running platform.
     */
     virtual bool IsSupported() const = 0;
 
     /**
      * Enable the autorun feature.
      * @returns Result of the requested operation.
+     * @retval true The requested operation completed successfully.
+     * @retval false An error occurred when trying to perform the requested operation.
     */
     virtual bool Enable() const = 0;
 
     /**
      * Disable the autorun feature.
      * @returns Result of the requested operation.
+     * @retval true The requested operation completed successfully.
+     * @retval false An error occurred when trying to perform the requested operation.
     */
     virtual bool Disable() const = 0;
 private:
