@@ -85,7 +85,7 @@ private:
     /**
      * Stores the desktop portal DBus request interface.
     */
-    const QString PortalBusRequestPath = QStringLiteral("{1}/request/{2}/{3}");
+    const QString PortalBusRequestPath = QStringLiteral("%1/request/%2/%3");
 
     /**
      * Stores the desktop portal DBus interface.
