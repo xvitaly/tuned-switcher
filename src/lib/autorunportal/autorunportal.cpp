@@ -63,7 +63,7 @@ QString AutorunPortal::CreateHandleToken() const
 
 QString AutorunPortal::CreateReasonString(const bool autostart) const
 {
-    return QStringLiteral("{1} the autorun feature for the {2}").arg(autostart ? QStringLiteral("Enable") : QStringLiteral("Disable"), AppConstants::ProductName);
+    return QStringLiteral("%1 the autorun feature for the %2").arg(autostart ? QStringLiteral("Enable") : QStringLiteral("Disable"), AppConstants::ProductName);
 }
 
 const QVariantMap AutorunPortal::CreateOptionsStructure(const bool autostart) const
