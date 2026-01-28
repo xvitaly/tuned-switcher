@@ -92,3 +92,8 @@ bool AutorunPortal::RunDBusRequestMethod(const bool autostart) const
         qCWarning(LogCategories::Autorun) << "Failed to configure the autorun feature using portal due to an error:" << DBusReply.error();
     return DBusReply.isValid() && DBusReply.value();
 }
+
+void AutorunPortal::RequestResponseEvent(unsigned int response, const QVariantMap& results) const
+{
+    //
+}

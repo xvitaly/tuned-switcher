@@ -140,6 +140,8 @@ private:
      * @retval false An error occurred when trying to perform the requested operation.
     */
     bool RunDBusRequestMethod(const bool) const;
+private slots:
+    void RequestResponseEvent(unsigned int, const QVariantMap&);
 };
 
 #endif // AUTORUNPORTAL_H
