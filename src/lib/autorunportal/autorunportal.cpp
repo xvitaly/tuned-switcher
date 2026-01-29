@@ -13,6 +13,7 @@
 #include <QDBusInterface>
 #include <QDBusMetaType>
 #include <QDBusReply>
+#include <QEventLoop>
 #include <QList>
 #include <QLoggingCategory>
 #include <QMetaType>
@@ -88,10 +89,13 @@ const QList<QVariant> AutorunPortal::CreateRequestStructure(const bool autostart
 bool AutorunPortal::RunDBusRequestMethod(const bool autostart) const
 {
     QDBusInterface DBusInterface(PortalBusName, PortalBusPath, PortalBusInterface, DBusInstance);
-    QDBusReply<QRequestResponse> DBusReply = DBusInterface.callWithArgumentList(QDBus::AutoDetect, PortalBusMethodNameRequestBackground, CreateRequestStructure(autostart));
+    QDBusReply<QDBusObjectPath> DBusReply = DBusInterface.callWithArgumentList(QDBus::AutoDetect, PortalBusMethodNameRequestBackground, CreateRequestStructure(autostart));
     if (!DBusReply.isValid())
         qCWarning(LogCategories::Autorun) << "Failed to configure the autorun feature using portal due to an error:" << DBusReply.error();
-    return DBusReply.isValid() && DBusReply.value();
+    QEventLoop loop;
+    QDBusConnection::sessionBus().connect(QString(), DBusReply.value().path(), QStringLiteral("org.freedesktop.portal.Request"), QStringLiteral("Response"), &loop, SLOT(quit()));
+    loop.exec();
+    return DBusReply.isValid();
 }
 
 void AutorunPortal::RequestResponseEvent(unsigned int response, const QVariantMap& results) const
