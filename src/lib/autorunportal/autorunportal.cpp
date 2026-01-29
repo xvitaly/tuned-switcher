@@ -17,6 +17,7 @@
 #include <QLoggingCategory>
 #include <QMetaType>
 #include <QObject>
+#include <QRandomGenerator>
 #include <QString>
 #include <QStringLiteral>
 #include <QVariant>
@@ -58,7 +59,7 @@ bool AutorunPortal::Disable() const
 
 QString AutorunPortal::CreateHandleToken() const
 {
-    return PortalBusRequestPath.arg(PortalBusPath, DBusInstance.baseService().remove(QChar(':')).replace(QChar('.'), QChar('_')), AppConstants::ProductNameInternal);
+    return QStringLiteral("u%1").arg(QRandomGenerator::global() -> generate());
 }
 
 QString AutorunPortal::CreateReasonString(const bool autostart) const
