@@ -27,15 +27,9 @@
 #include "appconstants/appconstants.h"
 #include "autorunportal/autorunportal.h"
 #include "logcategories/logcategories.h"
-#include "portaltypes/portaltypes.h"
 
 AutorunPortal::AutorunPortal(QObject* parent) : AutorunManager(parent)
 {
-    if (DBusInstance.isConnected())
-    {
-        qRegisterMetaType<QRequestResponse>();
-        qDBusRegisterMetaType<QRequestResponse>();
-    }
 }
 
 bool AutorunPortal::IsEnabled() const
