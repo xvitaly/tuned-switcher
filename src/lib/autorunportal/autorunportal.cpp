@@ -9,24 +9,9 @@
  * Contains the AutorunPortal class implementation.
 */
 
-#include <QChar>
-#include <QDBusInterface>
-#include <QDBusMetaType>
-#include <QDBusReply>
-#include <QEventLoop>
-#include <QList>
-#include <QLoggingCategory>
-#include <QMetaType>
 #include <QObject>
-#include <QRandomGenerator>
-#include <QString>
-#include <QStringLiteral>
-#include <QVariant>
-#include <QVariantMap>
 
-#include "appconstants/appconstants.h"
 #include "autorunportal/autorunportal.h"
-#include "logcategories/logcategories.h"
 
 AutorunPortal::AutorunPortal(QObject* parent) : AutorunManager(parent)
 {
@@ -44,55 +29,10 @@ bool AutorunPortal::IsSupported() const
 
 bool AutorunPortal::Enable() const
 {
-    return RunDBusRequestMethod(true);
+    return false;
 }
 
 bool AutorunPortal::Disable() const
 {
-    return RunDBusRequestMethod(false);
-}
-
-QString AutorunPortal::CreateHandleToken() const
-{
-    return QStringLiteral("u%1").arg(QRandomGenerator::global() -> generate());
-}
-
-QString AutorunPortal::CreateReasonString(const bool autostart) const
-{
-    return QStringLiteral("%1 the autorun feature for the %2").arg(autostart ? QStringLiteral("Enable") : QStringLiteral("Disable"), AppConstants::ProductName);
-}
-
-const QVariantMap AutorunPortal::CreateOptionsStructure(const bool autostart) const
-{
-    QVariantMap result;
-    result[QStringLiteral("handle_token")] = CreateHandleToken();
-    result[QStringLiteral("reason")] = CreateReasonString(autostart);
-    result[QStringLiteral("autostart")] = autostart;
-    result[QStringLiteral("dbus-activatable")] = false;
-    return result;
-}
-
-const QList<QVariant> AutorunPortal::CreateRequestStructure(const bool autostart) const
-{
-    QList<QVariant> result;
-    result << QString();
-    result << CreateOptionsStructure(autostart);
-    return result;
-}
-
-bool AutorunPortal::RunDBusRequestMethod(const bool autostart) const
-{
-    QDBusInterface DBusInterface(PortalBusName, PortalBusPath, PortalBusInterface, DBusInstance);
-    QDBusReply<QDBusObjectPath> DBusReply = DBusInterface.callWithArgumentList(QDBus::AutoDetect, PortalBusMethodNameRequestBackground, CreateRequestStructure(autostart));
-    if (!DBusReply.isValid())
-        qCWarning(LogCategories::Autorun) << "Failed to configure the autorun feature using portal due to an error:" << DBusReply.error();
-    QEventLoop loop;
-    QDBusConnection::sessionBus().connect(QString(), DBusReply.value().path(), QStringLiteral("org.freedesktop.portal.Request"), QStringLiteral("Response"), &loop, SLOT(quit()));
-    loop.exec();
-    return DBusReply.isValid();
-}
-
-void AutorunPortal::RequestResponseEvent(unsigned int response, const QVariantMap& results) const
-{
-    //
+    return false;
 }
