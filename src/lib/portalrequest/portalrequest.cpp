@@ -65,9 +65,14 @@ bool PortalRequest::RequestBackground(const bool autostart)
     QDBusReply<QDBusObjectPath> DBusReply = DBusInterface.callWithArgumentList(QDBus::AutoDetect, PortalBusMethodNameRequestBackground, CreateRequestStructure(autostart));
     const bool DBusResult = DBusReply.isValid();
     if (!DBusResult)
+    {
         qCWarning(LogCategories::Autorun) << "Failed to configure the autorun feature using portal due to an error:" << DBusReply.error();
+        RequestResponseError();
+    }
     else
+    {
         DBusInstance.connect(QString(), DBusReply.value().path(), QStringLiteral("org.freedesktop.portal.Request"), QStringLiteral("Response"), this, SLOT(RequestResponseEvent(unsigned int, const QVariantMap)));
+    }
     return DBusResult;
 }
 
@@ -76,6 +81,14 @@ void PortalRequest::RequestResponseEvent(unsigned int response, const QVariantMa
     ResponseFinished = true;
     ResponseCode = response;
     ResponseResults = results;
+    emit finished();
+}
+
+void PortalRequest::RequestResponseError()
+{
+    ResponseFinished = false;
+    ResponseCode = 255UL;
+    ResponseResults = QVariantMap();
     emit finished();
 }
 

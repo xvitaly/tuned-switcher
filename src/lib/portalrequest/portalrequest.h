@@ -123,6 +123,11 @@ private:
      * @returns Request structure for the desktop portal service.
     */
     const QList<QVariant> CreateRequestStructure(const bool) const;
+
+    /**
+     * Sets error values to various private fields and calls finished() slot.
+    */
+    void RequestResponseError();
 private slots:
     /**
      * Response received event slot.
