@@ -34,6 +34,12 @@ public:
     explicit PortalRequest(QObject* parent = nullptr);
 
     /**
+     * Enum with IDs of result codes, used by various methods.
+    */
+    enum class BackgroundResult { Disabled, Enabled, Cancelled, Timeout, Unknown, NotFinished };
+    Q_ENUM(BackgroundResult)
+
+    /**
      * Runs the Request method and returns the result.
      * @param autostart New autorun status.
      * @returns Result of the operation.
@@ -41,6 +47,12 @@ public:
      * @retval false An error occurred when trying to perform the requested operation.
     */
     bool RequestBackground(const bool);
+
+    /**
+     * Returns the result of the asynchronous operation.
+     * @returns Result of the asynchronous operation.
+    */
+    BackgroundResult GetResult() const;
 private:
     /**
      * Stores the desktop portal DBus interface name.
@@ -65,12 +77,12 @@ private:
     /**
      * Stores the status of the asynchronous operation.
     */
-    bool ResponseFinished;
+    bool ResponseFinished = false;
 
     /**
      * Stores the response code after running the asynchronous operation.
     */
-    unsigned long ResponseCode;
+    unsigned long ResponseCode = 255UL;
 
     /**
      * Stores the response results after running the asynchronous operation.

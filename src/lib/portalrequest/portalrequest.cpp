@@ -78,3 +78,19 @@ void PortalRequest::RequestResponseEvent(unsigned int response, const QVariantMa
     ResponseResults = results;
     emit finished();
 }
+
+PortalRequest::BackgroundResult PortalRequest::GetResult() const
+{
+    if (!ResponseFinished || ResponseResults.isEmpty()) return BackgroundResult::NotFinished;
+    switch (ResponseCode)
+    {
+        case 0:
+            return ResponseResults[QStringLiteral("autostart")].toBool() ? BackgroundResult::Enabled : BackgroundResult::Disabled;
+        case 1:
+            return BackgroundResult::Cancelled;
+        case 2:
+            return BackgroundResult::Timeout;
+        default:
+            return BackgroundResult::Unknown;
+    }
+}
