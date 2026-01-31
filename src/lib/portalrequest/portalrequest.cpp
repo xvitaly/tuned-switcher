@@ -104,11 +104,11 @@ PortalRequest::BackgroundResult PortalRequest::GetResult() const
     if (!ResponseFinished || ResponseResults.isEmpty()) return BackgroundResult::NotFinished;
     switch (ResponseCode)
     {
-        case 0:
+        case 0UL:
             return ExtractAutostartValue();
-        case 1:
+        case 1UL:
             return BackgroundResult::Cancelled;
-        case 2:
+        case 2UL:
             return BackgroundResult::Timeout;
         default:
             return BackgroundResult::Unknown;
