@@ -92,13 +92,20 @@ void PortalRequest::RequestResponseError()
     emit finished();
 }
 
+PortalRequest::BackgroundResult PortalRequest::ExtractAutostartValue() const
+{
+    const QString Key = QStringLiteral("autostart");
+    if (!ResponseResults.contains(Key)) return BackgroundResult::Unknown;
+    return ResponseResults[Key].toBool() ? BackgroundResult::Enabled : BackgroundResult::Disabled;
+}
+
 PortalRequest::BackgroundResult PortalRequest::GetResult() const
 {
     if (!ResponseFinished || ResponseResults.isEmpty()) return BackgroundResult::NotFinished;
     switch (ResponseCode)
     {
         case 0:
-            return ResponseResults[QStringLiteral("autostart")].toBool() ? BackgroundResult::Enabled : BackgroundResult::Disabled;
+            return ExtractAutostartValue();
         case 1:
             return BackgroundResult::Cancelled;
         case 2:

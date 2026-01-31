@@ -125,6 +125,12 @@ private:
     const QList<QVariant> CreateRequestStructure(const bool) const;
 
     /**
+     * Extracts and returns the result of the asynchronous operation.
+     * @returns Result of the asynchronous operation.
+    */
+    PortalRequest::BackgroundResult ExtractAutostartValue() const;
+
+    /**
      * Sets error values to various private fields and calls finished() slot.
     */
     void RequestResponseError();
