@@ -73,5 +73,8 @@ bool PortalRequest::RequestBackground(const bool autostart)
 
 void PortalRequest::RequestResponseEvent(unsigned int response, const QVariantMap& results)
 {
+    ResponseFinished = true;
+    ResponseCode = response;
+    ResponseResults = results;
     emit finished();
 }

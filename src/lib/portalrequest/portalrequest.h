@@ -63,6 +63,21 @@ private:
     const QString PortalBusMethodNameRequestBackground = QStringLiteral("RequestBackground");
 
     /**
+     * Stores the status of the asynchronous operation.
+    */
+    bool ResponseFinished;
+
+    /**
+     * Stores the response code after running the asynchronous operation.
+    */
+    unsigned long ResponseCode;
+
+    /**
+     * Stores the response results after running the asynchronous operation.
+    */
+    QVariantMap ResponseResults;
+
+    /**
      * Stores DBus instance.
     */
     QDBusConnection DBusInstance = QDBusConnection::sessionBus();
