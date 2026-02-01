@@ -9,14 +9,10 @@
  * Contains the PortalRequest class implementation.
 */
 
-#include <QChar>
 #include <QDBusInterface>
-#include <QDBusMetaType>
 #include <QDBusReply>
-#include <QEventLoop>
 #include <QList>
 #include <QLoggingCategory>
-#include <QMetaType>
 #include <QObject>
 #include <QRandomGenerator>
 #include <QString>
