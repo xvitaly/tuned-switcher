@@ -9,9 +9,12 @@
  * Contains the AutorunPortal class implementation.
 */
 
+#include <QEventLoop>
 #include <QObject>
+#include <QTimer>
 
 #include "autorunportal/autorunportal.h"
+#include "portalrequest/portalrequest.h"
 
 AutorunPortal::AutorunPortal(QObject* parent) : AutorunManager(parent)
 {
@@ -35,4 +38,15 @@ bool AutorunPortal::Enable() const
 bool AutorunPortal::Disable() const
 {
     return false;
+}
+
+bool AutorunPortal::ChangeAutorunState(const bool value, const PortalRequest::BackgroundResult result) const
+{
+    PortalRequest portal;
+    if (!portal.RequestBackground(value))
+        return false;
+    QEventLoop loop;
+    connect(&portal, &PortalRequest::finished, &loop, &QEventLoop::quit);
+    loop.exec();
+    return portal.GetResult() == result;
 }

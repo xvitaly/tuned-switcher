@@ -15,6 +15,7 @@
 #include <QObject>
 
 #include "autorunmanager/autorunmanager.h"
+#include "portalrequest/portalrequest.h"
 
 /**
  * Class for working with autorun configurations using portals.
@@ -65,6 +66,16 @@ public:
      * @retval false An error occurred when trying to perform the requested operation.
     */
     bool Disable() const override;
+private:
+    /**
+     * Changes the state of the autorun feature.
+     * @param value New autorun state.
+     * @param result Expected result.
+     * @returns Result of the requested operation.
+     * @retval true The requested operation completed successfully.
+     * @retval false An error occurred when trying to perform the requested operation.
+    */
+    bool ChangeAutorunState(const bool, const PortalRequest::BackgroundResult) const;
 };
 
 #endif // AUTORUNPORTAL_H
