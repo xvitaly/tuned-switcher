@@ -32,7 +32,7 @@ bool AutorunPortal::IsSupported() const
 
 bool AutorunPortal::Enable() const
 {
-    return false;
+    return ChangeAutorunState(true, PortalRequest::BackgroundResult::Enabled);
 }
 
 bool AutorunPortal::Disable() const
