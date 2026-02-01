@@ -65,14 +65,29 @@ private:
     const QString PortalBusPath = QStringLiteral("/org/freedesktop/portal/desktop");
 
     /**
-     * Stores the desktop portal DBus interface.
+     * Stores the desktop portal Background DBus interface.
     */
-    const QString PortalBusInterface = QStringLiteral("org.freedesktop.portal.Background");
+    const QString PortalBusBackgroundInterface = QStringLiteral("org.freedesktop.portal.Background");
+
+    /**
+     * Stores the desktop portal Request DBus interface.
+    */
+    const QString PortalBusRequestInterface = QStringLiteral("org.freedesktop.portal.Request");
 
     /**
      * Stores the desktop portal DBus RequestBackground method name.
     */
     const QString PortalBusMethodNameRequestBackground = QStringLiteral("RequestBackground");
+
+    /**
+     * Stores the desktop portal DBus Response signal name.
+    */
+    const QString PortalBusSignalNameResponse = QStringLiteral("Response");
+
+    /**
+     * Stores the desktop portal DBus Autostart field name.
+    */
+    const QString PortalBusFieldNameAutostart = QStringLiteral("autostart");
 
     /**
      * Stores the status of the asynchronous operation.

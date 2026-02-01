@@ -61,7 +61,7 @@ const QList<QVariant> PortalRequest::CreateRequestStructure(const bool autostart
 
 bool PortalRequest::RequestBackground(const bool autostart)
 {
-    QDBusInterface DBusInterface(PortalBusName, PortalBusPath, PortalBusInterface, DBusInstance);
+    QDBusInterface DBusInterface(PortalBusName, PortalBusPath, PortalBusBackgroundInterface, DBusInstance);
     QDBusReply<QDBusObjectPath> DBusReply = DBusInterface.callWithArgumentList(QDBus::AutoDetect, PortalBusMethodNameRequestBackground, CreateRequestStructure(autostart));
     const bool DBusResult = DBusReply.isValid();
     if (!DBusResult)
@@ -71,7 +71,7 @@ bool PortalRequest::RequestBackground(const bool autostart)
     }
     else
     {
-        DBusInstance.connect(QString(), DBusReply.value().path(), QStringLiteral("org.freedesktop.portal.Request"), QStringLiteral("Response"), this, SLOT(RequestResponseEvent(unsigned int, const QVariantMap)));
+        DBusInstance.connect(QString(), DBusReply.value().path(), PortalBusRequestInterface, PortalBusSignalNameResponse, this, SLOT(RequestResponseEvent(unsigned int, const QVariantMap)));
     }
     return DBusResult;
 }
@@ -94,9 +94,8 @@ void PortalRequest::RequestResponseError()
 
 PortalRequest::BackgroundResult PortalRequest::ExtractAutostartValue() const
 {
-    const QString Key = QStringLiteral("autostart");
-    if (!ResponseResults.contains(Key)) return BackgroundResult::Unknown;
-    return ResponseResults[Key].toBool() ? BackgroundResult::Enabled : BackgroundResult::Disabled;
+    if (!ResponseResults.contains(PortalBusFieldNameAutostart)) return BackgroundResult::Unknown;
+    return ResponseResults[PortalBusFieldNameAutostart].toBool() ? BackgroundResult::Enabled : BackgroundResult::Disabled;
 }
 
 PortalRequest::BackgroundResult PortalRequest::GetResult() const
