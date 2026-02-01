@@ -37,7 +37,7 @@ bool AutorunPortal::Enable() const
 
 bool AutorunPortal::Disable() const
 {
-    return false;
+    return ChangeAutorunState(false, PortalRequest::BackgroundResult::Disabled);
 }
 
 bool AutorunPortal::ChangeAutorunState(const bool value, const PortalRequest::BackgroundResult result) const
