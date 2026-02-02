@@ -33,7 +33,7 @@ public:
     /**
      * Destructor of the AutorunFile class.
     */
-    ~AutorunFile() = default;
+    ~AutorunFile() override = default;
 
     /**
      * Get whether the autorun feature is enabled.

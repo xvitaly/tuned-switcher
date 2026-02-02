@@ -33,7 +33,7 @@ public:
     /**
      * Destructor of the AutorunPortal class.
     */
-    ~AutorunPortal() = default;
+    ~AutorunPortal() override = default;
 
     /**
      * Get whether the autorun feature is enabled.
