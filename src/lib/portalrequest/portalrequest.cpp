@@ -25,7 +25,8 @@
 #include "portalrequest/portalrequest.h"
 
 PortalRequest::PortalRequest(QObject* parent) : QObject(parent)
-{}
+{
+}
 
 QString PortalRequest::CreateHandleToken() const
 {
@@ -90,13 +91,15 @@ void PortalRequest::RequestResponseError()
 
 PortalRequest::BackgroundResult PortalRequest::ExtractAutostartValue() const
 {
-    if (!ResponseResults.contains(PortalBusFieldNameAutostart)) return BackgroundResult::Unknown;
+    if (!ResponseResults.contains(PortalBusFieldNameAutostart))
+        return BackgroundResult::Unknown;
     return ResponseResults[PortalBusFieldNameAutostart].toBool() ? BackgroundResult::Enabled : BackgroundResult::Disabled;
 }
 
 PortalRequest::BackgroundResult PortalRequest::GetResult() const
 {
-    if (!ResponseFinished || ResponseResults.isEmpty()) return BackgroundResult::NotFinished;
+    if (!ResponseFinished || ResponseResults.isEmpty())
+        return BackgroundResult::NotFinished;
     switch (ResponseCode)
     {
         case 0UL:
