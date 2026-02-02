@@ -43,10 +43,18 @@ bool AutorunPortal::Disable() const
 bool AutorunPortal::ChangeAutorunState(const bool value, const PortalRequest::BackgroundResult result) const
 {
     PortalRequest portal;
+    QEventLoop loop;
+    QTimer timer;
+
+    timer.setSingleShot(true);
     if (!portal.RequestBackground(value))
         return false;
-    QEventLoop loop;
+
     connect(&portal, &PortalRequest::finished, &loop, &QEventLoop::quit);
+    connect(&timer, &QTimer::timeout, &loop, &QEventLoop::quit);
+
+    timer.start(10000);
     loop.exec();
-    return portal.GetResult() == result;
+
+    return timer.isActive() ? portal.GetResult() == result : false;
 }
