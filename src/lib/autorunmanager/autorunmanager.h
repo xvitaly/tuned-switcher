@@ -26,7 +26,7 @@ public:
      * @param parent Parent.
      * @returns Instance of the AutorunManager class.
     */
-    static AutorunManager* Create(QObject*);
+    static AutorunManager* Create(QObject* parent = nullptr);
 
     /**
      * Main constructor of the AutorunManager class.

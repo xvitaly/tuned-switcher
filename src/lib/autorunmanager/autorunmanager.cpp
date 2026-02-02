@@ -26,7 +26,8 @@ AutorunManager* AutorunManager::Create(QObject* parent)
 }
 
 AutorunManager::AutorunManager(QObject* parent) : QObject(parent)
-{}
+{
+}
 
 bool AutorunManager::CheckSandbox()
 {
