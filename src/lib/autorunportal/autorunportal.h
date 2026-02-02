@@ -4,40 +4,36 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef AUTORUNMANAGER_H
-#define AUTORUNMANAGER_H
+#ifndef AUTORUNPORTAL_H
+#define AUTORUNPORTAL_H
 
 /**
- * @file autorunmanager/autorunmanager.h
- * Contains the AutorunManager class definition.
+ * @file autorunportal/autorunportal.h
+ * Contains the AutorunPortal class definition.
 */
 
 #include <QObject>
 
+#include "autorunmanager/autorunmanager.h"
+#include "portalrequest/portalrequest.h"
+
 /**
- * Abstract class for working with autorun configurations.
+ * Class for working with autorun configurations using portals.
 */
-class AutorunManager : public QObject
+class AutorunPortal : public AutorunManager
 {
     Q_OBJECT
 public:
     /**
-     * Create an instance of the AutorunManager class. Factory method.
-     * @param parent Parent.
-     * @returns Instance of the AutorunManager class.
-    */
-    static AutorunManager* Create(QObject* parent = nullptr);
-
-    /**
-     * Main constructor of the AutorunManager class.
+     * Main constructor of the AutorunPortal class.
      * @param parent Parent.
     */
-    explicit AutorunManager(QObject* parent = nullptr);
+    explicit AutorunPortal(QObject* parent = nullptr);
 
     /**
-     * Destructor of the AutorunManager class.
+     * Destructor of the AutorunPortal class.
     */
-    virtual ~AutorunManager() = default;
+    ~AutorunPortal() override = default;
 
     /**
      * Get whether the autorun feature is enabled.
@@ -45,7 +41,7 @@ public:
      * @retval true The autorun feature is enabled.
      * @retval false The autorun feature is not enabled.
     */
-    virtual bool IsEnabled() const = 0;
+    bool IsEnabled() const override;
 
     /**
      * Get whether the autorun feature is supported on running platform.
@@ -53,7 +49,7 @@ public:
      * @retval true The autorun feature is supported on running platform.
      * @retval false The autorun feature is not supported on running platform.
     */
-    virtual bool IsSupported() const = 0;
+    bool IsSupported() const override;
 
     /**
      * Enable the autorun feature.
@@ -61,7 +57,7 @@ public:
      * @retval true The requested operation completed successfully.
      * @retval false An error occurred when trying to perform the requested operation.
     */
-    virtual bool Enable() const = 0;
+    bool Enable() const override;
 
     /**
      * Disable the autorun feature.
@@ -69,13 +65,17 @@ public:
      * @retval true The requested operation completed successfully.
      * @retval false An error occurred when trying to perform the requested operation.
     */
-    virtual bool Disable() const = 0;
+    bool Disable() const override;
 private:
     /**
-     * Check whether the application is running in a sandbox.
-     * @returns Whether the application is running in a sandbox.
+     * Changes the state of the autorun feature.
+     * @param value New autorun state.
+     * @param result Expected result.
+     * @returns Result of the requested operation.
+     * @retval true The requested operation completed successfully.
+     * @retval false An error occurred when trying to perform the requested operation.
     */
-    static bool CheckSandbox();
+    bool ChangeAutorunState(const bool, const PortalRequest::BackgroundResult) const;
 };
 
-#endif // AUTORUNMANAGER_H
+#endif // AUTORUNPORTAL_H

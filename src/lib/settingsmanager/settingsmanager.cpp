@@ -100,5 +100,5 @@ void SettingsManager::ResetGeometry() const
 SettingsManager::SettingsManager(QObject* parent) : QObject(parent)
 {
     settings = new QSettings(this);
-    autorun = new AutorunManager(this);
+    autorun = AutorunManager::Create(this);
 }
