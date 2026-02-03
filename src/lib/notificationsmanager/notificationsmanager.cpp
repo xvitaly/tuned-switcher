@@ -52,14 +52,14 @@ const QVariantMap NotificationsManager::CreateHintsStructure() const
     QVariantMap result;
     if (IsImagesSupported) result[QStringLiteral("image-data")] = GetNotificationImage();
     if (IsSoundEnabled) result[QStringLiteral("sound-name")] = QStringLiteral("message-new-instant");
-    result[QStringLiteral("desktop-entry")] = AppConstants::LauncherName;
+    result[QStringLiteral("desktop-entry")] = AppConstants::LauncherName();
     return result;
 }
 
 const QList<QVariant> NotificationsManager::CreateArgListStructure(const QString& title, const QString& message) const
 {
     QList<QVariant> result;
-    result << AppConstants::ProductName;
+    result << AppConstants::ProductName();
     result << static_cast<unsigned int>(0);
     result << QString();
     result << title;

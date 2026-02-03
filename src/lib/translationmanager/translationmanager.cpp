@@ -28,8 +28,8 @@ QStringList TranslationManager::GetTranslationPaths() const
 {
     return QStringList()
             << QDir::toNativeSeparators(QFileInfo(qApp -> applicationDirPath()).absoluteFilePath() + LocaleDirectory)
-            << QDir::toNativeSeparators(AppConstants::DataRootPrefix + AppConstants::ProductNameInternal + LocaleDirectory)
-            << QDir::toNativeSeparators(QStringLiteral("/usr/share/") + AppConstants::ProductNameInternal + LocaleDirectory);
+            << QDir::toNativeSeparators(AppConstants::DataRootPrefix() + AppConstants::ProductNameInternal() + LocaleDirectory)
+            << QDir::toNativeSeparators(QStringLiteral("/usr/share/") + AppConstants::ProductNameInternal() + LocaleDirectory);
 }
 
 QString TranslationManager::GetTranslationPath() const
@@ -65,7 +65,7 @@ QTranslator* TranslationManager::CreateQtTranslator()
 QTranslator* TranslationManager::CreateAppTranslator()
 {
     QTranslator* Translator = new QTranslator(this);
-    return Translator -> load(QLocale(), AppConstants::ProductNameInternal, QStringLiteral("_"), GetTranslationPath()) ? Translator : nullptr;
+    return Translator -> load(QLocale(), AppConstants::ProductNameInternal(), QStringLiteral("_"), GetTranslationPath()) ? Translator : nullptr;
 }
 
 bool TranslationManager::IsQtTranslatorAvailable() const

@@ -135,7 +135,7 @@ void MainWindow::tryToStartTuned()
     if (tunedManager -> Start())
     {
         // Sleep to allow Tuned service to be initialized correctly.
-        QThread::sleep(AppConstants::SleepTime);
+        QThread::sleep(AppConstants::SleepTime());
     }
     else
     {
@@ -148,7 +148,7 @@ void MainWindow::checkTunedRunning()
 {
     if (!(tunedManager -> IsOperational() || tunedManager -> IsRunning()))
     {
-        if (QMessageBox::question(this, AppConstants::ProductName, tr("Tuned service is not running. Do you want to start it now?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::Yes)
+        if (QMessageBox::question(this, AppConstants::ProductName(), tr("Tuned service is not running. Do you want to start it now?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::Yes)
             tryToStartTuned();
         else
             exitApplication();
@@ -288,7 +288,7 @@ void MainWindow::serviceControlEvent(const TunedManager::ServiceMethod method)
 
 void MainWindow::exitApplication()
 {
-    QTimer::singleShot(AppConstants::TimerDelay, qApp, &QApplication::quit);
+    QTimer::singleShot(AppConstants::TimerDelay(), qApp, &QApplication::quit);
 }
 
 void MainWindow::profileChangedEvent(const QString& profile, const bool result, const QString& message)
