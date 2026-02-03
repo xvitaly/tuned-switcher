@@ -130,7 +130,14 @@ endif()
 # ================== Library target ====================
 # ======================================================
 
+configure_file(
+    src/lib/appconstants/appconstants.cpp.in
+    appconstants/appconstants.cpp
+    @ONLY
+)
+
 set(LIBRARY_HEADERS
+    src/lib/appconstants/appconstants.h
     src/lib/autorunfile/autorunfile.h
     src/lib/autorunmanager/autorunmanager.h
     src/lib/autorunportal/autorunportal.h
@@ -157,12 +164,7 @@ set(LIBRARY_SOURCES
     src/lib/translationmanager/translationmanager.cpp
     src/lib/tunedmanager/tunedmanager.cpp
     src/lib/tunedtypes/tunedtypes.cpp
-)
-
-configure_file(
-    src/lib/appconstants/appconstants.h.in
-    generated/appconstants/appconstants.h
-    @ONLY
+    ${CMAKE_CURRENT_BINARY_DIR}/appconstants/appconstants.cpp
 )
 
 add_library(${LIB_NAME} OBJECT
@@ -172,7 +174,6 @@ add_library(${LIB_NAME} OBJECT
 
 target_include_directories(${LIB_NAME} PUBLIC
     src/lib
-    "${CMAKE_CURRENT_BINARY_DIR}/generated"
 )
 
 target_link_libraries(${LIB_NAME} PUBLIC
