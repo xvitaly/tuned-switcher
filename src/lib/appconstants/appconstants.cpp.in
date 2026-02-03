@@ -1,0 +1,93 @@
+/**
+ * SPDX-FileCopyrightText: 2021-2026 EasyCoding Team and contributors
+ *
+ * SPDX-License-Identifier: GPL-3.0-or-later
+*/
+
+/**
+ * @file appconstants/appconstants.cpp
+ * Contains the AppConstants namespace implementation.
+*/
+
+#include <QString>
+
+#include "appconstants/appconstants.h"
+
+QString AppConstants::ProductCompany()
+{
+    return QStringLiteral("EasyCoding Team");
+}
+
+QString AppConstants::ProductCompanyInternal()
+{
+    return QStringLiteral("EasyCoding");
+}
+
+QString AppConstants::ProductCopyright()
+{
+    return QStringLiteral("(c) 2021-2026 EasyCoding Team and contributors");
+}
+
+QString AppConstants::ProductDescription()
+{
+    return QStringLiteral("@CMAKE_PROJECT_DESCRIPTION@");
+}
+
+QString AppConstants::ProductHomepage()
+{
+    return QStringLiteral("@CMAKE_PROJECT_HOMEPAGE_URL@");
+}
+
+QString AppConstants::ProductName()
+{
+    return QStringLiteral("Tuned Switcher");
+}
+
+QString AppConstants::ProductNameInternal()
+{
+    return QStringLiteral("@CMAKE_PROJECT_NAME@");
+}
+QString AppConstants::ProductVersion()
+{
+    return QStringLiteral("@CMAKE_PROJECT_VERSION@");
+}
+
+QString AppConstants::LauncherName()
+{
+    return QStringLiteral("@SCHEME_NAME@");
+}
+
+QString AppConstants::DomainSchemeName()
+{
+    return QStringLiteral("@SCHEME_NAME@");
+}
+
+QString AppConstants::DataRootPrefix()
+{
+    return QStringLiteral("@CMAKE_INSTALL_FULL_DATAROOTDIR@/");
+}
+
+int AppConstants::SleepTime()
+{
+    return 2;
+}
+
+int AppConstants::TimerDelay()
+{
+    return 2;
+}
+
+const char* AppConstants::CategoryNameDbus()
+{
+    return "@CMAKE_PROJECT_NAME@.dbus";
+}
+
+const char* AppConstants::CategoryNameAutorun()
+{
+    return "@CMAKE_PROJECT_NAME@.autorun";
+}
+
+const char* AppConstants::EnvNameGUI()
+{
+    return "TUNED_SWITCHER_FORCE_GUI";
+}
