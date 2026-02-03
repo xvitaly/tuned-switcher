@@ -16,6 +16,6 @@
 
 namespace LogCategories
 {
-    Q_LOGGING_CATEGORY(DBus, AppConstants::CategoryNameDbus)
-    Q_LOGGING_CATEGORY(Autorun, AppConstants::CategoryNameAutorun)
+    Q_LOGGING_CATEGORY(DBus, AppConstants::CategoryNameDbus())
+    Q_LOGGING_CATEGORY(Autorun, AppConstants::CategoryNameAutorun())
 }

@@ -33,7 +33,7 @@ QString AutorunFile::GetAutorunDirectoryName() const
 QString AutorunFile::GetAutorunFileName() const
 {
     return QStringLiteral("%1/.config/autostart/%2.desktop").arg(
-        QDir::homePath(), AppConstants::LauncherName);
+        QDir::homePath(), AppConstants::LauncherName());
 }
 
 void AutorunFile::CreateAutorunDirectory() const
@@ -49,10 +49,10 @@ QString AutorunFile::GenerateAutorunFile() const
     if (!autorun.open(QFile::ReadOnly | QFile::Text))
         return QString();
     QTextStream af(&autorun);
-    return af.readAll().arg(AppConstants::ProductName,
-                            AppConstants::ProductDescription,
-                            AppConstants::DomainSchemeName,
-                            AppConstants::ProductNameInternal);
+    return af.readAll().arg(AppConstants::ProductName(),
+                            AppConstants::ProductDescription(),
+                            AppConstants::DomainSchemeName(),
+                            AppConstants::ProductNameInternal());
 }
 
 void AutorunFile::WriteAutorunFile(const QString& value) const

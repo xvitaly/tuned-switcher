@@ -80,10 +80,10 @@ void About::setFormStyle()
 void About::setFormControls()
 {
     ui -> AppIcon -> setPixmap(GuiHelpers::GetApplicationPixmap(128));
-    ui -> AppName -> setText(AppConstants::ProductName);
-    ui -> AppVersion -> setText(tr("Version: %1").arg(AppConstants::ProductVersion));
-    ui -> AppDeveloper -> setText(AppConstants::ProductCompany);
-    ui -> AppCopyright -> setText(AppConstants::ProductCopyright);
+    ui -> AppName -> setText(AppConstants::ProductName());
+    ui -> AppVersion -> setText(tr("Version: %1").arg(AppConstants::ProductVersion()));
+    ui -> AppDeveloper -> setText(AppConstants::ProductCompany());
+    ui -> AppCopyright -> setText(AppConstants::ProductCopyright());
 }
 
 void About::setFormEvents()

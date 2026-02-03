@@ -25,11 +25,11 @@
 int main(int argc, char* argv[])
 {
     QApplication app(argc, argv);
-    QApplication::setApplicationName(AppConstants::ProductNameInternal);
-    QApplication::setApplicationVersion(AppConstants::ProductVersion);
-    QApplication::setDesktopFileName(AppConstants::LauncherName);
-    QApplication::setOrganizationName(AppConstants::ProductCompanyInternal);
-    QApplication::setOrganizationDomain(AppConstants::DomainSchemeName);
+    QApplication::setApplicationName(AppConstants::ProductNameInternal());
+    QApplication::setApplicationVersion(AppConstants::ProductVersion());
+    QApplication::setDesktopFileName(AppConstants::LauncherName());
+    QApplication::setOrganizationName(AppConstants::ProductCompanyInternal());
+    QApplication::setOrganizationDomain(AppConstants::DomainSchemeName());
 
     TranslationManager translator;
     if (translator.IsQtTranslatorAvailable())
@@ -37,7 +37,7 @@ int main(int argc, char* argv[])
     if (translator.IsAppTranslatorAvailable())
         app.installTranslator(translator.GetAppTranslator());
 
-    if (QSystemTrayIcon::isSystemTrayAvailable() && !qEnvironmentVariableIsSet(AppConstants::EnvNameGUI))
+    if (QSystemTrayIcon::isSystemTrayAvailable() && !qEnvironmentVariableIsSet(AppConstants::EnvNameGUI()))
     {
         TrayIcon trayIcon;
         trayIcon.Show();

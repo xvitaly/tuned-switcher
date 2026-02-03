@@ -35,7 +35,7 @@ bool GuiHelpers::CheckGeometryValid(const QByteArray& geometry)
 
 QIcon GuiHelpers::GetApplicationIcon()
 {
-    return QIcon::fromTheme(AppConstants::DomainSchemeName, QIcon(QStringLiteral(":/icons/fallback.png")));
+    return QIcon::fromTheme(AppConstants::DomainSchemeName(), QIcon(QStringLiteral(":/icons/fallback.png")));
 }
 
 QPixmap GuiHelpers::GetApplicationPixmap(const int size)

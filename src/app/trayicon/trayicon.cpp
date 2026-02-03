@@ -64,7 +64,7 @@ void TrayIcon::tryToStartTuned()
     if (tunedManager -> Start())
     {
         // Sleep to allow Tuned service to be initialized correctly.
-        QThread::sleep(AppConstants::SleepTime);
+        QThread::sleep(AppConstants::SleepTime());
     }
     else
     {
@@ -89,9 +89,9 @@ void TrayIcon::setTrayIcon()
 {
     // Setting tray icon...
     trayIcon = new QSystemTrayIcon(this);
-    trayIcon -> setIcon(QIcon::fromTheme(AppConstants::DomainSchemeName, QIcon(QStringLiteral(":/icons/fallback.png"))));
+    trayIcon -> setIcon(QIcon::fromTheme(AppConstants::DomainSchemeName(), QIcon(QStringLiteral(":/icons/fallback.png"))));
     trayIcon -> setContextMenu(createTrayIconMenu());
-    trayIcon -> setToolTip(AppConstants::ProductName);
+    trayIcon -> setToolTip(AppConstants::ProductName());
 }
 
 void TrayIcon::subscribeToEvents()
@@ -127,7 +127,7 @@ void TrayIcon::setNotificationsMode()
 
 void TrayIcon::exitApplication()
 {
-    QTimer::singleShot(AppConstants::TimerDelay, qApp, &QApplication::quit);
+    QTimer::singleShot(AppConstants::TimerDelay(), qApp, &QApplication::quit);
 }
 
 void TrayIcon::profileChangedEvent(const QString& profile, const bool result, const QString& message)

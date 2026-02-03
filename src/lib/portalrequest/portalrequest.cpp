@@ -35,7 +35,7 @@ QString PortalRequest::CreateHandleToken() const
 
 QString PortalRequest::CreateReasonString(const bool autostart) const
 {
-    return QStringLiteral("%1 the autorun feature for the %2").arg(autostart ? QStringLiteral("Enable") : QStringLiteral("Disable"), AppConstants::ProductName);
+    return QStringLiteral("%1 the autorun feature for the %2").arg(autostart ? QStringLiteral("Enable") : QStringLiteral("Disable"), AppConstants::ProductName());
 }
 
 const QVariantMap PortalRequest::CreateOptionsStructure(const bool autostart) const
