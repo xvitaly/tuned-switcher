@@ -33,16 +33,16 @@ QString PortalRequest::CreateHandleToken() const
     return QStringLiteral("u%1").arg(QRandomGenerator::global() -> generate());
 }
 
-QString PortalRequest::CreateReasonString(const bool autostart) const
+QString PortalRequest::CreateReasonString() const
 {
-    return QStringLiteral("%1 the autorun feature for the %2").arg(autostart ? QStringLiteral("Enable") : QStringLiteral("Disable"), AppConstants::ProductName());
+    return QStringLiteral("Configure the autorun feature using portal");
 }
 
 const QVariantMap PortalRequest::CreateOptionsStructure(const bool autostart) const
 {
     QVariantMap result;
     result[QStringLiteral("handle_token")] = CreateHandleToken();
-    result[QStringLiteral("reason")] = CreateReasonString(autostart);
+    result[QStringLiteral("reason")] = CreateReasonString();
     result[QStringLiteral("autostart")] = autostart;
     result[QStringLiteral("dbus-activatable")] = false;
     return result;

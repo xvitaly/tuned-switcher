@@ -121,7 +121,7 @@ private:
      * request interface.
      * @returns DBus activation reason.
     */
-    QString CreateReasonString(const bool) const;
+    QString CreateReasonString() const;
 
     /**
      * Constructs and returns special Options structure for
