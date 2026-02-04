@@ -20,7 +20,6 @@
 #include <QVariant>
 #include <QVariantMap>
 
-#include "appconstants/appconstants.h"
 #include "logcategories/logcategories.h"
 #include "portalrequest/portalrequest.h"
 
