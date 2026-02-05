@@ -53,6 +53,12 @@ public:
      * @returns Result of the asynchronous operation.
     */
     BackgroundResult GetResult() const;
+
+    /**
+     * Returns version of the PortalRequest portal.
+     * @returns Version of the PortalRequest portal.
+    */
+    unsigned int GetVersion() const;
 private:
     /**
      * Stores the desktop portal DBus interface name.
@@ -88,6 +94,21 @@ private:
      * Stores the desktop portal DBus Autostart field name.
     */
     const QString PortalBusFieldNameAutostart = QStringLiteral("autostart");
+
+    /**
+     * Stores the desktop portal DBus Version property name.
+    */
+    const QString PortalBusPropertyNameVersion = QStringLiteral("version");
+
+    /**
+     * Stores the Systemd Properties DBus interface.
+    */
+    const QString DBusPropertyInterface = QStringLiteral("org.freedesktop.DBus.Properties");
+
+    /**
+     * Stores the Systemd DBus GetProperty method name.
+    */
+    const QString DBusPropertyMethodNameGet = QStringLiteral("Get");
 
     /**
      * Stores the status of the asynchronous operation.
@@ -149,6 +170,16 @@ private:
      * Sets error values to various private fields and calls finished() slot.
     */
     void RequestResponseError();
+
+    /**
+     * Get the value of the specified DBus property as an unsigned integer.
+     * @param BusName DBus bus name.
+     * @param BusPath DBus object path.
+     * @param BusInterface DBus interface name.
+     * @param BusProperty DBus property name.
+     * @returns The value of the specified property, or 0 if an error occurs.
+    */
+    unsigned int GetPropertyInteger(const QString&, const QString&, const QString&, const QString&) const;
 private slots:
     /**
      * Response received event slot.

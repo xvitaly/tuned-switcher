@@ -68,6 +68,14 @@ public:
     bool Disable() const override;
 private:
     /**
+     * Get whether the autorun feature is supported by portal.
+     * @returns Whether the autorun feature is supported by portal.
+     * @retval true The autorun feature is supported by portal.
+     * @retval false The autorun feature is not supported by portal.
+    */
+    bool CheckAutorunSupport() const;
+
+    /**
      * Changes the state of the autorun feature.
      * @param value New autorun state.
      * @param result Expected result.

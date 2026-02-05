@@ -11,6 +11,7 @@
 
 #include <QDBusInterface>
 #include <QDBusReply>
+#include <QDBusVariant>
 #include <QList>
 #include <QLoggingCategory>
 #include <QObject>
@@ -110,4 +111,18 @@ PortalRequest::BackgroundResult PortalRequest::GetResult() const
         default:
             return BackgroundResult::Unknown;
     }
+}
+
+unsigned int PortalRequest::GetPropertyInteger(const QString& BusName, const QString& BusPath, const QString& BusInterface, const QString& BusProperty) const
+{
+    QDBusInterface DBusInterface(BusName, BusPath, DBusPropertyInterface, DBusInstance);
+    QDBusReply<QDBusVariant> DBusReply = DBusInterface.call(DBusPropertyMethodNameGet, BusInterface, BusProperty);
+    if (!DBusReply.isValid())
+        qCWarning(LogCategories::Autorun) << "Failed to get the DBus property value:" << DBusReply.error();
+    return DBusReply.value().variant().toUInt();
+}
+
+unsigned int PortalRequest::GetVersion() const
+{
+    return GetPropertyInteger(PortalBusName, PortalBusPath, PortalBusBackgroundInterface, PortalBusPropertyNameVersion);
 }
