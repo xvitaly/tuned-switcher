@@ -53,6 +53,12 @@ public:
      * @returns Result of the asynchronous operation.
     */
     BackgroundResult GetResult() const;
+
+    /**
+     * Returns version of the PortalRequest portal.
+     * @returns Version of the PortalRequest portal.
+    */
+    unsigned int GetVersion() const;
 private:
     /**
      * Stores the desktop portal DBus interface name.
@@ -88,6 +94,11 @@ private:
      * Stores the desktop portal DBus Autostart field name.
     */
     const QString PortalBusFieldNameAutostart = QStringLiteral("autostart");
+
+    /**
+     * Stores the desktop portal DBus Version property name.
+    */
+    const QString PortalBusPropertyNameVersion = QStringLiteral("version");
 
     /**
      * Stores the Systemd Properties DBus interface.

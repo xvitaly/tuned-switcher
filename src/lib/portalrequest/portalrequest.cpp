@@ -121,3 +121,8 @@ unsigned int PortalRequest::GetPropertyInteger(const QString& BusName, const QSt
         qCWarning(LogCategories::Autorun) << "Failed to get the DBus property value:" << DBusReply.error();
     return DBusReply.value().variant().toUInt();
 }
+
+unsigned int PortalRequest::GetVersion() const
+{
+    return GetPropertyInteger(PortalBusName, PortalBusPath, PortalBusBackgroundInterface, PortalBusPropertyNameVersion);
+}
