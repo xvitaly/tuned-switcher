@@ -93,12 +93,12 @@ bool TunedManager::IsOperational() const
     return DBusReply.value();
 }
 
-QString TunedManager::GetPropertyString(const QString& BusName, const QString& BusPath, const QString& BusInterface, const QString& BusProperty) const
+QString TunedManager::GetServiceState(const QString& BusPath) const
 {
-    QDBusInterface DBusInterface(BusName, BusPath, DBusPropertyInterface, DBusInstance);
-    QDBusReply<QDBusVariant> DBusReply = DBusInterface.call(DBusPropertyMethodNameGet, BusInterface, BusProperty);
+    QDBusInterface DBusInterface(SystemdBusName, BusPath, DBusPropertyInterface, DBusInstance);
+    QDBusReply<QDBusVariant> DBusReply = DBusInterface.call(DBusPropertyMethodNameGet, SystemdBusInterfaceUnit, SystemdBusPropertyNameActiveState);
     if (!DBusReply.isValid())
-        qCWarning(LogCategories::DBus) << "Failed to get the DBus property value:" << DBusReply.error();
+        qCWarning(LogCategories::DBus) << "Failed to get the Tuned service state due to an error:" << DBusReply.error();
     return DBusReply.value().variant().toString();
 }
 
@@ -108,7 +108,7 @@ bool TunedManager::IsRunning() const
     QDBusReply<QDBusObjectPath> DBusReply = DBusInterface.call(SystemdBusMethodNameGetUnit, SystemdTunedServiceName);
     if (!DBusReply.isValid())
         qCWarning(LogCategories::DBus) << "Failed to get the Tuned service DBus path due to an error:" << DBusReply.error();
-    return GetPropertyString(SystemdBusName, DBusReply.value().path(), SystemdBusInterfaceUnit, SystemdBusPropertyNameActiveState) == SystemdBusValueServiceActive;
+    return GetServiceState(DBusReply.value().path()) == SystemdBusValueServiceActive;
 }
 
 bool TunedManager::Start() const
