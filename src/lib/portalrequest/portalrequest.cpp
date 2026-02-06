@@ -113,16 +113,16 @@ PortalRequest::BackgroundResult PortalRequest::GetResult() const
     }
 }
 
-unsigned int PortalRequest::GetPropertyInteger(const QString& BusName, const QString& BusPath, const QString& BusInterface, const QString& BusProperty) const
+unsigned int PortalRequest::GetVersionProperty() const
 {
-    QDBusInterface DBusInterface(BusName, BusPath, DBusPropertyInterface, DBusInstance);
-    QDBusReply<QDBusVariant> DBusReply = DBusInterface.call(DBusPropertyMethodNameGet, BusInterface, BusProperty);
+    QDBusInterface DBusInterface(PortalBusName, PortalBusPath, DBusPropertyInterface, DBusInstance);
+    QDBusReply<QDBusVariant> DBusReply = DBusInterface.call(DBusPropertyMethodNameGet, PortalBusBackgroundInterface, PortalBusPropertyNameVersion);
     if (!DBusReply.isValid())
-        qCWarning(LogCategories::Autorun) << "Failed to get the DBus property value:" << DBusReply.error();
+        qCWarning(LogCategories::Autorun) << "Failed to get the background portal version value due to an error:" << DBusReply.error();
     return DBusReply.value().variant().toUInt();
 }
 
 unsigned int PortalRequest::GetVersion() const
 {
-    return GetPropertyInteger(PortalBusName, PortalBusPath, PortalBusBackgroundInterface, PortalBusPropertyNameVersion);
+    return GetVersionProperty();
 }
