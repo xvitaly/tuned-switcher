@@ -42,7 +42,7 @@ bool AutorunPortal::Disable() const
 
 bool AutorunPortal::CheckAutorunSupport() const
 {
-    PortalRequest portal;
+    const PortalRequest portal;
     return portal.GetVersion() > 0U;
 }
 
