@@ -55,8 +55,8 @@ public:
     BackgroundResult GetResult() const;
 
     /**
-     * Returns version of the PortalRequest portal.
-     * @returns Version of the PortalRequest portal.
+     * Returns version of the PortalRequest portal as an unsigned integer.
+     * @returns Version of the PortalRequest portal, or 0 if an error occurs.
     */
     unsigned int GetVersion() const;
 private:
@@ -170,12 +170,6 @@ private:
      * Sets error values to various private fields and calls finished() slot.
     */
     void RequestResponseError();
-
-    /**
-     * Get version of the PortalRequest portal as an unsigned integer.
-     * @returns Version of the PortalRequest portal, or 0 if an error occurs.
-    */
-    unsigned int GetVersionProperty() const;
 private slots:
     /**
      * Response received event slot.
