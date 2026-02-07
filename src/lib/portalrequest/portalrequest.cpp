@@ -113,16 +113,11 @@ PortalRequest::BackgroundResult PortalRequest::GetResult() const
     }
 }
 
-unsigned int PortalRequest::GetVersionProperty() const
+unsigned int PortalRequest::GetVersion() const
 {
     QDBusInterface DBusInterface(PortalBusName, PortalBusPath, DBusPropertyInterface, DBusInstance);
     QDBusReply<QDBusVariant> DBusReply = DBusInterface.call(DBusPropertyMethodNameGet, PortalBusBackgroundInterface, PortalBusPropertyNameVersion);
     if (!DBusReply.isValid())
         qCWarning(LogCategories::Autorun) << "Failed to get the background portal version value due to an error:" << DBusReply.error();
     return DBusReply.value().variant().toUInt();
-}
-
-unsigned int PortalRequest::GetVersion() const
-{
-    return GetVersionProperty();
 }
