@@ -172,7 +172,8 @@ private:
     void RequestResponseError();
 private slots:
     /**
-     * Response received event slot.
+     * Response received event slot. Sets received values to various
+     * private fields and calls finished() slot.
      * @param response Response code: 0 - success; 1 - cancelled; 2 - timeout.
      * @param results Results data.
     */
