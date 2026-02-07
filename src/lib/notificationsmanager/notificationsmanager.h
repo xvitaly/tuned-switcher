@@ -38,6 +38,9 @@ public:
      * Shows DBus notification with specified title and message.
      * @param title Notification title.
      * @param message Notification message.
+     * @returns Result of the operation.
+     * @retval true The requested operation completed successfully.
+     * @retval false An error occurred when trying to perform the requested operation.
     */
     bool ShowNotification(const QString&, const QString&) const;
 
