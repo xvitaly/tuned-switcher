@@ -118,11 +118,16 @@ struct QTunedResult
 
     /**
      * Alternative constructor of the QTunedResult structure.
+     * @param success Method result.
+     * @param message Result message.
     */
     QTunedResult(bool success, QString message) : Success(success), Message(message) {}
 
     /**
      * QTunedResult check operator.
+     * @returns Method result.
+     * @retval true Method returned success.
+     * @retval false Method returned an error.
     */
     operator bool() const { return Success; }
 
