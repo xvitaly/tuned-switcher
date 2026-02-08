@@ -27,7 +27,8 @@ bool AutorunPortal::IsEnabled() const
 
 bool AutorunPortal::IsSupported() const
 {
-    return CheckAutorunSupport();
+    const PortalRequest portal;
+    return portal.GetVersion() > 0U;
 }
 
 bool AutorunPortal::Enable() const
@@ -38,12 +39,6 @@ bool AutorunPortal::Enable() const
 bool AutorunPortal::Disable() const
 {
     return ChangeAutorunState(false, PortalRequest::BackgroundResult::Disabled);
-}
-
-bool AutorunPortal::CheckAutorunSupport() const
-{
-    const PortalRequest portal;
-    return portal.GetVersion() > 0U;
 }
 
 bool AutorunPortal::ChangeAutorunState(const bool value, const PortalRequest::BackgroundResult result) const

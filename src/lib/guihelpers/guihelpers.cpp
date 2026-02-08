@@ -15,6 +15,8 @@
 #include <QRect>
 #include <QScreen>
 #include <QSize>
+#include <QString>
+#include <QStringLiteral>
 #include <QStyle>
 #include <QVariant>
 #include <QWidget>
