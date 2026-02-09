@@ -12,6 +12,7 @@
 #include <QObject>
 #include <QDir>
 #include <QFile>
+#include <QStandardPaths>
 #include <QString>
 #include <QStringLiteral>
 #include <QTextStream>
@@ -27,13 +28,15 @@ AutorunFile::AutorunFile(QObject* parent) : AutorunManager(parent)
 
 QString AutorunFile::GetAutorunDirectoryName() const
 {
-    return QStringLiteral("%1/.config/autostart").arg(QDir::homePath());
+    return QStringLiteral("%1/autostart").arg(
+        QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation));
 }
 
 QString AutorunFile::GetAutorunFileName() const
 {
-    return QStringLiteral("%1/.config/autostart/%2.desktop").arg(
-        QDir::homePath(), AppConstants::LauncherName());
+    return QStringLiteral("%1/autostart/%2.desktop").arg(
+        QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation),
+        AppConstants::LauncherName());
 }
 
 void AutorunFile::CreateAutorunDirectory() const
