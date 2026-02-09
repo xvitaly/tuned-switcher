@@ -177,7 +177,7 @@ private slots:
      * @param response Response code: 0 - success; 1 - cancelled; 2 - timeout.
      * @param results Results data.
     */
-    void RequestResponseEvent(unsigned int, const QVariantMap&);
+    void RequestResponseEvent(const unsigned int, const QVariantMap&);
 signals:
     /**
      * Asynchronous request completed signal.
