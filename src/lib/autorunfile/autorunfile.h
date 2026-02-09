@@ -80,6 +80,13 @@ private:
     QString GetAutorunFileName() const;
 
     /**
+     * Get the application executable path: relative if the running
+     * executable is located in the $PATH or absolute if it doesn't.
+     * @returns Application executable path.
+    */
+    QString GetExecutablePath() const;
+
+    /**
      * Create the autorun directory if it doesn't exists.
     */
     void CreateAutorunDirectory() const;

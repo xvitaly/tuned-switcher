@@ -68,12 +68,12 @@ bool PortalRequest::RequestBackground(const bool autostart)
     }
     else
     {
-        DBusInstance.connect(QString(), DBusReply.value().path(), PortalBusRequestInterface, PortalBusSignalNameResponse, this, SLOT(RequestResponseEvent(unsigned int, const QVariantMap)));
+        DBusInstance.connect(QString(), DBusReply.value().path(), PortalBusRequestInterface, PortalBusSignalNameResponse, this, SLOT(RequestResponseEvent(const unsigned int, const QVariantMap&)));
     }
     return DBusResult;
 }
 
-void PortalRequest::RequestResponseEvent(unsigned int response, const QVariantMap& results)
+void PortalRequest::RequestResponseEvent(const unsigned int response, const QVariantMap& results)
 {
     ResponseFinished = true;
     ResponseCode = response;
