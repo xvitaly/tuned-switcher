@@ -9,6 +9,7 @@
  * Contains the AutorunFile class implementation.
 */
 
+#include <QCoreApplication>
 #include <QObject>
 #include <QDir>
 #include <QFile>
@@ -39,6 +40,11 @@ QString AutorunFile::GetAutorunFileName() const
         AppConstants::LauncherName());
 }
 
+QString AutorunFile::GetExecutablePath() const
+{
+    return !QStandardPaths::findExecutable(AppConstants::ProductNameInternal()).isEmpty() ? AppConstants::ProductNameInternal() : QCoreApplication::applicationFilePath();
+}
+
 void AutorunFile::CreateAutorunDirectory() const
 {
     const QDir directory(AutorunDirectoryName);
@@ -55,7 +61,7 @@ QString AutorunFile::GenerateAutorunFile() const
     return af.readAll().arg(AppConstants::ProductName(),
                             AppConstants::ProductDescription(),
                             AppConstants::DomainSchemeName(),
-                            AppConstants::ProductNameInternal());
+                            GetExecutablePath());
 }
 
 void AutorunFile::WriteAutorunFile(const QString& value) const
