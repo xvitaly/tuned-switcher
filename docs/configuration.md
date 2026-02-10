@@ -10,6 +10,7 @@ Supported options:
 
 | Namespace | Name | Type | Default | Description |
 | ------- | ------- | ------- | ------- | ------- |
+| common | autorunEnabled | bool | true | Stores whether the autorun feature is enabled. |
 | common | saveGeometry | bool | true | Stores whether saving the form geometry is enabled. |
 | common | soundEnabled | bool | true | Stores whether the notification sound is enabled. |
 | about | geometry | QByteArray | not set | Stores the geometry of the About form. |

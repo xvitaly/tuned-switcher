@@ -152,6 +152,11 @@ private:
     const QString AboutGeometryName = QStringLiteral("about/geometry");
 
     /**
+     * Stores whether the autorun feature is enabled.
+    */
+    const QString AutorunEnabledName = QStringLiteral("common/autorunEnabled");
+
+    /**
      * Stores the notification sound configuration option name.
     */
     const QString SoundEnabledName = QStringLiteral("common/soundEnabled");
