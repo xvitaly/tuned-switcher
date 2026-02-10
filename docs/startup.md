@@ -12,4 +12,6 @@ sudo systemctl enable --now tuned.service
 
 ## Application startup
 
-To enable program startup, the autorun settings of current desktop environment should be used.
+To enable program startup, just open the **Settings** dialog and set the **Run application on startup** checkbox.
+
+Also, the autorun settings of current desktop environment can be used too.
