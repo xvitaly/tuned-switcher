@@ -74,7 +74,7 @@ bool SettingsManager::IsAutorunSupported() const
 
 bool SettingsManager::GetAutorunEnabled() const
 {
-    return autorun -> IsEnabled();
+    return autorun -> IsEnabled() || settings -> value(AutorunEnabledName, false).toBool();
 }
 
 void SettingsManager::SetAutorunEnabled(const bool value) const
@@ -83,6 +83,7 @@ void SettingsManager::SetAutorunEnabled(const bool value) const
         autorun -> Enable();
     else
         autorun -> Disable();
+    settings -> setValue(AutorunEnabledName, value);
 }
 
 void SettingsManager::Reset() const
