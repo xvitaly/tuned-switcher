@@ -10,9 +10,9 @@
 */
 
 #include <QCoreApplication>
-#include <QObject>
 #include <QDir>
 #include <QFile>
+#include <QObject>
 #include <QStandardPaths>
 #include <QString>
 #include <QStringLiteral>
