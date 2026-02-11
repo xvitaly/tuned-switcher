@@ -40,11 +40,13 @@ public:
     Q_ENUM(BackgroundResult)
 
     /**
-     * Runs the Request method and returns the result.
+     * Runs the RequestBackground method and returns the DBus method call status.
+     * The GetResult() method should be called after receiving the finished()
+     * signal to obtain the result.
      * @param autostart New autorun status.
-     * @returns Result of the operation.
-     * @retval true The requested operation completed successfully.
-     * @retval false An error occurred when trying to perform the requested operation.
+     * @returns DBus method call status.
+     * @retval true The requested method was called successfully.
+     * @retval false An error occurred when trying to call the the requested method.
     */
     bool RequestBackground(const bool);
 
