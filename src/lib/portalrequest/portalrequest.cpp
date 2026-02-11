@@ -118,6 +118,6 @@ unsigned int PortalRequest::GetVersion() const
     QDBusInterface DBusInterface(PortalBusName, PortalBusPath, DBusPropertyInterface, DBusInstance);
     QDBusReply<QDBusVariant> DBusReply = DBusInterface.call(DBusPropertyMethodNameGet, PortalBusBackgroundInterface, PortalBusPropertyNameVersion);
     if (!DBusReply.isValid())
-        qCWarning(LogCategories::Autorun) << "Failed to get the background portal version value due to an error:" << DBusReply.error();
+        qCWarning(LogCategories::Autorun) << "Failed to get the background portal version due to an error:" << DBusReply.error();
     return DBusReply.value().variant().toUInt();
 }
