@@ -37,7 +37,7 @@ void NotificationsManager::GetCapabilities()
     IsImagesSupported = DBusReply.value().contains(QStringLiteral("body-images"));
 }
 
-const QImage NotificationsManager::GetNotificationImage(const int size = 128) const
+const QImage NotificationsManager::GetNotificationImage(const int size) const
 {
     return GuiHelpers::GetApplicationPixmap(size).toImage();
 }
