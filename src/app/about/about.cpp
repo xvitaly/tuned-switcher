@@ -79,7 +79,7 @@ void About::setFormStyle()
 
 void About::setFormControls()
 {
-    ui -> AppIcon -> setPixmap(GuiHelpers::GetApplicationPixmap(128));
+    ui -> AppIcon -> setPixmap(GuiHelpers::GetApplicationPixmap());
     ui -> AppName -> setText(AppConstants::ProductName());
     ui -> AppVersion -> setText(tr("Version: %1").arg(AppConstants::ProductVersion()));
     ui -> AppDeveloper -> setText(AppConstants::ProductCompany());

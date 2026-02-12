@@ -104,10 +104,10 @@ private:
 
     /**
      * Gets a default image for the Notifications service.
-     * @param size Desired image size.
+     * @param size Desired image size. Default - 128 px.
      * @returns Image for the Notifications service.
     */
-    const QImage GetNotificationImage(const int) const;
+    const QImage GetNotificationImage(const int size = 128) const;
 
     /**
      * Formats a message for the Notifications service based on

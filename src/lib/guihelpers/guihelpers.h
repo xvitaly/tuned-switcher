@@ -49,10 +49,10 @@ namespace GuiHelpers
     /**
      * Get the application icon from the installed theme or form
      * the included resource as a pixmap.
-     * @param size The desired icon size.
+     * @param size The desired icon size. Default - 128 px.
      * @returns The application icon as a pixmap.
     */
-    QPixmap GetApplicationPixmap(const int);
+    QPixmap GetApplicationPixmap(const int size = 128);
 }
 
 #endif // GUIHELPERS_H
