@@ -47,6 +47,7 @@ QString AppConstants::ProductNameInternal()
 {
     return QStringLiteral("@CMAKE_PROJECT_NAME@");
 }
+
 QString AppConstants::ProductVersion()
 {
     return QStringLiteral("@CMAKE_PROJECT_VERSION@");
