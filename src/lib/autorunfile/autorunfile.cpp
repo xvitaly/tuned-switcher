@@ -12,12 +12,12 @@
 #include <QCoreApplication>
 #include <QDir>
 #include <QFile>
+#include <QFileInfo>
 #include <QObject>
 #include <QStandardPaths>
 #include <QString>
 #include <QStringLiteral>
 #include <QTextStream>
-#include <QFileInfo>
 
 #include "appconstants/appconstants.h"
 #include "autorunfile/autorunfile.h"
