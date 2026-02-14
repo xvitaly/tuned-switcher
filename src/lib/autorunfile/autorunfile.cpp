@@ -17,6 +17,7 @@
 #include <QString>
 #include <QStringLiteral>
 #include <QTextStream>
+#include <QFileInfo>
 
 #include "appconstants/appconstants.h"
 #include "autorunfile/autorunfile.h"
@@ -42,7 +43,10 @@ QString AutorunFile::GetAutorunFileName() const
 
 QString AutorunFile::GetExecutablePath() const
 {
-    return !QStandardPaths::findExecutable(AppConstants::ProductNameInternal()).isEmpty() ? AppConstants::ProductNameInternal() : QCoreApplication::applicationFilePath();
+    const QFileInfo file(QCoreApplication::applicationFilePath());
+    if (!file.exists())
+        return AppConstants::ProductNameInternal();
+    return !QStandardPaths::findExecutable(file.fileName()).isEmpty() ? file.fileName() : file.absoluteFilePath();
 }
 
 void AutorunFile::CreateAutorunDirectory() const
