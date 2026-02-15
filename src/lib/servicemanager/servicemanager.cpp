@@ -13,6 +13,6 @@
 
 #include "servicemanager/servicemanager.h"
 
-ServiceManager::ServiceManager(QObject *parent) : QObject(parent)
+ServiceManager::ServiceManager(QObject* parent) : QObject(parent)
 {
 }

@@ -18,7 +18,7 @@ class ServiceManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit ServiceManager(QObject *parent = nullptr);
+    explicit ServiceManager(QObject* parent = nullptr);
 };
 
 #endif // SERVICEMANAGER_H
