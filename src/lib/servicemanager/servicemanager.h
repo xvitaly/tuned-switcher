@@ -14,10 +14,17 @@
 
 #include <QObject>
 
+/**
+ * Class for working with the system service manager.
+*/
 class ServiceManager : public QObject
 {
     Q_OBJECT
 public:
+    /**
+     * Main constructor of the ServiceManager class.
+     * @param parent Parent.
+    */
     explicit ServiceManager(QObject* parent = nullptr);
 };
 
