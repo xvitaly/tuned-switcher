@@ -9,6 +9,8 @@
  * Contains the ServiceManager class implementation.
 */
 
+#include <QObject>
+
 #include "servicemanager/servicemanager.h"
 
 ServiceManager::ServiceManager(QObject *parent) : QObject(parent)
