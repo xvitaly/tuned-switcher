@@ -21,6 +21,7 @@
 #include <QHash>
 
 #include "notificationsmanager/notificationsmanager.h"
+#include "servicemanager/servicemanager.h"
 #include "settingsmanager/settingsmanager.h"
 #include "tunedmanager/tunedmanager.h"
 
@@ -92,6 +93,11 @@ private:
      * Initialize the NotificationsManager class instance.
     */
     void initializeNotifications();
+
+    /**
+     * Initialize the ServiceManager class instance.
+    */
+    void initializeService();
 
     /**
      * Initialize the TunedManager class instance.
@@ -182,6 +188,11 @@ private:
      * Stores pointer to the NotificationsManager class instance.
     */
     NotificationsManager* notifications;
+
+    /**
+     * Stores pointer to the ServiceManager class instance.
+    */
+    ServiceManager* serviceManager;
 
     /**
      * Stores pointer to the TunedManager class instance.

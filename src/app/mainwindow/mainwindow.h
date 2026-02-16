@@ -22,6 +22,7 @@
 #include <QWidget>
 
 #include "notificationsmanager/notificationsmanager.h"
+#include "servicemanager/servicemanager.h"
 #include "settingsmanager/settingsmanager.h"
 #include "tunedmanager/tunedmanager.h"
 
@@ -139,6 +140,11 @@ private:
     void initializeNotifications();
 
     /**
+     * Initialize the ServiceManager class instance.
+    */
+    void initializeService();
+
+    /**
      * Initialize the TunedManager class instance.
     */
     void initializeTuned();
@@ -253,6 +259,11 @@ private:
      * Stores pointer to the NotificationsManager class instance.
     */
     NotificationsManager* notifications;
+
+    /**
+     * Stores pointer to the ServiceManager class instance.
+    */
+    ServiceManager* serviceManager;
 
     /**
      * Stores pointer to the TunedManager class instance.
