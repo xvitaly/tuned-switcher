@@ -35,6 +35,7 @@
 #include "guihelpers/guihelpers.h"
 #include "mainwindow/mainwindow.h"
 #include "notificationsmanager/notificationsmanager.h"
+#include "servicemanager/servicemanager.h"
 #include "settings/settings.h"
 #include "settingsmanager/settingsmanager.h"
 #include "tunedmanager/tunedmanager.h"
@@ -52,6 +53,7 @@ MainWindow::MainWindow(QWidget* parent) : QWidget(parent), ui(new Ui::MainWindow
     setFormEvents();
     initializeNotifications();
     setNotificationsMode();
+    initializeService();
     initializeTuned();
     checkTunedRunning();
     getTunedProfiles();
@@ -118,6 +120,11 @@ void MainWindow::initializeNotifications()
     notifications = new NotificationsManager(this);
 }
 
+void MainWindow::initializeService()
+{
+    serviceManager = new ServiceManager(this);
+}
+
 void MainWindow::initializeTuned()
 {
     tunedManager = new TunedManager(this);
@@ -132,7 +139,7 @@ void MainWindow::setFormEvents()
 
 void MainWindow::tryToStartTuned()
 {
-    if (tunedManager -> Start())
+    if (serviceManager -> Start())
     {
         // Sleep to allow Tuned service to be initialized correctly.
         QThread::sleep(AppConstants::SleepTime());
@@ -146,7 +153,7 @@ void MainWindow::tryToStartTuned()
 
 void MainWindow::checkTunedRunning()
 {
-    if (!(tunedManager -> IsOperational() || tunedManager -> IsRunning()))
+    if (!(tunedManager -> IsOperational() || serviceManager -> IsRunning()))
     {
         if (QMessageBox::question(this, AppConstants::ProductName(), tr("Tuned service is not running. Do you want to start it now?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::Yes)
             tryToStartTuned();
