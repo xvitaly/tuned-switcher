@@ -25,6 +25,7 @@
 #include "about/about.h"
 #include "appconstants/appconstants.h"
 #include "notificationsmanager/notificationsmanager.h"
+#include "servicemanager/servicemanager.h"
 #include "settings/settings.h"
 #include "settingsmanager/settingsmanager.h"
 #include "trayicon/trayicon.h"
@@ -36,6 +37,7 @@ TrayIcon::TrayIcon(QWidget* parent) : QWidget(parent)
     initializeSettings();
     initializeNotifications();
     setNotificationsMode();
+    initializeService();
     initializeTuned();
     checkTunedRunning();
     setTrayIcon();
@@ -54,6 +56,11 @@ void TrayIcon::initializeNotifications()
     notifications = new NotificationsManager(this);
 }
 
+void TrayIcon::initializeService()
+{
+    serviceManager = new ServiceManager(this);
+}
+
 void TrayIcon::initializeTuned()
 {
     tunedManager = new TunedManager(this);
@@ -61,7 +68,7 @@ void TrayIcon::initializeTuned()
 
 void TrayIcon::tryToStartTuned()
 {
-    if (tunedManager -> Start())
+    if (serviceManager -> Start())
     {
         // Sleep to allow Tuned service to be initialized correctly.
         QThread::sleep(AppConstants::SleepTime());
@@ -75,7 +82,7 @@ void TrayIcon::tryToStartTuned()
 
 void TrayIcon::checkTunedRunning()
 {
-    if (!(tunedManager -> IsOperational() || tunedManager -> IsRunning()))
+    if (!(tunedManager -> IsOperational() || serviceManager -> IsRunning()))
         tryToStartTuned();
 }
 
