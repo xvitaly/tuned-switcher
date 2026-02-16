@@ -9,16 +9,15 @@
  * Contains the ServiceManager class implementation.
 */
 
-#include <QDBusConnection>
 #include <QDBusError>
 #include <QDBusInterface>
 #include <QDBusMessage>
-#include <QDBusMetaType>
 #include <QDBusObjectPath>
 #include <QDBusReply>
 #include <QDBusVariant>
-#include <QObject>
+#include <QList>
 #include <QLoggingCategory>
+#include <QObject>
 #include <QVariant>
 
 #include "logcategories/logcategories.h"
