@@ -9,14 +9,9 @@
  * Contains the TunedManager class implementation.
 */
 
-#include <QDBusConnection>
-#include <QDBusError>
 #include <QDBusInterface>
-#include <QDBusMessage>
 #include <QDBusMetaType>
-#include <QDBusObjectPath>
 #include <QDBusReply>
-#include <QDBusVariant>
 #include <QLoggingCategory>
 #include <QMetaType>
 #include <QObject>
