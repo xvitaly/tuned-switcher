@@ -31,6 +31,12 @@ namespace LogCategories
      * @returns Logging category for autorun related messages.
     */
     Q_DECLARE_LOGGING_CATEGORY(Autorun)
+
+    /**
+     * Get the logging category for system service related messages.
+     * @returns Logging category for system service related messages.
+    */
+    Q_DECLARE_LOGGING_CATEGORY(Service)
 }
 
 #endif // LOGCATEGORIES_H
