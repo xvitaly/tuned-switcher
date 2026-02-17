@@ -119,6 +119,12 @@ namespace AppConstants {
     const char* CategoryNameAutorun();
 
     /**
+     * Returns the logging category name for system service related messages.
+     * @returns Logging category name for system service related messages.
+    */
+    const char* CategoryNameService();
+
+    /**
      * Returns the environment variable name used to start the application
      * in GUI mode.
      * @returns Environment variable name for GUI mode.

@@ -32,7 +32,7 @@ QString ServiceManager::GetServiceState(const QString& BusPath) const
     QDBusInterface DBusInterface(SystemdBusName, BusPath, DBusPropertyInterface, DBusInstance);
     QDBusReply<QDBusVariant> DBusReply = DBusInterface.call(DBusPropertyMethodNameGet, SystemdBusInterfaceUnit, SystemdBusPropertyNameActiveState);
     if (!DBusReply.isValid())
-        qCWarning(LogCategories::DBus) << "Failed to get the Tuned service state due to an error:" << DBusReply.error();
+        qCWarning(LogCategories::Service) << "Failed to get the Tuned service state due to an error:" << DBusReply.error();
     return DBusReply.value().variant().toString();
 }
 
@@ -41,7 +41,7 @@ bool ServiceManager::IsRunning() const
     QDBusInterface DBusInterface(SystemdBusName, SystemdBusPath, SystemdBusInterfaceManager, DBusInstance);
     QDBusReply<QDBusObjectPath> DBusReply = DBusInterface.call(SystemdBusMethodNameGetUnit, SystemdTunedServiceName);
     if (!DBusReply.isValid())
-        qCWarning(LogCategories::DBus) << "Failed to get the Tuned service DBus path due to an error:" << DBusReply.error();
+        qCWarning(LogCategories::Service) << "Failed to get the Tuned service DBus path due to an error:" << DBusReply.error();
     return GetServiceState(DBusReply.value().path()) == SystemdBusValueServiceActive;
 }
 
@@ -53,7 +53,7 @@ bool ServiceManager::Start() const
     QDBusMessage DBusReply = DBusInstance.call(DBusMessage, QDBus::Block);
     bool DbusResult = !(DBusReply.type() == QDBusMessage::ErrorMessage);
     if (!DbusResult)
-        qCWarning(LogCategories::DBus) << "Failed to start the Tuned service due to an error:" << DBusReply.errorMessage();
+        qCWarning(LogCategories::Service) << "Failed to start the Tuned service due to an error:" << DBusReply.errorMessage();
     return DbusResult;
 }
 
@@ -65,6 +65,6 @@ bool ServiceManager::Stop() const
     QDBusMessage DBusReply = DBusInstance.call(DBusMessage, QDBus::Block);
     bool DbusResult = !(DBusReply.type() == QDBusMessage::ErrorMessage);
     if (!DbusResult)
-        qCWarning(LogCategories::DBus) << "Failed to stop the Tuned service due to an error:" << DBusReply.errorMessage();
+        qCWarning(LogCategories::Service) << "Failed to stop the Tuned service due to an error:" << DBusReply.errorMessage();
     return DbusResult;
 }

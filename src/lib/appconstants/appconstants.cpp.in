@@ -88,6 +88,11 @@ const char* AppConstants::CategoryNameAutorun()
     return "@CMAKE_PROJECT_NAME@.autorun";
 }
 
+const char* AppConstants::CategoryNameService()
+{
+    return "@CMAKE_PROJECT_NAME@.service";
+}
+
 const char* AppConstants::EnvNameGUI()
 {
     return "TUNED_SWITCHER_FORCE_GUI";
