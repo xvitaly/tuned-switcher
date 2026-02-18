@@ -51,7 +51,7 @@ bool ServiceManager::Start() const
     DBusMessage.setInteractiveAuthorizationAllowed(true);
     DBusMessage.setArguments({SystemdTunedServiceName, SystemdTunedServiceMode});
     QDBusMessage DBusReply = DBusInstance.call(DBusMessage, QDBus::Block);
-    bool DbusResult = !(DBusReply.type() == QDBusMessage::ErrorMessage);
+    const bool DbusResult = !(DBusReply.type() == QDBusMessage::ErrorMessage);
     if (!DbusResult)
         qCWarning(LogCategories::Service) << "Failed to start the Tuned service due to an error:" << DBusReply.errorMessage();
     return DbusResult;
@@ -63,7 +63,7 @@ bool ServiceManager::Stop() const
     DBusMessage.setInteractiveAuthorizationAllowed(true);
     DBusMessage.setArguments({SystemdTunedServiceName, SystemdTunedServiceMode});
     QDBusMessage DBusReply = DBusInstance.call(DBusMessage, QDBus::Block);
-    bool DbusResult = !(DBusReply.type() == QDBusMessage::ErrorMessage);
+    const bool DbusResult = !(DBusReply.type() == QDBusMessage::ErrorMessage);
     if (!DbusResult)
         qCWarning(LogCategories::Service) << "Failed to stop the Tuned service due to an error:" << DBusReply.errorMessage();
     return DbusResult;
