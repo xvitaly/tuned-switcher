@@ -32,12 +32,6 @@ public:
     static ServiceManager* Create(QObject* parent = nullptr);
 
     /**
-     * Main constructor of the ServiceManager class.
-     * @param parent Parent.
-    */
-    explicit ServiceManager(QObject* parent = nullptr);
-
-    /**
      * Destructor of the ServiceManager class.
     */
     virtual ~ServiceManager() = default;
@@ -65,6 +59,14 @@ public:
      * @retval false An error occurred when trying to stop the Tuned service.
     */
     virtual bool Stop() const;
+protected:
+    /**
+     * Main constructor of the ServiceManager class.
+     * Cannot be called directly. A special factory method Create()
+     * should be used instead.
+     * @param parent Parent.
+    */
+    explicit ServiceManager(QObject* parent = nullptr);
 };
 
 #endif // SERVICEMANAGER_H

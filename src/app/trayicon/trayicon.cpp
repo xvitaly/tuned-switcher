@@ -58,7 +58,7 @@ void TrayIcon::initializeNotifications()
 
 void TrayIcon::initializeService()
 {
-    serviceManager = new ServiceManager(this);
+    serviceManager = ServiceManager::Create(this);
 }
 
 void TrayIcon::initializeTuned()
