@@ -12,6 +12,12 @@
 #include <QObject>
 
 #include "servicemanager/servicemanager.h"
+#include "systemdservice/systemdservice.h"
+
+ServiceManager* ServiceManager::Create(QObject* parent)
+{
+    return new SystemdService(parent);
+}
 
 ServiceManager::ServiceManager(QObject* parent) : QObject(parent)
 {

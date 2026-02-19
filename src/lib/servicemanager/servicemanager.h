@@ -25,6 +25,13 @@ class ServiceManager : public QObject
     Q_OBJECT
 public:
     /**
+     * Create an instance of the ServiceManager class. Factory method.
+     * @param parent Parent.
+     * @returns Instance of the ServiceManager class.
+    */
+    static ServiceManager* Create(QObject* parent = nullptr);
+
+    /**
      * Main constructor of the ServiceManager class.
      * @param parent Parent.
     */
