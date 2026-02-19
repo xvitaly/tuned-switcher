@@ -148,6 +148,7 @@ set(LIBRARY_HEADERS
     src/lib/portalrequest/portalrequest.h
     src/lib/servicemanager/servicemanager.h
     src/lib/settingsmanager/settingsmanager.h
+    src/lib/systemdservice/systemdservice.h
     src/lib/translationmanager/translationmanager.h
     src/lib/tunedmanager/tunedmanager.h
     src/lib/tunedtypes/tunedtypes.h
@@ -163,6 +164,7 @@ set(LIBRARY_SOURCES
     src/lib/portalrequest/portalrequest.cpp
     src/lib/servicemanager/servicemanager.cpp
     src/lib/settingsmanager/settingsmanager.cpp
+    src/lib/systemdservice/systemdservice.cpp
     src/lib/translationmanager/translationmanager.cpp
     src/lib/tunedmanager/tunedmanager.cpp
     src/lib/tunedtypes/tunedtypes.cpp

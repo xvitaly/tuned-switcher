@@ -122,7 +122,7 @@ void MainWindow::initializeNotifications()
 
 void MainWindow::initializeService()
 {
-    serviceManager = new ServiceManager(this);
+    serviceManager = ServiceManager::Create(this);
 }
 
 void MainWindow::initializeTuned()
