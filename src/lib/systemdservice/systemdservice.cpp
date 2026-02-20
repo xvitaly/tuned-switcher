@@ -36,6 +36,11 @@ QString SystemdService::GetServiceState(const QString& BusPath) const
     return DBusReply.value().variant().toString();
 }
 
+bool SystemdService::IsSupported() const
+{
+    return true;
+}
+
 bool SystemdService::IsRunning() const
 {
     QDBusInterface DBusInterface(SystemdBusName, SystemdBusPath, SystemdBusInterfaceManager, DBusInstance);
