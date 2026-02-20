@@ -38,6 +38,14 @@ public:
     ~SystemdService() override = default;
 
     /**
+     * Get whether the service control feature is supported.
+     * @returns Whether the service control feature is supported.
+     * @retval true The service control feature is supported.
+     * @retval false The service control feature is not supported.
+    */
+    bool IsSupported() const override;
+
+    /**
      * Check if the Tuned service is running.
      * @returns If the Tuned sevice is running.
      * @retval true Tuned is running.
