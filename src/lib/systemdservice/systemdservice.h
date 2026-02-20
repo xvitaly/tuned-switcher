@@ -46,25 +46,25 @@ public:
     bool IsSupported() const override;
 
     /**
-     * Check if the Tuned service is running.
-     * @returns If the Tuned sevice is running.
-     * @retval true Tuned is running.
-     * @retval false Tuned is not running.
+     * Check whether the Tuned service is running using the DBus API.
+     * @returns Whether the Tuned sevice is running.
+     * @retval true The Tuned service is running.
+     * @retval false The Tuned servic is not running.
     */
     bool IsRunning() const override;
 
     /**
-     * Start the Tuned service.
-     * @returns Result of current operation.
-     * @retval true Tuned was successfully started.
+     * Start the Tuned service using the DBus API.
+     * @returns Result of the requested operation.
+     * @retval true The Tuned service was successfully started.
      * @retval false An error occurred when trying to start the Tuned service.
     */
     bool Start() const override;
 
     /**
-     * Stop the Tuned service.
-     * @returns Result of current operation.
-     * @retval true Tuned was successfully stopped.
+     * Stop the Tuned service using the DBus API.
+     * @returns Result of the requested operation.
+     * @retval true The Tuned service was successfully stopped.
      * @retval false An error occurred when trying to stop the Tuned service.
     */
     bool Stop() const override;

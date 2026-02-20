@@ -45,25 +45,25 @@ public:
     virtual bool IsSupported() const;
 
     /**
-     * Check if the Tuned service is running.
-     * @returns If the Tuned sevice is running.
-     * @retval true Tuned is running.
-     * @retval false Tuned is not running.
+     * Check whether the Tuned service is running.
+     * @returns Whether the Tuned sevice is running.
+     * @retval true The Tuned service is running.
+     * @retval false The Tuned servic is not running.
     */
     virtual bool IsRunning() const;
 
     /**
      * Start the Tuned service.
-     * @returns Result of current operation.
-     * @retval true Tuned was successfully started.
+     * @returns Result of the requested operation.
+     * @retval true The Tuned service was successfully started.
      * @retval false An error occurred when trying to start the Tuned service.
     */
     virtual bool Start() const;
 
     /**
      * Stop the Tuned service.
-     * @returns Result of current operation.
-     * @retval true Tuned was successfully stopped.
+     * @returns Result of the requested operation.
+     * @retval true The Tuned service was successfully stopped.
      * @retval false An error occurred when trying to stop the Tuned service.
     */
     virtual bool Stop() const;
