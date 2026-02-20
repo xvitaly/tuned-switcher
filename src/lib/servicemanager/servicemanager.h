@@ -37,6 +37,14 @@ public:
     virtual ~ServiceManager() = default;
 
     /**
+     * Get whether the service control feature is supported on running platform.
+     * @returns Whether the service control feature is supported on running platform.
+     * @retval true The service control feature is supported on running platform.
+     * @retval false The service control feature is not supported on running platform.
+    */
+    virtual bool IsSupported() const;
+
+    /**
      * Check if the Tuned service is running.
      * @returns If the Tuned sevice is running.
      * @retval true Tuned is running.
