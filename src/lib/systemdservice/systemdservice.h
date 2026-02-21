@@ -38,7 +38,7 @@ public:
     ~SystemdService() override = default;
 
     /**
-     * Get whether the service control feature is supported.
+     * Check whether the service control feature is supported.
      * @returns Whether the service control feature is supported.
      * @retval true The service control feature is supported.
      * @retval false The service control feature is not supported.
@@ -108,6 +108,11 @@ private:
      * Stores the Systemd DBus ActiveState property name.
     */
     const QString SystemdBusPropertyNameActiveState = QStringLiteral("ActiveState");
+
+    /**
+     * Stores the Systemd DBus SystemState property name.
+    */
+    const QString SystemdBusPropertyNameSystemState = QStringLiteral("SystemState");
 
     /**
      * Stores the Tuned DBus ServiceActive value.
