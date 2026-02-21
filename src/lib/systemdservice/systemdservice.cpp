@@ -38,7 +38,11 @@ QString SystemdService::GetServiceState(const QString& BusPath) const
 
 bool SystemdService::IsSupported() const
 {
-    return true;
+    QDBusInterface DBusInterface(SystemdBusName, SystemdBusPath, DBusPropertyInterface, DBusInstance);
+    QDBusReply<QDBusVariant> DBusReply = DBusInterface.call(DBusPropertyMethodNameGet, SystemdBusInterfaceManager, SystemdBusPropertyNameSystemState);
+    if (!DBusReply.isValid())
+        qCWarning(LogCategories::Service) << "Failed to get the system state due to an error:" << DBusReply.error();
+    return DBusReply.value().variant().isValid();
 }
 
 bool SystemdService::IsRunning() const
