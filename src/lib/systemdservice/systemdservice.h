@@ -110,6 +110,11 @@ private:
     const QString SystemdBusPropertyNameActiveState = QStringLiteral("ActiveState");
 
     /**
+     * Stores the Systemd DBus SystemState property name.
+    */
+    const QString SystemdBusPropertyNameSystemState = QStringLiteral("SystemState");
+
+    /**
      * Stores the Tuned DBus ServiceActive value.
     */
     const QString SystemdBusValueServiceActive = QStringLiteral("active");
