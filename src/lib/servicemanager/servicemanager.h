@@ -37,7 +37,7 @@ public:
     virtual ~ServiceManager() = default;
 
     /**
-     * Get whether the service control feature is supported on running platform.
+     * Check whether the service control feature is supported on running platform.
      * @returns Whether the service control feature is supported on running platform.
      * @retval true The service control feature is supported on running platform.
      * @retval false The service control feature is not supported on running platform.
