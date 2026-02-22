@@ -29,12 +29,6 @@ public:
     static AutorunManager* Create(QObject* parent = nullptr);
 
     /**
-     * Main constructor of the AutorunManager class.
-     * @param parent Parent.
-    */
-    explicit AutorunManager(QObject* parent = nullptr);
-
-    /**
      * Destructor of the AutorunManager class.
     */
     virtual ~AutorunManager() = default;
@@ -70,6 +64,14 @@ public:
      * @retval false An error occurred when trying to perform the requested operation.
     */
     virtual bool Disable() const = 0;
+protected:
+    /**
+     * Main constructor of the AutorunManager class.
+     * Cannot be called directly. A special factory method Create()
+     * should be used instead.
+     * @param parent Parent.
+    */
+    explicit AutorunManager(QObject* parent = nullptr);
 private:
     /**
      * Check whether the application is running in a sandbox.
