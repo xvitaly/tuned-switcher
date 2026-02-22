@@ -36,7 +36,7 @@ public:
     ~AutorunPortal() override = default;
 
     /**
-     * Get whether the autorun feature is enabled.
+     * Check whether the autorun feature is enabled.
      * @returns Whether the autorun feature is enabled.
      * @retval true The autorun feature is enabled.
      * @retval false The autorun feature is not enabled.
@@ -44,7 +44,7 @@ public:
     bool IsEnabled() const override;
 
     /**
-     * Get whether the autorun feature is supported on running platform.
+     * Check whether the autorun feature is supported on running platform.
      * @returns Whether the autorun feature is supported on running platform.
      * @retval true The autorun feature is supported on running platform.
      * @retval false The autorun feature is not supported on running platform.
