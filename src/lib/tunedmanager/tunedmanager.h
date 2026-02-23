@@ -88,6 +88,14 @@ public:
     bool IsOperational() const;
 
     /**
+     * Check if the Tuned service is running a profile.
+     * @returns If the Tuned sevice is running a profile.
+     * @retval true Tuned is running a profile.
+     * @retval false Tuned is not running a profile.
+    */
+    bool IsRunning() const;
+
+    /**
      * Enable the Tuned service.
      * @returns Result of current operation.
      * @retval true Tuned was successfully enabled.
