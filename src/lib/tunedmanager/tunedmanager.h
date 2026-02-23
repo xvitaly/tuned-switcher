@@ -80,12 +80,20 @@ public:
     QTunedResult SetActiveProfile(const QString&) const;
 
     /**
-     * Check if the Tuned service is operational.
-     * @returns If the Tuned sevice is operational.
-     * @retval true Tuned is operational.
-     * @retval false Tuned is not operational.
+     * Check whether the Tuned service is operational.
+     * @returns Whether the Tuned sevice is operational.
+     * @retval true Tuned sevice is operational.
+     * @retval false Tuned sevice is not operational.
     */
     bool IsOperational() const;
+
+    /**
+     * Check whether the Tuned is running a profile.
+     * @returns Whether the Tuned is running a profile.
+     * @retval true Tuned is running a profile.
+     * @retval false Tuned is not running a profile.
+    */
+    bool IsRunning() const;
 
     /**
      * Enable the Tuned service.

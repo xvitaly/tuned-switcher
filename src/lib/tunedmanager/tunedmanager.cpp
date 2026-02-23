@@ -83,8 +83,18 @@ bool TunedManager::IsOperational() const
 {
     QDBusInterface DBusInterface(TunedBusName, TunedBusPath, TunedBusInterface, DBusInstance);
     QDBusReply<bool> DBusReply = DBusInterface.call(TunedBusMethodNameIsRunning);
+    const bool DbusResult = DBusReply.isValid();
+    if (!DbusResult)
+        qCWarning(LogCategories::DBus) << "Failed to determine whether the Tuned service is operational due to an error:" << DBusReply.error();
+    return DbusResult;
+}
+
+bool TunedManager::IsRunning() const
+{
+    QDBusInterface DBusInterface(TunedBusName, TunedBusPath, TunedBusInterface, DBusInstance);
+    QDBusReply<bool> DBusReply = DBusInterface.call(TunedBusMethodNameIsRunning);
     if (!DBusReply.isValid())
-        qCWarning(LogCategories::DBus) << "Failed to determine if the Tuned service is running due to an error:" << DBusReply.error();
+        qCWarning(LogCategories::DBus) << "Failed to determine whether the Tuned is running a profile due to an error:" << DBusReply.error();
     return DBusReply.value();
 }
 
