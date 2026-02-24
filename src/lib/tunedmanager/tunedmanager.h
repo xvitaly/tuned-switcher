@@ -67,6 +67,14 @@ public:
     bool IsProfileModeAuto() const;
 
     /**
+     * Check whether the Tuned profile is running.
+     * @returns Whether the Tuned profile is running.
+     * @retval true The Tuned profile is running.
+     * @retval false The Tuned profile is not running.
+    */
+    bool IsProfileRunning() const;
+
+    /**
      * Switch Tuned to automatic mode.
      * @returns Result of current operation.
     */
@@ -86,14 +94,6 @@ public:
      * @retval false The Tuned sevice is not running.
     */
     bool IsRunning() const;
-
-    /**
-     * Check whether the Tuned profile is running.
-     * @returns Whether the Tuned profile is running.
-     * @retval true The Tuned profile is running.
-     * @retval false The Tuned profile is not running.
-    */
-    bool IsProfileRunning() const;
 
     /**
      * Enable the Tuned service.

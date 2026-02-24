@@ -56,6 +56,15 @@ bool TunedManager::IsProfileModeAuto() const
     return ProfileMode.Mode == TunedBusValueAutoProfile;
 }
 
+bool TunedManager::IsProfileRunning() const
+{
+    QDBusInterface DBusInterface(TunedBusName, TunedBusPath, TunedBusInterface, DBusInstance);
+    QDBusReply<bool> DBusReply = DBusInterface.call(TunedBusMethodNameIsRunning);
+    if (!DBusReply.isValid())
+        qCWarning(LogCategories::DBus) << "Failed to determine whether the Tuned profile is running due to an error:" << DBusReply.error();
+    return DBusReply.value();
+}
+
 QTunedResult TunedManager::SetProfileModeAuto() const
 {
     QDBusInterface DBusInterface(TunedBusName, TunedBusPath, TunedBusInterface, DBusInstance);
@@ -87,15 +96,6 @@ bool TunedManager::IsRunning() const
     if (!DbusResult)
         qCWarning(LogCategories::DBus) << "Failed to determine whether the Tuned service is running due to an error:" << DBusReply.error();
     return DbusResult;
-}
-
-bool TunedManager::IsProfileRunning() const
-{
-    QDBusInterface DBusInterface(TunedBusName, TunedBusPath, TunedBusInterface, DBusInstance);
-    QDBusReply<bool> DBusReply = DBusInterface.call(TunedBusMethodNameIsRunning);
-    if (!DBusReply.isValid())
-        qCWarning(LogCategories::DBus) << "Failed to determine whether the Tuned profile is running due to an error:" << DBusReply.error();
-    return DBusReply.value();
 }
 
 bool TunedManager::Enable() const
