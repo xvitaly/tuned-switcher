@@ -82,7 +82,7 @@ void TrayIcon::tryToStartTuned()
 
 void TrayIcon::checkTunedRunning()
 {
-    if (!(tunedManager -> IsOperational() || serviceManager -> IsRunning()))
+    if (!(tunedManager -> IsRunning() || serviceManager -> IsRunning()))
         tryToStartTuned();
 }
 

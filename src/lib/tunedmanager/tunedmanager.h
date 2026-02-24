@@ -67,6 +67,14 @@ public:
     bool IsProfileModeAuto() const;
 
     /**
+     * Check whether the Tuned profile is running.
+     * @returns Whether the Tuned profile is running.
+     * @retval true The Tuned profile is running.
+     * @retval false The Tuned profile is not running.
+    */
+    bool IsProfileRunning() const;
+
+    /**
      * Switch Tuned to automatic mode.
      * @returns Result of current operation.
     */
@@ -80,18 +88,10 @@ public:
     QTunedResult SetActiveProfile(const QString&) const;
 
     /**
-     * Check whether the Tuned service is operational.
-     * @returns Whether the Tuned sevice is operational.
-     * @retval true Tuned sevice is operational.
-     * @retval false Tuned sevice is not operational.
-    */
-    bool IsOperational() const;
-
-    /**
-     * Check whether the Tuned is running a profile.
-     * @returns Whether the Tuned is running a profile.
-     * @retval true Tuned is running a profile.
-     * @retval false Tuned is not running a profile.
+     * Check whether the Tuned service is running.
+     * @returns Whether the Tuned sevice is running.
+     * @retval true The Tuned sevice is running.
+     * @retval false The Tuned sevice is not running.
     */
     bool IsRunning() const;
 
