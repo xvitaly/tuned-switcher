@@ -24,7 +24,8 @@ bool SettingsManager::GetGeometrySavingEnabled() const
 
 void SettingsManager::SetGeometrySavingEnabled(const bool value)
 {
-    settings -> setValue(GeometrySavingEnabledName, value);
+    if (value != GetGeometrySavingEnabled())
+        settings -> setValue(GeometrySavingEnabledName, value);
 }
 
 QByteArray SettingsManager::GetWidgetGeometry() const
