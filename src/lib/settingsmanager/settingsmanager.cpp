@@ -24,7 +24,8 @@ bool SettingsManager::GetGeometrySavingEnabled() const
 
 void SettingsManager::SetGeometrySavingEnabled(const bool value)
 {
-    settings -> setValue(GeometrySavingEnabledName, value);
+    if (value != GetGeometrySavingEnabled())
+        settings -> setValue(GeometrySavingEnabledName, value);
 }
 
 QByteArray SettingsManager::GetWidgetGeometry() const
@@ -64,7 +65,8 @@ bool SettingsManager::GetSoundEnabled() const
 
 void SettingsManager::SetSoundEnabled(const bool value)
 {
-    settings -> setValue(SoundEnabledName, value);
+    if (value != GetSoundEnabled())
+        settings -> setValue(SoundEnabledName, value);
 }
 
 bool SettingsManager::IsAutorunSupported() const
@@ -79,6 +81,8 @@ bool SettingsManager::GetAutorunEnabled() const
 
 void SettingsManager::SetAutorunEnabled(const bool value) const
 {
+    if (value == GetAutorunEnabled())
+        return;
     if (value ? autorun -> Enable() : autorun -> Disable())
         settings -> setValue(AutorunEnabledName, value);
 }
