@@ -11,6 +11,8 @@
 
 #include <QByteArray>
 #include <QDialog>
+#include <QKeyEvent>
+#include <QMessageBox>
 #include <QWidget>
 
 #include "guihelpers/guihelpers.h"
@@ -71,6 +73,15 @@ void Settings::saveSettings()
         settings -> ResetGeometry();
 }
 
+void Settings::resetSettings()
+{
+    if (QMessageBox::question(this, windowTitle(), tr("Do you want to reset all settings to default values?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::No) == QMessageBox::Yes)
+    {
+        settings -> Reset();
+        reject();
+    }
+}
+
 void Settings::setDefaultFormPosition()
 {
     setGeometry(GuiHelpers::GetDefaultFormPosition(window()));
@@ -94,6 +105,14 @@ void Settings::setFormEvents()
 {
     connect(this, &QDialog::accepted, this, &Settings::settingsAcceptedEvent);
     connect(this, &QDialog::rejected, this, &Settings::settingsRejectedEvent);
+}
+
+void Settings::keyPressEvent(QKeyEvent* event)
+{
+    if (event -> modifiers() == Qt::ControlModifier && event -> key() == Qt::Key_R)
+        resetSettings();
+    else
+        QDialog::keyPressEvent(event);
 }
 
 void Settings::settingsAcceptedEvent()
