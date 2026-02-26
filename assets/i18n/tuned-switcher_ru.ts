@@ -31,7 +31,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Авто-выбор профиля</translation>
     </message>
     <message>
-        <location filename="../../src/app/mainwindow/mainwindow.cpp" line="+142"/>
+        <location filename="../../src/app/mainwindow/mainwindow.cpp" line="+149"/>
         <source>Cannot start Tuned service via D-Bus call. Terminating.</source>
         <translation>Не удалось запустить сервис Tuned при помощи D-Bus. Приложение будет завершено.</translation>
     </message>
@@ -171,11 +171,16 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <source>Run application on startup</source>
         <translation>Запускать приложение автоматически</translation>
     </message>
+    <message>
+        <location filename="../../src/app/settings/settings.cpp" line="+78"/>
+        <source>Do you want to reset all settings to default values?</source>
+        <translation>Хотите ли вы сбросить все настройки на значения по умолчанию?</translation>
+    </message>
 </context>
 <context>
     <name>TrayIcon</name>
     <message>
-        <location filename="../../src/app/trayicon/trayicon.cpp" line="+71"/>
+        <location filename="../../src/app/trayicon/trayicon.cpp" line="+78"/>
         <source>Startup error</source>
         <translation>Ошибка запуска</translation>
     </message>

@@ -13,6 +13,7 @@
 */
 
 #include <QDialog>
+#include <QKeyEvent>
 #include <QWidget>
 
 #include "settingsmanager/settingsmanager.h"
@@ -44,6 +45,13 @@ public:
      * Destructor of the Settings class.
     */
     ~Settings();
+
+protected slots:
+    /**
+     * Key pressed event slot (handler).
+     * @param event Event object instance.
+    */
+    void keyPressEvent(QKeyEvent*);
 
 private slots:
     /**
@@ -81,6 +89,11 @@ private:
      * Save application settings to file.
     */
     void saveSettings();
+
+    /**
+     * Reset application settings.
+    */
+    void resetSettings();
 
     /**
      * Set the default form position to the center of the screen.
