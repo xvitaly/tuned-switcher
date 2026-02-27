@@ -42,6 +42,7 @@ public:
      * Show the system tray icon.
     */
     void Show();
+
 private slots:
     /**
      * "Tuned profile selected" event slot (handler).
@@ -83,6 +84,7 @@ private slots:
      * "Exit application" menu item clicked event slot (handler).
     */
     void exitEvent();
+
 private:
     /**
      * Initialize the SettingsManager class instance.
