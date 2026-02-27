@@ -61,6 +61,7 @@ public:
      * @returns Version of the PortalRequest portal, or 0 if an error occurs.
     */
     unsigned int GetVersion() const;
+
 private:
     /**
      * Stores the desktop portal DBus interface name.
@@ -172,6 +173,7 @@ private:
      * Sets error values to various private fields and calls finished() slot.
     */
     void RequestResponseError();
+
 private slots:
     /**
      * Response received event slot. Sets received values to various
@@ -180,6 +182,7 @@ private slots:
      * @param results Results data.
     */
     void RequestResponseEvent(const unsigned int, const QVariantMap&);
+
 signals:
     /**
      * Asynchronous request completed signal.

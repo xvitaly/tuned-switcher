@@ -56,6 +56,7 @@ public:
      * @returns Application translator engine state.
     */
     bool IsAppTranslatorAvailable() const;
+
 private:
     /**
      * Get pre-defined list of directories with compiled

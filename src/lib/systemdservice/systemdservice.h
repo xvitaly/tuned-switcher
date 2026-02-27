@@ -68,6 +68,7 @@ public:
      * @retval false An error occurred when trying to stop the Tuned service.
     */
     bool Stop() const override;
+
 private:
     /**
      * Stores the Systemd DBus interface name.

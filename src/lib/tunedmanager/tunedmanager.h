@@ -141,6 +141,7 @@ public:
      * @retval false An error occurred when trying to perform the requested operation.
     */
     bool RunServiceMethod(const ServiceMethod) const;
+
 private:
     /**
      * Stores the Tuned DBus interface name.
@@ -226,6 +227,7 @@ private:
      * Stores DBus instance.
     */
     QDBusConnection DBusInstance = QDBusConnection::systemBus();
+
 private slots:
     /**
      * Tuned profile changed event slot.
@@ -234,6 +236,7 @@ private slots:
      * @param ResultMessage Result message (OK on success).
     */
     void ProfileChangedEvent(const QString&, const bool, const QString&);
+
 signals:
     /**
      * Tuned profile changed event signal.

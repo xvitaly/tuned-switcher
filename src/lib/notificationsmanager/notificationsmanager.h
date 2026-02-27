@@ -49,6 +49,7 @@ public:
      * @param mode Notification mode: true - loud, false - silent.
     */
     void SetNotificationSoundMode(const bool);
+
 private:
     /**
      * Stores the Notifications DBus interface name.
