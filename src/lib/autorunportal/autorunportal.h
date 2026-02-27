@@ -66,6 +66,7 @@ public:
      * @retval false An error occurred when trying to perform the requested operation.
     */
     bool Disable() const override;
+
 private:
     /**
      * Changes the state of the autorun feature.

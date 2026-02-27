@@ -67,6 +67,7 @@ public:
      * @retval false An error occurred when trying to stop the Tuned service.
     */
     virtual bool Stop() const;
+
 protected:
     /**
      * Main constructor of the ServiceManager class.

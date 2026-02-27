@@ -64,6 +64,7 @@ public:
      * @retval false An error occurred when trying to perform the requested operation.
     */
     virtual bool Disable() const = 0;
+
 protected:
     /**
      * Main constructor of the AutorunManager class.
@@ -72,6 +73,7 @@ protected:
      * @param parent Parent.
     */
     explicit AutorunManager(QObject* parent = nullptr);
+
 private:
     /**
      * Check whether the application is running in a sandbox.
