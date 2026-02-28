@@ -32,6 +32,7 @@ option(BUILD_MANPAGE "Build and install manpage with documentation." OFF)
 option(BUILD_TESTS "Build various tests." OFF)
 option(LINK_ALL_STATICALLY "Link the program against all libraries statically (no dependencies mode)." OFF)
 option(LINK_ENABLE_OPTIMIZATIONS "Enable link-time optimizations if supported by current C++ compiler." OFF)
+option(SYSTEMD_INTEGRATION "Enable systemd DBus API integration." ON)
 
 # ======================================================
 # ==================== Target names ====================
@@ -204,6 +205,12 @@ endif()
 if (LINK_ALL_STATICALLY)
     target_link_libraries(${LIB_NAME} PRIVATE
         -static
+    )
+endif()
+
+if (SYSTEMD_INTEGRATION)
+    target_compile_definitions(${LIB_NAME} PRIVATE
+        WITH_SYSTEMD
     )
 endif()
 

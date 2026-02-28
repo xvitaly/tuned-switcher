@@ -11,12 +11,22 @@
 
 #include <QObject>
 
+
 #include "servicemanager/servicemanager.h"
+
+#ifdef WITH_SYSTEMD
 #include "systemdservice/systemdservice.h"
+#else
+#include "dummyservice/dummyservice.h"
+#endif
 
 ServiceManager* ServiceManager::Create(QObject* parent)
 {
+#ifdef WITH_SYSTEMD
     return new SystemdService(parent);
+#else
+    return new DummyService(parent);
+#endif
 }
 
 ServiceManager::ServiceManager(QObject* parent) : QObject(parent)
