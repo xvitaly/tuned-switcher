@@ -141,6 +141,7 @@ set(LIBRARY_HEADERS
     src/lib/autorunfile/autorunfile.h
     src/lib/autorunmanager/autorunmanager.h
     src/lib/autorunportal/autorunportal.h
+    src/lib/dummyservice/dummyservice.h
     src/lib/guihelpers/guihelpers.h
     src/lib/logcategories/logcategories.h
     src/lib/notificationsmanager/dbusconverters.h
@@ -158,6 +159,7 @@ set(LIBRARY_SOURCES
     src/lib/autorunfile/autorunfile.cpp
     src/lib/autorunmanager/autorunmanager.cpp
     src/lib/autorunportal/autorunportal.cpp
+    src/lib/dummyservice/dummyservice.cpp
     src/lib/guihelpers/guihelpers.cpp
     src/lib/logcategories/logcategories.cpp
     src/lib/notificationsmanager/notificationsmanager.cpp
