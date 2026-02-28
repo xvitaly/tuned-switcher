@@ -22,23 +22,3 @@ ServiceManager* ServiceManager::Create(QObject* parent)
 ServiceManager::ServiceManager(QObject* parent) : QObject(parent)
 {
 }
-
-bool ServiceManager::IsSupported() const
-{
-    return false;
-}
-
-bool ServiceManager::IsRunning() const
-{
-    return false;
-}
-
-bool ServiceManager::Start() const
-{
-    return false;
-}
-
-bool ServiceManager::Stop() const
-{
-    return false;
-}

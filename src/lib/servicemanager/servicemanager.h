@@ -42,7 +42,7 @@ public:
      * @retval true The service control feature is supported on running platform.
      * @retval false The service control feature is not supported on running platform.
     */
-    virtual bool IsSupported() const;
+    virtual bool IsSupported() const = 0;
 
     /**
      * Check whether the Tuned service is running.
@@ -50,7 +50,7 @@ public:
      * @retval true The Tuned service is running.
      * @retval false The Tuned servic is not running.
     */
-    virtual bool IsRunning() const;
+    virtual bool IsRunning() const = 0;
 
     /**
      * Start the Tuned service.
@@ -58,7 +58,7 @@ public:
      * @retval true The Tuned service was successfully started.
      * @retval false An error occurred when trying to start the Tuned service.
     */
-    virtual bool Start() const;
+    virtual bool Start() const = 0;
 
     /**
      * Stop the Tuned service.
@@ -66,7 +66,7 @@ public:
      * @retval true The Tuned service was successfully stopped.
      * @retval false An error occurred when trying to stop the Tuned service.
     */
-    virtual bool Stop() const;
+    virtual bool Stop() const = 0;
 
 protected:
     /**
