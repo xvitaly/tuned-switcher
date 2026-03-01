@@ -12,10 +12,7 @@
  * Contains the ServiceManager class definition.
 */
 
-#include <QDBusConnection>
 #include <QObject>
-#include <QString>
-#include <QStringLiteral>
 
 /**
  * Class for working with the system service manager.

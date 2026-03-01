@@ -11,7 +11,6 @@
 
 #include <QObject>
 
-
 #include "servicemanager/servicemanager.h"
 
 #ifdef WITH_SYSTEMD
