@@ -111,8 +111,7 @@ void Settings::keyPressEvent(QKeyEvent* event)
 {
     if (event -> modifiers() == Qt::ControlModifier && event -> key() == Qt::Key_R)
         resetSettings();
-    else
-        QDialog::keyPressEvent(event);
+    QDialog::keyPressEvent(event);
 }
 
 void Settings::settingsAcceptedEvent()
