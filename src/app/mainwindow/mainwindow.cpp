@@ -102,8 +102,7 @@ void MainWindow::keyPressEvent(QKeyEvent* event)
 {
     if (event -> key() == Qt::Key_Escape)
         close();
-    else
-        QWidget::keyPressEvent(event);
+    QWidget::keyPressEvent(event);
 }
 
 void MainWindow::initializeSettings()
