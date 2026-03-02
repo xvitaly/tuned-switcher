@@ -100,14 +100,10 @@ void MainWindow::closeEvent(QCloseEvent* event)
 
 void MainWindow::keyPressEvent(QKeyEvent* event)
 {
-    switch (event -> key())
-    {
-        case Qt::Key_Escape:
-            close();
-            break;
-        default:
-            QWidget::keyPressEvent(event);
-    }
+    if (event -> key() == Qt::Key_Escape)
+        close();
+    else
+        QWidget::keyPressEvent(event);
 }
 
 void MainWindow::initializeSettings()
