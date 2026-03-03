@@ -11,6 +11,7 @@
 
 #include <QByteArray>
 #include <QDialog>
+#include <QKeyCombination>
 #include <QKeyEvent>
 #include <QMessageBox>
 #include <QWidget>
@@ -109,7 +110,7 @@ void Settings::setFormEvents()
 
 void Settings::keyPressEvent(QKeyEvent* event)
 {
-    if (event -> modifiers() == Qt::ControlModifier && event -> key() == Qt::Key_R)
+    if (event -> keyCombination() == QKeyCombination(Qt::ControlModifier, Qt::Key_R))
         resetSettings();
     QDialog::keyPressEvent(event);
 }
