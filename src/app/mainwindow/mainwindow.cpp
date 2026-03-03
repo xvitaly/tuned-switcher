@@ -79,17 +79,13 @@ void MainWindow::mousePressEvent(QMouseEvent* event)
 void MainWindow::mouseMoveEvent(QMouseEvent* event)
 {
     if (event -> buttons().testFlag(Qt::LeftButton) && mMoving)
-    {
         move(pos() + (event -> pos() - mLastMousePosition));
-    }
 }
 
 void MainWindow::mouseReleaseEvent(QMouseEvent* event)
 {
     if (event -> button() == Qt::LeftButton)
-    {
         mMoving = false;
-    }
 }
 
 void MainWindow::closeEvent(QCloseEvent* event)
@@ -318,9 +314,7 @@ void MainWindow::profileSelectedEvent(const QString& profile)
 {
     const QTunedResult result = tunedManager -> SetActiveProfile(profile);
     if (!result.Success)
-    {
         notifications -> ShowNotification(tr("Profile switch error"), tr("Failed to switch the active profile: %1").arg(result.Message));
-    }
 }
 
 void MainWindow::closeFormEvent()

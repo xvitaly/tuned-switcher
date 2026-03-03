@@ -254,9 +254,7 @@ void TrayIcon::profileSelectedEvent(QAction* action)
 {
     const QTunedResult result = tunedManager -> SetActiveProfile(action -> data().toString());
     if (!result.Success)
-    {
         notifications -> ShowNotification(tr("Profile switch error"), tr("Failed to switch the active profile: %1").arg(result.Message));
-    }
 }
 
 void TrayIcon::serviceControlEvent(const TunedManager::ServiceMethod method)
