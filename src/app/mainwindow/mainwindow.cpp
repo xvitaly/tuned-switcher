@@ -206,11 +206,11 @@ QMenu* MainWindow::createMainMenu(QWidget* parent)
     QMenu* mainMenu = new QMenu(parent);
     mainMenu -> addMenu(createServiceControlSubmenu(mainMenu));
 
-    QAction* settingsAction = new QAction(tr("Settings"), mainMenu);
+    QAction* settingsAction = new QAction(tr("Settings..."), mainMenu);
     connect(settingsAction, &QAction::triggered, this, &MainWindow::showSettingsEvent);
     mainMenu -> addAction(settingsAction);
 
-    QAction* aboutAction = new QAction(tr("About"), mainMenu);
+    QAction* aboutAction = new QAction(tr("About..."), mainMenu);
     connect(aboutAction, &QAction::triggered, this, &MainWindow::showAboutEvent);
     mainMenu -> addAction(aboutAction);
 

@@ -209,11 +209,11 @@ QMenu* TrayIcon::createTrayIconMenu()
     QMenu* trayIconMenu = new QMenu(this);
 
     // Setting "Show settings" menu action...
-    QAction* settingsAction = new QAction(tr("Settings"), trayIconMenu);
+    QAction* settingsAction = new QAction(tr("Settings..."), trayIconMenu);
     connect(settingsAction, &QAction::triggered, this, &TrayIcon::showSettingsEvent);
 
     // Setting "Show About form" menu action...
-    QAction* aboutAction = new QAction(tr("About"), trayIconMenu);
+    QAction* aboutAction = new QAction(tr("About..."), trayIconMenu);
     connect(aboutAction, &QAction::triggered, this, &TrayIcon::showAboutEvent);
 
     // Setting "Quit application" menu action...
