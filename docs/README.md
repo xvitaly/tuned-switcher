@@ -7,6 +7,7 @@
   * [Installation](installation.md)
   * [Startup](startup.md)
   * [Using application](using-application.md)
+  * [Settings](settings.md)
   * [Configuration](configuration.md)
   * [Screenshots](screenshots.md)
   * [Packages](packages.md)
