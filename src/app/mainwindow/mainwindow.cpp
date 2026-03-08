@@ -142,15 +142,26 @@ void MainWindow::tryToStartTuned()
     }
 }
 
-void MainWindow::checkTunedRunning()
+void MainWindow::checkServiceRunning()
 {
-    if (!(tunedManager -> IsRunning() || serviceManager -> IsRunning()))
+    if (!serviceManager -> IsSupported())
+    {
+        QMessageBox::critical(this, tr("Startup error"), tr("Tuned service is not running and the service control feature is not available. Terminating."));
+        exitApplication();
+    }
+    else if (!serviceManager -> IsRunning())
     {
         if (QMessageBox::question(this, AppConstants::ProductName(), tr("Tuned service is not running. Do you want to start it now?"), QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes) == QMessageBox::Yes)
             tryToStartTuned();
         else
             exitApplication();
     }
+}
+
+void MainWindow::checkTunedRunning()
+{
+    if (!tunedManager -> IsRunning())
+        checkServiceRunning();
 }
 
 void MainWindow::getTunedProfiles()

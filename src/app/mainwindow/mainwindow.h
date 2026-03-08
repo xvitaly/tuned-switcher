@@ -163,6 +163,12 @@ private:
      * Check if the Tuned service is not running and
      * try to start it with DBus methods.
     */
+    void checkServiceRunning();
+
+    /**
+     * Check if the Tuned is not running and try to
+     * start it with DBus methods.
+    */
     void checkTunedRunning();
 
     /**

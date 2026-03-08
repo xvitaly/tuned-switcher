@@ -80,10 +80,23 @@ void TrayIcon::tryToStartTuned()
     }
 }
 
+void TrayIcon::checkServiceRunning()
+{
+    if (!serviceManager -> IsSupported())
+    {
+        notifications -> ShowNotification(tr("Startup error"), tr("Tuned service is not running and the service control feature is not available. Terminating."));
+        exitApplication();
+    }
+    else if (!serviceManager -> IsRunning())
+    {
+        tryToStartTuned();
+    }
+}
+
 void TrayIcon::checkTunedRunning()
 {
-    if (!(tunedManager -> IsRunning() || serviceManager -> IsRunning()))
-        tryToStartTuned();
+    if (!tunedManager -> IsRunning())
+        checkServiceRunning();
 }
 
 void TrayIcon::Show()

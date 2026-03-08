@@ -37,16 +37,22 @@ SPDX-License-Identifier: GPL-3.0-or-later
     </message>
     <message>
         <location line="+0"/>
+        <location line="+9"/>
         <source>Startup error</source>
         <translation>Ошибка запуска</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+0"/>
+        <source>Tuned service is not running and the service control feature is not available. Terminating.</source>
+        <translation>Сервис Tuned не запущен, а функция управления сервисами недоступна. Приложение будет завершено.</translation>
+    </message>
+    <message>
+        <location line="+5"/>
         <source>Tuned service is not running. Do you want to start it now?</source>
         <translation>Сервис Tuned не запущен. Хотите ли вы запустить его прямо сейчас?</translation>
     </message>
     <message>
-        <location line="+34"/>
+        <location line="+40"/>
         <location line="+99"/>
         <source>Service control</source>
         <translation>Управление сервисом</translation>
@@ -181,16 +187,22 @@ SPDX-License-Identifier: GPL-3.0-or-later
     <name>TrayIcon</name>
     <message>
         <location filename="../../src/app/trayicon/trayicon.cpp" line="+78"/>
+        <location line="+9"/>
         <source>Startup error</source>
         <translation>Ошибка запуска</translation>
     </message>
     <message>
-        <location line="+0"/>
+        <location line="-9"/>
         <source>Cannot start Tuned service via D-Bus call. Terminating.</source>
         <translation>Не удалось запустить сервис Tuned при помощи D-Bus. Приложение будет завершено.</translation>
     </message>
     <message>
-        <location line="+72"/>
+        <location line="+9"/>
+        <source>Tuned service is not running and the service control feature is not available. Terminating.</source>
+        <translation>Сервис Tuned не запущен, а функция управления сервисами недоступна. Приложение будет завершено.</translation>
+    </message>
+    <message>
+        <location line="+76"/>
         <source>The active profile was automatically switched to &lt;b&gt;%1&lt;/b&gt;.</source>
         <translation>Текущий профиль был автоматически переключён на &lt;b&gt;%1&lt;/b&gt;.</translation>
     </message>
