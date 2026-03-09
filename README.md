@@ -14,7 +14,9 @@ Currently supported features:
   * easy and simple switching of performance profiles;
   * automatic mode support;
   * profile switch notifications;
-  * optional widget-only mode support.
+  * service control functions;
+  * optional widget-only mode support;
+  * optional systemd integration.
 
 ## Modes
 

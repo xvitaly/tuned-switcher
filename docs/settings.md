@@ -12,9 +12,11 @@ The following settings can be configured via the graphical user interface:
   * **Use sound for notifications** -- enable or disable using the sound for notifications.
   * **Run application on startup** -- enable or disable starting the program on system startup. The [service startup](startup.md) should be enabled first.
 
+Press **Ctrl+R** to reset all settings to default values. A confirmation dialog will be shown.
+
 ## Config file
 
-The default configuration file is located at `$HOME/.config/EasyCoding/tuned-switcher.conf`.
+The configuration file is located at `$HOME/.config/EasyCoding/tuned-switcher.conf`.
 
 ## Supported options
 
