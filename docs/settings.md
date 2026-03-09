@@ -16,7 +16,7 @@ Press **Ctrl+R** to reset all settings to default values. A confirmation dialog 
 
 ## Config file
 
-The default configuration file is located at `$HOME/.config/EasyCoding/tuned-switcher.conf`.
+The configuration file is located at `$HOME/.config/EasyCoding/tuned-switcher.conf`.
 
 ## Supported options
 
