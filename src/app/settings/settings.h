@@ -51,7 +51,7 @@ protected slots:
      * Key pressed event slot (handler).
      * @param event Event object instance.
     */
-    void keyPressEvent(QKeyEvent*);
+    void keyPressEvent(QKeyEvent*) override;
 
 private slots:
     /**
