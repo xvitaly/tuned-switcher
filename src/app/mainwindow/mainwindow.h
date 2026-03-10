@@ -60,31 +60,31 @@ protected slots:
      * Mouse move event slot (handler).
      * @param event Event object instance.
     */
-    void mouseMoveEvent(QMouseEvent*);
+    void mouseMoveEvent(QMouseEvent*) override;
 
     /**
      * Mouse button press event slot (handler).
      * @param event Event object instance.
     */
-    void mousePressEvent(QMouseEvent*);
+    void mousePressEvent(QMouseEvent*) override;
 
     /**
      * Mouse button release event slot (handler).
      * @param event Event object instance.
     */
-    void mouseReleaseEvent(QMouseEvent*);
+    void mouseReleaseEvent(QMouseEvent*) override;
 
     /**
      * Form close event slot (handler).
      * @param event Event object instance.
     */
-    void closeEvent(QCloseEvent*);
+    void closeEvent(QCloseEvent*) override;
 
     /**
      * Key pressed event slot (handler).
      * @param event Event object instance.
     */
-    void keyPressEvent(QKeyEvent*);
+    void keyPressEvent(QKeyEvent*) override;
 
 private slots:
     /**
