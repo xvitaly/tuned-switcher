@@ -57,31 +57,31 @@ public:
 
 protected:
     /**
-     * Mouse move event slot (handler).
+     * Mouse move event handler.
      * @param event Event object instance.
     */
     void mouseMoveEvent(QMouseEvent*) override;
 
     /**
-     * Mouse button press event slot (handler).
+     * Mouse button press event handler.
      * @param event Event object instance.
     */
     void mousePressEvent(QMouseEvent*) override;
 
     /**
-     * Mouse button release event slot (handler).
+     * Mouse button release event handler.
      * @param event Event object instance.
     */
     void mouseReleaseEvent(QMouseEvent*) override;
 
     /**
-     * Form close event slot (handler).
+     * Form close event handler.
      * @param event Event object instance.
     */
     void closeEvent(QCloseEvent*) override;
 
     /**
-     * Key pressed event slot (handler).
+     * Key pressed event handler.
      * @param event Event object instance.
     */
     void keyPressEvent(QKeyEvent*) override;
