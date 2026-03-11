@@ -48,7 +48,7 @@ public:
 
 protected:
     /**
-     * Key pressed event slot (handler).
+     * Key pressed event handler.
      * @param event Event object instance.
     */
     void keyPressEvent(QKeyEvent*) override;
