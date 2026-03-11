@@ -46,7 +46,7 @@ public:
     */
     ~Settings();
 
-protected slots:
+protected:
     /**
      * Key pressed event slot (handler).
      * @param event Event object instance.
