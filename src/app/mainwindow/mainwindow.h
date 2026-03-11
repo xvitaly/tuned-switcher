@@ -55,7 +55,7 @@ public:
     */
     ~MainWindow();
 
-protected slots:
+protected:
     /**
      * Mouse move event slot (handler).
      * @param event Event object instance.
