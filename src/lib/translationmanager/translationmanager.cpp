@@ -9,7 +9,7 @@
  * Contains the TranslationManager class implementation.
 */
 
-#include <QApplication>
+#include <QCoreApplication>
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
