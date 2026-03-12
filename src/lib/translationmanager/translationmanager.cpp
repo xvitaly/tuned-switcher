@@ -9,7 +9,7 @@
  * Contains the TranslationManager class implementation.
 */
 
-#include <QApplication>
+#include <QCoreApplication>
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
@@ -27,16 +27,17 @@
 QStringList TranslationManager::GetTranslationPaths() const
 {
     return QStringList()
-            << QDir::toNativeSeparators(QFileInfo(qApp -> applicationDirPath()).absoluteFilePath() + LocaleDirectory)
-            << QDir::toNativeSeparators(AppConstants::DataRootPrefix() + AppConstants::ProductNameInternal() + LocaleDirectory)
-            << QDir::toNativeSeparators(QStringLiteral("/usr/share/") + AppConstants::ProductNameInternal() + LocaleDirectory);
+           << QDir::toNativeSeparators(QFileInfo(QCoreApplication::applicationDirPath()).absoluteFilePath() + LocaleDirectory)
+           << QDir::toNativeSeparators(AppConstants::DataRootPrefix() + AppConstants::ProductNameInternal() + LocaleDirectory)
+           << QDir::toNativeSeparators(QStringLiteral("/usr/share/") + AppConstants::ProductNameInternal() + LocaleDirectory);
 }
 
 QString TranslationManager::GetTranslationPath() const
 {
     for (const QString& path : GetTranslationPaths())
     {
-        if (QFile::exists(path)) return path;
+        if (QFile::exists(path))
+            return path;
     }
     return QString();
 }
