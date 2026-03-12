@@ -27,7 +27,7 @@
 QStringList TranslationManager::GetTranslationPaths() const
 {
     return QStringList()
-            << QDir::toNativeSeparators(QFileInfo(qApp -> applicationDirPath()).absoluteFilePath() + LocaleDirectory)
+            << QDir::toNativeSeparators(QFileInfo(QCoreApplication::applicationDirPath()).absoluteFilePath() + LocaleDirectory)
             << QDir::toNativeSeparators(AppConstants::DataRootPrefix() + AppConstants::ProductNameInternal() + LocaleDirectory)
             << QDir::toNativeSeparators(QStringLiteral("/usr/share/") + AppConstants::ProductNameInternal() + LocaleDirectory);
 }
