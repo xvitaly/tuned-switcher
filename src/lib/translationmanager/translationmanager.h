@@ -15,7 +15,6 @@
 #include <QObject>
 #include <QString>
 #include <QStringList>
-#include <QStringLiteral>
 #include <QTranslator>
 
 /**
@@ -98,11 +97,6 @@ private:
      * Stores pointer to the application translator engine.
     */
     QTranslator* AppTranslator;
-
-    /**
-     * Stores an internal translation directory name.
-    */
-    const QString LocaleDirectory = QStringLiteral("/translations");
 };
 
 #endif // TRANSLATIONMANAGER_H

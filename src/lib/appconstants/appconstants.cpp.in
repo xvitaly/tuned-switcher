@@ -65,7 +65,7 @@ QString AppConstants::DomainSchemeName()
 
 QString AppConstants::DataRootPrefix()
 {
-    return QStringLiteral("@CMAKE_INSTALL_FULL_DATAROOTDIR@/");
+    return QStringLiteral("@CMAKE_INSTALL_FULL_DATAROOTDIR@");
 }
 
 int AppConstants::SleepTime()
