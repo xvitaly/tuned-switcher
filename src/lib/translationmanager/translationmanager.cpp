@@ -27,9 +27,9 @@
 QStringList TranslationManager::GetTranslationPaths() const
 {
     return QStringList()
-           << QDir::toNativeSeparators(QStringLiteral("%1/translations").arg(QFileInfo(QCoreApplication::applicationDirPath()).absoluteFilePath()))
-           << QDir::toNativeSeparators(QStringLiteral("%1/%2/translations").arg(AppConstants::DataRootPrefix(), AppConstants::ProductNameInternal()))
-           << QDir::toNativeSeparators(QStringLiteral("/usr/share/%1/translations").arg(AppConstants::ProductNameInternal()));
+           << QStringLiteral("%1/translations").arg(QFileInfo(QCoreApplication::applicationDirPath()).absoluteFilePath())
+           << QStringLiteral("%1/%2/translations").arg(AppConstants::DataRootPrefix(), AppConstants::ProductNameInternal())
+           << QStringLiteral("/usr/share/%1/translations").arg(AppConstants::ProductNameInternal());
 }
 
 QString TranslationManager::GetTranslationPath() const
