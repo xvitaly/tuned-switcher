@@ -14,30 +14,30 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QLibraryInfo>
+#include <QList>
 #include <QLocale>
 #include <QObject>
 #include <QString>
-#include <QStringList>
 #include <QStringLiteral>
 #include <QTranslator>
 
 #include "appconstants/appconstants.h"
 #include "translationmanager/translationmanager.h"
 
-QStringList TranslationManager::GetTranslationPaths() const
+QList<QDir> TranslationManager::GetTranslationPaths() const
 {
-    return QStringList()
-           << QDir::toNativeSeparators(QStringLiteral("%1/translations").arg(QFileInfo(QCoreApplication::applicationDirPath()).absoluteFilePath()))
-           << QDir::toNativeSeparators(QStringLiteral("%1/%2/translations").arg(AppConstants::DataRootPrefix(), AppConstants::ProductNameInternal()))
-           << QDir::toNativeSeparators(QStringLiteral("/usr/share/%1/translations").arg(AppConstants::ProductNameInternal()));
+    return QList<QDir>()
+           << QDir(QStringLiteral("%1/translations").arg(QCoreApplication::applicationDirPath()))
+           << QDir(QStringLiteral("%1/%2/translations").arg(AppConstants::DataRootPrefix(), AppConstants::ProductNameInternal()))
+           << QDir(QStringLiteral("/usr/share/%1/translations").arg(AppConstants::ProductNameInternal()));
 }
 
 QString TranslationManager::GetTranslationPath() const
 {
-    for (const QString& path : GetTranslationPaths())
+    for (const QDir& path : GetTranslationPaths())
     {
-        if (QFile::exists(path))
-            return path;
+        if (path.exists())
+            return path.absolutePath();
     }
     return QString();
 }
