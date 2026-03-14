@@ -12,9 +12,10 @@
  * Contains the TranslationManager class definition.
 */
 
+#include <QDir>
+#include <QList>
 #include <QObject>
 #include <QString>
-#include <QStringList>
 #include <QTranslator>
 
 /**
@@ -62,7 +63,7 @@ private:
      * translation files.
      * @returns List of strings with localization directories.
     */
-    QStringList GetTranslationPaths() const;
+    QList<QDir> GetTranslationPaths() const;
 
     /**
      * Get existing directory with compiled translation files.
