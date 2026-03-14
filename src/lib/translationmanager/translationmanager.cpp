@@ -37,7 +37,7 @@ QString TranslationManager::GetTranslationPath() const
     for (const QDir& path : GetTranslationPaths())
     {
         if (path.exists())
-            return path;
+            return path.absolutePath();
     }
     return QString();
 }
