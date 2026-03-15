@@ -210,7 +210,7 @@ endif()
 
 if (SYSTEMD_INTEGRATION)
     target_compile_definitions(${LIB_NAME} PRIVATE
-        WITH_SYSTEMD
+        HAVE_SYSTEMD
     )
 endif()
 
