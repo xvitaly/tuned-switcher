@@ -130,6 +130,13 @@ namespace AppConstants {
      * @returns Environment variable name for GUI mode.
     */
     const char* EnvNameGUI();
+
+    /**
+     * Returns the environment variable name used to disable built-in
+     * systemd dbus API integration.
+     * @returns Environment variable name for systemd integration mode.
+    */
+    const char* EnvNameSystemd();
 }
 
 #endif // APPSTRINGS_H

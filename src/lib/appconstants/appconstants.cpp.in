@@ -97,3 +97,8 @@ const char* AppConstants::EnvNameGUI()
 {
     return "TUNED_SWITCHER_FORCE_GUI";
 }
+
+const char* AppConstants::EnvNameSystemd()
+{
+    return "TUNED_SWITCHER_DISABLE_SYSTEMD";
+}

@@ -11,21 +11,17 @@
 
 #include <QObject>
 
-#include "servicemanager/servicemanager.h"
-
-#ifdef HAVE_SYSTEMD
-#include "systemdservice/systemdservice.h"
-#else
+#include "appconstants/appconstants.h"
 #include "dummyservice/dummyservice.h"
-#endif
+#include "servicemanager/servicemanager.h"
+#include "systemdservice/systemdservice.h"
 
 ServiceManager* ServiceManager::Create(QObject* parent)
 {
-#ifdef HAVE_SYSTEMD
-    return new SystemdService(parent);
-#else
-    return new DummyService(parent);
-#endif
+    if (!qEnvironmentVariableIsSet(AppConstants::EnvNameSystemd()))
+        return new SystemdService(parent);
+    else
+        return new DummyService(parent);
 }
 
 ServiceManager::ServiceManager(QObject* parent) : QObject(parent)
