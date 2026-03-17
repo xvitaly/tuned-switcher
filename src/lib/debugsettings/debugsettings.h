@@ -29,6 +29,13 @@ namespace DebugSettings
      * @returns Whether the widget mode is required.
     */
     bool IsWidgetRequired();
+
+    /**
+     * Get whether the desktop portal is required even if the
+     * application is not sandboxed.
+     * @returns Whether the desktop portal is required.
+    */
+    bool IsPortalRequired();
 }
 
 #endif // DEBUGSETTINGS_H

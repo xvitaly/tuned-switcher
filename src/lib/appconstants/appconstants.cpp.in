@@ -102,3 +102,8 @@ const char* AppConstants::EnvNameSystemd()
 {
     return "TUNED_SWITCHER_DISABLE_SYSTEMD";
 }
+
+const char* AppConstants::EnvNamePortal()
+{
+    return "TUNED_SWITCHER_USE_PORTAL";
+}

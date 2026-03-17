@@ -16,10 +16,11 @@
 #include "autorunfile/autorunfile.h"
 #include "autorunmanager/autorunmanager.h"
 #include "autorunportal/autorunportal.h"
+#include "debugsettings/debugsettings.h"
 
 AutorunManager* AutorunManager::Create(QObject* parent)
 {
-    if (!CheckSandbox())
+    if (!(CheckSandbox() || DebugSettings::IsPortalRequired()))
         return new AutorunFile(parent);
     else
         return new AutorunPortal(parent);

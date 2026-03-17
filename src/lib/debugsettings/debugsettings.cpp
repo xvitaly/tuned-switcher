@@ -23,3 +23,8 @@ bool DebugSettings::IsWidgetRequired()
 {
     return qEnvironmentVariableIsSet(AppConstants::EnvNameGUI());
 }
+
+bool DebugSettings::IsPortalRequired()
+{
+    return qEnvironmentVariableIsSet(AppConstants::EnvNamePortal());
+}

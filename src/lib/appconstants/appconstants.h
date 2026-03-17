@@ -137,6 +137,13 @@ namespace AppConstants {
      * @returns Environment variable name for systemd integration mode.
     */
     const char* EnvNameSystemd();
+
+    /**
+     * Returns the environment variable name used to always use the
+     * desktop portal even if the application is not sandboxed.
+     * @returns Environment variable name for desktop portal mode.
+    */
+    const char* EnvNamePortal();
 }
 
 #endif // APPSTRINGS_H
