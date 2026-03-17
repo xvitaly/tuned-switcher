@@ -11,14 +11,14 @@
 
 #include <QObject>
 
-#include "appconstants/appconstants.h"
+#include "debugsettings/debugsettings.h"
 #include "dummyservice/dummyservice.h"
 #include "servicemanager/servicemanager.h"
 #include "systemdservice/systemdservice.h"
 
 ServiceManager* ServiceManager::Create(QObject* parent)
 {
-    if (!qEnvironmentVariableIsSet(AppConstants::EnvNameSystemd()))
+    if (!DebugSettings::IsSystemdIntegrationDisabled())
         return new SystemdService(parent);
     else
         return new DummyService(parent);

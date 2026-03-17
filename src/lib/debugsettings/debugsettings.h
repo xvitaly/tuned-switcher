@@ -17,6 +17,11 @@
 */
 namespace DebugSettings
 {
+    /**
+     * Get whether the systemd integration is disabled.
+     * @returns Whether the systemd integration is disabled.
+    */
+    bool IsSystemdIntegrationDisabled();
 }
 
 #endif // DEBUGSETTINGS_H

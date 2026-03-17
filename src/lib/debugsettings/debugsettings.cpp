@@ -9,4 +9,12 @@
  * Contains the DebugSettings namespace implementation.
 */
 
+#include <QtGlobal>
+
+#include "appconstants/appconstants.h"
 #include "debugsettings/debugsettings.h"
+
+bool DebugSettings::IsSystemdIntegrationDisabled()
+{
+    return qEnvironmentVariableIsSet(AppConstants::EnvNameSystemd());
+}
