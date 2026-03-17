@@ -13,6 +13,7 @@
 #include <QSystemTrayIcon>
 
 #include "appconstants/appconstants.h"
+#include "debugsettings/debugsettings.h"
 #include "mainwindow/mainwindow.h"
 #include "translationmanager/translationmanager.h"
 #include "trayicon/trayicon.h"
@@ -37,7 +38,7 @@ int main(int argc, char* argv[])
     if (translator.IsAppTranslatorAvailable())
         app.installTranslator(translator.GetAppTranslator());
 
-    if (QSystemTrayIcon::isSystemTrayAvailable() && !qEnvironmentVariableIsSet(AppConstants::EnvNameGUI()))
+    if (QSystemTrayIcon::isSystemTrayAvailable() && !DebugSettings::IsWidgetRequired())
     {
         TrayIcon trayIcon;
         trayIcon.Show();
