@@ -18,3 +18,8 @@ bool DebugSettings::IsSystemdIntegrationDisabled()
 {
     return qEnvironmentVariableIsSet(AppConstants::EnvNameSystemd());
 }
+
+bool DebugSettings::IsWidgetRequired()
+{
+    return qEnvironmentVariableIsSet(AppConstants::EnvNameGUI());
+}

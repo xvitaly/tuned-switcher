@@ -22,6 +22,13 @@ namespace DebugSettings
      * @returns Whether the systemd integration is disabled.
     */
     bool IsSystemdIntegrationDisabled();
+
+    /**
+     * Get whether the widget mode is required even if the system
+     * tray support is present.
+     * @returns Whether the widget mode is required.
+    */
+    bool IsWidgetRequired();
 }
 
 #endif // DEBUGSETTINGS_H
