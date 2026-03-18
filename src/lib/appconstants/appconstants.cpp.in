@@ -50,6 +50,11 @@ QString AppConstants::ProductNameInternal()
 
 QString AppConstants::ProductVersion()
 {
+    return QStringLiteral("Version: @CMAKE_PROJECT_VERSION@");
+}
+
+QString AppConstants::ProductVersionInternal()
+{
     return QStringLiteral("@CMAKE_PROJECT_VERSION@");
 }
 

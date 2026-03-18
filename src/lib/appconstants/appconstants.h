@@ -68,10 +68,19 @@ namespace AppConstants {
     QString ProductNameInternal();
 
     /**
+     * Returns the application version number prepended with
+     * a text string "Version".
+     * Used as a version number in various dialogs and messages.
+     * @returns Application version number prepended with a
+     * text string.
+    */
+    QString ProductVersion();
+
+    /**
      * Returns the application version number as a string.
      * @returns Application version number.
     */
-    QString ProductVersion();
+    QString ProductVersionInternal();
 
     /**
      * Returns the application launcher file name without

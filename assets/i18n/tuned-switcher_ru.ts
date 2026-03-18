@@ -12,11 +12,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <source>About</source>
         <translation>О программе</translation>
     </message>
-    <message>
-        <location filename="../../src/app/about/about.cpp" line="+84"/>
-        <source>Version: %1</source>
-        <translation>Версия: %1</translation>
-    </message>
 </context>
 <context>
     <name>MainWindow</name>
