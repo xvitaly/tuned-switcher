@@ -27,7 +27,7 @@ int main(int argc, char* argv[])
 {
     QApplication app(argc, argv);
     QApplication::setApplicationName(AppConstants::ProductNameInternal());
-    QApplication::setApplicationVersion(AppConstants::ProductVersion());
+    QApplication::setApplicationVersion(AppConstants::ProductVersionInternal());
     QApplication::setDesktopFileName(AppConstants::LauncherName());
     QApplication::setOrganizationName(AppConstants::ProductCompanyInternal());
     QApplication::setOrganizationDomain(AppConstants::DomainSchemeName());

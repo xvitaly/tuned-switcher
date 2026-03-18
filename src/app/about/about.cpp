@@ -14,7 +14,6 @@
 #include <QPixmap>
 #include <QSize>
 #include <QString>
-#include <QStringLiteral>
 #include <QWidget>
 
 #include "about/about.h"
@@ -81,7 +80,7 @@ void About::setFormControls()
 {
     ui -> AppIcon -> setPixmap(GuiHelpers::GetApplicationPixmap());
     ui -> AppName -> setText(AppConstants::ProductName());
-    ui -> AppVersion -> setText(tr("Version: %1").arg(AppConstants::ProductVersion()));
+    ui -> AppVersion -> setText(AppConstants::ProductVersion());
     ui -> AppDeveloper -> setText(AppConstants::ProductCompany());
     ui -> AppCopyright -> setText(AppConstants::ProductCopyright());
 }
