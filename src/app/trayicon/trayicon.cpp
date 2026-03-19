@@ -43,6 +43,7 @@ TrayIcon::TrayIcon(QWidget* parent) : QWidget(parent)
     setTrayIcon();
     markCurrentProfile();
     markAutoProfileMode();
+    markServiceMode();
     subscribeToEvents();
 }
 
@@ -140,6 +141,18 @@ void TrayIcon::markAutoProfileMode()
     setAutoProfileMode(tunedManager -> IsProfileModeAuto());
 }
 
+void TrayIcon::markServiceMode()
+{
+    QAction* autoProfile = menuActions[autoProfileActionName];
+    if (profileActions && autoProfile)
+    {
+        const bool mode = !tunedManager -> IsProfileRunning();
+        profileActions -> setDisabled(mode);
+        if (mode)
+            autoProfile -> setDisabled(mode);
+    }
+}
+
 void TrayIcon::setNotificationsMode()
 {
     notifications -> SetNotificationSoundMode(settings -> GetSoundEnabled());
@@ -156,8 +169,9 @@ void TrayIcon::profileChangedEvent(const QString& profile, const bool result, co
     {
         QAction* profileAction = tunedProfiles[profile];
         const bool autoMode = tunedManager -> IsProfileModeAuto();
-        if (profileAction)
+        if (profileAction && profileActions)
         {
+            profileActions -> setDisabled(false);
             profileAction -> setChecked(true);
             if (autoMode)
                 notifications -> ShowNotification(tr("Profile auto-selected"), tr("The active profile was automatically switched to <b>%1</b>.").arg(profile));
@@ -213,6 +227,7 @@ QMenu* TrayIcon::createProfilesSubmenu(QWidget* parent)
 
     connect(trayIconGroup, &QActionGroup::triggered, this, &TrayIcon::profileSelectedEvent);
     trayIconProfiles -> addActions(trayIconGroup -> actions());
+    profileActions = trayIconGroup;
     return trayIconProfiles;
 }
 

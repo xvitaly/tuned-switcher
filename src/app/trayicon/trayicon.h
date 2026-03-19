@@ -147,6 +147,12 @@ private:
     void markAutoProfileMode();
 
     /**
+     * Check whether the Tuned profile is running or not
+     * and enable or disable various form controls.
+    */
+    void markServiceMode();
+
+    /**
      * Set the notifications sound mode.
     */
     void setNotificationsMode();
@@ -223,6 +229,11 @@ private:
      * Stores the name of the "Auto-select profile" action.
     */
     const QString autoProfileActionName = QStringLiteral("auto-profile");
+
+    /**
+     * Stores the name of the "Auto-select profile" action.
+    */
+    QActionGroup* profileActions;
 };
 
 #endif // TRAYICON_H
