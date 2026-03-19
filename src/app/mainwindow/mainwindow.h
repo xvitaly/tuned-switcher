@@ -188,6 +188,12 @@ private:
     void markAutoProfileMode();
 
     /**
+     * Check whether the Tuned profile is running or not
+     * and enable or disable various form controls.
+    */
+    void markServiceMode();
+
+    /**
      * Load form settings: position and size.
     */
     void loadFormSettings();
