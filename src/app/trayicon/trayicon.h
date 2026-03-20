@@ -13,6 +13,7 @@
 */
 
 #include <QAction>
+#include <QActionGroup>
 #include <QMenu>
 #include <QSystemTrayIcon>
 #include <QWidget>
