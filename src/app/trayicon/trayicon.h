@@ -221,15 +221,15 @@ private:
     QHash<QString, QAction*> tunedProfiles;
 
     /**
-     * Stores special hash table with various assigned
-     * internal QMenu actions.
-    */
-    QAction* autoProfileAction;
-
-    /**
-     * Stores the name of the "Auto-select profile" action.
+     * Stores pointer to a group of the Tuned profiles QMenu
+     * actions.
     */
     QActionGroup* profileActions;
+
+    /**
+     * Stores pointer to the "Auto-select profile" menu action.
+    */
+    QAction* autoProfileAction;
 };
 
 #endif // TRAYICON_H
