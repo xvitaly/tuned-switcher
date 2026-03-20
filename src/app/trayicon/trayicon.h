@@ -224,12 +224,7 @@ private:
      * Stores special hash table with various assigned
      * internal QMenu actions.
     */
-    QHash<QString, QAction*> menuActions;
-
-    /**
-     * Stores the name of the "Auto-select profile" action.
-    */
-    const QString autoProfileActionName = QStringLiteral("auto-profile");
+    QAction* autoProfileAction;
 
     /**
      * Stores the name of the "Auto-select profile" action.
