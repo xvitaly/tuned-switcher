@@ -43,6 +43,7 @@ TrayIcon::TrayIcon(QWidget* parent) : QWidget(parent)
     setTrayIcon();
     markCurrentProfile();
     markAutoProfileMode();
+    markServiceMode();
     subscribeToEvents();
 }
 
@@ -127,17 +128,27 @@ void TrayIcon::markCurrentProfile()
 
 void TrayIcon::setAutoProfileMode(const bool autoMode)
 {
-    QAction* autoProfile = menuActions[autoProfileActionName];
-    if (autoProfile)
+    if (autoProfileAction)
     {
-        autoProfile -> setChecked(autoMode);
-        autoProfile -> setDisabled(autoMode);
+        autoProfileAction -> setChecked(autoMode);
+        autoProfileAction -> setDisabled(autoMode);
     }
 }
 
 void TrayIcon::markAutoProfileMode()
 {
     setAutoProfileMode(tunedManager -> IsProfileModeAuto());
+}
+
+void TrayIcon::markServiceMode()
+{
+    if (profileActions && autoProfileAction)
+    {
+        const bool mode = !tunedManager -> IsProfileRunning();
+        profileActions -> setDisabled(mode);
+        if (mode)
+            autoProfileAction -> setDisabled(mode);
+    }
 }
 
 void TrayIcon::setNotificationsMode()
@@ -156,8 +167,9 @@ void TrayIcon::profileChangedEvent(const QString& profile, const bool result, co
     {
         QAction* profileAction = tunedProfiles[profile];
         const bool autoMode = tunedManager -> IsProfileModeAuto();
-        if (profileAction)
+        if (profileAction && profileActions)
         {
+            profileActions -> setDisabled(false);
             profileAction -> setChecked(true);
             if (autoMode)
                 notifications -> ShowNotification(tr("Profile auto-selected"), tr("The active profile was automatically switched to <b>%1</b>.").arg(profile));
@@ -213,6 +225,7 @@ QMenu* TrayIcon::createProfilesSubmenu(QWidget* parent)
 
     connect(trayIconGroup, &QActionGroup::triggered, this, &TrayIcon::profileSelectedEvent);
     trayIconProfiles -> addActions(trayIconGroup -> actions());
+    profileActions = trayIconGroup;
     return trayIconProfiles;
 }
 
@@ -236,7 +249,7 @@ QMenu* TrayIcon::createTrayIconMenu()
     // Setting "Auto-select profile" menu action...
     QAction* autoProfile = new QAction(tr("Auto-select profile"), trayIconMenu);
     autoProfile -> setCheckable(true);
-    menuActions.insert(autoProfileActionName, autoProfile);
+    autoProfileAction = autoProfile;
     connect(autoProfile, &QAction::triggered, this, &TrayIcon::profileAutoSelectedEvent);
 
     trayIconMenu -> addAction(autoProfile);
@@ -273,9 +286,14 @@ void TrayIcon::profileSelectedEvent(QAction* action)
 void TrayIcon::serviceControlEvent(const TunedManager::ServiceMethod method)
 {
     if (tunedManager -> RunServiceMethod(method))
+    {
+        markServiceMode();
         notifications -> ShowNotification(tr("Service control"), tr("The requested service control operation completed successfully."));
+    }
     else
+    {
         notifications -> ShowNotification(tr("Service control error"), tr("Failed to perform the requested service control operation! Current settings remain unchanged."));
+    }
 }
 
 void TrayIcon::showSettingsEvent()

@@ -13,6 +13,7 @@
 */
 
 #include <QAction>
+#include <QActionGroup>
 #include <QMenu>
 #include <QSystemTrayIcon>
 #include <QWidget>
@@ -147,6 +148,12 @@ private:
     void markAutoProfileMode();
 
     /**
+     * Check whether the Tuned profile is running or not
+     * and enable or disable various form controls.
+    */
+    void markServiceMode();
+
+    /**
      * Set the notifications sound mode.
     */
     void setNotificationsMode();
@@ -214,15 +221,15 @@ private:
     QHash<QString, QAction*> tunedProfiles;
 
     /**
-     * Stores special hash table with various assigned
-     * internal QMenu actions.
+     * Stores pointer to a group of the Tuned profiles QMenu
+     * actions.
     */
-    QHash<QString, QAction*> menuActions;
+    QActionGroup* profileActions;
 
     /**
-     * Stores the name of the "Auto-select profile" action.
+     * Stores pointer to the "Auto-select profile" menu action.
     */
-    const QString autoProfileActionName = QStringLiteral("auto-profile");
+    QAction* autoProfileAction;
 };
 
 #endif // TRAYICON_H

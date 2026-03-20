@@ -59,6 +59,7 @@ MainWindow::MainWindow(QWidget* parent) : QWidget(parent), ui(new Ui::MainWindow
     getTunedProfiles();
     markCurrentProfile();
     markAutoProfileMode();
+    markServiceMode();
     subscribeToEvents();
 }
 
@@ -282,6 +283,14 @@ void MainWindow::markAutoProfileMode()
     setAutoProfileMode(tunedManager -> IsProfileModeAuto());
 }
 
+void MainWindow::markServiceMode()
+{
+    const bool mode = !tunedManager -> IsProfileRunning();
+    ui -> ProfileSelector -> setDisabled(mode);
+    if (mode)
+        ui -> AutoSelect -> setDisabled(mode);
+}
+
 void MainWindow::setNotificationsMode()
 {
     notifications -> SetNotificationSoundMode(settings -> GetSoundEnabled());
@@ -290,9 +299,14 @@ void MainWindow::setNotificationsMode()
 void MainWindow::serviceControlEvent(const TunedManager::ServiceMethod method)
 {
     if (tunedManager -> RunServiceMethod(method))
+    {
+        markServiceMode();
         notifications -> ShowNotification(tr("Service control"), tr("The requested service control operation completed successfully."));
+    }
     else
+    {
         notifications -> ShowNotification(tr("Service control error"), tr("Failed to perform the requested service control operation! Current settings remain unchanged."));
+    }
 }
 
 void MainWindow::exitApplication()
@@ -307,6 +321,7 @@ void MainWindow::profileChangedEvent(const QString& profile, const bool result, 
         const bool autoMode = tunedManager -> IsProfileModeAuto();
         if (ui -> ProfileSelector -> findText(profile) > 0)
         {
+            ui -> ProfileSelector -> setDisabled(false);
             ui -> ProfileSelector -> setCurrentText(profile);
             if (autoMode)
                 notifications -> ShowNotification(tr("Profile auto-selected"), tr("The active profile was automatically switched to <b>%1</b>.").arg(profile));
