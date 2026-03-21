@@ -168,9 +168,32 @@ private:
     */
     void exitApplication();
 
+    /**
+     * Create a menu entry for the "Auto-select profile" action.
+     * @param parent Parent widget.
+     * @returns Pointer to the QAction instance.
+    */
     QAction* createAutoProfileAction(QWidget*);
+
+    /**
+     * Create a menu entry for the "Show About form" action.
+     * @param parent Parent widget.
+     * @returns Pointer to the QAction instance.
+    */
     QAction* createAboutAction(QWidget*);
+
+    /**
+     * Create a menu entry for the "Show settings" action.
+     * @param parent Parent widget.
+     * @returns Pointer to the QAction instance.
+    */
     QAction* createSettingsAction(QWidget*);
+
+    /**
+     * Create a menu entry for the "Quit application" action.
+     * @param parent Parent widget.
+     * @returns Pointer to the QAction instance.
+    */
     QAction* createQuitAction(QWidget*);
 
     /**
@@ -181,7 +204,7 @@ private:
     QMenu* createServiceControlSubmenu(QWidget*);
 
     /**
-     * Build and create submenu with the list of available
+     * Build and create a submenu with the list of available
      * Tuned profiles.
      * @param parent Parent widget.
      * @returns Pointer to the QMenu instance.
@@ -234,13 +257,13 @@ private:
     QHash<QString, QAction*> tunedProfiles;
 
     /**
-     * Stores pointer to a group of the Tuned profiles QMenu
+     * Stores a pointer to a group of the Tuned profiles QMenu
      * actions.
     */
     QActionGroup* profileActions;
 
     /**
-     * Stores pointer to the "Auto-select profile" menu action.
+     * Stores a pointer to the "Auto-select profile" menu action.
     */
     QAction* autoProfileAction;
 };
