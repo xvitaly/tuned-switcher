@@ -208,12 +208,11 @@ QMenu* TrayIcon::createServiceControlSubmenu(QWidget* parent)
     return trayIconServiceControl;
 }
 
-QMenu* TrayIcon::createProfilesSubmenu(QWidget* parent)
+QActionGroup* TrayIcon::createProfilesMenuGroup(QWidget* parent)
 {
-    QMenu* trayIconProfiles = new QMenu(parent);
-    trayIconProfiles -> setTitle(tr("Active profile"));
-    QActionGroup* trayIconGroup = new QActionGroup(trayIconProfiles);
+    QActionGroup* trayIconGroup = new QActionGroup(parent);
     trayIconGroup -> setExclusive(true);
+    connect(trayIconGroup, &QActionGroup::triggered, this, &TrayIcon::profileSelectedEvent);
 
     for (const QString& profile : tunedManager -> GetAvailableProfiles())
     {
@@ -223,43 +222,60 @@ QMenu* TrayIcon::createProfilesSubmenu(QWidget* parent)
         tunedProfiles.insert(profile, profileAction);
     }
 
-    connect(trayIconGroup, &QActionGroup::triggered, this, &TrayIcon::profileSelectedEvent);
-    trayIconProfiles -> addActions(trayIconGroup -> actions());
-    profileActions = trayIconGroup;
+    return trayIconGroup;
+}
+
+QMenu* TrayIcon::createProfilesSubmenu(QWidget* parent)
+{
+    QMenu* trayIconProfiles = new QMenu(parent);
+    trayIconProfiles -> setTitle(tr("Active profile"));
+    QActionGroup* trayIconActions = createProfilesMenuGroup(trayIconProfiles);
+    trayIconProfiles -> addActions(trayIconActions -> actions());
+    profileActions = trayIconActions;
     return trayIconProfiles;
+}
+
+QAction* TrayIcon::createAutoProfileAction(QWidget* parent)
+{
+    QAction* autoProfile = new QAction(tr("Auto-select profile"), parent);
+    autoProfile -> setCheckable(true);
+    connect(autoProfile, &QAction::triggered, this, &TrayIcon::profileAutoSelectedEvent);
+    autoProfileAction = autoProfile;
+    return autoProfile;
+}
+
+QAction* TrayIcon::createAboutAction(QWidget* parent)
+{
+    QAction* aboutAction = new QAction(tr("About..."), parent);
+    connect(aboutAction, &QAction::triggered, this, &TrayIcon::showAboutEvent);
+    return aboutAction;
+}
+
+QAction* TrayIcon::createSettingsAction(QWidget* parent)
+{
+    QAction* settingsAction = new QAction(tr("Settings..."), parent);
+    connect(settingsAction, &QAction::triggered, this, &TrayIcon::showSettingsEvent);
+    return settingsAction;
+}
+
+QAction* TrayIcon::createQuitAction(QWidget* parent)
+{
+    QAction* quitAction = new QAction(tr("Quit"), parent);
+    connect(quitAction, &QAction::triggered, this, &TrayIcon::exitEvent);
+    return quitAction;
 }
 
 QMenu* TrayIcon::createTrayIconMenu()
 {
-    // Creating QMenu object...
     QMenu* trayIconMenu = new QMenu(this);
-
-    // Setting "Show settings" menu action...
-    QAction* settingsAction = new QAction(tr("Settings..."), trayIconMenu);
-    connect(settingsAction, &QAction::triggered, this, &TrayIcon::showSettingsEvent);
-
-    // Setting "Show About form" menu action...
-    QAction* aboutAction = new QAction(tr("About..."), trayIconMenu);
-    connect(aboutAction, &QAction::triggered, this, &TrayIcon::showAboutEvent);
-
-    // Setting "Quit application" menu action...
-    QAction* quitAction = new QAction(tr("Quit"), trayIconMenu);
-    connect(quitAction, &QAction::triggered, this, &TrayIcon::exitEvent);
-
-    // Setting "Auto-select profile" menu action...
-    QAction* autoProfile = new QAction(tr("Auto-select profile"), trayIconMenu);
-    autoProfile -> setCheckable(true);
-    autoProfileAction = autoProfile;
-    connect(autoProfile, &QAction::triggered, this, &TrayIcon::profileAutoSelectedEvent);
-
-    trayIconMenu -> addAction(autoProfile);
+    trayIconMenu -> addAction(createAutoProfileAction(trayIconMenu));
     trayIconMenu -> addMenu(createProfilesSubmenu(trayIconMenu));
     trayIconMenu -> addSeparator();
     trayIconMenu -> addMenu(createServiceControlSubmenu(trayIconMenu));
-    trayIconMenu -> addAction(settingsAction);
-    trayIconMenu -> addAction(aboutAction);
+    trayIconMenu -> addAction(createSettingsAction(trayIconMenu));
+    trayIconMenu -> addAction(createAboutAction(trayIconMenu));
     trayIconMenu -> addSeparator();
-    trayIconMenu -> addAction(quitAction);
+    trayIconMenu -> addAction(createQuitAction(trayIconMenu));
     return trayIconMenu;
 }
 
