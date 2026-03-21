@@ -255,8 +255,8 @@ QMenu* TrayIcon::createTrayIconMenu()
     // Setting "Auto-select profile" menu action...
     QAction* autoProfile = new QAction(tr("Auto-select profile"), trayIconMenu);
     autoProfile -> setCheckable(true);
-    autoProfileAction = autoProfile;
     connect(autoProfile, &QAction::triggered, this, &TrayIcon::profileAutoSelectedEvent);
+    autoProfileAction = autoProfile;
 
     trayIconMenu -> addAction(autoProfile);
     trayIconMenu -> addMenu(createProfilesSubmenu(trayIconMenu));
