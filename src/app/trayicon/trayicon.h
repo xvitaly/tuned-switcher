@@ -168,6 +168,11 @@ private:
     */
     void exitApplication();
 
+    QAction* createAutoProfileAction(QWidget*);
+    QAction* createAboutAction(QWidget*);
+    QAction* createSettingsAction(QWidget*);
+    QAction* createQuitAction(QWidget*);
+
     /**
      * Build and create submenu for service control functions.
      * @param parent Parent widget.
