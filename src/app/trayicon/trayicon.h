@@ -184,6 +184,14 @@ private:
     QMenu* createProfilesSubmenu(QWidget*);
 
     /**
+     * Enumerate and add the available Tuned profiles to
+     * the Profiles submenu.
+     * @param parent Parent widget.
+     * @returns Pointer to the QActionGroup instance.
+    */
+    QActionGroup* createProfilesMenuGroup(QWidget*);
+
+    /**
      * Build and create menu for the system tray icon.
      * @returns Pointer to the QMenu instance.
     */

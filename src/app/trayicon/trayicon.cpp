@@ -208,12 +208,11 @@ QMenu* TrayIcon::createServiceControlSubmenu(QWidget* parent)
     return trayIconServiceControl;
 }
 
-QMenu* TrayIcon::createProfilesSubmenu(QWidget* parent)
+QActionGroup* TrayIcon::createProfilesMenuGroup(QWidget* parent)
 {
-    QMenu* trayIconProfiles = new QMenu(parent);
-    trayIconProfiles -> setTitle(tr("Active profile"));
-    QActionGroup* trayIconGroup = new QActionGroup(trayIconProfiles);
+    QActionGroup* trayIconGroup = new QActionGroup(parent);
     trayIconGroup -> setExclusive(true);
+    connect(trayIconGroup, &QActionGroup::triggered, this, &TrayIcon::profileSelectedEvent);
 
     for (const QString& profile : tunedManager -> GetAvailableProfiles())
     {
@@ -223,9 +222,16 @@ QMenu* TrayIcon::createProfilesSubmenu(QWidget* parent)
         tunedProfiles.insert(profile, profileAction);
     }
 
-    connect(trayIconGroup, &QActionGroup::triggered, this, &TrayIcon::profileSelectedEvent);
-    trayIconProfiles -> addActions(trayIconGroup -> actions());
-    profileActions = trayIconGroup;
+    return trayIconGroup;
+}
+
+QMenu* TrayIcon::createProfilesSubmenu(QWidget* parent)
+{
+    QMenu* trayIconProfiles = new QMenu(parent);
+    trayIconProfiles -> setTitle(tr("Active profile"));
+    QActionGroup* trayIconActions = createProfilesMenuGroup(trayIconProfiles);
+    trayIconProfiles -> addActions(trayIconActions -> actions());
+    profileActions = trayIconActions;
     return trayIconProfiles;
 }
 
