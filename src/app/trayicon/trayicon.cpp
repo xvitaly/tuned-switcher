@@ -120,9 +120,20 @@ void TrayIcon::subscribeToEvents()
     connect(tunedManager, &TunedManager::ProfileChangedSignal, this, &TrayIcon::profileChangedEvent);
 }
 
+QAction* TrayIcon::getProfileAction(const QString& value)
+{
+    if (value.isEmpty()) return nullptr;
+    for (const auto& action : profileActions -> actions())
+    {
+        if (action -> text() == value)
+            return action;
+    }
+    return nullptr;
+}
+
 void TrayIcon::markCurrentProfile()
 {
-    QAction* profileAction = tunedProfiles[tunedManager -> GetActiveProfile()];
+    QAction* profileAction = getProfileAction(tunedManager -> GetActiveProfile());
     if (profileAction) profileAction -> setChecked(true);
 }
 
@@ -165,7 +176,7 @@ void TrayIcon::profileChangedEvent(const QString& profile, const bool result, co
 {
     if (result)
     {
-        QAction* profileAction = tunedProfiles[profile];
+        QAction* profileAction = getProfileAction(profile);
         const bool autoMode = tunedManager -> IsProfileModeAuto();
         if (profileAction && profileActions)
         {
@@ -217,9 +228,7 @@ QActionGroup* TrayIcon::createProfilesMenuGroup(QWidget* parent)
     for (const QString& profile : tunedManager -> GetAvailableProfiles())
     {
         QAction* profileAction = new QAction(profile, trayIconGroup);
-        profileAction -> setData(profile);
         profileAction -> setCheckable(true);
-        tunedProfiles.insert(profile, profileAction);
     }
 
     return trayIconGroup;
@@ -294,7 +303,7 @@ void TrayIcon::profileAutoSelectedEvent(const bool autoMode)
 
 void TrayIcon::profileSelectedEvent(QAction* action)
 {
-    const QTunedResult result = tunedManager -> SetActiveProfile(action -> data().toString());
+    const QTunedResult result = tunedManager -> SetActiveProfile(action -> text());
     if (!result.Success)
         notifications -> ShowNotification(tr("Profile switch error"), tr("Failed to switch the active profile: %1").arg(result.Message));
 }

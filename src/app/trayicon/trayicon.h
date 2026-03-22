@@ -18,8 +18,6 @@
 #include <QSystemTrayIcon>
 #include <QWidget>
 #include <QString>
-#include <QStringLiteral>
-#include <QHash>
 
 #include "notificationsmanager/notificationsmanager.h"
 #include "servicemanager/servicemanager.h"
@@ -169,6 +167,13 @@ private:
     void exitApplication();
 
     /**
+     * Get the assigned Tuned profile action by name.
+     * @param value Profile name.
+     * @returns Pointer to the QAction instance.
+    */
+    QAction* getProfileAction(const QString&);
+
+    /**
      * Create a menu entry for the "Auto-select profile" action.
      * @param parent Parent widget.
      * @returns Pointer to the QAction instance.
@@ -249,12 +254,6 @@ private:
      * Stores pointer to the TunedManager class instance.
     */
     TunedManager* tunedManager;
-
-    /**
-     * Stores special hash table with the Tuned profiles and
-     * assigned QMenu elements.
-    */
-    QHash<QString, QAction*> tunedProfiles;
 
     /**
      * Stores a pointer to a group of the Tuned profiles QMenu
