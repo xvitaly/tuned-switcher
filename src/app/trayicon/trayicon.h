@@ -253,12 +253,6 @@ private:
     TunedManager* tunedManager;
 
     /**
-     * Stores special hash table with the Tuned profiles and
-     * assigned QMenu elements.
-    */
-    QHash<QString, QAction*> tunedProfiles;
-
-    /**
      * Stores a pointer to a group of the Tuned profiles QMenu
      * actions.
     */
