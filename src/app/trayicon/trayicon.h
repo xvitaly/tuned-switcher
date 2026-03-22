@@ -18,8 +18,6 @@
 #include <QSystemTrayIcon>
 #include <QWidget>
 #include <QString>
-#include <QStringLiteral>
-#include <QHash>
 
 #include "notificationsmanager/notificationsmanager.h"
 #include "servicemanager/servicemanager.h"
