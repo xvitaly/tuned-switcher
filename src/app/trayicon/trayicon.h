@@ -168,6 +168,8 @@ private:
     */
     void exitApplication();
 
+    QAction* getProfileAction(const QString&);
+
     /**
      * Create a menu entry for the "Auto-select profile" action.
      * @param parent Parent widget.

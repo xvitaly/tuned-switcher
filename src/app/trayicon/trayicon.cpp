@@ -120,9 +120,20 @@ void TrayIcon::subscribeToEvents()
     connect(tunedManager, &TunedManager::ProfileChangedSignal, this, &TrayIcon::profileChangedEvent);
 }
 
+QAction* TrayIcon::getProfileAction(const QString& value)
+{
+    if (value.isEmpty()) return nullptr;
+    for (const auto& action : profileActions -> actions())
+    {
+        if (action -> data().toString() == value)
+            return action;
+    }
+    return nullptr;
+}
+
 void TrayIcon::markCurrentProfile()
 {
-    QAction* profileAction = tunedProfiles[tunedManager -> GetActiveProfile()];
+    QAction* profileAction = getProfileAction(tunedManager -> GetActiveProfile());
     if (profileAction) profileAction -> setChecked(true);
 }
 
@@ -165,7 +176,7 @@ void TrayIcon::profileChangedEvent(const QString& profile, const bool result, co
 {
     if (result)
     {
-        QAction* profileAction = tunedProfiles[profile];
+        QAction* profileAction = getProfileAction(profile);
         const bool autoMode = tunedManager -> IsProfileModeAuto();
         if (profileAction && profileActions)
         {
@@ -219,7 +230,6 @@ QActionGroup* TrayIcon::createProfilesMenuGroup(QWidget* parent)
         QAction* profileAction = new QAction(profile, trayIconGroup);
         profileAction -> setData(profile);
         profileAction -> setCheckable(true);
-        tunedProfiles.insert(profile, profileAction);
     }
 
     return trayIconGroup;
