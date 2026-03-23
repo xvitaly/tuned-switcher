@@ -18,7 +18,6 @@
 #include <QMouseEvent>
 #include <QPoint>
 #include <QString>
-#include <QStringList>
 #include <QWidget>
 
 #include "notificationsmanager/notificationsmanager.h"
