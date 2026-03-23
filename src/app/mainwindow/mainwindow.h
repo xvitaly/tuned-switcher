@@ -18,7 +18,6 @@
 #include <QMouseEvent>
 #include <QPoint>
 #include <QString>
-#include <QStringList>
 #include <QWidget>
 
 #include "notificationsmanager/notificationsmanager.h"
@@ -281,11 +280,6 @@ private:
      * Stores pointer to the TunedManager class instance.
     */
     TunedManager* tunedManager;
-
-    /**
-     * Stores the list of available Tuned profiles.
-    */
-    QStringList availableProfiles;
 
     /**
      * Stores the last mouse position.
