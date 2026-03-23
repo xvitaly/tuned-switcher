@@ -24,6 +24,7 @@
 
 #include "about/about.h"
 #include "appconstants/appconstants.h"
+#include "guihelpers/guihelpers.h"
 #include "notificationsmanager/notificationsmanager.h"
 #include "servicemanager/servicemanager.h"
 #include "settings/settings.h"
@@ -110,7 +111,7 @@ void TrayIcon::setTrayIcon()
 {
     // Setting tray icon...
     trayIcon = new QSystemTrayIcon(this);
-    trayIcon -> setIcon(QIcon::fromTheme(AppConstants::DomainSchemeName(), QIcon(QStringLiteral(":/icons/fallback.png"))));
+    trayIcon -> setIcon(GuiHelpers::GetApplicationIcon());
     trayIcon -> setContextMenu(createTrayIconMenu());
     trayIcon -> setToolTip(AppConstants::ProductName());
 }
