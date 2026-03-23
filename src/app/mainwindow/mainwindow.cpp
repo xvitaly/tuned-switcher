@@ -167,7 +167,7 @@ void MainWindow::checkTunedRunning()
 
 void MainWindow::getTunedProfiles()
 {
-    availableProfiles = tunedManager -> GetAvailableProfiles();
+    ui -> ProfileSelector -> addItems(tunedManager -> GetAvailableProfiles());
 }
 
 void MainWindow::subscribeToEvents()
@@ -271,11 +271,7 @@ void MainWindow::setAutoProfileMode(const bool autoMode)
 
 void MainWindow::markCurrentProfile()
 {
-    if (availableProfiles.count() > 0)
-    {
-        ui -> ProfileSelector -> addItems(availableProfiles);
-        ui -> ProfileSelector -> setCurrentText(tunedManager -> GetActiveProfile());
-    }
+    ui -> ProfileSelector -> setCurrentText(tunedManager -> GetActiveProfile());
 }
 
 void MainWindow::markAutoProfileMode()

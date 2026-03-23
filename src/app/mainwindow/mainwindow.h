@@ -283,11 +283,6 @@ private:
     TunedManager* tunedManager;
 
     /**
-     * Stores the list of available Tuned profiles.
-    */
-    QStringList availableProfiles;
-
-    /**
      * Stores the last mouse position.
     */
     QPoint mLastMousePosition;
