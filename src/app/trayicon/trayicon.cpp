@@ -13,10 +13,8 @@
 #include <QActionGroup>
 #include <QApplication>
 #include <QDialog>
-#include <QIcon>
 #include <QMenu>
 #include <QString>
-#include <QStringLiteral>
 #include <QSystemTrayIcon>
 #include <QThread>
 #include <QTimer>
