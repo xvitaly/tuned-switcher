@@ -271,7 +271,7 @@ void MainWindow::setAutoProfileMode(const bool autoMode)
 
 void MainWindow::markCurrentProfile()
 {
-    ui -> ProfileSelector -> setCurrentText(tunedManager -> GetActiveProfile());
+    ui -> ProfileSelector -> setCurrentIndex(ui -> ProfileSelector -> findText(tunedManager -> GetActiveProfile()));
 }
 
 void MainWindow::markAutoProfileMode()
