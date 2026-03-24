@@ -130,10 +130,15 @@ QAction* TrayIcon::getProfileAction(const QString& value)
     return nullptr;
 }
 
+void TrayIcon::setCurrentProfile(const QString& profile)
+{
+    QAction* profileAction = getProfileAction(profile);
+    if (profileAction) profileAction -> setChecked(true);
+}
+
 void TrayIcon::markCurrentProfile()
 {
-    QAction* profileAction = getProfileAction(tunedManager -> GetActiveProfile());
-    if (profileAction) profileAction -> setChecked(true);
+    setCurrentProfile(tunedManager -> GetActiveProfile());
 }
 
 void TrayIcon::setAutoProfileMode(const bool autoMode)
