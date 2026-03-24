@@ -132,8 +132,19 @@ QAction* TrayIcon::getProfileAction(const QString& value)
 
 void TrayIcon::setCurrentProfile(const QString& profile)
 {
+    if (!profileActions) return;
+    profileActions -> setDisabled(false);
     QAction* profileAction = getProfileAction(profile);
-    if (profileAction) profileAction -> setChecked(true);
+    if (profileAction)
+    {
+        profileAction -> setChecked(true);
+    }
+    else
+    {
+        QAction* checkedAction = profileActions -> checkedAction();
+        if (checkedAction)
+            checkedAction -> setChecked(false);
+    }
 }
 
 void TrayIcon::markCurrentProfile()
@@ -180,18 +191,13 @@ void TrayIcon::profileChangedEvent(const QString& profile, const bool result, co
 {
     if (result)
     {
-        QAction* profileAction = getProfileAction(profile);
         const bool autoMode = tunedManager -> IsProfileModeAuto();
-        if (profileAction && profileActions)
-        {
-            profileActions -> setDisabled(false);
-            profileAction -> setChecked(true);
-            if (autoMode)
-                notifications -> ShowNotification(tr("Profile auto-selected"), tr("The active profile was automatically switched to <b>%1</b>.").arg(profile));
-            else
-                notifications -> ShowNotification(tr("Profile switched"), tr("The active profile was switched to <b>%1</b>.").arg(profile));
-        }
+        setCurrentProfile(profile);
         setAutoProfileMode(autoMode);
+        if (autoMode)
+            notifications -> ShowNotification(tr("Profile auto-selected"), tr("The active profile was automatically switched to <b>%1</b>.").arg(profile));
+        else
+            notifications -> ShowNotification(tr("Profile switched"), tr("The active profile was switched to <b>%1</b>.").arg(profile));
     }
     else
     {
