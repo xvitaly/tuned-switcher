@@ -223,6 +223,11 @@ private:
     void setFormControls();
 
     /**
+     * Set the active Tuned profile on form.
+    */
+    void setCurrentProfile(const QString&);
+
+    /**
      * Get the active Tuned profile and set it on form.
     */
     void markCurrentProfile();

@@ -269,9 +269,14 @@ void MainWindow::setAutoProfileMode(const bool autoMode)
     ui -> AutoSelect -> setDisabled(autoMode);
 }
 
+void MainWindow::setCurrentProfile(const QString& profile)
+{
+    ui -> ProfileSelector -> setCurrentIndex(ui -> ProfileSelector -> findText(profile));
+}
+
 void MainWindow::markCurrentProfile()
 {
-    ui -> ProfileSelector -> setCurrentIndex(ui -> ProfileSelector -> findText(tunedManager -> GetActiveProfile()));
+    setCurrentProfile(tunedManager -> GetActiveProfile());
 }
 
 void MainWindow::markAutoProfileMode()
