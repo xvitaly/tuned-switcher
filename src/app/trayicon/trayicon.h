@@ -178,7 +178,7 @@ private:
 
     /**
      * Get the assigned Tuned profile action by name.
-     * @param value Profile name.
+     * @param profile Profile name.
      * @returns Pointer to the QAction instance.
     */
     QAction* getProfileAction(const QString&);

@@ -119,12 +119,12 @@ void TrayIcon::subscribeToEvents()
     connect(tunedManager, &TunedManager::ProfileChangedSignal, this, &TrayIcon::profileChangedEvent);
 }
 
-QAction* TrayIcon::getProfileAction(const QString& value)
+QAction* TrayIcon::getProfileAction(const QString& profile)
 {
-    if (value.isEmpty()) return nullptr;
+    if (profile.isEmpty()) return nullptr;
     for (const auto& action : profileActions -> actions())
     {
-        if (action -> text() == value)
+        if (action -> text() == profile)
             return action;
     }
     return nullptr;
