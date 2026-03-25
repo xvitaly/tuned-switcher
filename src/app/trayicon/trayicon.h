@@ -129,6 +129,11 @@ private:
     void setTrayIcon();
 
     /**
+     * Reset the active Tuned profile.
+    */
+    void resetCurrentProfile();
+
+    /**
      * Set the active Tuned profile.
     */
     void setCurrentProfile(const QString&);
@@ -173,7 +178,7 @@ private:
 
     /**
      * Get the assigned Tuned profile action by name.
-     * @param value Profile name.
+     * @param profile Profile name.
      * @returns Pointer to the QAction instance.
     */
     QAction* getProfileAction(const QString&);

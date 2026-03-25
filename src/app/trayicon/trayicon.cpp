@@ -119,31 +119,34 @@ void TrayIcon::subscribeToEvents()
     connect(tunedManager, &TunedManager::ProfileChangedSignal, this, &TrayIcon::profileChangedEvent);
 }
 
-QAction* TrayIcon::getProfileAction(const QString& value)
+QAction* TrayIcon::getProfileAction(const QString& profile)
 {
-    if (value.isEmpty()) return nullptr;
+    if (profile.isEmpty()) return nullptr;
     for (const auto& action : profileActions -> actions())
     {
-        if (action -> text() == value)
+        if (action -> text() == profile)
             return action;
     }
     return nullptr;
 }
 
+void TrayIcon::resetCurrentProfile()
+{
+    QAction* checkedAction = profileActions -> checkedAction();
+    if (checkedAction)
+        checkedAction -> setChecked(false);
+}
+
 void TrayIcon::setCurrentProfile(const QString& profile)
 {
-    if (!profileActions) return;
-    profileActions -> setDisabled(false);
-    QAction* profileAction = getProfileAction(profile);
-    if (profileAction)
+    if (profileActions)
     {
-        profileAction -> setChecked(true);
-    }
-    else
-    {
-        QAction* checkedAction = profileActions -> checkedAction();
-        if (checkedAction)
-            checkedAction -> setChecked(false);
+        profileActions -> setDisabled(false);
+        QAction* profileAction = getProfileAction(profile);
+        if (profileAction)
+            profileAction -> setChecked(true);
+        else
+            resetCurrentProfile();
     }
 }
 
