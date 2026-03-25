@@ -129,6 +129,11 @@ private:
     void setTrayIcon();
 
     /**
+     * Reset the active Tuned profile.
+    */
+    void resetCurrentProfile();
+
+    /**
      * Set the active Tuned profile.
     */
     void setCurrentProfile(const QString&);

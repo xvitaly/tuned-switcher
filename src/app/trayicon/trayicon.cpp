@@ -130,21 +130,22 @@ QAction* TrayIcon::getProfileAction(const QString& value)
     return nullptr;
 }
 
+void TrayIcon::resetCurrentProfile()
+{
+    QAction* checkedAction = profileActions -> checkedAction();
+    if (checkedAction)
+        checkedAction -> setChecked(false);
+}
+
 void TrayIcon::setCurrentProfile(const QString& profile)
 {
     if (!profileActions) return;
     profileActions -> setDisabled(false);
     QAction* profileAction = getProfileAction(profile);
     if (profileAction)
-    {
         profileAction -> setChecked(true);
-    }
     else
-    {
-        QAction* checkedAction = profileActions -> checkedAction();
-        if (checkedAction)
-            checkedAction -> setChecked(false);
-    }
+        resetCurrentProfile();
 }
 
 void TrayIcon::markCurrentProfile()
