@@ -139,13 +139,15 @@ void TrayIcon::resetCurrentProfile()
 
 void TrayIcon::setCurrentProfile(const QString& profile)
 {
-    if (!profileActions) return;
-    profileActions -> setDisabled(false);
-    QAction* profileAction = getProfileAction(profile);
-    if (profileAction)
-        profileAction -> setChecked(true);
-    else
-        resetCurrentProfile();
+    if (profileActions)
+    {
+        profileActions -> setDisabled(false);
+        QAction* profileAction = getProfileAction(profile);
+        if (profileAction)
+            profileAction -> setChecked(true);
+        else
+            resetCurrentProfile();
+    }
 }
 
 void TrayIcon::markCurrentProfile()
