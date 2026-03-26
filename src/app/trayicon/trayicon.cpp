@@ -225,10 +225,6 @@ QMenu* TrayIcon::createServiceControlSubmenu(QWidget* parent)
     connect(reloadAction, &QAction::triggered, this, [this](){ serviceControlEvent(TunedManager::ServiceMethod::MethodReload); });
     trayIconServiceControl -> addAction(reloadAction);
 
-    QAction* shutdownAction = new QAction(tr("Shut down the service"), trayIconServiceControl);
-    connect(shutdownAction, &QAction::triggered, this, [this](){ serviceControlEvent(TunedManager::ServiceMethod::MethodShutdown); });
-    trayIconServiceControl -> addAction(shutdownAction);
-
     return trayIconServiceControl;
 }
 
