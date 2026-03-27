@@ -9,10 +9,12 @@
  * Contains the SettingsManager class implementation.
 */
 
-#include <QGuiApplication>
 #include <QByteArray>
+#include <QGuiApplication>
 #include <QObject>
 #include <QSettings>
+#include <QString>
+#include <QStringLiteral>
 #include <QVariant>
 
 #include "autorunmanager/autorunmanager.h"
