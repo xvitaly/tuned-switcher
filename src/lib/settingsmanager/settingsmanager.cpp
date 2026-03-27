@@ -10,16 +10,24 @@
 */
 
 #include <QByteArray>
+#include <QGuiApplication>
 #include <QObject>
 #include <QSettings>
+#include <QString>
+#include <QStringLiteral>
 #include <QVariant>
 
 #include "autorunmanager/autorunmanager.h"
 #include "settingsmanager/settingsmanager.h"
 
+bool SettingsManager::IsGeometrySavingSupported() const
+{
+    return QGuiApplication::platformName() != QStringLiteral("wayland");
+}
+
 bool SettingsManager::GetGeometrySavingEnabled() const
 {
-    return settings -> value(GeometrySavingEnabledName, true).toBool();
+    return IsGeometrySavingSupported() && settings -> value(GeometrySavingEnabledName, true).toBool();
 }
 
 void SettingsManager::SetGeometrySavingEnabled(const bool value)
