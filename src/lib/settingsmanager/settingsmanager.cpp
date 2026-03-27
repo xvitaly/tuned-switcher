@@ -9,6 +9,7 @@
  * Contains the SettingsManager class implementation.
 */
 
+#include <QGuiApplication>
 #include <QByteArray>
 #include <QObject>
 #include <QSettings>
@@ -16,6 +17,11 @@
 
 #include "autorunmanager/autorunmanager.h"
 #include "settingsmanager/settingsmanager.h"
+
+bool SettingsManager::IsGeometrySavingSupported() const
+{
+    return QGuiApplication::platformName() != QStringLiteral("wayland");
+}
 
 bool SettingsManager::GetGeometrySavingEnabled() const
 {

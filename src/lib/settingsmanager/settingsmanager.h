@@ -28,6 +28,12 @@ class SettingsManager : public QObject
     Q_OBJECT
 public:
     /**
+     * Get whether saving the form geometry is supported.
+     * @returns Whether saving the form geometry is supported.
+    */
+    bool IsGeometrySavingSupported() const;
+
+    /**
      * Get whether saving the form geometry is enabled.
      * @returns Whether saving the form geometry is enabled.
     */
