@@ -25,7 +25,7 @@ bool SettingsManager::IsGeometrySavingSupported() const
 
 bool SettingsManager::GetGeometrySavingEnabled() const
 {
-    return settings -> value(GeometrySavingEnabledName, true).toBool();
+    return IsGeometrySavingSupported() && settings -> value(GeometrySavingEnabledName, true).toBool();
 }
 
 void SettingsManager::SetGeometrySavingEnabled(const bool value)
