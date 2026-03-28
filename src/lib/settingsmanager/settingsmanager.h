@@ -139,6 +139,11 @@ private:
     AutorunManager* autorun;
 
     /**
+     * Stores whether the application is running on Wayland platform.
+    */
+    bool IsWayland;
+
+    /**
      * Stores whether saving the form geometry is enabled.
     */
     const QString GeometrySavingEnabledName = QStringLiteral("common/saveGeometry");

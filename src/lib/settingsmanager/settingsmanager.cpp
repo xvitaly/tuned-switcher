@@ -22,7 +22,7 @@
 
 bool SettingsManager::IsGeometrySavingSupported() const
 {
-    return QGuiApplication::platformName() != QStringLiteral("wayland");
+    return !IsWayland;
 }
 
 bool SettingsManager::GetGeometrySavingEnabled() const
@@ -111,4 +111,5 @@ SettingsManager::SettingsManager(QObject* parent) : QObject(parent)
 {
     settings = new QSettings(this);
     autorun = AutorunManager::Create(this);
+    IsWayland = QGuiApplication::platformName() == QStringLiteral("wayland");
 }
