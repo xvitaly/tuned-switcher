@@ -131,12 +131,17 @@ private:
     /**
      * Stores a pointer to the QSettings class instance.
     */
-    QSettings* settings;
+    QSettings* Settings;
 
     /**
      * Stores a pointer to the AutorunManager class instance.
     */
-    AutorunManager* autorun;
+    AutorunManager* Autorun;
+
+    /**
+     * Stores whether the application is running on Wayland platform.
+    */
+    bool IsWayland;
 
     /**
      * Stores whether saving the form geometry is enabled.
