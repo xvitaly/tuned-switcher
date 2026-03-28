@@ -136,7 +136,7 @@ private:
     /**
      * Stores a pointer to the AutorunManager class instance.
     */
-    AutorunManager* autorun;
+    AutorunManager* Autorun;
 
     /**
      * Stores whether the application is running on Wayland platform.

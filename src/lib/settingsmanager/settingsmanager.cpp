@@ -79,19 +79,19 @@ void SettingsManager::SetSoundEnabled(const bool value)
 
 bool SettingsManager::IsAutorunSupported() const
 {
-    return autorun -> IsSupported();
+    return Autorun -> IsSupported();
 }
 
 bool SettingsManager::GetAutorunEnabled() const
 {
-    return autorun -> IsEnabled() || Settings -> value(AutorunEnabledName, false).toBool();
+    return Autorun -> IsEnabled() || Settings -> value(AutorunEnabledName, false).toBool();
 }
 
 void SettingsManager::SetAutorunEnabled(const bool value) const
 {
     if (value == GetAutorunEnabled())
         return;
-    if (value ? autorun -> Enable() : autorun -> Disable())
+    if (value ? Autorun -> Enable() : Autorun -> Disable())
         Settings -> setValue(AutorunEnabledName, value);
 }
 
@@ -110,6 +110,6 @@ void SettingsManager::ResetGeometry() const
 SettingsManager::SettingsManager(QObject* parent) : QObject(parent)
 {
     Settings = new QSettings(this);
-    autorun = AutorunManager::Create(this);
+    Autorun = AutorunManager::Create(this);
     IsWayland = QGuiApplication::platformName() == QStringLiteral("wayland");
 }
