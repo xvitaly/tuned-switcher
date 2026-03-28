@@ -27,54 +27,54 @@ bool SettingsManager::IsGeometrySavingSupported() const
 
 bool SettingsManager::GetGeometrySavingEnabled() const
 {
-    return IsGeometrySavingSupported() && settings -> value(GeometrySavingEnabledName, true).toBool();
+    return IsGeometrySavingSupported() && Settings -> value(GeometrySavingEnabledName, true).toBool();
 }
 
 void SettingsManager::SetGeometrySavingEnabled(const bool value)
 {
     if (value != GetGeometrySavingEnabled())
-        settings -> setValue(GeometrySavingEnabledName, value);
+        Settings -> setValue(GeometrySavingEnabledName, value);
 }
 
 QByteArray SettingsManager::GetWidgetGeometry() const
 {
-    return settings -> value(WidgetGeometryName).toByteArray();
+    return Settings -> value(WidgetGeometryName).toByteArray();
 }
 
 void SettingsManager::SetWidgetGeometry(const QByteArray& value)
 {
-    settings -> setValue(WidgetGeometryName, value);
+    Settings -> setValue(WidgetGeometryName, value);
 }
 
 QByteArray SettingsManager::GetSettingsGeometry() const
 {
-    return settings -> value(SettingsGeometryName).toByteArray();
+    return Settings -> value(SettingsGeometryName).toByteArray();
 }
 
 void SettingsManager::SetSettingsGeometry(const QByteArray& value)
 {
-    settings -> setValue(SettingsGeometryName, value);
+    Settings -> setValue(SettingsGeometryName, value);
 }
 
 QByteArray SettingsManager::GetAboutGeometry() const
 {
-    return settings -> value(AboutGeometryName).toByteArray();
+    return Settings -> value(AboutGeometryName).toByteArray();
 }
 
 void SettingsManager::SetAboutGeometry(const QByteArray& value)
 {
-    settings -> setValue(AboutGeometryName, value);
+    Settings -> setValue(AboutGeometryName, value);
 }
 
 bool SettingsManager::GetSoundEnabled() const
 {
-    return settings -> value(SoundEnabledName, true).toBool();
+    return Settings -> value(SoundEnabledName, true).toBool();
 }
 
 void SettingsManager::SetSoundEnabled(const bool value)
 {
     if (value != GetSoundEnabled())
-        settings -> setValue(SoundEnabledName, value);
+        Settings -> setValue(SoundEnabledName, value);
 }
 
 bool SettingsManager::IsAutorunSupported() const
@@ -84,7 +84,7 @@ bool SettingsManager::IsAutorunSupported() const
 
 bool SettingsManager::GetAutorunEnabled() const
 {
-    return autorun -> IsEnabled() || settings -> value(AutorunEnabledName, false).toBool();
+    return autorun -> IsEnabled() || Settings -> value(AutorunEnabledName, false).toBool();
 }
 
 void SettingsManager::SetAutorunEnabled(const bool value) const
@@ -92,24 +92,24 @@ void SettingsManager::SetAutorunEnabled(const bool value) const
     if (value == GetAutorunEnabled())
         return;
     if (value ? autorun -> Enable() : autorun -> Disable())
-        settings -> setValue(AutorunEnabledName, value);
+        Settings -> setValue(AutorunEnabledName, value);
 }
 
 void SettingsManager::Reset() const
 {
-    settings -> clear();
+    Settings -> clear();
 }
 
 void SettingsManager::ResetGeometry() const
 {
-    settings -> remove(AboutGeometryName);
-    settings -> remove(SettingsGeometryName);
-    settings -> remove(WidgetGeometryName);
+    Settings -> remove(AboutGeometryName);
+    Settings -> remove(SettingsGeometryName);
+    Settings -> remove(WidgetGeometryName);
 }
 
 SettingsManager::SettingsManager(QObject* parent) : QObject(parent)
 {
-    settings = new QSettings(this);
+    Settings = new QSettings(this);
     autorun = AutorunManager::Create(this);
     IsWayland = QGuiApplication::platformName() == QStringLiteral("wayland");
 }
