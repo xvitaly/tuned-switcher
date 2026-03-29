@@ -16,7 +16,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
 <context>
     <name>MainWindow</name>
     <message>
-        <location filename="../../src/app/mainwindow/mainwindow.ui" line="+49"/>
+        <location filename="../../src/app/mainwindow/mainwindow.ui" line="+38"/>
         <source>Active profile:</source>
         <translation>Текущий профиль:</translation>
     </message>
@@ -26,7 +26,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Авто-выбор профиля</translation>
     </message>
     <message>
-        <location filename="../../src/app/mainwindow/mainwindow.cpp" line="+140"/>
+        <location filename="../../src/app/mainwindow/mainwindow.cpp" line="+141"/>
         <source>Cannot start Tuned service via D-Bus call. Terminating.</source>
         <translation>Не удалось запустить сервис Tuned при помощи D-Bus. Приложение будет завершено.</translation>
     </message>
@@ -48,12 +48,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
     </message>
     <message>
         <location line="+40"/>
-        <location line="+99"/>
+        <location line="+107"/>
         <source>Service control</source>
         <translation>Управление сервисом</translation>
     </message>
     <message>
-        <location line="-97"/>
+        <location line="-105"/>
         <source>Enable the service</source>
         <translation>Запустить сервис</translation>
     </message>
@@ -68,11 +68,6 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Перезагрузить сервис</translation>
     </message>
     <message>
-        <location line="+4"/>
-        <source>Shut down the service</source>
-        <translation>Выключить сервис</translation>
-    </message>
-    <message>
         <location line="+12"/>
         <source>Settings...</source>
         <translation>Настройки...</translation>
@@ -83,12 +78,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>О программе...</translation>
     </message>
     <message>
-        <location line="+69"/>
+        <location line="+81"/>
         <source>The requested service control operation completed successfully.</source>
         <translation>Выбранная операция по управлению сервисом была успешно выполнена.</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="+4"/>
         <source>Service control error</source>
         <translation>Ошибка управления сервисом</translation>
     </message>
@@ -118,7 +113,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Текущий профиль был переключён на &lt;b&gt;%1&lt;/b&gt;.</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+4"/>
         <location line="+8"/>
         <source>Profile switch error</source>
         <translation>Ошибка переключения профиля</translation>
@@ -173,7 +168,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Запускать приложение автоматически</translation>
     </message>
     <message>
-        <location filename="../../src/app/settings/settings.cpp" line="+79"/>
+        <location filename="../../src/app/settings/settings.cpp" line="+80"/>
         <source>Do you want to reset all settings to default values?</source>
         <translation>Хотите ли вы сбросить все настройки на значения по умолчанию?</translation>
     </message>
@@ -197,7 +192,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Сервис Tuned не запущен, а функция управления сервисами недоступна. Приложение будет завершено.</translation>
     </message>
     <message>
-        <location line="+76"/>
+        <location line="+114"/>
         <source>The active profile was automatically switched to &lt;b&gt;%1&lt;/b&gt;.</source>
         <translation>Текущий профиль был автоматически переключён на &lt;b&gt;%1&lt;/b&gt;.</translation>
     </message>
@@ -217,19 +212,19 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Текущий профиль был переключён на &lt;b&gt;%1&lt;/b&gt;.</translation>
     </message>
     <message>
-        <location line="+6"/>
-        <location line="+99"/>
+        <location line="+4"/>
+        <location line="+110"/>
         <source>Profile switch error</source>
         <translation>Ошибка переключения</translation>
     </message>
     <message>
-        <location line="-92"/>
-        <location line="+98"/>
+        <location line="-103"/>
+        <location line="+111"/>
         <source>Service control</source>
         <translation>Управление сервисом</translation>
     </message>
     <message>
-        <location line="-96"/>
+        <location line="-109"/>
         <source>Enable the service</source>
         <translation>Запустить сервис</translation>
     </message>
@@ -244,37 +239,32 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Перезагрузить сервис</translation>
     </message>
     <message>
-        <location line="+4"/>
-        <source>Shut down the service</source>
-        <translation>Выключить сервис</translation>
-    </message>
-    <message>
-        <location line="+10"/>
+        <location line="+25"/>
         <source>Active profile</source>
         <translation>Текущий профиль</translation>
     </message>
     <message>
-        <location line="+23"/>
+        <location line="+25"/>
         <source>Settings...</source>
         <translation>Настройки...</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="-7"/>
         <source>About...</source>
         <translation>О программе...</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="+14"/>
         <source>Quit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="-23"/>
         <source>Auto-select profile</source>
         <translation>Авто-выбор профиля</translation>
     </message>
     <message>
-        <location line="+24"/>
+        <location line="+50"/>
         <source>Profile auto-selection error</source>
         <translation>Ошибка авто-выбора профиля</translation>
     </message>
@@ -284,12 +274,12 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Не удалось переключить профиль из-за ошибки: %1</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+8"/>
         <source>The requested service control operation completed successfully.</source>
         <translation>Выбранная операция по управлению сервисом была успешно выполнена.</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="+4"/>
         <source>Service control error</source>
         <translation>Ошибка управления сервисом</translation>
     </message>
@@ -299,7 +289,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Не удалось выполнить запрошенную операцию по управлению сервисом! Текущие настройки не были изменены.</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+10"/>
         <source>Settings saved</source>
         <translation>Настройки сохранены</translation>
     </message>
@@ -309,7 +299,7 @@ SPDX-License-Identifier: GPL-3.0-or-later
         <translation>Настройки приложения были успешно сохранены!</translation>
     </message>
     <message>
-        <location line="-26"/>
+        <location line="-31"/>
         <source>Failed to enable profile auto-selection: %1</source>
         <translation>Не удалось активировать авто-выбор профиля из-за ошибки: %1</translation>
     </message>
