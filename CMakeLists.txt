@@ -11,12 +11,12 @@
 cmake_minimum_required(VERSION 3.28...4.0)
 
 project(tuned-switcher
-    VERSION 0.9.4
+    VERSION 1.0.0
     DESCRIPTION "Performance profile manager"
     HOMEPAGE_URL "https://github.com/xvitaly/tuned-switcher"
     LANGUAGES CXX
 )
-set(RELEASE_DATE "2025-08-08")
+set(RELEASE_DATE "2026-03-29")
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
