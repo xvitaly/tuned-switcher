@@ -18,7 +18,7 @@ SPDX-License-Identifier: CC0-1.0
             <li>Easy and simple switching of performance profiles.</li>
             <li>Automatic mode support.</li>
             <li>Profile switch notifications.</li>
-            <li>Optional widget-only mode support.</li>
+            <li>Service control functions support.</li>
         </ul>
         <p>Supported operating modes:</p>
         <ul>
