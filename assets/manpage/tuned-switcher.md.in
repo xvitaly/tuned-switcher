@@ -37,7 +37,7 @@ This behavior can be overridden using the environment variable.
 
 # ENVIRONMENT OPTIONS
 
-Environment variables can be used to override some settings.
+Environment variables can be used to override some internal program settings for special cases or debugging purposes.
 
 ## Supported options
 
