@@ -42,6 +42,8 @@ Environment variables can be used to override some settings.
 ## Supported options
 
   * **TUNED_SWITCHER_FORCE_GUI=1** - force widget mode even if the system tray support is present.
+  * **TUNED_SWITCHER_DISABLE_SYSTEMD=1** - disable built-in systemd dbus API integration.
+  * **TUNED_SWITCHER_USE_PORTAL=1** - always use the desktop portal even if the application is not sandboxed.
 
 ## Forwarding options
 
