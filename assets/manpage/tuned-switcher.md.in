@@ -16,10 +16,6 @@ Tuned is a daemon for monitoring and adaptive tuning of system devices.
 
 In order to use this program, a daemon must be installed on your system.
 
-# COMMAND-LINE OPTIONS
-
-No custom command-line options available.
-
 # APPLICATION MODES
 
 ## Available modes
@@ -34,6 +30,44 @@ This software can operate in two modes:
 If current desktop environment has a system tray support, an applet will be used, otherwise a widget.
 
 This behavior can be overridden using the environment variable.
+
+# USING APPLICATION
+
+## Profile selection
+
+Use the "Active profile" selector to choose one of the available performance profiles.
+
+The selected profile will be applied immediately and a notification message will be shown.
+
+## Automatic profile selection
+
+Use the "Auto-select profile" checkbox to allow the Tuned service to select performance profile for you.
+
+If this checkbox is not available (grayed), this feature is already enabled and in use.
+
+# PROGRAM SETTINGS
+
+## Dialog
+
+The **Settings** dialog can be used to control over the supported configuration options with a simple and user-friendly GUI form.
+
+## Program settings
+
+The following settings can be configured via the graphical user interface:
+
+  * **Save and restore form geometry** -- enable or disable saving and restoring the size and position of the application forms. Disabling this option will delete all saved geometry settings.
+  * **Use sound for notifications** -- enable or disable using the sound for notifications.
+  * **Run application on startup** -- enable or disable starting the program on system startup. The service startup should be enabled first.
+
+Press **Ctrl+R** to reset all settings to default values. A confirmation dialog will be shown.
+
+## Config file
+
+The configuration file is located at `$HOME/.config/EasyCoding/@APP_NAME@.conf`.
+
+# COMMAND-LINE OPTIONS
+
+No custom command-line options available.
 
 # ENVIRONMENT OPTIONS
 
@@ -73,7 +107,9 @@ sudo systemctl enable --now tuned.service
 
 ## Application startup
 
-To enable program startup, the autorun settings of current desktop environment should be used.
+To enable program startup, just open the **Settings** dialog and set the **Run application on startup** checkbox.
+
+Also, the autorun settings of current desktop environment can be used too.
 
 # AUTHORS
 
