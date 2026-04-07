@@ -18,7 +18,7 @@ Press **Ctrl+R** to reset all settings to default values. A confirmation dialog 
 
 The configuration file is located at `$HOME/.config/EasyCoding/tuned-switcher.conf`.
 
-## Supported options
+### Supported config file options
 
 The following configuration file options are available:
 
@@ -32,3 +32,31 @@ The following configuration file options are available:
 | widget | geometry | QByteArray | not set | Stores the geometry of the Widget form. |
 
 If no value is set, the default value will be used.
+
+## Environment variables
+
+Environment variables can be used to override some internal program settings for special cases or debugging purposes.
+
+### Supported environment variables
+
+The following environment variables are available:
+
+| Name | Value | Description |
+| ------- | ------- | ------- |
+| TUNED_SWITCHER_FORCE_GUI | 1 | Force widget mode even if the system tray support is present. |
+| TUNED_SWITCHER_DISABLE_SYSTEMD | 1 | Disable built-in systemd dbus API integration. |
+| TUNED_SWITCHER_USE_PORTAL | 1 | Always use the desktop portal even if the application is not sandboxed. |
+
+### Forwarding environment variables
+
+Export the environment variable using the `export` command:
+
+```
+export TUNED_SWITCHER_FORCE_GUI=1
+```
+
+Start the application:
+
+```
+tuned-switcher
+```
