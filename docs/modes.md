@@ -11,4 +11,4 @@ This program can operate in two modes:
 
 If current desktop environment has a system tray support, an applet will be used, otherwise a widget.
 
-This behavior can be overridden using the environment variable `TUNED_SWITCHER_FORCE_GUI=1`.
+This behavior can be overridden using the [environment variable](settings.md) `TUNED_SWITCHER_FORCE_GUI=1`.
