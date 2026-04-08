@@ -124,7 +124,7 @@ QAction* TrayIcon::getProfileAction(const QString& profile)
     if (profile.isEmpty()) return nullptr;
     for (const auto& action : profileActions -> actions())
     {
-        if (action -> text() == profile)
+        if (action && action -> text() == profile)
             return action;
     }
     return nullptr;
