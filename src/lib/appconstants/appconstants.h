@@ -4,8 +4,8 @@
  * SPDX-License-Identifier: GPL-3.0-or-later
 */
 
-#ifndef APPSTRINGS_H
-#define APPSTRINGS_H
+#ifndef APPCONSTANTS_H
+#define APPCONSTANTS_H
 
 /**
  * @file appconstants/appconstants.h
@@ -155,4 +155,4 @@ namespace AppConstants {
     const char* EnvNamePortal();
 }
 
-#endif // APPSTRINGS_H
+#endif // APPCONSTANTS_H
