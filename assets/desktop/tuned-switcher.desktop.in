@@ -2,10 +2,12 @@
 Type=Application
 Name=Tuned Switcher
 GenericName=Tuned profile switcher
+GenericName[es]=Selector de Perfiles para Tuned
 GenericName[ru]=Переключатель профилей Tuned
 GenericName[tr]=Tuned profili değiştirici
 Categories=System;
 Comment=Simple utility to manipulate the Tuned service
+Comment[es]=Utilidad sencilla para manipular el servicio Tuned
 Comment[ru]=Простая утилита для управления сервисом Tuned
 Comment[tr]=Tuned hizmetini yönetmek için basit bir araç
 Icon=@SCHEME_NAME@
