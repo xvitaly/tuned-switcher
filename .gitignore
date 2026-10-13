@@ -4,16 +4,34 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
 
-# C++ objects and libs
+# Prerequisites
+*.d
+
+# Compiled object files
 *.slo
 *.lo
 *.o
-*.a
-*.la
-*.lai
+*.obj
+
+# Precompiled headers
+*.gch
+*.pch
+
+# Compiled dynamic libraries
 *.so
-*.dll
 *.dylib
+*.dll
+
+# Compiled static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
 
 # Qt-es
 object_script.*.Release
@@ -35,22 +53,28 @@ ui_*.h
 *.jsc
 Makefile*
 *build-*
-
-# Qt unit tests
 target_wrapper.*
 
-# QtCreator
+# Backup files
 *.autosave
+*.bak
+*.orig
 
-# QtCreator Qml
+# IDE-specific files and directories
+*.kate-swp
 *.qmlproject.user
 *.qmlproject.user.*
+.idea/
+.qtcreator/
+.vs/
+.vscode/
 
-# QtCreator CMake
+# CMake user configuration
 CMakeLists.txt.user*
 
-# Build directory
-/build
+# Build directories
+/build/
+/cmake-build-*/
 
 # Flatpak-builder state directory
-.flatpak-builder
+/.flatpak-builder/
