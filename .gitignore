@@ -4,9 +4,6 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 #
 
-# Prerequisites
-*.d
-
 # Compiled object files
 *.slo
 *.lo
