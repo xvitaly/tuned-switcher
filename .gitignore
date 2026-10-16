@@ -40,6 +40,8 @@ object_script.*.Debug
 *.pro.user.*
 *.qbs.user
 *.qbs.user.*
+*.qmlproject.user
+*.qmlproject.user.*
 *.moc
 *.qm
 moc_*.cpp
@@ -59,8 +61,6 @@ target_wrapper.*
 
 # IDE-specific files and directories
 *.kate-swp
-*.qmlproject.user
-*.qmlproject.user.*
 .idea/
 .qtcreator/
 .vs/
